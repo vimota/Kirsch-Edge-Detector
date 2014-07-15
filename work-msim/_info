@@ -1,0 +1,78 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/vcmota/ece327/Kirsch-Edge-Detector
+vgt_13_0
+Z1 I51S5>D[]JKTQakI_zK:La0
+Z2 VgjR7dYhziSh4minUeTTaI1
+Z3 d/home/vcmota/ece327/Kirsch-Edge-Detector
+Z4 w1405464672
+Z5 8uw_tmp/max_logic.v
+Z6 Fuw_tmp/max_logic.v
+Z7 L0 410
+Z8 OL;L;10.1;51
+r1
+31
+Z9 !s108 1405464696.170870
+Z10 !s107 uw_tmp/max_logic.v|
+Z11 !s90 -novopt|-work|work-msim|uw_tmp/max_logic.v|
+Z12 o-work work-msim -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!i10b 1
+Z13 !s100 3N3>ah5Z6UclCRbiS1SNP2
+!s85 0
+Emax
+Z14 w1405464662
+Z15 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z16 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z17 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+R3
+Z18 8max.vhd
+Z19 Fmax.vhd
+l0
+L7
+Z20 VWDPNDB_m`UD=V60EZE=^E2
+Z21 OL;C;10.1;51
+31
+Z22 !s108 1405464696.612408
+Z23 !s90 -93|+acc|-work|work-msim|max.vhd|
+Z24 !s107 max.vhd|
+Z25 o-93 +acc -work work-msim
+Z26 tExplicit 1
+Z27 !s100 zKfZ:LoEFIzZi0@TKeD5d3
+!i10b 1
+Amain
+R15
+R16
+R17
+Z28 DEx4 work 3 max 0 22 WDPNDB_m`UD=V60EZE=^E2
+l22
+L20
+Z29 VJPPe3e5QBh`kTSoN]g[1R1
+R21
+31
+R22
+R23
+R24
+R25
+R26
+Z30 !s100 Hejfdlz75K2X_0GjU0EHS2
+!i10b 1
+vmax_chip
+!i10b 1
+!s100 <8G;2m6k=mU19LM`mI@XD0
+I4Uj_76biNTz4^Y6c<DERU2
+Vi=>9;^5;6G4ijNYX2IZm83
+R3
+w1405464696
+Z31 8uw_tmp/max_chip.v
+Z32 Fuw_tmp/max_chip.v
+L0 31
+R8
+r1
+!s85 0
+31
+!s108 1405464697.090257
+!s107 uw_tmp/max_chip.v|
+Z33 !s90 -novopt|+acc|-work|work-msim|uw_tmp/max_chip.v|
+Z34 o+acc -work work-msim -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF

@@ -1,0 +1,9 @@
+<interfaceDefinition version='1.2' language='verilog' kind='module' name='max_chip'>
+    <portList>
+
+      <port name='i_left' direction='input' type='[12:0]' kind='array' packedDimension='[12:0]'> </port>
+      <port name='i_right' direction='input' type='[12:0]' kind='array' packedDimension='[12:0]'> </port>
+      <port name='o_left_greater' direction='output' type='' kind=''> </port>
+
+    </portList>
+</interfaceDefinition>

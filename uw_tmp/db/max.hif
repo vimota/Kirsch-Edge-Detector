@@ -1,0 +1,54 @@
+Version 9.0 Build 132 02/25/2009 SJ Full Version
+11
+3344
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+max
+# storage
+db|max.(0).cnf
+db|max.(0).cnf
+# case_insensitive
+# source_file
+max_logic.edf
+8c4532b7e609ad2377e94798f419c14
+10
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+gt_13_0
+# storage
+db|max.(1).cnf
+db|max.(1).cnf
+# case_insensitive
+# source_file
+max_logic.edf
+8c4532b7e609ad2377e94798f419c14
+10
+# hierarchies {
+gt_13_0:ix45699z19900
+}
+# macro_sequence
+
+# end
+# complete
+
