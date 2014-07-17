@@ -19,8 +19,8 @@ set_global_assignment -section_id {eda_design_synthesis} -name {EDA_INPUT_DATA_F
 set_global_assignment -section_id {eda_design_synthesis} -name {EDA_OUTPUT_DATA_FORMAT} {EDIF}
 set_global_assignment -section_id {eda_simulation} -name {EDA_FLATTEN_BUSES} {OFF}
 set_global_assignment -section_id {eda_timing_analysis} -name {EDA_FLATTEN_BUSES} {OFF}
-set_global_assignment -section_id {max} -name {DEVICE} {EP2C35F672C7}
-set_global_assignment -name {FAMILY} {CYCLONE II}
+set_global_assignment -section_id {max} -name {DEVICE} {EP2S15F484C5}
+set_global_assignment -name {FAMILY} {STRATIX II}
 set_global_assignment -name {PROJECT_SHOW_ENTITY_NAME} {OFF}
 if { [file exists {max_pnr_constraints.tcl}] } {
   source max_pnr_constraints.tcl

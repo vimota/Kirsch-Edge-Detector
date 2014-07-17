@@ -7,21 +7,19 @@
 //            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
 //          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 //  
-//  Running on Linux vcmota@eceLinux1.uwaterloo.ca #1 SMP Thu Apr 24 18:19:36 EDT 2014 2.6.18-371.8.1.el5 x86_64
+//  Running on Linux vcmota@ecelinux5.uwaterloo.ca #1 SMP Tue Jun 10 17:49:56 EDT 2014 2.6.18-371.9.1.el5 x86_64
 //  
-//  Start time Tue Jul 15 18:56:20 2014
+//  Start time Wed Jul 16 20:14:46 2014
 # -------------------------------------------------
 # Info: [9566]: Logging session transcript to file /home/vcmota/ece327/Kirsch-Edge-Detector/precision.log
-# 
-# COMMAND: dofile uw_tmp/uw-gate-synth-precision_rtl.tcl
 # Info: [9575]: Results directory: /home/vcmota/ece327/Kirsch-Edge-Detector/uw_tmp/
 # Info: [9569]: Moving session transcript to file /home/vcmota/ece327/Kirsch-Edge-Detector/uw_tmp/precision.log
-# Info: [15291]:  Setting up the design to use synthesis library "cycloneii.syn"
-# Info: [566]: The global max fanout is currently set to 1000 for Altera - Cyclone II.
-# Info:  Setting Part to: "EP2C35F672C"
-# Info:  Setting Process to: "7"
-# Info: [3021]: Reading file: /opt/Precision_Synthesis_2008a.47/Mgc_home/pkgs/psr/techlibs/cycloneii.syn.
-# Info: [618]: Loading library initialization file /opt/Precision_Synthesis_2008a.47/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+# Info: [15291]:  Setting up the design to use synthesis library "stratixii.syn"
+# Info: [566]: The global max fanout is currently set to 1000 for Altera - Stratix II.
+# Info:  Setting Part to: "EP2S15F484C"
+# Info:  Setting Process to: "5"
+# Info: [3021]: Reading file: /opt/Precision_Synthesis_2008a.47/Mgc_home/pkgs/psr/techlibs/stratixii.syn.
+# Info: [618]: Loading library initialization file /opt/Precision_Synthesis_2008a.47/Mgc_home/pkgs/psr/userware/armstrong_rename.tcl
 # Info: [40000]: vhdlorder, Release 2008a.22
 # Info: [40000]: Files sorted successfully.
 # Info: [40000]: hdl-analyze, Release RTLC-Precision 2008a.22
@@ -45,12 +43,22 @@
 # Info: -- Saving the design database in uw_tmp/max_gate.xdb
 # Info: [3026]: Writing file: uw_tmp/max_gate.vhd.
 # Info: Info, Command 'auto_write' finished successfully
-# Info: *** synthesis to generic gates succeeded ***
-dofile uw_tmp/uw-gate-synth-precision_rtl.tcl
-# 
-# COMMAND: exit -force
-# 
-# COMMAND: close_results_dir
-# Info: [9578]: Results directory is closed.
-close_results_dir
-exit -force
+# Info: [641]: Current working directory: /home/vcmota/ece327/Kirsch-Edge-Detector/uw_tmp/.
+# Info: [15002]: Optimizing design view:.work.max.main
+# Info: [607]: Timing information and timing constraints are not present.
+# Info: -- Saving the design database in /home/vcmota/ece327/Kirsch-Edge-Detector/uw_tmp/max.xdb
+# Info: [3026]: Writing file: /home/vcmota/ece327/Kirsch-Edge-Detector/uw_tmp/max.edf.
+# Info: -- Writing file /home/vcmota/ece327/Kirsch-Edge-Detector/uw_tmp/max.tcl
+# Info: exq_pr_compile_project gen_vcf max 1
+# Info: [644]: Finished synthesizing design.
+# Info: [11019]: Total CPU time taken for synthesis: 0.3 secs.
+# Info: [11020]: Overall running time 0.5 secs.
+# Info: /home/vcmota/ece327/Kirsch-Edge-Detector/uw_tmp/precision_tech.sdc
+# Info: -- Saving the design database in uw_tmp/max_logic.xdb
+# Info: [3026]: Writing file: uw_tmp/max_logic.vhd.
+# Info: Info, Command 'auto_write' finished successfully
+# Info: INFO: No registers in design.  Cannot do timing analysis
+# Info: -- Saving the design database in uw_tmp/max_logic.xdb
+# Info: [3026]: Writing file: uw_tmp/max_logic.v.
+# Info: Info, Command 'auto_write' finished successfully
+# Info: *** logic synthesis succeeded ***

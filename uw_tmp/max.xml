@@ -5,6 +5,7 @@
 
       <port name='i_left' direction='in' type='std_logic_vector (12 downto 0)' kind='array' library='work' package='max' packedDimension='(12 downto 0)' />
       <port name='i_right' direction='in' type='std_logic_vector (12 downto 0)' kind='array' library='work' package='max' packedDimension='(12 downto 0)' />
+      <port name='o_max' direction='out' type='std_logic_vector (12 downto 0)' kind='array' library='work' package='max' packedDimension='(12 downto 0)' />
       <port name='o_left_greater' direction='out' type='STD_LOGIC' kind='' />
 
     </portList>

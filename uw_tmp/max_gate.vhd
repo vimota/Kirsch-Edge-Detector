@@ -2,7 +2,7 @@
 -- 
 -- Definition of  max
 -- 
---      Tue Jul 15 18:56:31 2014
+--      Wed Jul 16 20:14:51 2014
 --      
 --      Precision RTL Synthesis, 2008a.47
 -- 

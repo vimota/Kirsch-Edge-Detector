@@ -21,13 +21,15 @@ Library: work    Cell: max    View: main
 
   Cell         Library  References     Total Area
 
- gt_13u_13u    OPERATORS     1 x      1      1 gt_13u_13u
+ MUX           PRIMITIVES    13 x      1     13 MUX
+ gt_13u_13u    OPERATORS      1 x      1      1 gt_13u_13u
 
- Number of ports :                      27
- Number of nets :                       27
- Number of instances :                   1
+ Number of ports :                      40
+ Number of nets :                       40
+ Number of instances :                  14
  Number of references to this view :     0
 
 Total accumulated area : 
+ Black Box MUX :                        13
  Black Box gt_13u_13u :                  1
- Number of accumulated instances :       1
+ Number of accumulated instances :      14

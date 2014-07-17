@@ -42,8 +42,8 @@ xsys( "vlib work-msim")
 xsys( "vlib altera_mf")
 xsys( "vmap altera_mf /home/ece327/altera/vhdl_libs/altera_mf")
 
-xsys( "vlib cycloneii")
-xsys( "vmap cycloneii /home/ece327/altera/vhdl_libs/cycloneii")
+xsys( "vlib stratixii")
+xsys( "vmap stratixii /home/ece327/altera/vhdl_libs/stratixii")
 
 #--------------------------------------------------------------
 #

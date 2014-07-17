@@ -26,7 +26,7 @@ db|max.(0).cnf
 # case_insensitive
 # source_file
 max_logic.edf
-8c4532b7e609ad2377e94798f419c14
+289cd76f92fdd67df69ea5e0ffcdd587
 10
 # hierarchies {
 |
@@ -42,10 +42,10 @@ db|max.(1).cnf
 # case_insensitive
 # source_file
 max_logic.edf
-8c4532b7e609ad2377e94798f419c14
+289cd76f92fdd67df69ea5e0ffcdd587
 10
 # hierarchies {
-gt_13_0:ix45699z19900
+gt_13_0:ix33371z19901
 }
 # macro_sequence
 

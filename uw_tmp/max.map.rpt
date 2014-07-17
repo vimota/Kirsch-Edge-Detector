@@ -1,5 +1,5 @@
 Analysis & Synthesis report for max
-Tue Jul 15 18:51:15 2014
+Wed Jul 16 19:27:20 2014
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -39,16 +39,16 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jul 15 18:51:15 2014    ;
+; Analysis & Synthesis Status        ; Successful - Wed Jul 16 19:27:20 2014    ;
 ; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name                      ; max                                      ;
 ; Top-level Entity Name              ; max                                      ;
 ; Family                             ; Cyclone II                               ;
-; Total logic elements               ; 13                                       ;
-;     Total combinational functions  ; 13                                       ;
+; Total logic elements               ; 26                                       ;
+;     Total combinational functions  ; 26                                       ;
 ;     Dedicated logic registers      ; 0                                        ;
 ; Total registers                    ; 0                                        ;
-; Total pins                         ; 27                                       ;
+; Total pins                         ; 40                                       ;
 ; Total virtual pins                 ; 0                                        ;
 ; Total memory bits                  ; 0                                        ;
 ; Embedded Multiplier 9-bit elements ; 0                                        ;
@@ -138,33 +138,33 @@ applicable agreement for further details.
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 13          ;
-;                                             ;             ;
-; Total combinational functions               ; 13          ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 0           ;
-;     -- 3 input functions                    ; 12          ;
-;     -- <=2 input functions                  ; 1           ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 1           ;
-;     -- arithmetic mode                      ; 12          ;
-;                                             ;             ;
-; Total registers                             ; 0           ;
-;     -- Dedicated logic registers            ; 0           ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 27          ;
-; Maximum fan-out node                        ; i_right[12] ;
-; Maximum fan-out                             ; 1           ;
-; Total fan-out                               ; 39          ;
-; Average fan-out                             ; 0.97        ;
-+---------------------------------------------+-------------+
++-----------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                 ;
++---------------------------------------------+-------------------------------+
+; Resource                                    ; Usage                         ;
++---------------------------------------------+-------------------------------+
+; Estimated Total logic elements              ; 26                            ;
+;                                             ;                               ;
+; Total combinational functions               ; 26                            ;
+; Logic element usage by number of LUT inputs ;                               ;
+;     -- 4 input functions                    ; 0                             ;
+;     -- 3 input functions                    ; 25                            ;
+;     -- <=2 input functions                  ; 1                             ;
+;                                             ;                               ;
+; Logic elements by mode                      ;                               ;
+;     -- normal mode                          ; 14                            ;
+;     -- arithmetic mode                      ; 12                            ;
+;                                             ;                               ;
+; Total registers                             ; 0                             ;
+;     -- Dedicated logic registers            ; 0                             ;
+;     -- I/O registers                        ; 0                             ;
+;                                             ;                               ;
+; I/O pins                                    ; 40                            ;
+; Maximum fan-out node                        ; gt_13_0:ix33371z19901|nx100z1 ;
+; Maximum fan-out                             ; 14                            ;
+; Total fan-out                               ; 91                            ;
+; Average fan-out                             ; 1.38                          ;
++---------------------------------------------+-------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -172,8 +172,8 @@ applicable agreement for further details.
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name        ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------+--------------+
-; |max                       ; 13 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 27   ; 0            ; |max                       ; work         ;
-;    |gt_13_0:ix45699z19900| ; 13 (13)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |max|gt_13_0:ix45699z19900 ; OPERATORS    ;
+; |max                       ; 26 (13)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 40   ; 0            ; |max                       ; work         ;
+;    |gt_13_0:ix33371z19901| ; 13 (13)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |max|gt_13_0:ix33371z19901 ; OPERATORS    ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -212,23 +212,23 @@ Info: Running Quartus II Analysis & Synthesis
     Info: programming logic devices manufactured by Altera and sold by 
     Info: Altera or its authorized distributors.  Please refer to the 
     Info: applicable agreement for further details.
-    Info: Processing started: Tue Jul 15 18:51:14 2014
+    Info: Processing started: Wed Jul 16 19:27:18 2014
 Info: Command: quartus_map max --source=max_logic.edf --family=CycloneII
 Info: Found 2 design units, including 2 entities, in source file max_logic.edf
     Info: Found entity 1: gt_13_0
     Info: Found entity 2: max
 Info: Elaborating entity "max" for the top level hierarchy
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Elaborating entity "gt_13_0" for hierarchy "gt_13_0:ix45699z19900"
+Info: Elaborating entity "gt_13_0" for hierarchy "gt_13_0:ix33371z19901"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Implemented 40 device resources after synthesis - the final resource count might be different
+Info: Implemented 66 device resources after synthesis - the final resource count might be different
     Info: Implemented 26 input pins
-    Info: Implemented 1 output pins
-    Info: Implemented 13 logic cells
+    Info: Implemented 14 output pins
+    Info: Implemented 26 logic cells
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 3 warnings
     Info: Peak virtual memory: 183 megabytes
-    Info: Processing ended: Tue Jul 15 18:51:15 2014
-    Info: Elapsed time: 00:00:01
+    Info: Processing ended: Wed Jul 16 19:27:20 2014
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 

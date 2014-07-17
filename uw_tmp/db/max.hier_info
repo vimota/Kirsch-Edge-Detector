@@ -25,10 +25,23 @@ i_right[9] => i_right_ibuf_9_.PADIO
 i_right[10] => i_right_ibuf_10_.PADIO
 i_right[11] => i_right_ibuf_11_.PADIO
 i_right[12] => i_right_ibuf_12_.PADIO
+o_max[0] <= o_max_obuf_0_.PADIO
+o_max[1] <= o_max_obuf_1_.PADIO
+o_max[2] <= o_max_obuf_2_.PADIO
+o_max[3] <= o_max_obuf_3_.PADIO
+o_max[4] <= o_max_obuf_4_.PADIO
+o_max[5] <= o_max_obuf_5_.PADIO
+o_max[6] <= o_max_obuf_6_.PADIO
+o_max[7] <= o_max_obuf_7_.PADIO
+o_max[8] <= o_max_obuf_8_.PADIO
+o_max[9] <= o_max_obuf_9_.PADIO
+o_max[10] <= o_max_obuf_10_.PADIO
+o_max[11] <= o_max_obuf_11_.PADIO
+o_max[12] <= o_max_obuf_12_.PADIO
 o_left_greater <= o_left_greater_obuf.PADIO
 
 
-|max|gt_13_0:ix45699z19900
+|max|gt_13_0:ix33371z19901
 a[0] => ix100z52936.DATAA
 a[1] => ix100z52935.DATAB
 a[2] => ix100z52934.DATAB

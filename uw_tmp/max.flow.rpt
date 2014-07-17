@@ -1,5 +1,5 @@
 Flow report for max
-Tue Jul 15 18:51:35 2014
+Wed Jul 16 19:27:41 2014
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -38,17 +38,17 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +------------------------------------+------------------------------------------+
-; Flow Status                        ; Successful - Tue Jul 15 18:51:35 2014    ;
+; Flow Status                        ; Successful - Wed Jul 16 19:27:41 2014    ;
 ; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name                      ; max                                      ;
 ; Top-level Entity Name              ; max                                      ;
 ; Family                             ; Cyclone II                               ;
 ; Met timing requirements            ; N/A                                      ;
-; Total logic elements               ; 13 / 33,216 ( < 1 % )                    ;
-;     Total combinational functions  ; 13 / 33,216 ( < 1 % )                    ;
+; Total logic elements               ; 26 / 33,216 ( < 1 % )                    ;
+;     Total combinational functions  ; 26 / 33,216 ( < 1 % )                    ;
 ;     Dedicated logic registers      ; 0 / 33,216 ( 0 % )                       ;
 ; Total registers                    ; 0                                        ;
-; Total pins                         ; 27 / 475 ( 6 % )                         ;
+; Total pins                         ; 40 / 475 ( 8 % )                         ;
 ; Total virtual pins                 ; 0                                        ;
 ; Total memory bits                  ; 0 / 483,840 ( 0 % )                      ;
 ; Embedded Multiplier 9-bit elements ; 0 / 70 ( 0 % )                           ;
@@ -63,7 +63,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/15/2014 18:51:14 ;
+; Start date & time ; 07/16/2014 19:27:19 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; max                 ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 ; Assignment Name                    ; Value                          ; Default Value ; Entity Name ; Section Id     ;
 +------------------------------------+--------------------------------+---------------+-------------+----------------+
 ; AUTO_SHIFT_REGISTER_RECOGNITION    ; Off                            ; Auto          ; --          ; --             ;
-; COMPILER_SIGNATURE_ID              ; 22930452121633.140546467421657 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID              ; 22930452121624.140555323912156 ; --            ; --          ; --             ;
 ; EDA_MAP_ILLEGAL_CHARACTERS         ; On                             ; --            ; --          ; eda_simulation ;
 ; POWER_DEFAULT_INPUT_IO_TOGGLE_RATE ; 0 %                            ; 12.5%         ; --          ; --             ;
 ; POWER_DEFAULT_TOGGLE_RATE          ; 0 %                            ; 12.5%         ; --          ; --             ;
@@ -90,10 +90,10 @@ applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Analysis & Synthesis ; 00:00:01     ; 1.0                     ; --                  ; 00:00:01                           ;
 ; Fitter               ; 00:00:06     ; 1.0                     ; --                  ; 00:00:06                           ;
-; Assembler            ; 00:00:08     ; 1.0                     ; --                  ; 00:00:08                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; --                  ; 00:00:00                           ;
+; Assembler            ; 00:00:09     ; 1.0                     ; --                  ; 00:00:08                           ;
 ; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; --                  ; 00:00:00                           ;
-; Total                ; 00:00:16     ; --                      ; --                  ; 00:00:15                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; --                  ; 00:00:00                           ;
+; Total                ; 00:00:17     ; --                      ; --                  ; 00:00:15                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -102,11 +102,11 @@ applicable agreement for further details.
 +----------------------+------------------------+---------+------------+----------------+
 ; Module Name          ; Machine Hostname       ; OS Name ; OS Version ; Processor type ;
 +----------------------+------------------------+---------+------------+----------------+
-; Analysis & Synthesis ; eceLinux1.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
-; Fitter               ; eceLinux1.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
-; Assembler            ; eceLinux1.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
-; EDA Netlist Writer   ; eceLinux1.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
-; EDA Netlist Writer   ; eceLinux1.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
+; Analysis & Synthesis ; eceLinux3.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
+; Fitter               ; eceLinux3.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
+; Assembler            ; eceLinux3.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
+; EDA Netlist Writer   ; eceLinux3.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
+; EDA Netlist Writer   ; eceLinux3.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
 +----------------------+------------------------+---------+------------+----------------+
 
 

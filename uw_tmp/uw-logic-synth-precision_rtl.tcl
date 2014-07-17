@@ -1,10 +1,10 @@
 set_results_dir uw_tmp
 setup_design \
   -manufacturer Altera \
-  -family {Cyclone II} \
-  -part EP2C35F672C \
-  -speed 7 
-setup_design -frequency 250
+  -family {Stratix II} \
+  -part EP2S15F484C \
+  -speed 5 
+setup_design -frequency 500
 setup_design -design max
 if { {} != {} } {
   setup_design -architecture 

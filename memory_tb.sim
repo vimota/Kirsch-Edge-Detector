@@ -1,0 +1,7 @@
+add wave sim:/memory_tb/clock
+add wave sim:/memory_tb/i_valid
+add wave sim:/memory_tb/o_row
+add wave sim:/memory_tb/o_column
+
+run 106000 ns
+

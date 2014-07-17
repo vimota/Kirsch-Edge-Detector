@@ -1,13 +1,88 @@
 INFO: Starting PRECISION_RTL for logic synthesis
-precision: Executing on platform: CentOS release 5.10 (Final) Kernel \r on an \m  Linux eceLinux1.uwaterloo.ca 2.6.18-371.8.1.el5 #1 SMP Thu Apr 24 18:19:36 EDT 2014 x86_64 x86_64 x86_64 GNU/Linux 
+precision: Executing on platform: CentOS release 5.10 (Final) Kernel \r on an \m  Linux ecelinux5.uwaterloo.ca 2.6.18-371.9.1.el5 #1 SMP Tue Jun 10 17:49:56 EDT 2014 x86_64 x86_64 x86_64 GNU/Linux 
 precision: Setting MGC_HOME to /opt/Precision_Synthesis_2008a.47/Mgc_home ...
+Note: Defaulting to use the Next Generation GUI.
+//  Precision RTL Synthesis 2008a.47 (Production Release) Tue Dec  9 03:06:25 PST 2008
+//  
+//  Copyright (c) Mentor Graphics Corporation, 1996-2008, All Rights Reserved.
+//             Portions copyright 1991-2004 Compuware Corporation
+//                       UNPUBLISHED, LICENSED SOFTWARE.
+//            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
+//          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+//  
+//  Running on Linux vcmota@ecelinux5.uwaterloo.ca #1 SMP Tue Jun 10 17:49:56 EDT 2014 2.6.18-371.9.1.el5 x86_64
+//  
+//  Start time Wed Jul 16 20:14:46 2014
+-------------------------------------------------
+Info: Logging session transcript to file precision.log
+Info: Results directory: uw_tmp/
+Info: Moving session transcript to file uw_tmp/precision.log
+Info:  Setting up the design to use synthesis library "stratixii.syn"
+Info: The global max fanout is currently set to 1000 for Altera - Stratix II.
+Info:  Setting Part to: "EP2S15F484C"
+Info:  Setting Process to: "5"
+Info: Reading file: /opt/Precision_Synthesis_2008a.47/Mgc_home/pkgs/psr/techlibs/stratixii.syn.
+Info: Loading library initialization file /opt/Precision_Synthesis_2008a.47/Mgc_home/pkgs/psr/userware/armstrong_rename.tcl
+Info: vhdlorder, Release 2008a.22
+Info: Files sorted successfully.
+Info: hdl-analyze, Release RTLC-Precision 2008a.22
+INFO: Analyzing "max.vhd"
+Info: Current working directory: uw_tmp/.
+Info: RTLC-Driver, Release RTLC-Precision 2008a.22
+Info: Last compiled on Nov 27 2008 12:40:04
+Info: Initializing...
+Info: Partitioning design ....
 
+Info: RTLCompiler, Release RTLC-Precision 2008a.22
+Info: Last compiled on Nov 27 2008 12:46:53
+Info: Initializing...
+Info: Root Module work.max(main): Pre-processing...
+Info: Root Module work.max(main): Compiling...
+Info: Compilation successfully completed.
+Info: Total CPU time taken for compilation: 0.0 secs.
+Info: Total lines of RTL compiled: 18.
+Info: Overall running time 0.0 secs.
+Info: Current working directory: uw_tmp/.
+Info: Finished compiling design.
+Info: -- Saving the design database in uw_tmp/max_gate.xdb
+Info: Writing file: uw_tmp/max_gate.vhd.
+Info: Info, Command 'auto_write' finished successfully
+Info: Current working directory: uw_tmp/.
+Info: Optimizing design view:.work.max.main
+Info: Timing information and timing constraints are not present.
+Info: -- Saving the design database in uw_tmp/max.xdb
+Info: Writing file: uw_tmp/max.edf.
+Info: -- Writing file uw_tmp/max.tcl
+Info: exq_pr_compile_project gen_vcf max 1
+Info: Finished synthesizing design.
+Info: Total CPU time taken for synthesis: 0.3 secs.
+Info: Overall running time 0.5 secs.
+Info: uw_tmp/precision_tech.sdc
+Info: -- Saving the design database in uw_tmp/max_logic.xdb
+Info: Writing file: uw_tmp/max_logic.vhd.
+Info: Info, Command 'auto_write' finished successfully
+Info: INFO: No registers in design.  Cannot do timing analysis
+Info: -- Saving the design database in uw_tmp/max_logic.xdb
+Info: Writing file: uw_tmp/max_logic.v.
+Info: Info, Command 'auto_write' finished successfully
+Info: *** logic synthesis succeeded ***
+Warning: vmap will not overwrite local modelsim.ini.
+Warning: Library already exists at "work-msim".
+Warning: Library already exists at "altera_mf".
+Modifying modelsim.ini
+Warning: Library already exists at "stratixii".
+Modifying modelsim.ini
 INFO: generic-gate       netlist         written to uw_tmp/max_gate.vhd
 INFO: generic-gate       area estimate   written to RPT/area_gate.rpt
+INFO: logic-synthesis    netlist         written to uw_tmp/max_logic.edf
+INFO: logic-synthesis    area estimate   written to RPT/area_logic.rpt
+INFO: No registers in design.  Cannot do timing analysis.
+INFO: -----------------------------------------------------------------------
+INFO: AREA = 19 cells (19 luts, 0 regs) (estimated by logic-synthesis)
 INFO: 
 INFO: ***********************************************
 INFO: *
-INFO: * uw-synth to DE2 was successful
+INFO: * uw-synth to STRATIX was successful
 INFO: * log file stored in LOG/uw-synth.log
 INFO: *
 INFO: ***********************************************

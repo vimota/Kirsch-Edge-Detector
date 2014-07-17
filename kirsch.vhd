@@ -13,10 +13,11 @@ entity kirsch is
     i_valid    : in  std_logic;                 
     i_pixel    : in  std_logic_vector(7 downto 0);
     o_valid    : out std_logic;                 
-    o_edge     : out std_logic;	                     
+    o_edge     : out std_logic;                      
     o_dir      : out std_logic_vector(2 downto 0);                      
     o_mode     : out std_logic_vector(1 downto 0);
     o_row      : out std_logic_vector(7 downto 0);
+    o_column   : out std_logic_vector(7 downto 0);
     ------------------------------------------
     -- debugging inputs and outputs
     debug_key      : in  std_logic_vector( 3 downto 1) ; 
@@ -36,6 +37,19 @@ end entity;
 
 architecture main of kirsch is
 begin  
+    -- instantiate memory
+  u_memory : entity work.memory(main) port map 
+  (
+    i_valid  => i_valid,
+    i_reset  => i_reset,
+    i_pixel  => i_pixel,
+    i_clock  => i_clock,
+    -- o_valid  : out std_logic;
+    -- o_mode   : out std_logic_vector(2 downto 0);
+    o_column => o_column,
+    o_row    => o_row
+  );
+
 
   debug_num_5 <= X"E";
   debug_num_4 <= X"C";
