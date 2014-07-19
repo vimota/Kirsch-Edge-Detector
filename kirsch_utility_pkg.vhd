@@ -14,6 +14,3 @@ package kirsch_utility_pkg is
     std_logic_vector(7 downto 0) ;
 
 end package;
-
-package body kirsch_utility_pkg is
-end kirsch_utility_pkg;

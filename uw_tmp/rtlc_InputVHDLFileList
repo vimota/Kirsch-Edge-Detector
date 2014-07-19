@@ -1,1 +1,5 @@
-work "/home/vcmota/ece327/Kirsch-Edge-Detector/max.vhd"
+work "/home/vcmota/ece327/Kirsch-Edge-Detector/mem.vhd"
+work "/home/vcmota/ece327/Kirsch-Edge-Detector/kirsch_synth_pkg.vhd"
+work "/home/vcmota/ece327/Kirsch-Edge-Detector/kirsch.vhd"
+work "/home/vcmota/ece327/Kirsch-Edge-Detector/kirsch_utility_pkg.vhd"
+work "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd"

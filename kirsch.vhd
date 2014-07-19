@@ -2,8 +2,7 @@
 library IEEE;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use work.kirsch_utility_pkg.all ;
-
+use work.kirsch_utility_pkg.all;
 
 entity kirsch is
 	port(

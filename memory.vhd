@@ -124,13 +124,25 @@ begin
 				
 				case mem_wrn_current is
 					when "001" =>
-						buffer2(0) <= mem_data;
-						buffer2(1) <= mem_q(1);
-						buffer2(2) <= mem_q(2);	
+						if (row > 1) then
+							buffer2(0) <= mem_q(1);
+							buffer2(1) <= mem_q(2);
+							buffer2(2) <= mem_data;
+						else
+							buffer2(0) <= mem_data;
+							buffer2(1) <= mem_q(1);
+							buffer2(2) <= mem_q(2);	
+						end if;
 					when "010" =>
-						buffer2(0) <= mem_q(0);
-						buffer2(1) <= mem_data;
-						buffer2(2) <= mem_q(2);
+						if (row > 1) then
+							buffer2(0) <= mem_q(2);
+							buffer2(1) <= mem_q(1);
+							buffer2(2) <= mem_data;
+						else
+							buffer2(0) <= mem_q(0);
+							buffer2(1) <= mem_data;
+							buffer2(2) <= mem_q(2);
+						end if;
 					when "100" =>
 						buffer2(0) <= mem_q(0);
 						buffer2(1) <= mem_q(1);
@@ -140,6 +152,15 @@ begin
 						buffer2(1) <= (others => 'X');
 						buffer2(2) <= (others => 'X');
 				end case;
+				-- 
+				-- if mem_wrn_current(0) = '1' then
+				-- 	buffer2(0) <= mem_data;
+				-- else
+				-- 	buffer2(0) <= mem_q(0);
+				-- end if;
+
+
+
 			end if;
 		end if;
 	end process;

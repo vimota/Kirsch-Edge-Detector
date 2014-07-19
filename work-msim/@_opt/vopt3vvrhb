@@ -4,9 +4,9 @@ K3
 cModel Technology
 Z0 d/home/vcmota/ece327/Kirsch-Edge-Detector
 T_opt
-VFWNP5mFi]KeCIOb8LN]oM1
+VjK153G41J3JLgH=8NPB;=0
 04 9 4 work kirsch_tb main 1
-=1-14dae9740818-53c9c952-33b7a-2efa
+=1-14dae9740818-53caf9c1-5f1f5-4d2
 o-quiet -auto_acc_if_foreign -work work-msim
 n@_opt
 OL;O;10.1;51
@@ -24,7 +24,7 @@ VgOUVm0_N_ATfV]2=@Fkaj2
 Z8 OL;C;10.1;51
 31
 b1
-Z9 !s108 1405733142.533578
+Z9 !s108 1405811079.409931
 Z10 !s90 -93|+acc|-work|work-msim|mem.vhd|kirsch_synth_pkg.vhd|kirsch.vhd|string_pkg.vhd|kirsch_synth_pkg.vhd|kirsch_unsynth_pkg.vhd|kirsch_tb.vhd|
 Z11 !s107 kirsch_tb.vhd|kirsch_unsynth_pkg.vhd|string_pkg.vhd|kirsch.vhd|kirsch_synth_pkg.vhd|mem.vhd|
 Z12 o-93 +acc -work work-msim
@@ -370,7 +370,7 @@ R13
 !s100 CM=c^iWbEL4Id@2NI`R@[0
 !i10b 1
 Ememory
-Z45 w1405731664
+Z45 w1405810059
 R17
 R1
 R2
@@ -383,7 +383,7 @@ L6
 V;c`:OoUK92D1TOHY[gih40
 R8
 31
-Z48 !s108 1405733138.431315
+Z48 !s108 1405811076.293502
 Z49 !s90 -93|+acc|-work|work-msim|memory.vhd|
 Z50 !s107 memory.vhd|
 R12
@@ -399,7 +399,7 @@ R3
 R20
 l45
 L21
-VhQo<Ie`ND<[WKQn@WdJWR2
+V_<]<FYgJEzAFF42=^bSA11
 R8
 31
 R48
@@ -407,7 +407,7 @@ R49
 R50
 R12
 R13
-!s100 PDRZWnlkcX]zcK;WYh4nm3
+!s100 CO6a1zaL5Pgd34k]91D]32
 !i10b 1
 Pstring_pkg
 R2
