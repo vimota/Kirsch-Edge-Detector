@@ -17,6 +17,7 @@
 # Loading work.file_pkg(body)
 # Loading work.string_pkg(body)
 # Loading work.kirsch_unsynth_pkg(body)
+# Loading work.kirsch_utility_pkg(body)
 # Loading work.kirsch_tb(main)#1
 # Loading work.kirsch(main)#1
 # Loading work.memory(main)#1
@@ -34,11 +35,6 @@
 #    Time: 0 ns  Iteration: 0  Instance: /kirsch_tb/uut/u_memory/u_mem2
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 0  Instance: /kirsch_tb/uut/u_memory/u_mem1
-#  
-run
-run 100ns
-run 1000ns
-run 100000ns
 # ** Note: latency begin wait
 #    Time: 41295 ns  Iteration: 1  Instance: /kirsch_tb
 # ** Note: latency waiting
@@ -6137,4 +6133,378 @@ run 100000ns
 #    Time: 102230 ns  Iteration: 1  Instance: /kirsch_tb
 # ** Note: latency waiting
 #    Time: 102250 ns  Iteration: 1  Instance: /kirsch_tb
-
+# ** Note: latency waiting
+#    Time: 102270 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102290 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102310 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102330 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102350 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102370 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102390 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102410 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102430 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102450 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102470 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102490 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102510 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102530 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102550 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102570 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102590 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102610 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102630 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102650 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102670 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102690 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102710 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102730 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102750 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102770 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102790 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102810 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102830 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102850 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102870 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102890 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102910 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102930 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102950 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102970 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 102990 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103010 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103030 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103050 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103070 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103090 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103110 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103130 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103150 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103170 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103190 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103210 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103230 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103250 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103270 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103290 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103310 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103330 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103350 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103370 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103390 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103410 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103430 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103450 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103470 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103490 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103510 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103530 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103550 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103570 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103590 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103610 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103630 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103650 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103670 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103690 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103710 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103730 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103750 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103770 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103790 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103810 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103830 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103850 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103870 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103890 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103910 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103930 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103950 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103970 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 103990 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104010 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104030 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104050 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104070 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104090 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104110 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104130 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104150 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104170 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104190 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104210 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104230 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104250 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104270 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104290 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104310 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104330 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104350 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104370 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104390 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104410 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104430 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104450 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104470 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104490 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104510 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104530 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104550 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104570 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104590 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104610 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104630 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104650 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104670 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104690 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104710 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104730 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104750 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104770 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104790 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104810 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104830 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104850 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104870 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104890 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104910 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104930 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104950 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104970 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 104990 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105010 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105030 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105050 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105070 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105090 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105110 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105130 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105150 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105170 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105190 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105210 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105230 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105250 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105270 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105290 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105310 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105330 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105350 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105370 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105390 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105410 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105430 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105450 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105470 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105490 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105510 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105530 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105550 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105570 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105590 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105610 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105630 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105650 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105670 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105690 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105710 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105730 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105750 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105770 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105790 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105810 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105830 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105850 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105870 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105890 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105910 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105930 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105950 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105970 ns  Iteration: 1  Instance: /kirsch_tb
+# ** Note: latency waiting
+#    Time: 105990 ns  Iteration: 1  Instance: /kirsch_tb
+#  

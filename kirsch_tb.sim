@@ -4,11 +4,21 @@ add wave -radix unsigned sim:/kirsch_tb/in_pixel
 add wave sim:/kirsch_tb/reset
 add wave sim:/kirsch_tb/out_mode
 add wave -radix unsigned sim:/kirsch_tb/out_row
+add wave -radix unsigned sim:/kirsch_tb/out_pixel
 add wave -radix unsigned sim:/kirsch_tb/out_column
+add wave -radix unsigned sim:/kirsch_tb/image00
+add wave -radix unsigned sim:/kirsch_tb/image01
+add wave -radix unsigned sim:/kirsch_tb/image02
+add wave -radix unsigned sim:/kirsch_tb/image10
+add wave -radix unsigned sim:/kirsch_tb/image11
+add wave -radix unsigned sim:/kirsch_tb/image12
+add wave -radix unsigned sim:/kirsch_tb/image20
+add wave -radix unsigned sim:/kirsch_tb/image21
+add wave -radix unsigned sim:/kirsch_tb/image22
 add wave sim:/kirsch_tb/out_valid
 add wave sim:/kirsch_tb/out_edge
 add wave sim:/kirsch_tb/out_dir
 
 
-run 1060 ns
+run 106000 ns
 

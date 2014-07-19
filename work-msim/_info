@@ -4,9 +4,9 @@ K3
 cModel Technology
 Z0 d/home/vcmota/ece327/Kirsch-Edge-Detector
 T_opt
-ViMXS76lCif[jV5g@lQ2ij3
+VFWNP5mFi]KeCIOb8LN]oM1
 04 9 4 work kirsch_tb main 1
-=1-74d02b26ff76-53c7338d-47751-6649
+=1-14dae9740818-53c9c952-33b7a-2efa
 o-quiet -auto_acc_if_foreign -work work-msim
 n@_opt
 OL;O;10.1;51
@@ -24,7 +24,7 @@ VgOUVm0_N_ATfV]2=@Fkaj2
 Z8 OL;C;10.1;51
 31
 b1
-Z9 !s108 1405563378.099485
+Z9 !s108 1405733142.533578
 Z10 !s90 -93|+acc|-work|work-msim|mem.vhd|kirsch_synth_pkg.vhd|kirsch.vhd|string_pkg.vhd|kirsch_synth_pkg.vhd|kirsch_unsynth_pkg.vhd|kirsch_tb.vhd|
 Z11 !s107 kirsch_tb.vhd|kirsch_unsynth_pkg.vhd|string_pkg.vhd|kirsch.vhd|kirsch_synth_pkg.vhd|mem.vhd|
 Z12 o-93 +acc -work work-msim
@@ -68,16 +68,17 @@ o-work work-msim -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
 !i10b 1
 !s85 0
 Ekirsch
-Z16 w1405563377
+Z16 w1405729459
+Z17 DPx4 work 18 kirsch_utility_pkg 0 22 a1U1FohR3F9;Bf2h4TPDg1
 R1
 R2
 R3
 R5
-Z17 8kirsch.vhd
-Z18 Fkirsch.vhd
+Z18 8kirsch.vhd
+Z19 Fkirsch.vhd
 l0
-L7
-VD9DWA?anGQVW7o>QWgnn63
+L8
+VQk>6foN[@P1JT:k]h0Unm3
 R8
 31
 R9
@@ -85,17 +86,18 @@ R10
 R11
 R12
 R13
-!s100 1[5bBg^NABf062?XJT?oI1
+!s100 i57Z3cE@le5:h@j?8Z[U31
 !i10b 1
 Amain
-Z19 DEx4 work 6 memory 0 22 bDR^l=k]Vg6QAl`:YT7ml1
+Z20 DEx4 work 6 memory 0 22 ;c`:OoUK92D1TOHY[gih40
+R17
 R1
 R2
 R3
-Z20 DEx4 work 6 kirsch 0 22 D9DWA?anGQVW7o>QWgnn63
-l39
-L38
-VjblzzZcF`MI7Wg13C;3Se2
+Z21 DEx4 work 6 kirsch 0 22 Qk>6foN[@P1JT:k]h0Unm3
+l42
+L41
+V2_7S]b3RgIiTL?0ic?hJP3
 R8
 31
 R9
@@ -103,7 +105,7 @@ R10
 R11
 R12
 R13
-!s100 YHP>GeTXAc3GWdD4=mE573
+!s100 aIi4>TGnj3DBb23g<k7hf2
 !i10b 1
 Pkirsch_synth_pkg
 R1
@@ -111,8 +113,8 @@ R2
 R3
 R4
 R5
-Z21 8kirsch_synth_pkg.vhd
-Z22 Fkirsch_synth_pkg.vhd
+Z22 8kirsch_synth_pkg.vhd
+Z23 Fkirsch_synth_pkg.vhd
 l0
 L12
 Vj<2H`53CXfXI]:;M@XHH03
@@ -127,7 +129,7 @@ R13
 !s100 E2c8bVk]3QChFWTPbA:?k2
 !i10b 1
 Bbody
-Z23 DPx4 work 16 kirsch_synth_pkg 0 22 j<2H`53CXfXI]:;M@XHH03
+Z24 DPx4 work 16 kirsch_synth_pkg 0 22 j<2H`53CXfXI]:;M@XHH03
 R1
 R2
 R3
@@ -145,20 +147,21 @@ nbody
 !s100 zSTl0_JT<]bVGQf[ch>A02
 !i10b 1
 Ekirsch_tb
-Z24 w1405563030
-Z25 DPx4 work 10 string_pkg 0 22 D?RAj`>ORQzJG`OH4laVW0
-Z26 DPx4 work 18 kirsch_unsynth_pkg 0 22 <[f1DF]Z>1;;9VO_:RUVI3
+Z25 w1405730252
+R17
+Z26 DPx4 work 10 string_pkg 0 22 D?RAj`>ORQzJG`OH4laVW0
+Z27 DPx4 work 18 kirsch_unsynth_pkg 0 22 <[f1DF]Z>1;;9VO_:RUVI3
 R14
-R23
+R24
 R1
 R2
 R3
 R5
-Z27 8kirsch_tb.vhd
-Z28 Fkirsch_tb.vhd
+Z28 8kirsch_tb.vhd
+Z29 Fkirsch_tb.vhd
 l0
-L23
-VffcC3a42Sd@@@RQdWC?153
+L24
+Vh;hmQjEI?VH>cYLhL3MH^1
 R8
 31
 R9
@@ -166,21 +169,22 @@ R10
 R11
 R12
 R13
-!s100 Dg;9]1NDcY:56JnSH`PDB3
+!s100 ZW5HhVkbgY6D8?B9=R]1G2
 !i10b 1
 Amain
-R20
-R25
+R21
+R17
 R26
+R27
 R14
-R23
+R24
 R1
 R2
 R3
-DEx4 work 9 kirsch_tb 0 22 ffcC3a42Sd@@@RQdWC?153
-l81
-L32
-VB0i_m[ohgn44:Sb?lkmLh2
+DEx4 work 9 kirsch_tb 0 22 h;hmQjEI?VH>cYLhL3MH^1
+l86
+L33
+V[nlKk8gW4lTE7m7dlk1S52
 R8
 31
 R9
@@ -188,12 +192,12 @@ R10
 R11
 R12
 R13
-!s100 ;VS>kZ81fjidGDhQb`Ti]1
+!s100 =QYD6>h0ClC25@?z^FoS92
 !i10b 1
 Pkirsch_unsynth_pkg
-R23
+R24
 R14
-R25
+R26
 R1
 R2
 R3
@@ -215,10 +219,10 @@ R13
 !s100 N6dC_oPhdVCNI7oQafonY0
 !i10b 1
 Bbody
-R26
-R23
+R27
+R24
 R14
-R25
+R26
 R1
 R2
 R3
@@ -235,22 +239,60 @@ R13
 nbody
 !s100 7LdOgZVfZ2khf=IJ3Ed383
 !i10b 1
+Pkirsch_utility_pkg
+R1
+R2
+R3
+Z30 w1405728971
+R5
+Z31 8kirsch_utility_pkg.vhd
+Z32 Fkirsch_utility_pkg.vhd
+l0
+L11
+Va1U1FohR3F9;Bf2h4TPDg1
+R8
+31
+Z33 !s108 1405729013.143944
+Z34 !s90 -93|+acc|-work|work-msim|kirsch_utility_pkg.vhd|
+Z35 !s107 kirsch_utility_pkg.vhd|
+R12
+R13
+!s100 Nf]3nnDP`=<=B4h@^KQi70
+!i10b 1
+Bbody
+R17
+R1
+R2
+R3
+l0
+L18
+VzH?7g5oKlN52NJ4zAQS<Z2
+R8
+31
+R33
+R34
+R35
+R12
+R13
+nbody
+!s100 K;o4[nPOmL0HcA7@lK[ab1
+!i10b 1
 Emax
-Z29 w1405556080
+Z36 w1405556080
 R1
 R2
 R3
 R5
-Z30 8max.vhd
-Z31 Fmax.vhd
+Z37 8max.vhd
+Z38 Fmax.vhd
 l0
 L7
 V9[6_D@MLda1M2_FJaJo1V1
 R8
 31
-Z32 !s108 1405556083.630807
-Z33 !s90 -93|+acc|-work|work-msim|max.vhd|
-Z34 !s107 max.vhd|
+Z39 !s108 1405556083.630807
+Z40 !s90 -93|+acc|-work|work-msim|max.vhd|
+Z41 !s107 max.vhd|
 R12
 R13
 !s100 ]b4AUGQHLoV3=o5SL4TU33
@@ -265,9 +307,9 @@ L20
 V<Y>FUbjAh1a_bUTh`=bl;1
 R8
 31
-R32
-R33
-R34
+R39
+R40
+R41
 R12
 R13
 !s100 zeKIa[04_VQUA4Gz7oF?O2
@@ -296,8 +338,8 @@ R1
 R2
 R3
 R5
-Z35 8mem.vhd
-Z36 Fmem.vhd
+Z42 8mem.vhd
+Z43 Fmem.vhd
 l0
 L23
 V4cBN7X^NS9z@6G`YU7m?71
@@ -314,7 +356,7 @@ Amain
 R1
 R2
 R3
-Z37 DEx4 work 3 mem 0 22 4cBN7X^NS9z@6G`YU7m?71
+Z44 DEx4 work 3 mem 0 22 4cBN7X^NS9z@6G`YU7m?71
 l47
 L37
 VUm7kBM=d44angbXHf[le32
@@ -328,50 +370,52 @@ R13
 !s100 CM=c^iWbEL4Id@2NI`R@[0
 !i10b 1
 Ememory
-Z38 w1405559194
+Z45 w1405731664
+R17
 R1
 R2
 R3
 R5
-Z39 8memory.vhd
-Z40 Fmemory.vhd
+Z46 8memory.vhd
+Z47 Fmemory.vhd
 l0
-L5
-VbDR^l=k]Vg6QAl`:YT7ml1
+L6
+V;c`:OoUK92D1TOHY[gih40
 R8
 31
-Z41 !s108 1405559224.600176
-Z42 !s90 -93|+acc|-work|work-msim|memory.vhd|
-Z43 !s107 memory.vhd|
+Z48 !s108 1405733138.431315
+Z49 !s90 -93|+acc|-work|work-msim|memory.vhd|
+Z50 !s107 memory.vhd|
 R12
 R13
-!s100 li5UhnZi25k`9fN2G<Aj20
+!s100 kJDLXN8ANBOU[Fb]UjCkb2
 !i10b 1
 Amain
-R37
+R44
+R17
 R1
 R2
 R3
-R19
-l42
-L20
-V28;>FIlCVXAzgXkkBA:J?0
+R20
+l45
+L21
+VhQo<Ie`ND<[WKQn@WdJWR2
 R8
 31
-R41
-R42
-R43
+R48
+R49
+R50
 R12
 R13
-!s100 aR<IiMP8;=VTT=ZlfM>[A1
+!s100 PDRZWnlkcX]zcK;WYh4nm3
 !i10b 1
 Pstring_pkg
 R2
 R3
 R4
 R5
-Z44 8string_pkg.vhd
-Z45 Fstring_pkg.vhd
+Z51 8string_pkg.vhd
+Z52 Fstring_pkg.vhd
 l0
 L7
 VD?RAj`>ORQzJG`OH4laVW0
@@ -386,7 +430,7 @@ R13
 !s100 _ICo9Mj3cbo8Iczzj59GY3
 !i10b 1
 Bbody
-R25
+R26
 R2
 R3
 l0

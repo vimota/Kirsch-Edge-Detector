@@ -15,5 +15,5 @@ xsys( "vlib work-msim")
 #------------------------------------------------------------------------
 # compile source files
 
-xsys( "uw-msim-com  kirsch.vhd ")
+xsys( "uw-msim-com  memory.vhd ")
 
