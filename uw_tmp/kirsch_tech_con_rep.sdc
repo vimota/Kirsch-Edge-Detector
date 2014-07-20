@@ -7,10 +7,11 @@
 # Attributes
 #################
 set_attribute -name INFF -value "FALSE" -port -type STRING i_clock -design gatelevel 
+set_attribute -name use_dffenable -value "0" -net -type default u_memory/o_valid -design gatelevel 
 set_attribute -name use_dffenable -value "0" -net -type default u_memory/first_bubble -design gatelevel 
 set_attribute -name MAX_FANOUT -value "1000" -net u_memory/first_bubble_repl -design gatelevel 
+set_attribute -name MAX_FANOUT -value "1000" -net u_memory/nx47386z2 -design gatelevel 
 set_attribute -name MAX_FANOUT -value "1000" -net u_memory/not_rtlc0n196_repl -design gatelevel 
-set_attribute -name MAX_FANOUT -value "1000" -net u_memory/nx45024z2 -design gatelevel 
 set_attribute -name ignore_ram_rw_collision -value "true" -instance -type default u_memory/u_mem1_mem -design gatelevel 
 set_attribute -name ignore_ram_rw_collision -value "true" -instance -type default u_memory/u_mem2_mem -design gatelevel 
 set_attribute -name ignore_ram_rw_collision -value "true" -instance -type default u_memory/u_mem3_mem -design gatelevel 

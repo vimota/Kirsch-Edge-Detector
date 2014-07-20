@@ -5,7 +5,7 @@ setup_design \
   -part EP2S15F484C \
   -speed 5 
 setup_design -frequency 500
-setup_design -design kirsch
+setup_design -design memory
 if { {main} != {} } {
   setup_design -architecture main
   echo "USING DESIGN ARCH"
@@ -16,14 +16,14 @@ setup_design -generics {  }
 
 
 # add_input_file -search_path $VHDL_PATH
-# add_input_file [list [concat {  } { mem.vhd kirsch_synth_pkg.vhd kirsch.vhd kirsch_utility_pkg.vhd memory.vhd }] ]
-foreach file [concat {  } { mem.vhd kirsch_synth_pkg.vhd kirsch.vhd kirsch_utility_pkg.vhd memory.vhd }] {
+# add_input_file [list [concat {  } { memory.vhd mem.vhd kirsch_utility_pkg.vhd }] ]
+foreach file [concat {  } { memory.vhd mem.vhd kirsch_utility_pkg.vhd }] {
   add_input_file $file
 }  
 
 compile
 
-auto_write uw_tmp/kirsch_gate.vhd
+auto_write uw_tmp/memory_gate.vhd
 
 report_area \
    -hierarchy \
@@ -37,7 +37,7 @@ synthesize
 
 #----------------------------------------------------------------------
 
-auto_write uw_tmp/kirsch_logic.vhd
+auto_write uw_tmp/memory_logic.vhd
 
 report_area \
   -hierarchy \
@@ -60,7 +60,7 @@ if { [ llength $clocks ] != 0 } {
 #----------------------------------------------------------------------
 # needed for vgencomp_to_arch:
 
-auto_write uw_tmp/kirsch_logic.v
+auto_write uw_tmp/memory_logic.v
 
 #----------------------------------------------------------------------
 # the end

@@ -3,9 +3,9 @@ Device Utilization for EP2S15F484C
 ***********************************************
 Resource                Used    Avail   Utilization
 -----------------------------------------------
-IOs                     107     343      31.20%
-LUTs                    30      12480     0.24%
-Registers               106     14410     0.74%
+IOs                     100     343      29.15%
+LUTs                    58      12480     0.46%
+Registers               121     14410     0.84%
 Memory Bits             6144    419328    1.47%
 DSP block 9-bit elems   0       96        0.00%
 
@@ -19,7 +19,6 @@ Library: work    Cell: memory    View: main
 
   Cell                   Library  References     Total Area
 
- GND                     stratixii     1 x
  modgen_counter_8_0      OPERATORS     1 x      9      9 LUTs
                                                 8      8 Registers
  modgen_counter_8_1      OPERATORS     1 x      9      9 LUTs
@@ -27,18 +26,18 @@ Library: work    Cell: memory    View: main
  ram_dq_8_0              OPERATORS     1 x   2048   2048 Memory Bits
  ram_dq_8_1              OPERATORS     1 x   2048   2048 Memory Bits
  ram_dq_8_2              OPERATORS     1 x   2048   2048 Memory Bits
- stratixii_io            stratixii   106 x      1    106 IOs
- stratixii_lcell_comb    stratixii    12 x      1     12 LUTs
- stratixii_lcell_ff      stratixii    90 x      1     90 Registers
+ stratixii_io            stratixii    99 x      1     99 IOs
+ stratixii_lcell_comb    stratixii    40 x      1     40 LUTs
+ stratixii_lcell_ff      stratixii   105 x      1    105 Registers
 
- Number of ports :                     107
- Number of nets :                      259
- Number of instances :                 214
+ Number of ports :                     100
+ Number of nets :                      294
+ Number of instances :                 249
  Number of references to this view :     0
 
 Total accumulated area : 
- Number of IOs :                       107
- Number of LUTs :                       30
+ Number of IOs :                       100
+ Number of LUTs :                       58
  Number of Memory Bits :              6144
- Number of Registers :                 106
- Number of accumulated instances :     257
+ Number of Registers :                 121
+ Number of accumulated instances :     292

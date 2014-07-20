@@ -3,9 +3,9 @@ Device Utilization for EP2S15F484C
 ***********************************************
 Resource                Used    Avail   Utilization
 -----------------------------------------------
-IOs                     183     343      53.35%
-LUTs                    56      12480     0.45%
-Registers               104     14410     0.72%
+IOs                     175     343      51.02%
+LUTs                    58      12480     0.46%
+Registers               121     14410     0.84%
 Memory Bits             6144    419328    1.47%
 DSP block 9-bit elems   0       96        0.00%
 
@@ -21,19 +21,19 @@ Library: work    Cell: kirsch    View: main
 
  GND             stratixii     1 x
  VCC             stratixii     1 x
- memory_notri    work          1 x   6144   6144 Memory Bits
-                                      104    104 Registers
-                                       56     56 LUTs
- stratixii_io    stratixii   161 x      1    161 IOs
+ memory          work          1 x   6144   6144 Memory Bits
+                                      121    121 Registers
+                                       58     58 LUTs
+ stratixii_io    stratixii   153 x      1    153 IOs
 
- Number of ports :                     183
- Number of nets :                      261
- Number of instances :                 164
+ Number of ports :                     175
+ Number of nets :                      254
+ Number of instances :                 156
  Number of references to this view :     0
 
 Total accumulated area : 
- Number of IOs :                       183
- Number of LUTs :                       56
+ Number of IOs :                       175
+ Number of LUTs :                       58
  Number of Memory Bits :              6144
- Number of Registers :                 104
- Number of accumulated instances :     337
+ Number of Registers :                 121
+ Number of accumulated instances :     348

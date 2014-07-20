@@ -9,7 +9,7 @@ entity memory is
 		i_reset  : in std_logic;
 		i_pixel  : in std_logic_vector(7 downto 0);
 		i_clock  : in std_logic;
-		-- o_valid  : out std_logic;
+		o_valid  : out std_logic;
 		-- o_mode   : out std_logic_vector(2 downto 0);
 		o_column : out std_logic_vector(7 downto 0);
 		o_row    : out std_logic_vector(7 downto 0);
@@ -121,6 +121,11 @@ begin
 	begin
 		if rising_edge(i_clock) then
 			if (first_bubble = '1') then
+
+				if (row > 1 and column > 1) then
+					o_valid <= '1';
+				end if;
+
 				buffer0 <= buffer1;
 				buffer1 <= buffer2;
 				
@@ -161,8 +166,8 @@ begin
 				-- 	buffer2(0) <= mem_q(0);
 				-- end if;
 
-
-
+			else
+				o_valid <= '0';
 			end if;
 		end if;
 	end process;

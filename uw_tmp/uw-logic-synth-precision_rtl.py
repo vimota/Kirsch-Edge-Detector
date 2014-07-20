@@ -9,9 +9,9 @@ my_rm( ["uw_tmp/*.xrf", "uw_tmp/*.qsf"] )
 # so rm old versions to make sure that don't pick up
 # obsolete file in case precision fails
 
-my_rm( [ "kirsch_gate.vhd" ] )
-my_rm( [ "kirsch_area.txt" ] )
-my_rm( [ "kirsch_speed.txt" ] )
+my_rm( [ "memory_gate.vhd" ] )
+my_rm( [ "memory_area.txt" ] )
+my_rm( [ "memory_speed.txt" ] )
 
 my_mkdir( "LOG" )
 
@@ -20,9 +20,9 @@ my_mkdir( "LOG" )
 
 xsys( "precision -shell -file uw_tmp/uw-logic-synth-precision_rtl.tcl" )
 
-my_rm( ["kirsch_logic.xdb", "kirsch_logic.xrf"] )
+my_rm( ["memory_logic.xdb", "memory_logic.xrf"] )
 
-my_mv( "uw_tmp/kirsch.edf", "uw_tmp/kirsch_logic.edf" )
+my_mv( "uw_tmp/memory.edf", "uw_tmp/memory_logic.edf" )
 
 #------------------------------------------------------------------------
 # generate no_generics architecture
@@ -49,5 +49,5 @@ xsys( "vmap stratixii /home/ece327/altera/vhdl_libs/stratixii")
 #
 
 # get synthesized entity (std_logic vector and no generics)
-# xsys( "vlog -novopt -work work-msim uw_tmp/kirsch_logic.v")
-# vgencomp_to_arch( "kirsch", "logic", [] + [ "mem.vhd", "kirsch_synth_pkg.vhd", "kirsch.vhd", "kirsch_utility_pkg.vhd", "memory.vhd" ] )
+# xsys( "vlog -novopt -work work-msim uw_tmp/memory_logic.v")
+# vgencomp_to_arch( "memory", "logic", [] + [ "memory.vhd", "mem.vhd", "kirsch_utility_pkg.vhd" ] )

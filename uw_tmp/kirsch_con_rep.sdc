@@ -6,6 +6,7 @@
 #################
 # Attributes
 #################
+set_attribute -name use_dffenable -value "0" -net -type default u_memory/o_valid -design rtl 
 set_attribute -name use_dffenable -value "0" -net -type default u_memory/first_bubble -design rtl 
 set_attribute -name ignore_ram_rw_collision -value "true" -instance -type default u_memory/u_mem1/mem -design rtl 
 set_attribute -name ram_processed -value "true" -instance u_memory/u_mem1/mem/mem -design rtl 
