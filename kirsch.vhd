@@ -46,7 +46,7 @@ begin
 		i_pixel  => i_pixel,
 		i_clock  => i_clock,
 		o_valid  => o_valid,
-		-- o_mode   : out std_logic_vector(2 downto 0);
+		o_mode   => o_mode,
 		o_column => o_column,
 		o_image0 => o_image0,
 		o_image1 => o_image1,

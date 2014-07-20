@@ -23,4 +23,10 @@ Model Technology ModelSim SE-64 vcom 10.1 Compiler 2011.12 Dec  5 2011
 -- Compiling architecture main of memory
 -- Loading entity mem
 -- Loading entity mem
+-- Compiling entity mem
+-- Compiling entity mem
+-- Compiling architecture main of mem
+-- Compiling architecture main of mem
+-- Compiling package kirsch_utility_pkg
+-- Compiling package kirsch_utility_pkg
  

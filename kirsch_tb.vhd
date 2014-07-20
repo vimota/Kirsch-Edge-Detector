@@ -139,9 +139,22 @@ begin
 			wait;
 		end process;
 		
-		----------------------------------------------------
-		-- read image data from file, then send to circuit
+		-- testing reset functionality
+		-- process
+		-- begin
+		-- 	reset <= '1';
+		-- 	for i in 1 to 5 loop
+		-- 		wait until rising_edge(clock);
+		-- 	end loop;
+		-- 	reset <= '0';
+		-- 	for i in 1 to 1000 loop
+		-- 		wait until rising_edge(clock);
+		-- 	end loop;
+		-- 	reset <= '1';
+		-- end process;
 
+		----------------------------------------------------
+		-- read image data from file, then send to circuit		
 		process
 		begin
 			in_valid <= '0';
