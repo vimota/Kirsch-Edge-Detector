@@ -13,8 +13,7 @@ entity memory is
 		-- o_mode   : out std_logic_vector(2 downto 0);
 		o_column : out std_logic_vector(7 downto 0);
 		o_row    : out std_logic_vector(7 downto 0);
-		o_image0, o_image1, o_image2   : out image_type;
-		o_pixel  : out std_logic_vector(7 downto 0)
+		o_image0, o_image1, o_image2   : out image_type
 		);
 end memory ;
 
@@ -84,17 +83,21 @@ begin
 	);
 
 	-- writing process
-	process (i_clock)
+	writeProc : process (i_clock)
 	begin
 		if rising_edge(i_clock) then
-
+			-- initialize mem_wrn_current
 			if (i_valid = '1') then
-			--	update column
 				first_bubble <= '1';
-				mem_wrn <= mem_wrn_current;
 				mem_data <= i_pixel;
-
-			
+				
+				if ((mem_wrn_current(0) or mem_wrn_current(1) or mem_wrn_current(2)) /= '1') then
+					mem_wrn_current <= "001";
+					mem_wrn <= "001";
+				else
+					--	update column
+					mem_wrn <= mem_wrn_current;
+				end if;
 			else 
 				if (first_bubble = '1') then
 					first_bubble <= '0';
@@ -111,11 +114,10 @@ begin
 				-- don't write to memory when data invalid
 				mem_wrn <= (others => '0');
 			end if;
-			
 		end if;
 	end process;
 
-	process (i_clock)
+	readProc : process (i_clock)
 	begin
 		if rising_edge(i_clock) then
 			if (first_bubble = '1') then
@@ -152,7 +154,7 @@ begin
 						buffer2(1) <= (others => 'X');
 						buffer2(2) <= (others => 'X');
 				end case;
-				-- 
+				
 				-- if mem_wrn_current(0) = '1' then
 				-- 	buffer2(0) <= mem_data;
 				-- else
@@ -164,15 +166,19 @@ begin
 			end if;
 		end if;
 	end process;
+
+	outputProc : process (i_clock)
+	begin
+		if rising_edge(i_clock) then
+			o_column <= mem_addr;
+			o_row <= std_logic_vector(row);
+		end if;
+	end process;
 	
 	mem_addr <= std_logic_vector(column);
-	o_column <= mem_addr;
-	o_row <= std_logic_vector(row);
 	o_image0 <= buffer0;
 	o_image1 <= buffer1;
 	o_image2 <= buffer2;
-
-	o_pixel <= mem_q(0);
 
 end main;
 

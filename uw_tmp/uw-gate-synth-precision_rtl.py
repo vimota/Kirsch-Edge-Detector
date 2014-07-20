@@ -9,12 +9,12 @@ my_rm( ["uw_tmp/*.xrf"] )
 # so rm old versions to make sure that don't pick up
 # obsolete file in case precision fails
 
-my_rm( [ "kirsch_utility_pkg_gate.vhd" ] )
+my_rm( [ "memory_gate.vhd" ] )
 
 #--------------------------------------------------------------
 # run precision
 
-xsys( "precision -shell -file uw_tmp/uw-gate-synth-precision_rtl.tcl" )
+xsys( "precision -newgui -file uw_tmp/uw-gate-synth-precision_rtl.tcl" )
 
-my_rm( [ "kirsch_utility_pkg_gate.xdb" ] )
+my_rm( [ "memory_gate.xdb" ] )
 

@@ -17,7 +17,7 @@
 # Loading work.file_pkg(body)
 # Loading work.string_pkg(body)
 # Loading work.kirsch_unsynth_pkg(body)
-# Loading work.kirsch_utility_pkg(body)
+# Loading work.kirsch_utility_pkg
 # Loading work.kirsch_tb(main)#1
 # Loading work.kirsch(main)#1
 # Loading work.memory(main)#1
@@ -6508,4 +6508,3 @@
 # ** Note: latency waiting
 #    Time: 105990 ns  Iteration: 1  Instance: /kirsch_tb
 #  
-# Break key hit 

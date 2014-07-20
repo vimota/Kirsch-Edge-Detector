@@ -1,0 +1,58 @@
+DEBUG: modelsim_pfx: testing: /opt/ModelSim101/modeltech/bin/
+DEBUG: try_set: altera_sim_lib: True: /home/ece327/altera
+DEBUG: default_board: DE2
+INFO: Starting PRECISION_RTL for logic synthesis
+INFO: Analyzing "mem.vhd"
+INFO: Analyzing "kirsch_synth_pkg.vhd"
+INFO: Analyzing "kirsch_utility_pkg.vhd"
+INFO: Analyzing "memory.vhd"
+INFO: Analyzing "kirsch.vhd"
+Warning: "memory.vhd", line 9: Input port i_reset has never been used.
+Warning: "kirsch.vhd", line 15: Output port o_valid has never been assigned a value.
+Warning: "kirsch.vhd", line 16: Output port o_edge has never been assigned a value.
+Warning: "kirsch.vhd", line 17: Output port o_dir has never been assigned a value.
+Warning: "kirsch.vhd", line 18: Output port o_mode has never been assigned a value.
+Warning: "kirsch.vhd", line 25: Input port debug_key has never been used.
+Warning: "kirsch.vhd", line 26: Input port debug_switch has never been used.
+Warning: "memory.vhd", line 87: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 87: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 87: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 42: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 42: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 146: The comparison operator has been optimized to constant 0.
+Warning: "memory.vhd", line 136: The comparison operator has been optimized to constant 0.
+Warning: "memory.vhd", line 126: The comparison operator has been optimized to constant 0.
+Warning: "memory.vhd", line 87: Optimizing state bit(s) mem_wrn[2:0] to constant 0
+Warning: "memory.vhd", line 87: Optimizing state bit(s) mem_wrn_current[2:0] to constant 0
+Warning: Memory 'mem' cannot be implemented using dedicated resource.
+INFO: generic-gate       netlist         written to uw_tmp/kirsch_gate.vhd
+INFO: generic-gate       area estimate   written to RPT/area_gate.rpt
+INFO: logic-synthesis    netlist         written to uw_tmp/kirsch_logic.edf
+INFO: logic-synthesis    area estimate   written to RPT/area_logic.rpt
+INFO: logic-synthesis    timing estimate written to RPT/timing_logic.rpt
+INFO: -----------------------------------------------------------------------
+INFO: CRITICAL PATHS (slowest 5 paths, estimated by logic synthesis)
+INFO: 
+INFO: ..........Delays.........
+INFO:  Total  Datapath  Routing          Source              Dest
+INFO: ------  --------  -------   --------------------  ---------------------
+INFO:   3.30     2.16     1.14    u_memory_..._q(0)/clk o_column(0)          
+INFO:   3.30     2.16     1.14    u_memory_..._q(2)/clk o_column(2)          
+INFO:   3.30     2.16     1.14    u_memory_..._q(1)/clk o_column(1)          
+INFO:   3.30     2.16     1.14    u_memory_..._q(3)/clk o_column(3)          
+INFO:   3.29     2.15     1.14    u_memory_..._q(5)/clk o_column(5)          
+INFO: -----------------------------------------------------------------------
+INFO: Speed on Stratix II = 303 MHz,  3.30 ns (estimated by logic-synthesis)
+INFO: AREA = 23 cells (23 luts, 17 regs) (estimated by logic-synthesis)
+INFO: OPTIMALITY
+INFO: 
+INFO:              ..............latency...............
+INFO:              =<  8cyc   9cyc  10cyc   11cyc   12cyc
+INFO: optimality   =  13173   12530   11918    11338    10784
+INFO: 
+INFO: ***********************************************
+INFO: *
+INFO: * uw-synth to STRATIX was successful
+INFO: * log file stored in LOG/uw-synth.log
+INFO: *
+INFO: ***********************************************

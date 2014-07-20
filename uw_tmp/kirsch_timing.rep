@@ -2,7 +2,7 @@
 
 	Domain                  Clock Name                            Min Period (Freq)
 	------                  ----------                            -----------------
-	ClockDomain0            i_clock                               2.688 (372.024 MHz)  
+	ClockDomain0            i_clock                               3.942 (253.678 MHz)  
 -- Device: Altera - Stratix II : EP2S15F484C : 5
 -- CTE report summary..
                   CTE Report Summary
@@ -11,20 +11,20 @@ End CTE Report Summary ..... CPU Time Used: 0 sec.
 
 Setup Slack Path Summary
 
-               Data                                                                                                                   Data
-       Setup   Path   Source    Dest.                                                                                                 End 
-Index  Slack   Delay   Clock    Clock                  Data Start Pin                                  Data End Pin                   Edge
------  ------  -----  -------  -------  ---------------------------------------------  ---------------------------------------------  ----
-  1    -0.688  1.688  i_clock  i_clock  u_memory_modgen_counter_o_column/reg_q(4)/clk  u_memory_modgen_counter_o_row/reg_q(7)/ena     Rise
-  2    -0.688  1.688  i_clock  i_clock  u_memory_modgen_counter_o_column/reg_q(5)/clk  u_memory_modgen_counter_o_row/reg_q(7)/ena     Rise
-  3    -0.668  1.668  i_clock  i_clock  u_memory_reg_first_bubble/clk                  u_memory_modgen_counter_o_row/reg_q(7)/ena     Rise
-  4    -0.530  1.530  i_clock  i_clock  u_memory_modgen_counter_o_column/reg_q(6)/clk  u_memory_modgen_counter_o_row/reg_q(7)/ena     Rise
-  5    -0.530  1.530  i_clock  i_clock  u_memory_modgen_counter_o_column/reg_q(0)/clk  u_memory_modgen_counter_o_row/reg_q(7)/ena     Rise
-  6    -0.395  1.395  i_clock  i_clock  u_memory_modgen_counter_o_column/reg_q(1)/clk  u_memory_modgen_counter_o_row/reg_q(7)/ena     Rise
-  7    -0.395  1.395  i_clock  i_clock  u_memory_modgen_counter_o_column/reg_q(7)/clk  u_memory_modgen_counter_o_row/reg_q(7)/ena     Rise
-  8     0.124  0.876  i_clock  i_clock  u_memory_modgen_counter_o_column/reg_q(2)/clk  u_memory_modgen_counter_o_row/reg_q(7)/ena     Rise
-  9     0.259  0.741  i_clock  i_clock  u_memory_modgen_counter_o_column/reg_q(3)/clk  u_memory_modgen_counter_o_row/reg_q(7)/ena     Rise
- 10     0.283  1.510  i_clock  i_clock  u_memory_modgen_counter_o_row/reg_q(0)/clk     u_memory_modgen_counter_o_row/reg_q(7)/datain  Rise
+               Data                                                                                                         Data
+       Setup   Path   Source    Dest.                                                                                       End 
+Index  Slack   Delay   Clock    Clock                  Data Start Pin                             Data End Pin              Edge
+-----  ------  -----  -------  -------  ---------------------------------------------  -----------------------------------  ----
+  1    -1.942  2.942  i_clock  i_clock  u_memory/modgen_counter_o_column/reg_q(2)/clk  u_memory/reg_mem_wrn_current(2)/ena  Rise
+  2    -1.942  2.942  i_clock  i_clock  u_memory/modgen_counter_o_column/reg_q(3)/clk  u_memory/reg_mem_wrn_current(2)/ena  Rise
+  3    -1.784  2.784  i_clock  i_clock  u_memory/modgen_counter_o_column/reg_q(1)/clk  u_memory/reg_mem_wrn_current(2)/ena  Rise
+  4    -1.649  2.649  i_clock  i_clock  u_memory/modgen_counter_o_column/reg_q(0)/clk  u_memory/reg_mem_wrn_current(2)/ena  Rise
+  5    -1.174  2.174  i_clock  i_clock  u_memory/modgen_counter_o_column/reg_q(7)/clk  u_memory/reg_mem_wrn_current(2)/ena  Rise
+  6    -1.174  2.174  i_clock  i_clock  u_memory/modgen_counter_o_column/reg_q(6)/clk  u_memory/reg_mem_wrn_current(2)/ena  Rise
+  7    -1.016  2.016  i_clock  i_clock  u_memory/modgen_counter_o_column/reg_q(5)/clk  u_memory/reg_mem_wrn_current(2)/ena  Rise
+  8    -0.884  2.209  i_clock  i_clock  u_memory/modgen_counter_o_row/reg_q(3)/clk     u_memory/reg_buffer2(2)(7)/sload     Rise
+  9    -0.884  2.209  i_clock  i_clock  u_memory/modgen_counter_o_row/reg_q(4)/clk     u_memory/reg_buffer2(2)(7)/sload     Rise
+ 10    -0.881  1.881  i_clock  i_clock  u_memory/modgen_counter_o_column/reg_q(4)/clk  u_memory/reg_mem_wrn_current(2)/ena  Rise
 
 -- Device: Altera - Stratix II : EP2S15F484C : 5
 -- CTE report summary..
@@ -37,7 +37,7 @@ End CTE Report Summary ..... CPU Time Used: 0 sec.
                   CTE Path Report
 
 
-Critical path #1, (path slack = -0.688):
+Critical path #1, (path slack = -1.942):
 
 SOURCE CLOCK: name: i_clock period: 2.000000
      Times are relative to the 1st rising edge
@@ -45,27 +45,33 @@ SOURCE CLOCK: name: i_clock period: 2.000000
      Times are relative to the 2nd rising edge
 
 NAME                                                GATE                     DELAY    ARRIVAL DIR  FANOUT
-u_memory_modgen_counter_o_column/reg_q(4)/clk    stratixii_lcell_ff                   0.000   up
-u_memory_modgen_counter_o_column/reg_q(4)/regout stratixii_lcell_ff         0.000     0.000   up
-u_memory_modgen_counter_o_column/nx58250z8       (net)                      0.310                   3
-ix2564z37203/datac                               stratixii_lcell_comb                 0.310   up
-ix2564z37203/combout                             stratixii_lcell_comb       0.364     0.674   up
-nx2564z3                                         (net)                      0.300                   2
-ix52790z37201/datad                              stratixii_lcell_comb                 0.974   up
-ix52790z37201/combout                            stratixii_lcell_comb       0.364     1.338   up
-nx52790z1                                        (net)                      0.350                   8
-u_memory_modgen_counter_o_row/reg_q(7)/ena       stratixii_lcell_ff                   1.688   up
+u_memory/modgen_counter_o_column/reg_q(2)/clk    stratixii_lcell_ff                   0.000   up
+u_memory/modgen_counter_o_column/reg_q(2)/regout stratixii_lcell_ff         0.000     0.000   up
+u_memory/modgen_counter_o_column/nx58250z12      (net)                      0.330                   6
+u_memory/ix43683z37201/datad                     stratixii_lcell_comb                 0.330   up
+u_memory/ix43683z37201/combout                   stratixii_lcell_comb       0.364     0.694   up
+u_memory/nx43683z1                               (net)                      0.300                   2
+u_memory/ix40106z37203/datab                     stratixii_lcell_comb                 0.994   up
+u_memory/ix40106z37203/combout                   stratixii_lcell_comb       0.478     1.472   up
+u_memory/nx40106z3                               (net)                      0.300                   2
+u_memory/ix40106z37202/datae                     stratixii_lcell_comb                 1.772   up
+u_memory/ix40106z37202/combout                   stratixii_lcell_comb       0.206     1.978   up
+u_memory/nx40106z2                               (net)                      0.290                   1
+u_memory/ix40106z37201/datac                     stratixii_lcell_comb                 2.268   up
+u_memory/ix40106z37201/combout                   stratixii_lcell_comb       0.364     2.632   up
+u_memory/nx40106z1                               (net)                      0.310                   3
+u_memory/reg_mem_wrn_current(2)/ena              stratixii_lcell_ff                   2.942   up
 
 		Initial edge separation:      2.000
-		Source clock delay:      -    1.138
-		Dest clock delay:        +    1.138
+		Source clock delay:      -    1.168
+		Dest clock delay:        +    1.168
 		                        -----------
 		Edge separation:              2.000
 		Setup constraint:        -    1.000
 		                        -----------
 		Data required time:           1.000
-		Data arrival time:       -    1.688   ( 43.13% cell delay, 56.87% net delay )
+		Data arrival time:       -    2.942   ( 47.99% cell delay, 52.01% net delay )
 		                        -----------
-		Slack (VIOLATED):            -0.688
+		Slack (VIOLATED):            -1.942
 
 End CTE Analysis ..... CPU Time Used: 0 sec.

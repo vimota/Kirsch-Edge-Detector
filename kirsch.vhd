@@ -17,7 +17,6 @@ entity kirsch is
 		o_dir      : out std_logic_vector(2 downto 0);                      
 		o_mode     : out std_logic_vector(1 downto 0);
 		o_row      : out std_logic_vector(7 downto 0);
-		o_pixel    : out std_logic_vector(7 downto 0);
 		o_column   : out std_logic_vector(7 downto 0);
 		o_image0, o_image1, o_image2   : out image_type;
 		------------------------------------------
@@ -52,7 +51,6 @@ begin
 		o_image0 => o_image0,
 		o_image1 => o_image1,
 		o_image2 => o_image2,
-		o_pixel  => o_pixel,
 		o_row    => o_row
 	);
 

@@ -4,7 +4,6 @@ add wave -radix unsigned sim:/kirsch_tb/in_pixel
 add wave sim:/kirsch_tb/reset
 add wave sim:/kirsch_tb/out_mode
 add wave -radix unsigned sim:/kirsch_tb/out_row
-add wave -radix unsigned sim:/kirsch_tb/out_pixel
 add wave -radix unsigned sim:/kirsch_tb/out_column
 add wave -radix unsigned sim:/kirsch_tb/image00
 add wave -radix unsigned sim:/kirsch_tb/image01

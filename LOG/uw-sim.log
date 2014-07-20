@@ -37,6 +37,16 @@ Model Technology ModelSim SE-64 vcom 10.1 Compiler 2011.12 Dec  5 2011
 -- Compiling architecture main of kirsch
 -- Loading entity memory
 -- Loading entity memory
+-- Compiling package kirsch_utility_pkg
+-- Compiling package kirsch_utility_pkg
+-- Loading package kirsch_utility_pkg
+-- Loading package kirsch_utility_pkg
+-- Compiling entity memory
+-- Compiling entity memory
+-- Compiling architecture main of memory
+-- Compiling architecture main of memory
+-- Loading entity mem
+-- Loading entity mem
 -- Compiling package string_pkg
 -- Compiling package string_pkg
 -- Compiling package body string_pkg
@@ -77,4 +87,3 @@ Model Technology ModelSim SE-64 vcom 10.1 Compiler 2011.12 Dec  5 2011
 -- Loading entity kirsch
  
  Reading /opt/ModelSim101/modeltech/tcl/vsim/pref.tcl 
- INFO: Keyboard interrupt when running `vsim -lib work-msim     -wlf uw_tmp/vsim.wlf -t 1ns -do uw_tmp/uw-sim.tcl kirsch_tb(main)'
