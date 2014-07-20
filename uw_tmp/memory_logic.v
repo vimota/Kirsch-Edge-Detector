@@ -1,6 +1,6 @@
 //
 // Verilog description for cell memory, 
-// Sun Jul 20 00:55:07 2014
+// Sun Jul 20 01:02:46 2014
 //
 // Precision RTL Synthesis, 2008a.47//
 
@@ -59,27 +59,31 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_column, o_row,
     wire [7:0]mem_q_0_;
     wire [7:0]mem_q_1_;
     wire [7:0]mem_q_2_;
-    wire i_valid_int;
+    wire i_valid_int, i_reset_int;
     wire [7:0]i_pixel_int;
-    wire i_clock_int, mem_wrn_current_0n4ss1_0_, nx39109z2, nx47386z1;
+    wire i_clock_int;
+    wire [2:0]mem_wrn_current_0n4ss1;
+    wire nx47386z1, nx46897z1;
     wire [7:0]buffer2_1n2ss1;
-    wire nx60567z3, nx57224z1, nx45404z1, nx17757z1, nx16760z1, nx15763z1, 
-         nx60567z1, nx39109z1, nx62359z1, nx61362z1, nx60365z1, nx59368z1, 
+    wire nx60567z3, nx57224z1, nx17757z1, nx16760z1, nx15763z1, nx60567z1, 
+         nx39109z1, nx15763z2, nx62359z1, nx61362z1, nx60365z1, nx59368z1, 
          nx58371z1, nx57374z1, nx56377z1, nx55380z1, nx63578z1, nx64575z1, 
          nx36z1, nx1033z1, nx2030z1, nx3027z1, nx4024z1, nx5021z1, nx60567z2, 
-         nx60567z4, nx64975z1, first_bubble_repl, nx47386z2, not_rtlc0n196_repl;
-    wire [5331:0] xmplr_dummy ;
+         nx60567z4, nx47386z2, nx47386z3, first_bubble_repl, nx47386z4;
+    wire [5390:0] xmplr_dummy ;
 
 
 
 
     modgen_counter_8_0 modgen_counter_row (.clock (i_clock_int), .q ({row[7],
-                       row[6],row[5],row[4],row[3],row[2],row[1],row[0]}), .p_not_rtlc0n196_repl (
-                       not_rtlc0n196_repl)) ;
+                       row[6],row[5],row[4],row[3],row[2],row[1],row[0]}), .sclear (
+                       i_reset_int), .p_i_valid_int (i_valid_int), .px581 (
+                       nx47386z2)) ;
     modgen_counter_8_1 modgen_counter_column (.clock (i_clock_int), .q ({
                        column[7],column[6],column[5],column[4],column[3],
-                       column[2],column[1],column[0]}), .clk_en (nx47386z1), .p_rtlcs0_repl (
-                       nx47386z2)) ;
+                       column[2],column[1],column[0]}), .sclear (nx47386z1), .cnt_en (
+                       first_bubble), .p_i_valid_int (i_valid_int), .p_i_reset_int (
+                       i_reset_int), .p_rtlc0n255_repl (nx47386z4)) ;
     ram_dq_8_0 u_mem1_mem (.wr_data1 ({mem_data[7],mem_data[6],mem_data[5],
                mem_data[4],mem_data[3],mem_data[2],mem_data[1],mem_data[0]}), .rd_data1 (
                {mem_q_0_[7],mem_q_0_[6],mem_q_0_[5],mem_q_0_[4],mem_q_0_[3],
@@ -150,17 +154,17 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_column, o_row,
                        column[0]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
                        1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
     stratixii_lcell_ff reg_mem_wrn_current_2_ (.regout (mem_wrn_current[2]), .datain (
-                       mem_wrn_current[1]), .adatasdata (1'b0), .clk (
-                       i_clock_int), .ena (nx39109z1), .aclr (1'b0), .sclr (1'b0
-                       ), .sload (1'b0)) ;
+                       mem_wrn_current_0n4ss1[2]), .adatasdata (1'b0), .clk (
+                       i_clock_int), .ena (nx39109z1), .aclr (1'b0), .sclr (
+                       i_reset_int), .sload (1'b0)) ;
     stratixii_lcell_ff reg_mem_wrn_current_1_ (.regout (mem_wrn_current[1]), .datain (
-                       mem_wrn_current[0]), .adatasdata (1'b0), .clk (
-                       i_clock_int), .ena (nx39109z1), .aclr (1'b0), .sclr (1'b0
-                       ), .sload (1'b0)) ;
+                       mem_wrn_current_0n4ss1[1]), .adatasdata (1'b0), .clk (
+                       i_clock_int), .ena (nx39109z1), .aclr (1'b0), .sclr (
+                       i_reset_int), .sload (1'b0)) ;
     stratixii_lcell_ff reg_mem_wrn_current_0_ (.regout (mem_wrn_current[0]), .datain (
-                       mem_wrn_current_0n4ss1_0_), .adatasdata (1'b0), .clk (
-                       i_clock_int), .ena (nx39109z1), .aclr (1'b0), .sclr (1'b0
-                       ), .sload (1'b0)) ;
+                       mem_wrn_current_0n4ss1[0]), .adatasdata (1'b0), .clk (
+                       i_clock_int), .ena (nx39109z1), .aclr (1'b0), .sclr (
+                       i_reset_int), .sload (1'b0)) ;
     stratixii_lcell_ff reg_mem_wrn_2_ (.regout (mem_wrn[2]), .datain (nx17757z1)
                        , .adatasdata (1'b0), .clk (i_clock_int), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
@@ -172,42 +176,44 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_column, o_row,
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
     stratixii_lcell_ff reg_mem_data_7_ (.regout (mem_data[7]), .datain (
                        i_pixel_int[7]), .adatasdata (1'b0), .clk (i_clock_int), 
-                       .ena (i_valid_int), .aclr (1'b0), .sclr (1'b0), .sload (
+                       .ena (nx46897z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
     stratixii_lcell_ff reg_mem_data_6_ (.regout (mem_data[6]), .datain (
                        i_pixel_int[6]), .adatasdata (1'b0), .clk (i_clock_int), 
-                       .ena (i_valid_int), .aclr (1'b0), .sclr (1'b0), .sload (
+                       .ena (nx46897z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
     stratixii_lcell_ff reg_mem_data_5_ (.regout (mem_data[5]), .datain (
                        i_pixel_int[5]), .adatasdata (1'b0), .clk (i_clock_int), 
-                       .ena (i_valid_int), .aclr (1'b0), .sclr (1'b0), .sload (
+                       .ena (nx46897z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
     stratixii_lcell_ff reg_mem_data_4_ (.regout (mem_data[4]), .datain (
                        i_pixel_int[4]), .adatasdata (1'b0), .clk (i_clock_int), 
-                       .ena (i_valid_int), .aclr (1'b0), .sclr (1'b0), .sload (
+                       .ena (nx46897z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
     stratixii_lcell_ff reg_mem_data_3_ (.regout (mem_data[3]), .datain (
                        i_pixel_int[3]), .adatasdata (1'b0), .clk (i_clock_int), 
-                       .ena (i_valid_int), .aclr (1'b0), .sclr (1'b0), .sload (
+                       .ena (nx46897z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
     stratixii_lcell_ff reg_mem_data_2_ (.regout (mem_data[2]), .datain (
                        i_pixel_int[2]), .adatasdata (1'b0), .clk (i_clock_int), 
-                       .ena (i_valid_int), .aclr (1'b0), .sclr (1'b0), .sload (
+                       .ena (nx46897z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
     stratixii_lcell_ff reg_mem_data_1_ (.regout (mem_data[1]), .datain (
                        i_pixel_int[1]), .adatasdata (1'b0), .clk (i_clock_int), 
-                       .ena (i_valid_int), .aclr (1'b0), .sclr (1'b0), .sload (
+                       .ena (nx46897z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
     stratixii_lcell_ff reg_mem_data_0_ (.regout (mem_data[0]), .datain (
                        i_pixel_int[0]), .adatasdata (1'b0), .clk (i_clock_int), 
-                       .ena (i_valid_int), .aclr (1'b0), .sclr (1'b0), .sload (
+                       .ena (nx46897z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
     stratixii_lcell_ff reg_first_bubble_repl (.regout (first_bubble_repl), .datain (
                        i_valid_int), .adatasdata (1'b0), .clk (i_clock_int), .ena (
-                       1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+                       1'b1), .aclr (1'b0), .sclr (i_reset_int), .sload (1'b0)
+                       ) ;
     stratixii_lcell_ff reg_first_bubble (.regout (first_bubble), .datain (
                        i_valid_int), .adatasdata (1'b0), .clk (i_clock_int), .ena (
-                       1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+                       1'b1), .aclr (1'b0), .sclr (i_reset_int), .sload (1'b0)
+                       ) ;
     stratixii_lcell_ff reg_buffer2_2__7_ (.regout (o_image2_2__dup0_7_), .datain (
                        mem_q_2_[7]), .adatasdata (mem_data[7]), .clk (
                        i_clock_int), .ena (first_bubble_repl), .aclr (1'b0), .sclr (
@@ -1911,12 +1917,18 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_column, o_row,
                  defparam o_column_obuf_0_.tie_off_oe_clock_enable = "false";
                  
                  defparam o_column_obuf_0_.input_register_mode = "none";
-    stratixii_lcell_comb ix64975z37201 (.combout (nx64975z1), .dataa (1'b1), .datab (
+    stratixii_lcell_comb ix47386z37203 (.combout (nx47386z3), .dataa (1'b1), .datab (
                          1'b1), .datac (column[4]), .datad (column[5]), .datae (
                          column[6]), .dataf (column[7]), .datag (1'b1), .cin (
                          1'b0)) ;
                          
-                         defparam ix64975z37201.lut_mask = 64'hf000000000000000;
+                         defparam ix47386z37203.lut_mask = 64'hf000000000000000;
+    stratixii_lcell_comb ix47386z37202 (.combout (nx47386z2), .dataa (nx47386z3)
+                         , .datab (column[0]), .datac (column[1]), .datad (
+                         column[2]), .datae (column[3]), .dataf (first_bubble), 
+                         .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix47386z37202.lut_mask = 64'h8000000000000000;
     stratixii_lcell_comb ix60567z37204 (.combout (nx60567z4), .dataa (1'b1), .datab (
                          1'b1), .datac (row[3]), .datad (row[4]), .datae (row[5]
                          ), .dataf (row[6]), .datag (1'b1), .cin (1'b0)) ;
@@ -2034,12 +2046,18 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_column, o_row,
                          ), .cin (1'b0)) ;
                          
                          defparam ix62359z37201.lut_mask = 64'hafcfaccca0c0accc;
-    stratixii_lcell_comb ix39109z37202 (.combout (nx39109z1), .dataa (1'b1), .datab (
-                         i_valid_int), .datac (nx39109z2), .datad (
+    stratixii_lcell_comb ix15763z37202 (.combout (nx15763z2), .dataa (1'b1), .datab (
+                         1'b1), .datac (1'b1), .datad (1'b1), .datae (
+                         i_reset_int), .dataf (i_valid_int), .datag (1'b1), .cin (
+                         1'b0)) ;
+                         
+                         defparam ix15763z37202.lut_mask = 64'hffff0000ffffffff;
+    stratixii_lcell_comb ix39109z37202 (.combout (nx39109z1), .dataa (nx47386z2)
+                         , .datab (i_reset_int), .datac (i_valid_int), .datad (
                          mem_wrn_current[0]), .datae (mem_wrn_current[1]), .dataf (
                          mem_wrn_current[2]), .datag (1'b1), .cin (1'b0)) ;
                          
-                         defparam ix39109z37202.lut_mask = 64'hf0f0f0f0f0f0f0fc;
+                         defparam ix39109z37202.lut_mask = 64'hcececececececefe;
     stratixii_lcell_comb ix60567z37201 (.combout (nx60567z1), .dataa (nx60567z2)
                          , .datab (nx60567z3), .datac (column[6]), .datad (
                          column[7]), .datae (first_bubble), .dataf (o_valid_dup0
@@ -2047,35 +2065,23 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_column, o_row,
                          
                          defparam ix60567z37201.lut_mask = 64'hffff0000ccc80000;
     stratixii_lcell_comb ix15763z37201 (.combout (nx15763z1), .dataa (1'b1), .datab (
-                         1'b1), .datac (i_valid_int), .datad (mem_wrn_current[0]
-                         ), .datae (mem_wrn_current[1]), .dataf (
+                         1'b1), .datac (nx15763z2), .datad (mem_wrn_current[0])
+                         , .datae (mem_wrn_current[1]), .dataf (
                          mem_wrn_current[2]), .datag (1'b1), .cin (1'b0)) ;
                          
-                         defparam ix15763z37201.lut_mask = 64'hf000f000f000f0f0;
+                         defparam ix15763z37201.lut_mask = 64'h0f000f000f000f0f;
     stratixii_lcell_comb ix16760z37201 (.combout (nx16760z1), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (1'b1), .datae (
+                         1'b1), .datac (1'b1), .datad (i_reset_int), .datae (
                          i_valid_int), .dataf (mem_wrn_current[1]), .datag (1'b1
                          ), .cin (1'b0)) ;
                          
-                         defparam ix16760z37201.lut_mask = 64'hffff000000000000;
+                         defparam ix16760z37201.lut_mask = 64'h00ff000000000000;
     stratixii_lcell_comb ix17757z37201 (.combout (nx17757z1), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (1'b1), .datae (
+                         1'b1), .datac (1'b1), .datad (i_reset_int), .datae (
                          i_valid_int), .dataf (mem_wrn_current[2]), .datag (1'b1
                          ), .cin (1'b0)) ;
                          
-                         defparam ix17757z37201.lut_mask = 64'hffff000000000000;
-    stratixii_lcell_comb ix466_repl (.combout (nx47386z2), .dataa (1'b1), .datab (
-                         nx64975z1), .datac (column[0]), .datad (column[1]), .datae (
-                         column[2]), .dataf (column[3]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix466_repl.lut_mask = 64'hc000000000000000;
-    stratixii_lcell_comb ix45404z37201 (.combout (nx45404z1), .dataa (1'b1), .datab (
-                         nx64975z1), .datac (column[0]), .datad (column[1]), .datae (
-                         column[2]), .dataf (column[3]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix45404z37201.lut_mask = 64'hc000000000000000;
+                         defparam ix17757z37201.lut_mask = 64'h00ff000000000000;
     stratixii_lcell_comb ix57224z37201 (.combout (nx57224z1), .dataa (1'b1), .datab (
                          1'b1), .datac (1'b1), .datad (1'b1), .datae (nx60567z3)
                          , .dataf (mem_wrn_current[2]), .datag (1'b1), .cin (
@@ -2135,30 +2141,40 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_column, o_row,
                          , .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix63578z37202.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix524_repl (.combout (nx47386z4), .dataa (1'b1), .datab (
+                         1'b1), .datac (1'b1), .datad (1'b1), .datae (nx47386z2)
+                         , .dataf (i_reset_int), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix524_repl.lut_mask = 64'hffffffffffff0000;
     stratixii_lcell_comb ix47386z37201 (.combout (nx47386z1), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (1'b1), .datae (
-                         i_valid_int), .dataf (first_bubble), .datag (1'b1), .cin (
-                         1'b0)) ;
+                         1'b1), .datac (1'b1), .datad (1'b1), .datae (nx47386z2)
+                         , .dataf (i_reset_int), .datag (1'b1), .cin (1'b0)) ;
                          
-                         defparam ix47386z37201.lut_mask = 64'h0000ffff00000000;
-    stratixii_lcell_comb ix454_repl (.combout (not_rtlc0n196_repl), .dataa (1'b1
-                         ), .datab (1'b1), .datac (1'b1), .datad (i_valid_int), 
-                         .datae (nx45404z1), .dataf (first_bubble), .datag (1'b1
-                         ), .cin (1'b0)) ;
-                         
-                         defparam ix454_repl.lut_mask = 64'h00ff000000000000;
-    stratixii_lcell_comb ix39109z37203 (.combout (nx39109z2), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (i_valid_int), .datae (
-                         nx45404z1), .dataf (first_bubble), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix39109z37203.lut_mask = 64'h00ff000000000000;
-    stratixii_lcell_comb ix39109z37201 (.combout (mem_wrn_current_0n4ss1_0_), .dataa (
+                         defparam ix47386z37201.lut_mask = 64'hffffffffffff0000;
+    stratixii_lcell_comb ix39109z37201 (.combout (mem_wrn_current_0n4ss1[0]), .dataa (
                          1'b1), .datab (1'b1), .datac (1'b1), .datad (1'b1), .datae (
                          i_valid_int), .dataf (mem_wrn_current[2]), .datag (1'b1
                          ), .cin (1'b0)) ;
                          
                          defparam ix39109z37201.lut_mask = 64'hffffffffffff0000;
+    stratixii_lcell_comb ix40106z37201 (.combout (mem_wrn_current_0n4ss1[1]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (1'b1), .datae (
+                         i_valid_int), .dataf (mem_wrn_current[0]), .datag (1'b1
+                         ), .cin (1'b0)) ;
+                         
+                         defparam ix40106z37201.lut_mask = 64'h0000ffff00000000;
+    stratixii_lcell_comb ix41103z37201 (.combout (mem_wrn_current_0n4ss1[2]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (1'b1), .datae (
+                         i_valid_int), .dataf (mem_wrn_current[1]), .datag (1'b1
+                         ), .cin (1'b0)) ;
+                         
+                         defparam ix41103z37201.lut_mask = 64'h0000ffff00000000;
+    stratixii_lcell_comb ix46897z37201 (.combout (nx46897z1), .dataa (1'b1), .datab (
+                         1'b1), .datac (1'b1), .datad (1'b1), .datae (
+                         i_reset_int), .dataf (i_valid_int), .datag (1'b1), .cin (
+                         1'b0)) ;
+                         
+                         defparam ix46897z37201.lut_mask = 64'h0000ffff00000000;
     stratixii_io i_valid_ibuf (.combout (i_valid_int), .padio (i_valid), .datain (
                  1'b0), .ddiodatain (1'b0), .oe (1'b1), .outclk (1'b0), .outclkena (
                  1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (1'b0), .sreset (
@@ -2171,6 +2187,18 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_column, o_row,
                  
                  defparam i_valid_ibuf.tie_off_oe_clock_enable = "false";
                  defparam i_valid_ibuf.input_register_mode = "none";
+    stratixii_io i_reset_ibuf (.combout (i_reset_int), .padio (i_reset), .datain (
+                 1'b0), .ddiodatain (1'b0), .oe (1'b1), .outclk (1'b0), .outclkena (
+                 1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (1'b0), .sreset (
+                 1'b0)) ;
+                 defparam i_reset_ibuf.operation_mode = "input";
+                 defparam i_reset_ibuf.output_register_mode = "none";
+                 
+                 defparam i_reset_ibuf.tie_off_output_clock_enable = "false";
+                 defparam i_reset_ibuf.oe_register_mode = "none";
+                 
+                 defparam i_reset_ibuf.tie_off_oe_clock_enable = "false";
+                 defparam i_reset_ibuf.input_register_mode = "none";
     stratixii_io i_pixel_ibuf_7_ (.combout (i_pixel_int[7]), .padio (i_pixel[7])
                  , .datain (1'b0), .ddiodatain (1'b0), .oe (1'b1), .outclk (1'b0
                  ), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
@@ -2328,7 +2356,7 @@ module ram_dq_8_2 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
     input rst1 ;
     input regce1 ;
 
-    wire ena1_rename671;
+    wire ena1_rename654;
 
 
 
@@ -2336,7 +2364,7 @@ module ram_dq_8_2 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                wr_data1[4],wr_data1[3],wr_data1[2],wr_data1[1],wr_data1[0]}), .address_a (
                {addr1[7],addr1[6],addr1[5],addr1[4],addr1[3],addr1[2],addr1[1],
                addr1[0]}), .wren_a (wr_ena1), .clock0 (wr_clk1), .clocken0 (
-               ena1_rename671), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
+               ena1_rename654), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
                rd_data1[4],rd_data1[3],rd_data1[2],rd_data1[1],rd_data1[0]})) ;
                
                defparam ix64056z29483.width_a = 8;
@@ -2410,7 +2438,7 @@ module ram_dq_8_2 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                defparam ix64056z29483.lpm_hint = "UNUSED";
                
                defparam ix64056z29483.lpm_type = "altsyncram";
-    assign ena1_rename671 = 1 ;
+    assign ena1_rename654 = 1 ;
 endmodule
 
 
@@ -2428,7 +2456,7 @@ module ram_dq_8_1 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
     input rst1 ;
     input regce1 ;
 
-    wire ena1_rename641;
+    wire ena1_rename624;
 
 
 
@@ -2436,7 +2464,7 @@ module ram_dq_8_1 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                wr_data1[4],wr_data1[3],wr_data1[2],wr_data1[1],wr_data1[0]}), .address_a (
                {addr1[7],addr1[6],addr1[5],addr1[4],addr1[3],addr1[2],addr1[1],
                addr1[0]}), .wren_a (wr_ena1), .clock0 (wr_clk1), .clocken0 (
-               ena1_rename641), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
+               ena1_rename624), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
                rd_data1[4],rd_data1[3],rd_data1[2],rd_data1[1],rd_data1[0]})) ;
                
                defparam ix64056z29482.width_a = 8;
@@ -2510,7 +2538,7 @@ module ram_dq_8_1 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                defparam ix64056z29482.lpm_hint = "UNUSED";
                
                defparam ix64056z29482.lpm_type = "altsyncram";
-    assign ena1_rename641 = 1 ;
+    assign ena1_rename624 = 1 ;
 endmodule
 
 
@@ -2528,7 +2556,7 @@ module ram_dq_8_0 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
     input rst1 ;
     input regce1 ;
 
-    wire ena1_rename611;
+    wire ena1_rename594;
 
 
 
@@ -2536,7 +2564,7 @@ module ram_dq_8_0 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                wr_data1[4],wr_data1[3],wr_data1[2],wr_data1[1],wr_data1[0]}), .address_a (
                {addr1[7],addr1[6],addr1[5],addr1[4],addr1[3],addr1[2],addr1[1],
                addr1[0]}), .wren_a (wr_ena1), .clock0 (wr_clk1), .clocken0 (
-               ena1_rename611), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
+               ena1_rename594), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
                rd_data1[4],rd_data1[3],rd_data1[2],rd_data1[1],rd_data1[0]})) ;
                
                defparam ix64056z29481.width_a = 8;
@@ -2610,12 +2638,13 @@ module ram_dq_8_0 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                defparam ix64056z29481.lpm_hint = "UNUSED";
                
                defparam ix64056z29481.lpm_type = "altsyncram";
-    assign ena1_rename611 = 1 ;
+    assign ena1_rename594 = 1 ;
 endmodule
 
 
 module modgen_counter_8_1 ( clock, q, clk_en, aclear, sload, data, aset, sclear, 
-                            updn, cnt_en, p_rtlcs0_repl ) ;
+                            updn, cnt_en, p_i_valid_int, p_i_reset_int, 
+                            p_rtlc0n255_repl ) ;
 
     input clock ;
     output [7:0]q ;
@@ -2627,13 +2656,15 @@ module modgen_counter_8_1 ( clock, q, clk_en, aclear, sload, data, aset, sclear,
     input sclear ;
     input updn ;
     input cnt_en ;
-    input p_rtlcs0_repl ;
+    input p_i_valid_int ;
+    input p_i_reset_int ;
+    input p_rtlc0n255_repl ;
 
-    wire GND, nx58250z1, nx57253z1, nx56256z1, nx55259z1, nx54262z1, nx53265z1, 
-         nx52268z1, nx51271z1, nx58250z17, nx58250z15, nx58250z13, nx58250z11, 
-         nx58250z9, nx58250z7, nx58250z5, nx58250z3, nx58250z2, nx58250z18, 
-         nx58250z19;
-    wire [105:0] xmplr_dummy ;
+    wire GND, nx57253z3, nx58250z1, nx57253z1, nx56256z1, nx55259z1, nx54262z1, 
+         nx53265z1, nx52268z1, nx51271z1, nx58250z17, nx58250z15, nx58250z13, 
+         nx58250z11, nx58250z9, nx58250z7, nx58250z5, nx58250z3, nx58250z2, 
+         nx58250z18, nx58250z19;
+    wire [113:0] xmplr_dummy ;
 
 
 
@@ -2643,29 +2674,35 @@ module modgen_counter_8_1 ( clock, q, clk_en, aclear, sload, data, aset, sclear,
     assign nx58250z18 = 1 ;
     assign nx58250z19 = 1 ;
     stratixii_lcell_ff reg_q_7_ (.regout (q[7]), .datain (nx58250z1), .adatasdata (
-                       1'b0), .clk (clock), .ena (clk_en), .aclr (1'b0), .sclr (
-                       p_rtlcs0_repl), .sload (1'b0)) ;
+                       1'b0), .clk (clock), .ena (nx57253z3), .aclr (1'b0), .sclr (
+                       p_rtlc0n255_repl), .sload (1'b0)) ;
     stratixii_lcell_ff reg_q_6_ (.regout (q[6]), .datain (nx57253z1), .adatasdata (
-                       1'b0), .clk (clock), .ena (clk_en), .aclr (1'b0), .sclr (
-                       p_rtlcs0_repl), .sload (1'b0)) ;
+                       1'b0), .clk (clock), .ena (nx57253z3), .aclr (1'b0), .sclr (
+                       p_rtlc0n255_repl), .sload (1'b0)) ;
     stratixii_lcell_ff reg_q_5_ (.regout (q[5]), .datain (nx56256z1), .adatasdata (
-                       1'b0), .clk (clock), .ena (clk_en), .aclr (1'b0), .sclr (
-                       p_rtlcs0_repl), .sload (1'b0)) ;
+                       1'b0), .clk (clock), .ena (nx57253z3), .aclr (1'b0), .sclr (
+                       p_rtlc0n255_repl), .sload (1'b0)) ;
     stratixii_lcell_ff reg_q_4_ (.regout (q[4]), .datain (nx55259z1), .adatasdata (
-                       1'b0), .clk (clock), .ena (clk_en), .aclr (1'b0), .sclr (
-                       p_rtlcs0_repl), .sload (1'b0)) ;
+                       1'b0), .clk (clock), .ena (nx57253z3), .aclr (1'b0), .sclr (
+                       p_rtlc0n255_repl), .sload (1'b0)) ;
     stratixii_lcell_ff reg_q_3_ (.regout (q[3]), .datain (nx54262z1), .adatasdata (
-                       1'b0), .clk (clock), .ena (clk_en), .aclr (1'b0), .sclr (
-                       p_rtlcs0_repl), .sload (1'b0)) ;
+                       1'b0), .clk (clock), .ena (nx57253z3), .aclr (1'b0), .sclr (
+                       p_rtlc0n255_repl), .sload (1'b0)) ;
     stratixii_lcell_ff reg_q_2_ (.regout (q[2]), .datain (nx53265z1), .adatasdata (
-                       1'b0), .clk (clock), .ena (clk_en), .aclr (1'b0), .sclr (
-                       p_rtlcs0_repl), .sload (1'b0)) ;
+                       1'b0), .clk (clock), .ena (nx57253z3), .aclr (1'b0), .sclr (
+                       p_rtlc0n255_repl), .sload (1'b0)) ;
     stratixii_lcell_ff reg_q_1_ (.regout (q[1]), .datain (nx52268z1), .adatasdata (
-                       1'b0), .clk (clock), .ena (clk_en), .aclr (1'b0), .sclr (
-                       p_rtlcs0_repl), .sload (1'b0)) ;
+                       1'b0), .clk (clock), .ena (nx57253z3), .aclr (1'b0), .sclr (
+                       p_rtlc0n255_repl), .sload (1'b0)) ;
     stratixii_lcell_ff reg_q_0_ (.regout (q[0]), .datain (nx51271z1), .adatasdata (
-                       1'b0), .clk (clock), .ena (clk_en), .aclr (1'b0), .sclr (
-                       p_rtlcs0_repl), .sload (1'b0)) ;
+                       1'b0), .clk (clock), .ena (nx57253z3), .aclr (1'b0), .sclr (
+                       p_rtlc0n255_repl), .sload (1'b0)) ;
+    stratixii_lcell_comb ix57253z37201 (.combout (nx57253z3), .dataa (1'b1), .datab (
+                         1'b1), .datac (p_i_valid_int), .datad (p_i_reset_int), 
+                         .datae (sclear), .dataf (cnt_en), .datag (1'b1), .cin (
+                         1'b0)) ;
+                         
+                         defparam ix57253z37201.lut_mask = 64'hff0fff0fff0f0000;
     stratixii_lcell_comb ix58250z37202 (.sumout (nx57253z1), .cout (nx58250z3), 
                          .dataa (nx58250z2), .datab (1'b1), .datac (1'b1), .datad (
                          q[6]), .datae (1'b1), .dataf (1'b1), .datag (1'b1), .cin (
@@ -2722,7 +2759,7 @@ endmodule
 
 
 module modgen_counter_8_0 ( clock, q, clk_en, aclear, sload, data, aset, sclear, 
-                            updn, cnt_en, p_not_rtlc0n196_repl ) ;
+                            updn, cnt_en, p_i_valid_int, px581 ) ;
 
     input clock ;
     output [7:0]q ;
@@ -2734,96 +2771,102 @@ module modgen_counter_8_0 ( clock, q, clk_en, aclear, sload, data, aset, sclear,
     input sclear ;
     input updn ;
     input cnt_en ;
-    input p_not_rtlc0n196_repl ;
+    input p_i_valid_int ;
+    input px581 ;
 
-    wire nx58250z1, nx57253z1, nx56256z1, nx55259z1, nx54262z1, nx53265z1, 
-         nx52268z1, nx51271z1, nx58250z10, nx58250z9, nx58250z8, nx58250z7, 
-         nx58250z6, nx58250z5, nx58250z4, nx58250z3, nx58250z2, GND, nx58250z11, 
-         nx58250z12;
-    wire [113:0] xmplr_dummy ;
+    wire GND, nx57253z3, nx58250z1, nx57253z1, nx56256z1, nx55259z1, nx54262z1, 
+         nx53265z1, nx52268z1, nx51271z1, nx58250z17, nx58250z15, nx58250z13, 
+         nx58250z11, nx58250z9, nx58250z7, nx58250z5, nx58250z3, nx58250z2, 
+         nx58250z18, nx58250z19;
+    wire [114:0] xmplr_dummy ;
 
 
 
 
     assign GND = 0 ;
     assign nx58250z2 = 0 ;
-    assign nx58250z11 = 1 ;
-    assign nx58250z12 = 1 ;
+    assign nx58250z18 = 1 ;
+    assign nx58250z19 = 1 ;
     stratixii_lcell_ff reg_q_7_ (.regout (q[7]), .datain (nx58250z1), .adatasdata (
-                       1'b0), .clk (clock), .ena (p_not_rtlc0n196_repl), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
+                       1'b0), .clk (clock), .ena (nx57253z3), .aclr (1'b0), .sclr (
+                       sclear), .sload (1'b0)) ;
     stratixii_lcell_ff reg_q_6_ (.regout (q[6]), .datain (nx57253z1), .adatasdata (
-                       1'b0), .clk (clock), .ena (p_not_rtlc0n196_repl), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
+                       1'b0), .clk (clock), .ena (nx57253z3), .aclr (1'b0), .sclr (
+                       sclear), .sload (1'b0)) ;
     stratixii_lcell_ff reg_q_5_ (.regout (q[5]), .datain (nx56256z1), .adatasdata (
-                       1'b0), .clk (clock), .ena (p_not_rtlc0n196_repl), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
+                       1'b0), .clk (clock), .ena (nx57253z3), .aclr (1'b0), .sclr (
+                       sclear), .sload (1'b0)) ;
     stratixii_lcell_ff reg_q_4_ (.regout (q[4]), .datain (nx55259z1), .adatasdata (
-                       1'b0), .clk (clock), .ena (p_not_rtlc0n196_repl), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
+                       1'b0), .clk (clock), .ena (nx57253z3), .aclr (1'b0), .sclr (
+                       sclear), .sload (1'b0)) ;
     stratixii_lcell_ff reg_q_3_ (.regout (q[3]), .datain (nx54262z1), .adatasdata (
-                       1'b0), .clk (clock), .ena (p_not_rtlc0n196_repl), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
+                       1'b0), .clk (clock), .ena (nx57253z3), .aclr (1'b0), .sclr (
+                       sclear), .sload (1'b0)) ;
     stratixii_lcell_ff reg_q_2_ (.regout (q[2]), .datain (nx53265z1), .adatasdata (
-                       1'b0), .clk (clock), .ena (p_not_rtlc0n196_repl), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
+                       1'b0), .clk (clock), .ena (nx57253z3), .aclr (1'b0), .sclr (
+                       sclear), .sload (1'b0)) ;
     stratixii_lcell_ff reg_q_1_ (.regout (q[1]), .datain (nx52268z1), .adatasdata (
-                       1'b0), .clk (clock), .ena (p_not_rtlc0n196_repl), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
+                       1'b0), .clk (clock), .ena (nx57253z3), .aclr (1'b0), .sclr (
+                       sclear), .sload (1'b0)) ;
     stratixii_lcell_ff reg_q_0_ (.regout (q[0]), .datain (nx51271z1), .adatasdata (
-                       1'b0), .clk (clock), .ena (p_not_rtlc0n196_repl), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
+                       1'b0), .clk (clock), .ena (nx57253z3), .aclr (1'b0), .sclr (
+                       sclear), .sload (1'b0)) ;
+    stratixii_lcell_comb ix57253z37201 (.combout (nx57253z3), .dataa (1'b1), .datab (
+                         1'b1), .datac (1'b1), .datad (p_i_valid_int), .datae (
+                         px581), .dataf (sclear), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix57253z37201.lut_mask = 64'hffffffff00ff0000;
+    stratixii_lcell_comb ix58250z37202 (.sumout (nx57253z1), .cout (nx58250z3), 
+                         .dataa (nx58250z2), .datab (1'b1), .datac (1'b1), .datad (
+                         q[6]), .datae (1'b1), .dataf (1'b1), .datag (1'b1), .cin (
+                         nx58250z5)) ;
+                         
+                         defparam ix58250z37202.lut_mask = 64'h000055550000ff00;
+    stratixii_lcell_comb ix58250z37203 (.sumout (nx56256z1), .cout (nx58250z5), 
+                         .dataa (nx58250z2), .datab (1'b1), .datac (1'b1), .datad (
+                         q[5]), .datae (1'b1), .dataf (1'b1), .datag (1'b1), .cin (
+                         nx58250z7)) ;
+                         
+                         defparam ix58250z37203.lut_mask = 64'h000055550000ff00;
+    stratixii_lcell_comb ix58250z37204 (.sumout (nx55259z1), .cout (nx58250z7), 
+                         .dataa (nx58250z2), .datab (1'b1), .datac (1'b1), .datad (
+                         q[4]), .datae (1'b1), .dataf (1'b1), .datag (1'b1), .cin (
+                         nx58250z9)) ;
+                         
+                         defparam ix58250z37204.lut_mask = 64'h000055550000ff00;
+    stratixii_lcell_comb ix58250z37205 (.sumout (nx54262z1), .cout (nx58250z9), 
+                         .dataa (nx58250z2), .datab (1'b1), .datac (1'b1), .datad (
+                         q[3]), .datae (1'b1), .dataf (1'b1), .datag (1'b1), .cin (
+                         nx58250z11)) ;
+                         
+                         defparam ix58250z37205.lut_mask = 64'h000055550000ff00;
+    stratixii_lcell_comb ix58250z37206 (.sumout (nx53265z1), .cout (nx58250z11)
+                         , .dataa (nx58250z2), .datab (1'b1), .datac (1'b1), .datad (
+                         q[2]), .datae (1'b1), .dataf (1'b1), .datag (1'b1), .cin (
+                         nx58250z13)) ;
+                         
+                         defparam ix58250z37206.lut_mask = 64'h000055550000ff00;
+    stratixii_lcell_comb ix58250z37207 (.sumout (nx52268z1), .cout (nx58250z13)
+                         , .dataa (nx58250z2), .datab (1'b1), .datac (1'b1), .datad (
+                         q[1]), .datae (1'b1), .dataf (1'b1), .datag (1'b1), .cin (
+                         nx58250z15)) ;
+                         
+                         defparam ix58250z37207.lut_mask = 64'h000055550000ff00;
+    stratixii_lcell_comb ix58250z37209 (.cout (nx58250z17), .dataa (1'b1), .datab (
+                         1'b1), .datac (1'b1), .datad (nx58250z18), .datae (1'b1
+                         ), .dataf (nx58250z19), .datag (1'b1), .cin (GND)) ;
+                         
+                         defparam ix58250z37209.lut_mask = 64'h000000ff0000ff00;
+    stratixii_lcell_comb ix58250z37208 (.sumout (nx51271z1), .cout (nx58250z15)
+                         , .dataa (1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         q[0]), .datae (1'b1), .dataf (nx58250z2), .datag (1'b1)
+                         , .cin (nx58250z17)) ;
+                         
+                         defparam ix58250z37208.lut_mask = 64'h000000ff0000ff00;
     stratixii_lcell_comb ix58250z37201 (.sumout (nx58250z1), .dataa (1'b1), .datab (
                          1'b1), .datac (1'b1), .datad (q[7]), .datae (1'b1), .dataf (
                          nx58250z2), .datag (1'b1), .cin (nx58250z3)) ;
                          
                          defparam ix58250z37201.lut_mask = 64'h000000ff0000ff00;
-    stratixii_lcell_comb ix58250z37202 (.sumout (nx57253z1), .cout (nx58250z3), 
-                         .dataa (nx58250z2), .datab (1'b1), .datac (1'b1), .datad (
-                         q[6]), .datae (1'b1), .dataf (1'b1), .datag (1'b1), .cin (
-                         nx58250z4)) ;
-                         
-                         defparam ix58250z37202.lut_mask = 64'h000055550000ff00;
-    stratixii_lcell_comb ix58250z37203 (.sumout (nx56256z1), .cout (nx58250z4), 
-                         .dataa (nx58250z2), .datab (1'b1), .datac (1'b1), .datad (
-                         q[5]), .datae (1'b1), .dataf (1'b1), .datag (1'b1), .cin (
-                         nx58250z5)) ;
-                         
-                         defparam ix58250z37203.lut_mask = 64'h000055550000ff00;
-    stratixii_lcell_comb ix58250z37204 (.sumout (nx55259z1), .cout (nx58250z5), 
-                         .dataa (nx58250z2), .datab (1'b1), .datac (1'b1), .datad (
-                         q[4]), .datae (1'b1), .dataf (1'b1), .datag (1'b1), .cin (
-                         nx58250z6)) ;
-                         
-                         defparam ix58250z37204.lut_mask = 64'h000055550000ff00;
-    stratixii_lcell_comb ix58250z37205 (.sumout (nx54262z1), .cout (nx58250z6), 
-                         .dataa (nx58250z2), .datab (1'b1), .datac (1'b1), .datad (
-                         q[3]), .datae (1'b1), .dataf (1'b1), .datag (1'b1), .cin (
-                         nx58250z7)) ;
-                         
-                         defparam ix58250z37205.lut_mask = 64'h000055550000ff00;
-    stratixii_lcell_comb ix58250z37206 (.sumout (nx53265z1), .cout (nx58250z7), 
-                         .dataa (nx58250z2), .datab (1'b1), .datac (1'b1), .datad (
-                         q[2]), .datae (1'b1), .dataf (1'b1), .datag (1'b1), .cin (
-                         nx58250z8)) ;
-                         
-                         defparam ix58250z37206.lut_mask = 64'h000055550000ff00;
-    stratixii_lcell_comb ix58250z37207 (.sumout (nx52268z1), .cout (nx58250z8), 
-                         .dataa (nx58250z2), .datab (1'b1), .datac (1'b1), .datad (
-                         q[1]), .datae (1'b1), .dataf (1'b1), .datag (1'b1), .cin (
-                         nx58250z9)) ;
-                         
-                         defparam ix58250z37207.lut_mask = 64'h000055550000ff00;
-    stratixii_lcell_comb ix58250z37209 (.cout (nx58250z10), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (nx58250z11), .datae (1'b1
-                         ), .dataf (nx58250z12), .datag (1'b1), .cin (GND)) ;
-                         
-                         defparam ix58250z37209.lut_mask = 64'h000000ff0000ff00;
-    stratixii_lcell_comb ix58250z37208 (.sumout (nx51271z1), .cout (nx58250z9), 
-                         .dataa (1'b1), .datab (1'b1), .datac (1'b1), .datad (
-                         q[0]), .datae (1'b1), .dataf (nx58250z2), .datag (1'b1)
-                         , .cin (nx58250z10)) ;
-                         
-                         defparam ix58250z37208.lut_mask = 64'h000000ff0000ff00;
 endmodule
 

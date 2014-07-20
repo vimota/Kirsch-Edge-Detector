@@ -4,7 +4,7 @@ Device Utilization for EP2S15F484C
 Resource                Used    Avail   Utilization
 -----------------------------------------------
 IOs                     100     343      29.15%
-LUTs                    58      12480     0.46%
+LUTs                    62      12480     0.50%
 Registers               121     14410     0.84%
 Memory Bits             6144    419328    1.47%
 DSP block 9-bit elems   0       96        0.00%
@@ -81,18 +81,18 @@ Library: OPERATORS    Cell: modgen_counter_8_1    View: IMPLEMENTATION
 
  GND                     stratixii     2 x
  VCC                     stratixii     2 x
- stratixii_lcell_comb    stratixii     9 x      1      9 LUTs
+ stratixii_lcell_comb    stratixii    10 x      1     10 LUTs
  stratixii_lcell_ff      stratixii     8 x      1      8 Registers
 
- Number of ports :                      25
- Number of nets :                       31
- Number of instances :                  21
+ Number of ports :                      27
+ Number of nets :                       35
+ Number of instances :                  22
  Number of references to this view :     1
 
 Total accumulated area : 
- Number of LUTs :                        9
+ Number of LUTs :                       10
  Number of Registers :                   8
- Number of accumulated instances :      21
+ Number of accumulated instances :      22
 
 **********************************************************************
 
@@ -104,18 +104,18 @@ Library: OPERATORS    Cell: modgen_counter_8_0    View: IMPLEMENTATION
 
  GND                     stratixii     2 x
  VCC                     stratixii     2 x
- stratixii_lcell_comb    stratixii     9 x      1      9 LUTs
+ stratixii_lcell_comb    stratixii    10 x      1     10 LUTs
  stratixii_lcell_ff      stratixii     8 x      1      8 Registers
 
- Number of ports :                      25
- Number of nets :                       30
- Number of instances :                  21
+ Number of ports :                      26
+ Number of nets :                       33
+ Number of instances :                  22
  Number of references to this view :     1
 
 Total accumulated area : 
- Number of LUTs :                        9
+ Number of LUTs :                       10
  Number of Registers :                   8
- Number of accumulated instances :      21
+ Number of accumulated instances :      22
 
 *******************************************
 
@@ -125,25 +125,25 @@ Library: work    Cell: memory    View: main
 
   Cell                   Library  References     Total Area
 
- modgen_counter_8_0      OPERATORS     1 x      9      9 LUTs
+ modgen_counter_8_0      OPERATORS     1 x     10     10 LUTs
                                                 8      8 Registers
- modgen_counter_8_1      OPERATORS     1 x      9      9 LUTs
+ modgen_counter_8_1      OPERATORS     1 x     10     10 LUTs
                                                 8      8 Registers
  ram_dq_8_0              OPERATORS     1 x   2048   2048 Memory Bits
  ram_dq_8_1              OPERATORS     1 x   2048   2048 Memory Bits
  ram_dq_8_2              OPERATORS     1 x   2048   2048 Memory Bits
- stratixii_io            stratixii    99 x      1     99 IOs
- stratixii_lcell_comb    stratixii    40 x      1     40 LUTs
+ stratixii_io            stratixii   100 x      1    100 IOs
+ stratixii_lcell_comb    stratixii    42 x      1     42 LUTs
  stratixii_lcell_ff      stratixii   105 x      1    105 Registers
 
  Number of ports :                     100
- Number of nets :                      294
- Number of instances :                 249
+ Number of nets :                      298
+ Number of instances :                 252
  Number of references to this view :     0
 
 Total accumulated area : 
  Number of IOs :                       100
- Number of LUTs :                       58
+ Number of LUTs :                       62
  Number of Memory Bits :              6144
  Number of Registers :                 121
- Number of accumulated instances :     292
+ Number of accumulated instances :     297

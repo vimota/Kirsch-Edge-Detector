@@ -9,8 +9,7 @@
 set_attribute -name use_dffenable -value "0" -net -type default first_bubble -design gatelevel 
 set_attribute -name use_dffenable -value "0" -net -type default o_valid -design gatelevel 
 set_attribute -name MAX_FANOUT -value "1000" -net first_bubble_repl -design gatelevel 
-set_attribute -name MAX_FANOUT -value "1000" -net nx47386z2 -design gatelevel 
-set_attribute -name MAX_FANOUT -value "1000" -net not_rtlc0n196_repl -design gatelevel 
+set_attribute -name MAX_FANOUT -value "1000" -net nx47386z4 -design gatelevel 
 set_attribute -name INFF -value "FALSE" -port -type STRING i_clock -design gatelevel 
 set_attribute -name ignore_ram_rw_collision -value "true" -instance -type default u_mem1_mem -design gatelevel 
 set_attribute -name ignore_ram_rw_collision -value "true" -instance -type default u_mem2_mem -design gatelevel 

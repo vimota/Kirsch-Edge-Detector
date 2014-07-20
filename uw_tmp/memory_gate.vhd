@@ -2,7 +2,7 @@
 -- 
 -- Definition of  memory
 -- 
---      Sun Jul 20 00:55:04 2014
+--      Sun Jul 20 01:02:43 2014
 --      
 --      Precision RTL Synthesis, 2008a.47
 -- 
@@ -337,7 +337,7 @@ library IEEE;library altera_mf;library lpm;library altera;
  use IEEE.STD_LOGIC_1164.ALL;
  use altera_mf.altera_mf_components.all, lpm.lpm_components.all, altera.altera_primitives_components.all;
 
-entity counter_up_cnt_en_clock_0_8 is 
+entity counter_up_cnt_en_sclear_clock_0_8 is 
    port (
       clock : IN std_logic ;
       q : OUT std_logic_vector (7 DOWNTO 0) ;
@@ -349,9 +349,9 @@ entity counter_up_cnt_en_clock_0_8 is
       sclear : IN std_logic ;
       updn : IN std_logic ;
       cnt_en : IN std_logic) ;
-end counter_up_cnt_en_clock_0_8 ;
+end counter_up_cnt_en_sclear_clock_0_8 ;
 
-architecture INTERFACE of counter_up_cnt_en_clock_0_8 is 
+architecture INTERFACE of counter_up_cnt_en_sclear_clock_0_8 is 
    procedure DFFPCE (
       constant data   : in std_logic;
       constant preset : in std_logic;
@@ -380,41 +380,52 @@ architecture INTERFACE of counter_up_cnt_en_clock_0_8 is
          d : OUT std_logic_vector (7 DOWNTO 0) ;
          cout : OUT std_logic) ;
    end component ;
-   signal GND, nx20, nx21, nx22, nx23, nx24, nx25, nx26, nx27, nx28, nx29, 
-      nx30, nx31, nx32, nx33, nx34, nx35, PWR: std_logic ;
+   signal GND, nx20, nx23, nx24, nx25, nx26, nx27, nx28, nx29, nx30, nx31, 
+      nx32, nx33, nx34, nx35, nx36, nx37, nx38, nx39, nx40, nx41, nx42, nx43, 
+      nx44, nx45, nx46, PWR, NOT_nx19: std_logic ;
    
    signal DANGLING : std_logic_vector (0 downto 0 );
 
 begin
-   q(7) <= nx21 ;
-   q(6) <= nx23 ;
-   q(5) <= nx25 ;
-   q(4) <= nx27 ;
-   q(3) <= nx29 ;
-   q(2) <= nx31 ;
-   q(1) <= nx33 ;
-   q(0) <= nx35 ;
+   q(7) <= nx24 ;
+   q(6) <= nx26 ;
+   q(5) <= nx28 ;
+   q(4) <= nx30 ;
+   q(3) <= nx32 ;
+   q(2) <= nx34 ;
+   q(1) <= nx36 ;
+   q(0) <= nx38 ;
    GND <= '0' ;
-   DFFPCE (nx20,GND,GND,cnt_en,clock,nx21) ;
-   DFFPCE (nx22,GND,GND,cnt_en,clock,nx23) ;
-   DFFPCE (nx24,GND,GND,cnt_en,clock,nx25) ;
-   DFFPCE (nx26,GND,GND,cnt_en,clock,nx27) ;
-   DFFPCE (nx28,GND,GND,cnt_en,clock,nx29) ;
-   DFFPCE (nx30,GND,GND,cnt_en,clock,nx31) ;
-   DFFPCE (nx32,GND,GND,cnt_en,clock,nx33) ;
-   DFFPCE (nx34,GND,GND,cnt_en,clock,nx35) ;
-   inc : inc_8u_8u_0_0 port map ( cin=>PWR, a(7)=>nx21, a(6)=>nx23, a(5)=>
-      nx25, a(4)=>nx27, a(3)=>nx29, a(2)=>nx31, a(1)=>nx33, a(0)=>nx35, d(7)
-      =>nx20, d(6)=>nx22, d(5)=>nx24, d(4)=>nx26, d(3)=>nx28, d(2)=>nx30, 
-      d(1)=>nx32, d(0)=>nx34, cout=>DANGLING(0));
+   nx20 <= cnt_en OR sclear ;
+   DFFPCE (nx23,GND,GND,nx20,clock,nx24) ;
+   DFFPCE (nx25,GND,GND,nx20,clock,nx26) ;
+   DFFPCE (nx27,GND,GND,nx20,clock,nx28) ;
+   DFFPCE (nx29,GND,GND,nx20,clock,nx30) ;
+   DFFPCE (nx31,GND,GND,nx20,clock,nx32) ;
+   DFFPCE (nx33,GND,GND,nx20,clock,nx34) ;
+   DFFPCE (nx35,GND,GND,nx20,clock,nx36) ;
+   DFFPCE (nx37,GND,GND,nx20,clock,nx38) ;
+   inc : inc_8u_8u_0_0 port map ( cin=>PWR, a(7)=>nx24, a(6)=>nx26, a(5)=>
+      nx28, a(4)=>nx30, a(3)=>nx32, a(2)=>nx34, a(1)=>nx36, a(0)=>nx38, d(7)
+      =>nx39, d(6)=>nx40, d(5)=>nx41, d(4)=>nx42, d(3)=>nx43, d(2)=>nx44, 
+      d(1)=>nx45, d(0)=>nx46, cout=>DANGLING(0));
    PWR <= '1' ;
+   NOT_nx19 <= NOT sclear ;
+   nx23 <= nx39 AND NOT_nx19 ;
+   nx25 <= nx40 AND NOT_nx19 ;
+   nx27 <= nx41 AND NOT_nx19 ;
+   nx29 <= nx42 AND NOT_nx19 ;
+   nx31 <= nx43 AND NOT_nx19 ;
+   nx33 <= nx44 AND NOT_nx19 ;
+   nx35 <= nx45 AND NOT_nx19 ;
+   nx37 <= nx46 AND NOT_nx19 ;
 end INTERFACE ;
 
 library IEEE;library altera_mf;library lpm;library altera; 
  use IEEE.STD_LOGIC_1164.ALL;
  use altera_mf.altera_mf_components.all, lpm.lpm_components.all, altera.altera_primitives_components.all;
 
-entity counter_up_sclear_clock_clk_en_0_8 is 
+entity counter_up_cnt_en_sclear_clock_clk_en_0_8 is 
    port (
       clock : IN std_logic ;
       q : OUT std_logic_vector (7 DOWNTO 0) ;
@@ -426,9 +437,9 @@ entity counter_up_sclear_clock_clk_en_0_8 is
       sclear : IN std_logic ;
       updn : IN std_logic ;
       cnt_en : IN std_logic) ;
-end counter_up_sclear_clock_clk_en_0_8 ;
+end counter_up_cnt_en_sclear_clock_clk_en_0_8 ;
 
-architecture INTERFACE of counter_up_sclear_clock_clk_en_0_8 is 
+architecture INTERFACE of counter_up_cnt_en_sclear_clock_clk_en_0_8 is 
    procedure DFFPCE (
       constant data   : in std_logic;
       constant preset : in std_logic;
@@ -457,44 +468,46 @@ architecture INTERFACE of counter_up_sclear_clock_clk_en_0_8 is
          d : OUT std_logic_vector (7 DOWNTO 0) ;
          cout : OUT std_logic) ;
    end component ;
-   signal GND, nx20, nx21, nx22, nx23, nx24, nx25, nx26, nx27, nx28, nx29, 
-      nx30, nx31, nx32, nx33, nx34, nx35, nx36, nx37, nx38, nx39, nx40, nx41, 
-      nx42, nx43, PWR, NOT_SCLEAR: std_logic ;
+   signal GND, nx20, nx23, nx26, nx27, nx28, nx29, nx30, nx31, nx32, nx33, 
+      nx34, nx35, nx36, nx37, nx38, nx39, nx40, nx41, nx42, nx43, nx44, nx45, 
+      nx46, nx47, nx48, nx49, PWR, NOT_nx19: std_logic ;
    
    signal DANGLING : std_logic_vector (0 downto 0 );
 
 begin
-   q(7) <= nx21 ;
-   q(6) <= nx23 ;
-   q(5) <= nx25 ;
-   q(4) <= nx27 ;
-   q(3) <= nx29 ;
-   q(2) <= nx31 ;
-   q(1) <= nx33 ;
-   q(0) <= nx35 ;
+   q(7) <= nx27 ;
+   q(6) <= nx29 ;
+   q(5) <= nx31 ;
+   q(4) <= nx33 ;
+   q(3) <= nx35 ;
+   q(2) <= nx37 ;
+   q(1) <= nx39 ;
+   q(0) <= nx41 ;
    GND <= '0' ;
-   DFFPCE (nx20,GND,GND,clk_en,clock,nx21) ;
-   DFFPCE (nx22,GND,GND,clk_en,clock,nx23) ;
-   DFFPCE (nx24,GND,GND,clk_en,clock,nx25) ;
-   DFFPCE (nx26,GND,GND,clk_en,clock,nx27) ;
-   DFFPCE (nx28,GND,GND,clk_en,clock,nx29) ;
-   DFFPCE (nx30,GND,GND,clk_en,clock,nx31) ;
-   DFFPCE (nx32,GND,GND,clk_en,clock,nx33) ;
-   DFFPCE (nx34,GND,GND,clk_en,clock,nx35) ;
-   inc : inc_8u_8u_0_0 port map ( cin=>PWR, a(7)=>nx21, a(6)=>nx23, a(5)=>
-      nx25, a(4)=>nx27, a(3)=>nx29, a(2)=>nx31, a(1)=>nx33, a(0)=>nx35, d(7)
-      =>nx36, d(6)=>nx37, d(5)=>nx38, d(4)=>nx39, d(3)=>nx40, d(2)=>nx41, 
-      d(1)=>nx42, d(0)=>nx43, cout=>DANGLING(0));
+   nx20 <= cnt_en OR sclear ;
+   nx23 <= nx20 AND clk_en ;
+   DFFPCE (nx26,GND,GND,nx23,clock,nx27) ;
+   DFFPCE (nx28,GND,GND,nx23,clock,nx29) ;
+   DFFPCE (nx30,GND,GND,nx23,clock,nx31) ;
+   DFFPCE (nx32,GND,GND,nx23,clock,nx33) ;
+   DFFPCE (nx34,GND,GND,nx23,clock,nx35) ;
+   DFFPCE (nx36,GND,GND,nx23,clock,nx37) ;
+   DFFPCE (nx38,GND,GND,nx23,clock,nx39) ;
+   DFFPCE (nx40,GND,GND,nx23,clock,nx41) ;
+   inc : inc_8u_8u_0_0 port map ( cin=>PWR, a(7)=>nx27, a(6)=>nx29, a(5)=>
+      nx31, a(4)=>nx33, a(3)=>nx35, a(2)=>nx37, a(1)=>nx39, a(0)=>nx41, d(7)
+      =>nx42, d(6)=>nx43, d(5)=>nx44, d(4)=>nx45, d(3)=>nx46, d(2)=>nx47, 
+      d(1)=>nx48, d(0)=>nx49, cout=>DANGLING(0));
    PWR <= '1' ;
-   NOT_SCLEAR <= NOT sclear ;
-   nx20 <= nx36 AND NOT_SCLEAR ;
-   nx22 <= nx37 AND NOT_SCLEAR ;
-   nx24 <= nx38 AND NOT_SCLEAR ;
-   nx26 <= nx39 AND NOT_SCLEAR ;
-   nx28 <= nx40 AND NOT_SCLEAR ;
-   nx30 <= nx41 AND NOT_SCLEAR ;
-   nx32 <= nx42 AND NOT_SCLEAR ;
-   nx34 <= nx43 AND NOT_SCLEAR ;
+   NOT_nx19 <= NOT sclear ;
+   nx26 <= nx42 AND NOT_nx19 ;
+   nx28 <= nx43 AND NOT_nx19 ;
+   nx30 <= nx44 AND NOT_nx19 ;
+   nx32 <= nx45 AND NOT_nx19 ;
+   nx34 <= nx46 AND NOT_nx19 ;
+   nx36 <= nx47 AND NOT_nx19 ;
+   nx38 <= nx48 AND NOT_nx19 ;
+   nx40 <= nx49 AND NOT_nx19 ;
 end INTERFACE ;
 
 library IEEE;library altera_mf;library lpm;library altera; 
@@ -530,14 +543,14 @@ architecture main of memory is
          wren : IN std_logic ;
          q : OUT std_logic_vector (7 DOWNTO 0)) ;
    end component ;
-   component or_7u_7u
-      port (
-         a : IN std_logic_vector (6 DOWNTO 0) ;
-         d : OUT std_logic) ;
-   end component ;
    component or_3u_3u
       port (
          a : IN std_logic_vector (2 DOWNTO 0) ;
+         d : OUT std_logic) ;
+   end component ;
+   component or_7u_7u
+      port (
+         a : IN std_logic_vector (6 DOWNTO 0) ;
          d : OUT std_logic) ;
    end component ;
    component select_3_3
@@ -551,7 +564,7 @@ architecture main of memory is
          a : IN std_logic_vector (7 DOWNTO 0) ;
          d : OUT std_logic) ;
    end component ;
-   component counter_up_cnt_en_clock_0_8
+   component counter_up_cnt_en_sclear_clock_0_8
       port (
          clock : IN std_logic ;
          q : OUT std_logic_vector (7 DOWNTO 0) ;
@@ -564,7 +577,7 @@ architecture main of memory is
          updn : IN std_logic ;
          cnt_en : IN std_logic) ;
    end component ;
-   component counter_up_sclear_clock_clk_en_0_8
+   component counter_up_cnt_en_sclear_clock_clk_en_0_8
       port (
          clock : IN std_logic ;
          q : OUT std_logic_vector (7 DOWNTO 0) ;
@@ -577,27 +590,6 @@ architecture main of memory is
          updn : IN std_logic ;
          cnt_en : IN std_logic) ;
    end component ;
-   procedure DFFRSE (
-      constant data   : in std_logic;
-      constant set    : in std_logic;
-      constant reset  : in std_logic;
-      constant enable : in std_logic;
-      signal clk      : in std_logic;
-      signal q        : out std_logic)
-   is begin
-       if (clk'event and clk'last_value = '0' and clk = '1') then
-           if (reset = '1') then
-               q <= '0' ;
-           elsif (set = '1') then
-               q <= '1' ;
-           elsif (enable = '1') then
-               q <= data and data ;    -- takes care of q<='X' if data='Z'
-           end if ;
-       end if ;
-       if ((set/='1' or reset/='1') and clk/='0' and clk/='1') then
-           q <= 'X' ;
-       end if ;
-   end DFFRSE ;
    procedure DFFPCE (
       constant data   : in std_logic;
       constant preset : in std_logic;
@@ -619,6 +611,27 @@ architecture main of memory is
            q <= 'X' ;
        end if ;
    end DFFPCE ;
+   procedure DFFRSE (
+      constant data   : in std_logic;
+      constant set    : in std_logic;
+      constant reset  : in std_logic;
+      constant enable : in std_logic;
+      signal clk      : in std_logic;
+      signal q        : out std_logic)
+   is begin
+       if (clk'event and clk'last_value = '0' and clk = '1') then
+           if (reset = '1') then
+               q <= '0' ;
+           elsif (set = '1') then
+               q <= '1' ;
+           elsif (enable = '1') then
+               q <= data and data ;    -- takes care of q<='X' if data='Z'
+           end if ;
+       end if ;
+       if ((set/='1' or reset/='1') and clk/='0' and clk/='1') then
+           q <= 'X' ;
+       end if ;
+   end DFFRSE ;
    procedure DFFPC (
       constant data   : in std_logic;
       constant preset : in std_logic;
@@ -658,16 +671,19 @@ architecture main of memory is
    
    signal mem_wrn_current_0n4ss1: std_logic_vector (2 DOWNTO 0) ;
    
-   signal rtlc0n92, rtlc0n95, not_rtlc0n95, not_i_valid, not_rtlcs0, 
-      not_first_bubble, rtlc0n169, rtlc0n172, rtlc0n196, not_rtlc0n196, 
-      rtlc0n207, not_rtlc0n207, rtlc0n225, not_rtlc0n172: std_logic ;
+   signal not_i_reset, rtlc0n110, rtlc0n113, not_rtlc0n113, rtlc0n189, 
+      rtlc0n193, rtlc0n200, rtlc0n218, not_first_bubble, not_rtlcs0, 
+      rtlc0_X_0_n235, not_rtlc0_X_0_n235, rtlc0n254, rtlc0n255, 
+      not_rtlc0n218, rtlc0n276, rtlc0n290, rtlc0n291, not_rtlc0n193, 
+      not_rtlc0n200: std_logic ;
    
    signal buffer2_1n2ss1: std_logic_vector (7 DOWNTO 0) ;
    
    signal buffer2_1n4ss1: std_logic_vector (23 DOWNTO 0) ;
    
    signal rtlc1n99, rtlc1n339, rtlc1n427, rtlcn97, rtlcn121, not_rtlcn225, 
-      not_rtlcn226, rtlcn217, rtlcn225, rtlcn226, rtlcs0: std_logic ;
+      not_rtlcn226, rtlcn217, rtlcn225, rtlcn226, not_i_valid, rtlcs0: 
+   std_logic ;
    
    signal o_image1_0_EXMPLR313: std_logic_vector (7 DOWNTO 0) ;
    
@@ -687,8 +703,8 @@ architecture main of memory is
    
    signal mem_q_2: std_logic_vector (7 DOWNTO 0) ;
    
-   signal rtlcn229, not_rtlc0n225, rtlcn231, rtlcn233, rtlcn234, rtlcn238, 
-      rtlcn240: std_logic ;
+   signal rtlcn230, not_rtlc0n291, rtlcn232, rtlcn234, rtlcn235, rtlcn239, 
+      rtlcn241: std_logic ;
    
    signal DANGLING : std_logic_vector (15 downto 0 );
 
@@ -771,24 +787,30 @@ begin
       mem_wrn(2), q(7)=>mem_q_2(7), q(6)=>mem_q_2(6), q(5)=>mem_q_2(5), q(4)
       =>mem_q_2(4), q(3)=>mem_q_2(3), q(2)=>mem_q_2(2), q(1)=>mem_q_2(1), 
       q(0)=>mem_q_2(0));
-   rtlc0n225 <= not_i_valid OR not_rtlc0n95 ;
-   rtlc0n169 <= not_first_bubble OR not_rtlcs0 ;
-   rtlc0n207 <= i_valid OR not_first_bubble ;
-   not_rtlc0n207 <= NOT rtlc0n207 ;
-   not_rtlc0n196 <= NOT rtlc0n196 ;
+   rtlc0n290 <= rtlc0n276 AND not_i_reset ;
+   rtlc0n276 <= not_rtlc0n113 AND i_valid ;
+   rtlc0n189 <= not_first_bubble OR not_rtlcs0 ;
+   rtlc_13_or_0 : or_3u_3u port map ( a(2)=>i_reset, a(1)=>not_rtlc0n113, 
+      a(0)=>not_i_valid, d=>rtlc0n291);
+   not_rtlc0n218 <= NOT rtlc0n218 ;
+   rtlc0n254 <= rtlcs0 AND first_bubble ;
+   rtlc0n255 <= i_reset OR rtlc0n254 ;
    not_rtlcs0 <= NOT rtlcs0 ;
-   rtlc0n92 <= mem_wrn_current(0) OR mem_wrn_current(1) ;
-   rtlc0n95 <= rtlc0n92 OR mem_wrn_current(2) ;
-   not_rtlc0n95 <= NOT rtlc0n95 ;
+   rtlc0_85_or_1 : or_3u_3u port map ( a(2)=>i_valid, a(1)=>not_first_bubble, 
+      a(0)=>not_rtlcs0, d=>rtlc0_X_0_n235);
+   not_rtlc0_X_0_n235 <= NOT rtlc0_X_0_n235 ;
+   rtlc0n110 <= mem_wrn_current(0) OR mem_wrn_current(1) ;
+   rtlc0n113 <= rtlc0n110 OR mem_wrn_current(2) ;
+   not_rtlc0n113 <= NOT rtlc0n113 ;
+   not_i_reset <= NOT i_reset ;
+   rtlc0n218 <= not_i_reset AND i_valid ;
    rtlc1n99 <= rtlc1n339 AND rtlc1n427 ;
-   rtlc1_443_or_0 : or_7u_7u port map ( a(6)=>row(1), a(5)=>row(2), a(4)=>
+   rtlc1_443_or_2 : or_7u_7u port map ( a(6)=>row(1), a(5)=>row(2), a(4)=>
       row(3), a(3)=>row(4), a(2)=>row(5), a(1)=>row(6), a(0)=>row(7), d=>
       rtlc1n339);
-   rtlc1_469_or_1 : or_7u_7u port map ( a(6)=>column(1), a(5)=>column(2), 
+   rtlc1_469_or_3 : or_7u_7u port map ( a(6)=>column(1), a(5)=>column(2), 
       a(4)=>column(3), a(3)=>column(4), a(2)=>column(5), a(1)=>column(6), 
       a(0)=>column(7), d=>rtlc1n427);
-   rtlc_16_or_2 : or_3u_3u port map ( a(2)=>i_valid, a(1)=>not_rtlcs0, a(0)
-      =>not_first_bubble, d=>rtlc0n196);
    buffer2_select_1i1Bus8_0 : select_3_3 port map ( a(2)=>not_rtlcn225, a(1)
       =>mem_wrn_current(0), a(0)=>rtlcn97, b(2)=>mem_q_0(0), b(1)=>
       buffer2_1n2ss1(0), b(0)=>mem_q_2(0), d=>buffer2_1n4ss1(0));
@@ -842,7 +864,7 @@ begin
    rtlcn217 <= mem_wrn_current(2) OR rtlc1n339 ;
    not_rtlcn225 <= NOT rtlcn225 ;
    not_rtlcn226 <= NOT rtlcn226 ;
-   rtlc0n172 <= rtlc0n95 when i_valid = '1' else rtlc0n169 ;
+   rtlc0n193 <= rtlc0n113 when i_valid = '1' else rtlc0n189 ;
    buffer2_1n2ss1(0) <= mem_q_1(0) when rtlc1n339 = '1' else mem_data(0) ;
    buffer2_1n2ss1(1) <= mem_q_1(1) when rtlc1n339 = '1' else mem_data(1) ;
    buffer2_1n2ss1(2) <= mem_q_1(2) when rtlc1n339 = '1' else mem_data(2) ;
@@ -859,10 +881,12 @@ begin
    buffer2_1n4ss1(21) <= mem_data(5) when rtlcn217 = '1' else mem_q_2(5) ;
    buffer2_1n4ss1(22) <= mem_data(6) when rtlcn217 = '1' else mem_q_2(6) ;
    buffer2_1n4ss1(23) <= mem_data(7) when rtlcn217 = '1' else mem_q_2(7) ;
-   not_rtlc0n172 <= NOT rtlc0n172 ;
-   not_first_bubble <= NOT first_bubble ;
    not_i_valid <= NOT i_valid ;
-   rtlc_506_and_19 : and_8u_8u port map ( a(7)=>column(7), a(6)=>column(6), 
+   rtlc0n200 <= i_reset OR not_i_valid ;
+   not_rtlc0n200 <= NOT rtlc0n200 ;
+   not_first_bubble <= NOT first_bubble ;
+   not_rtlc0n193 <= NOT rtlc0n193 ;
+   rtlc_511_and_20 : and_8u_8u port map ( a(7)=>column(7), a(6)=>column(6), 
       a(5)=>column(5), a(4)=>column(4), a(3)=>column(3), a(2)=>column(2), 
       a(1)=>column(1), a(0)=>column(0), d=>rtlcs0);
    mem_wrn_current_0n4ss1(1) <= mem_wrn_current(0) AND not_i_valid ;
@@ -870,44 +894,44 @@ begin
    mem_wrn_current_0n4ss1(0) <= mem_wrn_current(2) OR i_valid ;
    rtlcn225 <= mem_wrn_current(0) OR rtlcn97 ;
    rtlcn226 <= mem_wrn_current(1) OR rtlcn121 ;
-   modgen_counter_row : counter_up_cnt_en_clock_0_8 port map ( clock=>
-      i_clock, q(7)=>row(7), q(6)=>row(6), q(5)=>row(5), q(4)=>row(4), q(3)
-      =>row(3), q(2)=>row(2), q(1)=>row(1), q(0)=>row(0), clk_en=>PWR, 
+   modgen_counter_row : counter_up_cnt_en_sclear_clock_0_8 port map ( clock
+      =>i_clock, q(7)=>row(7), q(6)=>row(6), q(5)=>row(5), q(4)=>row(4), 
+      q(3)=>row(3), q(2)=>row(2), q(1)=>row(1), q(0)=>row(0), clk_en=>PWR, 
       aclear=>GND, sload=>GND, data(7)=>DANGLING(0), data(6)=>DANGLING(1), 
       data(5)=>DANGLING(2), data(4)=>DANGLING(3), data(3)=>DANGLING(4), 
       data(2)=>DANGLING(5), data(1)=>DANGLING(6), data(0)=>DANGLING(7), aset
-      =>GND, sclear=>GND, updn=>PWR, cnt_en=>not_rtlc0n196);
-   modgen_counter_column : counter_up_sclear_clock_clk_en_0_8 port map ( 
-      clock=>i_clock, q(7)=>column(7), q(6)=>column(6), q(5)=>column(5), 
-      q(4)=>column(4), q(3)=>column(3), q(2)=>column(2), q(1)=>column(1), 
-      q(0)=>column(0), clk_en=>not_rtlc0n207, aclear=>GND, sload=>GND, 
-      data(7)=>DANGLING(8), data(6)=>DANGLING(9), data(5)=>DANGLING(10), 
-      data(4)=>DANGLING(11), data(3)=>DANGLING(12), data(2)=>DANGLING(13), 
-      data(1)=>DANGLING(14), data(0)=>DANGLING(15), aset=>GND, sclear=>
-      rtlcs0, updn=>PWR, cnt_en=>PWR);
-   not_rtlc0n225 <= NOT rtlc0n225 ;
-   rtlcn229 <= mem_wrn_current(2) AND not_rtlc0n225 ;
-   rtlcn231 <= mem_wrn_current(1) AND not_rtlc0n225 ;
-   rtlcn233 <= mem_wrn_current(0) OR not_rtlc0n95 ;
-   rtlcn234 <= rtlcn233 AND i_valid ;
-   rtlcn238 <= rtlc1n99 OR not_first_bubble ;
-   rtlcn240 <= first_bubble when rtlcn238 = '1' else o_valid_EXMPLR218 ;
-   DFFRSE (rtlcn229,GND,GND,PWR,i_clock,mem_wrn(2)) ;
-   DFFRSE (rtlcn231,GND,GND,PWR,i_clock,mem_wrn(1)) ;
-   DFFPCE (mem_wrn_current_0n4ss1(2),GND,GND,not_rtlc0n172,i_clock,
+      =>GND, sclear=>i_reset, updn=>PWR, cnt_en=>not_rtlc0_X_0_n235);
+   modgen_counter_column : counter_up_cnt_en_sclear_clock_clk_en_0_8
+       port map ( clock=>i_clock, q(7)=>column(7), q(6)=>column(6), q(5)=>
+      column(5), q(4)=>column(4), q(3)=>column(3), q(2)=>column(2), q(1)=>
+      column(1), q(0)=>column(0), clk_en=>not_rtlc0n218, aclear=>GND, sload
+      =>GND, data(7)=>DANGLING(8), data(6)=>DANGLING(9), data(5)=>DANGLING(
+      10), data(4)=>DANGLING(11), data(3)=>DANGLING(12), data(2)=>DANGLING(
+      13), data(1)=>DANGLING(14), data(0)=>DANGLING(15), aset=>GND, sclear=>
+      rtlc0n255, updn=>PWR, cnt_en=>first_bubble);
+   not_rtlc0n291 <= NOT rtlc0n291 ;
+   rtlcn230 <= mem_wrn_current(2) AND not_rtlc0n291 ;
+   rtlcn232 <= mem_wrn_current(1) AND not_rtlc0n291 ;
+   rtlcn234 <= mem_wrn_current(0) OR rtlc0n290 ;
+   rtlcn235 <= rtlcn234 AND not_rtlc0n200 ;
+   rtlcn239 <= rtlc1n99 OR not_first_bubble ;
+   rtlcn241 <= first_bubble when rtlcn239 = '1' else o_valid_EXMPLR218 ;
+   DFFPCE (i_pixel(7),GND,GND,not_rtlc0n200,i_clock,mem_data(7)) ;
+   DFFPCE (i_pixel(6),GND,GND,not_rtlc0n200,i_clock,mem_data(6)) ;
+   DFFPCE (i_pixel(5),GND,GND,not_rtlc0n200,i_clock,mem_data(5)) ;
+   DFFPCE (i_pixel(4),GND,GND,not_rtlc0n200,i_clock,mem_data(4)) ;
+   DFFPCE (i_pixel(3),GND,GND,not_rtlc0n200,i_clock,mem_data(3)) ;
+   DFFPCE (i_pixel(2),GND,GND,not_rtlc0n200,i_clock,mem_data(2)) ;
+   DFFPCE (i_pixel(1),GND,GND,not_rtlc0n200,i_clock,mem_data(1)) ;
+   DFFPCE (i_pixel(0),GND,GND,not_rtlc0n200,i_clock,mem_data(0)) ;
+   DFFRSE (mem_wrn_current_0n4ss1(2),GND,i_reset,not_rtlc0n193,i_clock,
    mem_wrn_current(2)) ;
-   DFFPCE (mem_wrn_current_0n4ss1(1),GND,GND,not_rtlc0n172,i_clock,
+   DFFRSE (mem_wrn_current_0n4ss1(1),GND,i_reset,not_rtlc0n193,i_clock,
    mem_wrn_current(1)) ;
-   DFFPCE (mem_wrn_current_0n4ss1(0),GND,GND,not_rtlc0n172,i_clock,
+   DFFRSE (mem_wrn_current_0n4ss1(0),GND,i_reset,not_rtlc0n193,i_clock,
    mem_wrn_current(0)) ;
-   DFFPCE (i_pixel(7),GND,GND,i_valid,i_clock,mem_data(7)) ;
-   DFFPCE (i_pixel(6),GND,GND,i_valid,i_clock,mem_data(6)) ;
-   DFFPCE (i_pixel(5),GND,GND,i_valid,i_clock,mem_data(5)) ;
-   DFFPCE (i_pixel(4),GND,GND,i_valid,i_clock,mem_data(4)) ;
-   DFFPCE (i_pixel(3),GND,GND,i_valid,i_clock,mem_data(3)) ;
-   DFFPCE (i_pixel(2),GND,GND,i_valid,i_clock,mem_data(2)) ;
-   DFFPCE (i_pixel(1),GND,GND,i_valid,i_clock,mem_data(1)) ;
-   DFFPCE (i_pixel(0),GND,GND,i_valid,i_clock,mem_data(0)) ;
+   DFFRSE (rtlcn230,GND,GND,PWR,i_clock,mem_wrn(2)) ;
+   DFFRSE (rtlcn232,GND,GND,PWR,i_clock,mem_wrn(1)) ;
    DFFPCE (buffer2_1n4ss1(23),GND,GND,first_bubble,i_clock,
    o_image2_2_EXMPLR318(7)) ;
    DFFPCE (buffer2_1n4ss1(22),GND,GND,first_bubble,i_clock,
@@ -1068,8 +1092,8 @@ begin
    DFFPC (column(2),GND,GND,i_clock,o_column(2)) ;
    DFFPC (column(1),GND,GND,i_clock,o_column(1)) ;
    DFFPC (column(0),GND,GND,i_clock,o_column(0)) ;
-   DFFPC (rtlcn234,GND,GND,i_clock,mem_wrn(0)) ;
-   DFFPC (i_valid,GND,GND,i_clock,first_bubble) ;
-   DFFRSE (rtlcn240,GND,GND,PWR,i_clock,o_valid_EXMPLR218) ;
+   DFFPC (rtlcn235,GND,GND,i_clock,mem_wrn(0)) ;
+   DFFRSE (i_valid,GND,i_reset,PWR,i_clock,first_bubble) ;
+   DFFRSE (rtlcn241,GND,GND,PWR,i_clock,o_valid_EXMPLR218) ;
 end main ;
 

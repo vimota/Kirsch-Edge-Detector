@@ -86,33 +86,42 @@ begin
 	writeProc : process (i_clock)
 	begin
 		if rising_edge(i_clock) then
-			-- initialize mem_wrn_current
-			if (i_valid = '1') then
-				first_bubble <= '1';
-				mem_data <= i_pixel;
-				
-				if ((mem_wrn_current(0) or mem_wrn_current(1) or mem_wrn_current(2)) /= '1') then
-					mem_wrn_current <= "001";
-					mem_wrn <= "001";
-				else
-					--	update column
-					mem_wrn <= mem_wrn_current;
-				end if;
-			else 
-				if (first_bubble = '1') then
-					first_bubble <= '0';
-					if (column = 255) then
-						column <= (others => '0');
-						row <= row + 1;
-						-- roll the old mem_wrn and 
-						mem_wrn_current <= "rol" ( mem_wrn_current , 1);
+			if (i_reset = '1') then
+				row <= (others => '0');
+				column <= (others => '0');
+				mem_wrn <= "000";
+				mem_wrn_current <= "000";
+				first_bubble <= '0';
+			else
+
+				-- initialize mem_wrn_current
+				if (i_valid = '1') then
+					first_bubble <= '1';
+					mem_data <= i_pixel;
+					
+					if ((mem_wrn_current(0) or mem_wrn_current(1) or mem_wrn_current(2)) /= '1') then
+						mem_wrn_current <= "001";
+						mem_wrn <= "001";
 					else
-						column <= column + 1;
+						--	update column
+						mem_wrn <= mem_wrn_current;
 					end if;
+				else 
+					if (first_bubble = '1') then
+						first_bubble <= '0';
+						if (column = 255) then
+							column <= (others => '0');
+							row <= row + 1;
+							-- roll the old mem_wrn and 
+							mem_wrn_current <= "rol" ( mem_wrn_current , 1);
+						else
+							column <= column + 1;
+						end if;
+					end if;
+					
+					-- don't write to memory when data invalid
+					mem_wrn <= (others => '0');
 				end if;
-				
-				-- don't write to memory when data invalid
-				mem_wrn <= (others => '0');
 			end if;
 		end if;
 	end process;
