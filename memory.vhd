@@ -37,8 +37,6 @@ architecture main of memory is
 	signal mem_q : mem_q_type ;
 	signal buffer0, buffer1, buffer2 : image_type;
 	signal first_bubble, busySignal, busySignalDelayed : std_logic := '0';
-	signal mode : std_logic_vector(1 downto 0) := "10";
-
 	signal column, row : unsigned(7 downto 0) := (others => '0');
 
 
@@ -82,31 +80,27 @@ begin
 		wren     => mem_wrn(2),
 		q        => mem_q(2)
 	);
+	-- first bubble
+	process (i_clock)
+	begin
+		if rising_edge(i_clock) then
+			first_bubble <= i_valid;
+		end if;
+	end process;
 
 	-- writing process
 	writeProc : process (i_clock)
 	begin
 		if rising_edge(i_clock) then
+			-- reset or end of image state
 			if (i_reset = '1' or (row = 255 and column = 255 and first_bubble = '1')) then
 				row <= (others => '0');
 				column <= (others => '0');
 				mem_wrn <= (others => '0');
 				mem_wrn_current <= (others => '0');
-				first_bubble <= '0';
-				if (i_reset = '1') then
-					mode <= "01";
-				else
-					mode <= "10";
-				end if;
 			else
-				-- coming from reset state
-				if (mode = "01") then
-					mode <= "10";
-				end if;
 
 				if (i_valid = '1') then
-					mode <= "11";
-					first_bubble <= '1';
 					mem_data <= i_pixel;
 
 					-- initialize mem_wrn_current
@@ -119,7 +113,6 @@ begin
 					end if;
 				else
 					if (first_bubble = '1') then
-						first_bubble <= '0';
 						if (column = 255) then
 							column <= (others => '0');
 								row <= row + 1;
