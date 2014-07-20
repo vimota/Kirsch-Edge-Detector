@@ -6,7 +6,7 @@
 -- Afterward it receives the results and stores them in a .ted file,
 -- which contains one line for each pixel:
 --  <edge> <dir> <row> <col>
---  
+--
 -------------------------------------------------------------------------------
 
 library ieee;
@@ -47,25 +47,25 @@ architecture main of kirsch_tb is
 
 	--------------------------------------------------------------
 	-- upper and lower bounds on indices for images
-	
+
 	constant row_min      : natural    := image_ty'low(1);
 	constant row_max      : natural    := image_ty'high(1);
-	
+
 	constant col_min      : natural    := image_ty'low(2);
 	constant col_max      : natural    := image_ty'high(2);
-	
+
 	--------------------------------------------------------------
 	-- signals to interface to edge detector
-	
+
 	signal clock          : std_logic;
 	signal reset          : std_logic;
-	
+
 	signal in_valid       : std_logic;
 	signal in_pixel       : pixel_ty;
-	
+
 	signal out_mode       : mode_ty;
-	signal out_row        : unsigned(7 downto 0); 
-	signal out_column     : unsigned(7 downto 0); 
+	signal out_row        : unsigned(7 downto 0);
+	signal out_column     : unsigned(7 downto 0);
 	signal out_valid      : std_logic;
 	signal out_edge       : std_logic;
 	signal out_dir        : direction_ty;
@@ -75,13 +75,13 @@ architecture main of kirsch_tb is
 
 	--------------------------------------------------------------
 	-- 2-d arrays for images
-	
+
 	signal image,                          -- initial image
 				 edge_image,                     -- image of edges
 				 dir_image      : image_ty;      -- image of directions
-	
+
 	-----------------------------------------------------------------
-	
+
 begin
 
 		----------------------------------------------------
@@ -138,7 +138,7 @@ begin
 			reset <= '0';
 			wait;
 		end process;
-		
+
 		-- testing reset functionality
 		-- process
 		-- begin
@@ -154,7 +154,7 @@ begin
 		-- end process;
 
 		----------------------------------------------------
-		-- read image data from file, then send to circuit		
+		-- read image data from file, then send to circuit
 		process
 		begin
 			in_valid <= '0';

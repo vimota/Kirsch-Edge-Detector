@@ -101,23 +101,21 @@ begin
 			else
 
 				if (i_valid = '1') then
-					mem_data <= i_pixel;
-
 					-- initialize mem_wrn_current
 					if ((mem_wrn_current(0) or mem_wrn_current(1) or mem_wrn_current(2)) /= '1') then
 						mem_wrn_current <= "001";
 						mem_wrn <= "001";
 					else
-						--	update column
+						--  update column
 						mem_wrn <= mem_wrn_current;
 					end if;
 				else
 					if (first_bubble = '1') then
 						if (column = 255) then
 							column <= (others => '0');
-								row <= row + 1;
-								-- roll the old mem_wrn and
-								mem_wrn_current <= "rol" ( mem_wrn_current , 1);
+							row <= row + 1;
+							-- roll the old mem_wrn and
+							mem_wrn_current <= "rol" ( mem_wrn_current , 1);
 						else
 							column <= column + 1;
 						end if;
@@ -174,9 +172,9 @@ begin
 				end case;
 
 				-- if mem_wrn_current(0) = '1' then
-				-- 	buffer2(0) <= mem_data;
+				--  buffer2(0) <= mem_data;
 				-- else
-				-- 	buffer2(0) <= mem_q(0);
+				--  buffer2(0) <= mem_q(0);
 				-- end if;
 
 			else
@@ -185,11 +183,13 @@ begin
 		end if;
 	end process;
 
-	outputProc : process (i_clock)
+	delayProc : process (i_clock)
 	begin
 		if rising_edge(i_clock) then
 			o_column <= mem_addr;
 			o_row    <= std_logic_vector(row);
+
+			busySignalDelayed <= busySignal;
 		end if;
 	end process;
 
@@ -206,19 +206,14 @@ begin
 		end if;
 	end process;
 
-	process (i_clock)
-	begin
-		if rising_edge(i_clock) then
-			busySignalDelayed <= busySignal;
-		end if;
-	end process;
-
+	mem_data <= i_pixel when i_valid = '1';
 	mem_addr <= std_logic_vector(column);
 	o_image0 <= buffer0;
 	o_image1 <= buffer1;
 	o_image2 <= buffer2;
-
-	o_mode	 <= "01" when i_reset = '1' else
+	--o_valid  <= '1' when (row > 1 and column > 1 and first_bubble = '1') else
+		--					'0';
+	o_mode   <= "01" when i_reset = '1' else
 							"11" when busySignal = '1' or busySignalDelayed = '1' or i_valid = '1' else
 							"10"; --when busySignal = '0' and i_valid = '0';
 

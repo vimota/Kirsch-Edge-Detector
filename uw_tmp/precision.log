@@ -7,9 +7,9 @@
 //            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
 //          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 //  
-//  Running on Linux vcmota@eceLinux3.uwaterloo.ca #1 SMP Tue Jun 10 17:49:56 EDT 2014 2.6.18-371.9.1.el5 x86_64
+//  Running on Linux vcmota@ecelinux5.uwaterloo.ca #1 SMP Tue Jun 10 17:49:56 EDT 2014 2.6.18-371.9.1.el5 x86_64
 //  
-//  Start time Sun Jul 20 13:24:44 2014
+//  Start time Sun Jul 20 17:24:45 2014
 # -------------------------------------------------
 # Info: [9566]: Logging session transcript to file /home/vcmota/ece327/Kirsch-Edge-Detector/precision.log
 # Info: [9575]: Results directory: /home/vcmota/ece327/Kirsch-Edge-Detector/uw_tmp/
@@ -47,19 +47,20 @@
 # Warning: [45729]: "/home/vcmota/ece327/Kirsch-Edge-Detector/kirsch.vhd", line 25: Input port debug_switch has never been used.
 # Info: [44508]: Module work.mem(main){generic map (data_width => 8 addr_width => 8)}: Compiling...
 # Info: [44508]: Module work.memory(main): Compiling...
-# Warning: [45765]: "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd", line 87: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-# Warning: [45765]: "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd", line 87: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-# Warning: [45765]: "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd", line 87: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-# Warning: [45765]: "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd", line 87: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-# Warning: [45765]: "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd", line 42: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-# Warning: [45765]: "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd", line 207: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-# Info: [44838]: "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd", line 132: Macro Modgen_Counter "counter_up_sclear_clock_cnt_en_0_8" inferred for node "row".
-# Info: [44838]: "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd", line 137: Macro Modgen_Counter "counter_up_sclear_clock_clk_en_0_8" inferred for node "column".
+# Warning: [45765]: "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd", line 92: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+# Warning: [45765]: "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd", line 92: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+# Warning: [45765]: "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd", line 84: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+# Warning: [45765]: "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd", line 196: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+# Warning: [45765]: "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd", line 186: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+# Warning: [45765]: "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd", line 40: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+# Warning: [45765]: "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd", line 190: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+# Info: [44838]: "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd", line 116: Macro Modgen_Counter "counter_up_sclear_clock_cnt_en_0_8" inferred for node "row".
+# Info: [44838]: "/home/vcmota/ece327/Kirsch-Edge-Detector/memory.vhd", line 120: Macro Modgen_Counter "counter_up_sclear_clock_clk_en_cnt_en_0_8" inferred for node "column".
 # Info: [44523]: Root Module work.kirsch(main): Compiling...
 # Info: [44842]: Compilation successfully completed.
 # Info: [44841]: Counter Inferencing === Detected : 2, Inferred (Modgen/Selcounter/AddSub) : 2 (2 / 0 / 0), AcrossDH (Merged/Not-Merged) : (0 / 0), Not-Inferred (Acrossdh/Attempted) : (0 / 0), Local Vars : 0 ===
 # Info: [44835]: Total CPU time taken for compilation: 0.0 secs.
-# Info: [44856]: Total lines of RTL compiled: 414.
+# Info: [44856]: Total lines of RTL compiled: 417.
 # Info: [44513]: Overall running time 1.0 secs.
 # Info: [641]: Current working directory: /home/vcmota/ece327/Kirsch-Edge-Detector/uw_tmp/.
 # Info: [644]: Finished compiling design.
@@ -75,19 +76,21 @@
 # Warning: [1621]: Port o_dir(1) is connected to a disabled tristate, possibly unconnected Port in design.
 # Warning: [1621]: Port o_dir(2) is connected to a disabled tristate, possibly unconnected Port in design.
 # Info: [12041]: -- Running timing characterization...
+# Warning: [12006]: Timer notification: Attempt to propagate clock i_valid(2) assigned to pin i_valid from
+# Warning:     instance u_memory/ix548 over non-unate connection, stopping propagation of clocks to O..
 # Info: [15002]: Optimizing design view:.work.memory.main
 # Info: -- Saving the design database in /home/vcmota/ece327/Kirsch-Edge-Detector/uw_tmp/kirsch.xdb
 # Info: [3026]: Writing file: /home/vcmota/ece327/Kirsch-Edge-Detector/uw_tmp/kirsch.edf.
 # Info: -- Writing file /home/vcmota/ece327/Kirsch-Edge-Detector/uw_tmp/kirsch.tcl
 # Info: exq_pr_compile_project gen_vcf kirsch 1
 # Info: [644]: Finished synthesizing design.
-# Info: [11019]: Total CPU time taken for synthesis: 3.1 secs.
-# Info: [11020]: Overall running time 3.4 secs.
+# Info: [11019]: Total CPU time taken for synthesis: 2.9 secs.
+# Info: [11020]: Overall running time 3.1 secs.
 # Info: /home/vcmota/ece327/Kirsch-Edge-Detector/uw_tmp/precision_tech.sdc
 # Info: -- Saving the design database in uw_tmp/kirsch_logic.xdb
 # Info: [3026]: Writing file: uw_tmp/kirsch_logic.vhd.
 # Info: Info, Command 'auto_write' finished successfully
-# Info: i_clock
+# Info: i_clock i_valid
 # Info: -- Saving the design database in uw_tmp/kirsch_logic.xdb
 # Info: [3026]: Writing file: uw_tmp/kirsch_logic.v.
 # Info: Info, Command 'auto_write' finished successfully

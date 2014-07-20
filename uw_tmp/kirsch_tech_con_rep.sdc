@@ -7,11 +7,11 @@
 # Attributes
 #################
 set_attribute -name INFF -value "FALSE" -port -type STRING i_clock -design gatelevel 
+set_attribute -name INFF -value "FALSE" -port -type STRING i_valid -design gatelevel 
 set_attribute -name use_dffenable -value "0" -net -type default u_memory/o_valid -design gatelevel 
-set_attribute -name use_dffenable -value "0" -net -type default u_memory/first_bubble -design gatelevel 
 set_attribute -name MAX_FANOUT -value "1000" -net u_memory/first_bubble_repl -design gatelevel 
+set_attribute -name MAX_FANOUT -value "1000" -net u_memory/nx47386z6 -design gatelevel 
 set_attribute -name MAX_FANOUT -value "1000" -net u_memory/nx8852z1 -design gatelevel 
-set_attribute -name MAX_FANOUT -value "1000" -net u_memory/nx46897z1 -design gatelevel 
 set_attribute -name ignore_ram_rw_collision -value "true" -instance -type default u_memory/u_mem1_mem -design gatelevel 
 set_attribute -name ignore_ram_rw_collision -value "true" -instance -type default u_memory/u_mem2_mem -design gatelevel 
 set_attribute -name ignore_ram_rw_collision -value "true" -instance -type default u_memory/u_mem3_mem -design gatelevel 
@@ -126,5 +126,6 @@ set_attribute -name width_a -value "8" -instance -type INTEGER u_memory/u_mem3_m
 ##################
 # Clocks
 ##################
+create_clock { i_valid } -domain ClockDomain1 -name i_valid -period 2.000000 -waveform { 0.000000 1.000000 } -design gatelevel 
 create_clock { i_clock } -domain ClockDomain0 -name i_clock -period 2.000000 -waveform { 0.000000 1.000000 } -design gatelevel 
 

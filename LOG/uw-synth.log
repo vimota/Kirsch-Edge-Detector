@@ -1,5 +1,5 @@
 INFO: Starting PRECISION_RTL for logic synthesis
-precision: Executing on platform: CentOS release 5.10 (Final) Kernel \r on an \m  Linux eceLinux3.uwaterloo.ca 2.6.18-371.9.1.el5 #1 SMP Tue Jun 10 17:49:56 EDT 2014 x86_64 x86_64 x86_64 GNU/Linux 
+precision: Executing on platform: CentOS release 5.10 (Final) Kernel \r on an \m  Linux ecelinux5.uwaterloo.ca 2.6.18-371.9.1.el5 #1 SMP Tue Jun 10 17:49:56 EDT 2014 x86_64 x86_64 x86_64 GNU/Linux 
 precision: Setting MGC_HOME to /opt/Precision_Synthesis_2008a.47/Mgc_home ...
 Note: Defaulting to use the Next Generation GUI.
 //  Precision RTL Synthesis 2008a.47 (Production Release) Tue Dec  9 03:06:25 PST 2008
@@ -10,9 +10,9 @@ Note: Defaulting to use the Next Generation GUI.
 //            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
 //          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 //  
-//  Running on Linux vcmota@eceLinux3.uwaterloo.ca #1 SMP Tue Jun 10 17:49:56 EDT 2014 2.6.18-371.9.1.el5 x86_64
+//  Running on Linux vcmota@ecelinux5.uwaterloo.ca #1 SMP Tue Jun 10 17:49:56 EDT 2014 2.6.18-371.9.1.el5 x86_64
 //  
-//  Start time Sun Jul 20 13:24:44 2014
+//  Start time Sun Jul 20 17:24:45 2014
 -------------------------------------------------
 Info: Logging session transcript to file precision.log
 Info: Results directory: uw_tmp/
@@ -51,19 +51,20 @@ Warning: "kirsch.vhd", line 24: Input port debug_key has never been used.
 Warning: "kirsch.vhd", line 25: Input port debug_switch has never been used.
 Info: Module work.mem(main){generic map (data_width => 8 addr_width => 8)}: Compiling...
 Info: Module work.memory(main): Compiling...
-Warning: "memory.vhd", line 87: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-Warning: "memory.vhd", line 87: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-Warning: "memory.vhd", line 87: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-Warning: "memory.vhd", line 87: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-Warning: "memory.vhd", line 42: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-Warning: "memory.vhd", line 207: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-Info: "memory.vhd", line 132: Macro Modgen_Counter "counter_up_sclear_clock_cnt_en_0_8" inferred for node "row".
-Info: "memory.vhd", line 137: Macro Modgen_Counter "counter_up_sclear_clock_clk_en_0_8" inferred for node "column".
+Warning: "memory.vhd", line 92: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 92: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 84: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 196: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 186: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 40: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 190: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Info: "memory.vhd", line 116: Macro Modgen_Counter "counter_up_sclear_clock_cnt_en_0_8" inferred for node "row".
+Info: "memory.vhd", line 120: Macro Modgen_Counter "counter_up_sclear_clock_clk_en_cnt_en_0_8" inferred for node "column".
 Info: Root Module work.kirsch(main): Compiling...
 Info: Compilation successfully completed.
 Info: Counter Inferencing === Detected : 2, Inferred (Modgen/Selcounter/AddSub) : 2 (2 / 0 / 0), AcrossDH (Merged/Not-Merged) : (0 / 0), Not-Inferred (Acrossdh/Attempted) : (0 / 0), Local Vars : 0 ===
 Info: Total CPU time taken for compilation: 0.0 secs.
-Info: Total lines of RTL compiled: 414.
+Info: Total lines of RTL compiled: 417.
 Info: Overall running time 1.0 secs.
 Info: Current working directory: uw_tmp/.
 Info: Finished compiling design.
@@ -79,19 +80,21 @@ Warning: Port o_dir(0) is connected to a disabled tristate, possibly unconnected
 Warning: Port o_dir(1) is connected to a disabled tristate, possibly unconnected Port in design.
 Warning: Port o_dir(2) is connected to a disabled tristate, possibly unconnected Port in design.
 Info: -- Running timing characterization...
+Warning: Timer notification: Attempt to propagate clock i_valid(2) assigned to pin i_valid from
+Warning:     instance u_memory/ix548 over non-unate connection, stopping propagation of clocks to O..
 Info: Optimizing design view:.work.memory.main
 Info: -- Saving the design database in uw_tmp/kirsch.xdb
 Info: Writing file: uw_tmp/kirsch.edf.
 Info: -- Writing file uw_tmp/kirsch.tcl
 Info: exq_pr_compile_project gen_vcf kirsch 1
 Info: Finished synthesizing design.
-Info: Total CPU time taken for synthesis: 3.1 secs.
-Info: Overall running time 3.4 secs.
+Info: Total CPU time taken for synthesis: 2.9 secs.
+Info: Overall running time 3.1 secs.
 Info: uw_tmp/precision_tech.sdc
 Info: -- Saving the design database in uw_tmp/kirsch_logic.xdb
 Info: Writing file: uw_tmp/kirsch_logic.vhd.
 Info: Info, Command 'auto_write' finished successfully
-Info: i_clock
+Info: i_clock i_valid
 Info: -- Saving the design database in uw_tmp/kirsch_logic.xdb
 Info: Writing file: uw_tmp/kirsch_logic.v.
 Info: Info, Command 'auto_write' finished successfully
@@ -113,21 +116,21 @@ INFO:
 INFO: ..........Delays.........
 INFO:  Total  Datapath  Routing          Source              Dest
 INFO: ------  --------  -------   --------------------  ---------------------
-INFO:   4.48     3.48     1.00    u_memory/..._q(2)/clk u_memory/...nt(2)/ena
-INFO:   4.45     3.45     1.00    u_memory/..._q(3)/clk u_memory/...nt(2)/ena
-INFO:   4.33     3.33     1.00    u_memory/..._q(4)/clk u_memory/...nt(2)/ena
-INFO:   4.33     3.33     1.00    u_memory/..._q(5)/clk u_memory/...nt(2)/ena
-INFO:   4.18     3.18     1.00    u_memory/..._q(6)/clk u_memory/...nt(2)/ena
+INFO:   4.48     3.48     1.00    u_memory/..._q(4)/clk u_memory/..._q(7)/ena
+INFO:   4.48     3.48     1.00    u_memory/..._q(5)/clk u_memory/..._q(7)/ena
+INFO:   4.32     3.32     1.00    u_memory/..._q(6)/clk u_memory/..._q(7)/ena
+INFO:   4.19     3.19     1.00    u_memory/..._q(7)/clk u_memory/..._q(7)/ena
+INFO:   3.97     2.80     1.17    u_memory/...ignal/clk o_mode(0)            
 INFO: -----------------------------------------------------------------------
 INFO: Speed on Stratix II = 223 MHz,  4.48 ns (estimated by logic-synthesis)
-INFO: AREA = 125 cells (67 luts, 125 regs) (estimated by logic-synthesis)
+INFO: AREA = 123 cells (65 luts, 123 regs) (estimated by logic-synthesis)
 INFO: OPTIMALITY
 INFO: 
 INFO:              ..............latency...............
 INFO:              =<  8cyc   9cyc  10cyc   11cyc   12cyc
-INFO: optimality   =  1784   1696   1614    1535    1460
+INFO: optimality   =  1813   1724   1640    1560    1484
 INFO: latency                 = 2
-INFO: optimality with latency = 1784
+INFO: optimality with latency = 1813
 INFO: 
 INFO: ***********************************************
 INFO: *
