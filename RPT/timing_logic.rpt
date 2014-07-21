@@ -6,15 +6,15 @@
 
 Setup Slack Path Summary
 
-               Data                                                                                Data
-       Setup   Path   Source    Dest.                                                              End 
-Index  Slack   Delay   Clock    Clock           Data Start Pin                Data End Pin         Edge
------  ------  -----  -------  -------  ------------------------------  -------------------------  ----
-  1    -4.745  6.538  i_clock  i_clock  reg_f_state(0)/clk              u_flow/reg_p21(11)/datain  Rise
-  2    -4.745  6.538  i_clock  i_clock  reg_f_state(1)/clk              u_flow/reg_p21(11)/datain  Rise
-  3    -4.587  6.380  i_clock  i_clock  reg_f_state(2)/clk              u_flow/reg_p21(11)/datain  Rise
-  4    -4.452  6.245  i_clock  i_clock  reg_f_state(3)/clk              u_flow/reg_p21(11)/datain  Rise
-  5    -4.089  5.882  i_clock  i_clock  u_memory/reg_buffer2(0)(0)/clk  u_flow/reg_p21(11)/datain  Rise
+               Data                                                                             Data
+       Setup   Path   Source    Dest.                                                           End 
+Index  Slack   Delay   Clock    Clock         Data Start Pin               Data End Pin         Edge
+-----  ------  -----  -------  -------  --------------------------  --------------------------  ----
+  1    -4.745  6.538  i_clock  i_clock  reg_f_state(0)/clk          u_flow/reg_p21(11)/datain   Rise
+  2    -4.745  6.538  i_clock  i_clock  reg_f_state(1)/clk          u_flow/reg_p21(11)/datain   Rise
+  3    -4.617  5.617  i_clock  i_clock  u_flow/reg_prev_max(0)/clk  u_flow/reg_prev_max(9)/ena  Rise
+  4    -4.588  5.588  i_clock  i_clock  u_flow/reg_prev_max(1)/clk  u_flow/reg_prev_max(9)/ena  Rise
+  5    -4.587  6.380  i_clock  i_clock  reg_f_state(2)/clk          u_flow/reg_p21(11)/datain   Rise
 
 -- Device: Altera - Stratix II : EP2S15F484C : 5
 -- CTE report summary..

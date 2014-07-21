@@ -11,20 +11,20 @@ End CTE Report Summary ..... CPU Time Used: 0 sec.
 
 Setup Slack Path Summary
 
-               Data                                                                                Data
-       Setup   Path   Source    Dest.                                                              End 
-Index  Slack   Delay   Clock    Clock           Data Start Pin                Data End Pin         Edge
------  ------  -----  -------  -------  ------------------------------  -------------------------  ----
-  1    -4.745  6.538  i_clock  i_clock  reg_f_state(0)/clk              u_flow/reg_p21(11)/datain  Rise
-  2    -4.745  6.538  i_clock  i_clock  reg_f_state(1)/clk              u_flow/reg_p21(11)/datain  Rise
-  3    -4.587  6.380  i_clock  i_clock  reg_f_state(2)/clk              u_flow/reg_p21(11)/datain  Rise
-  4    -4.452  6.245  i_clock  i_clock  reg_f_state(3)/clk              u_flow/reg_p21(11)/datain  Rise
-  5    -4.089  5.882  i_clock  i_clock  u_memory/reg_buffer2(0)(0)/clk  u_flow/reg_p21(11)/datain  Rise
-  6    -4.079  5.872  i_clock  i_clock  u_memory/reg_buffer0(2)(0)/clk  u_flow/reg_p22(11)/datain  Rise
-  7    -4.042  5.835  i_clock  i_clock  u_memory/reg_buffer2(0)(1)/clk  u_flow/reg_p21(11)/datain  Rise
-  8    -4.032  5.825  i_clock  i_clock  u_memory/reg_buffer0(2)(1)/clk  u_flow/reg_p22(11)/datain  Rise
-  9    -3.995  5.788  i_clock  i_clock  u_memory/reg_buffer2(0)(2)/clk  u_flow/reg_p21(11)/datain  Rise
- 10    -3.985  5.778  i_clock  i_clock  u_memory/reg_buffer0(2)(2)/clk  u_flow/reg_p22(11)/datain  Rise
+               Data                                                                             Data
+       Setup   Path   Source    Dest.                                                           End 
+Index  Slack   Delay   Clock    Clock         Data Start Pin               Data End Pin         Edge
+-----  ------  -----  -------  -------  --------------------------  --------------------------  ----
+  1    -4.745  6.538  i_clock  i_clock  reg_f_state(0)/clk          u_flow/reg_p21(11)/datain   Rise
+  2    -4.745  6.538  i_clock  i_clock  reg_f_state(1)/clk          u_flow/reg_p21(11)/datain   Rise
+  3    -4.617  5.617  i_clock  i_clock  u_flow/reg_prev_max(0)/clk  u_flow/reg_prev_max(9)/ena  Rise
+  4    -4.588  5.588  i_clock  i_clock  u_flow/reg_prev_max(1)/clk  u_flow/reg_prev_max(9)/ena  Rise
+  5    -4.587  6.380  i_clock  i_clock  reg_f_state(2)/clk          u_flow/reg_p21(11)/datain   Rise
+  6    -4.484  5.484  i_clock  i_clock  u_flow/reg_p43(0)/clk       u_flow/reg_prev_max(9)/ena  Rise
+  7    -4.474  5.474  i_clock  i_clock  u_flow/reg_prev_max(2)/clk  u_flow/reg_prev_max(9)/ena  Rise
+  8    -4.452  6.245  i_clock  i_clock  reg_f_state(3)/clk          u_flow/reg_p21(11)/datain   Rise
+  9    -4.326  5.326  i_clock  i_clock  u_flow/reg_p43(1)/clk       u_flow/reg_prev_max(9)/ena  Rise
+ 10    -4.191  5.191  i_clock  i_clock  u_flow/reg_p43(2)/clk       u_flow/reg_prev_max(9)/ena  Rise
 
 -- Device: Altera - Stratix II : EP2S15F484C : 5
 -- CTE report summary..

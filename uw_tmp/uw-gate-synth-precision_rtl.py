@@ -14,7 +14,7 @@ my_rm( [ "kirsch_gate.vhd" ] )
 #--------------------------------------------------------------
 # run precision
 
-xsys( "precision -newgui -file uw_tmp/uw-gate-synth-precision_rtl.tcl" )
+xsys( "precision -shell -file uw_tmp/uw-gate-synth-precision_rtl.tcl" )
 
 my_rm( [ "kirsch_gate.xdb" ] )
 

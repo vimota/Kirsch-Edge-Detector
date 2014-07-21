@@ -2,7 +2,7 @@
 -- 
 -- Definition of  kirsch
 -- 
---      Sun Jul 20 23:55:04 2014
+--      Mon Jul 21 01:00:37 2014
 --      
 --      Precision RTL Synthesis, 2008a.47
 -- 
@@ -1682,21 +1682,21 @@ begin
    tap_out(2) <= nx16 ;
    tap_out(1) <= nx17 ;
    tap_out(0) <= nx18 ;
-   ix169 : shiftregister_reg_p5r_7_clk_reset_set_0_1_1_1_0_4 port map ( clk
+   ix170 : shiftregister_reg_p5r_7_clk_reset_set_0_1_1_1_0_4 port map ( clk
       =>clk, reset=>reset, set=>set, \in\=>\in\(7), \out\=>nx11);
-   ix170 : shiftregister_reg_p5r_6_clk_reset_set_0_1_1_1_0_4 port map ( clk
+   ix172 : shiftregister_reg_p5r_6_clk_reset_set_0_1_1_1_0_4 port map ( clk
       =>clk, reset=>reset, set=>set, \in\=>\in\(6), \out\=>nx12);
-   ix171 : shiftregister_reg_p5r_5_clk_reset_set_0_1_1_1_0_4 port map ( clk
+   ix173 : shiftregister_reg_p5r_5_clk_reset_set_0_1_1_1_0_4 port map ( clk
       =>clk, reset=>reset, set=>set, \in\=>\in\(5), \out\=>nx13);
-   ix172 : shiftregister_reg_p5r_4_clk_reset_set_0_1_1_1_0_4 port map ( clk
+   ix174 : shiftregister_reg_p5r_4_clk_reset_set_0_1_1_1_0_4 port map ( clk
       =>clk, reset=>reset, set=>set, \in\=>\in\(4), \out\=>nx14);
-   ix173 : shiftregister_reg_p5r_3_clk_reset_set_0_1_1_1_0_4 port map ( clk
+   ix175 : shiftregister_reg_p5r_3_clk_reset_set_0_1_1_1_0_4 port map ( clk
       =>clk, reset=>reset, set=>set, \in\=>\in\(3), \out\=>nx15);
-   ix174 : shiftregister_reg_p5r_2_clk_reset_set_0_1_1_1_0_4 port map ( clk
+   ix176 : shiftregister_reg_p5r_2_clk_reset_set_0_1_1_1_0_4 port map ( clk
       =>clk, reset=>reset, set=>set, \in\=>\in\(2), \out\=>nx16);
-   ix175 : shiftregister_reg_p5r_1_clk_reset_set_0_1_1_1_0_4 port map ( clk
+   ix177 : shiftregister_reg_p5r_1_clk_reset_set_0_1_1_1_0_4 port map ( clk
       =>clk, reset=>reset, set=>set, \in\=>\in\(1), \out\=>nx17);
-   ix176 : shiftregister_reg_p5r_0_clk_reset_set_0_1_1_1_0_4 port map ( clk
+   ix178 : shiftregister_reg_p5r_0_clk_reset_set_0_1_1_1_0_4 port map ( clk
       =>clk, reset=>reset, set=>set, \in\=>\in\(0), \out\=>nx18);
 end INTERFACE ;
 
@@ -1823,9 +1823,9 @@ begin
    \out\(0) <= nx6 ;
    tap_out(1) <= nx5 ;
    tap_out(0) <= nx6 ;
-   ix177 : shiftregister_reg_p5m_1_clk_reset_set_0_1_1_1_0_4 port map ( clk
+   ix179 : shiftregister_reg_p5m_1_clk_reset_set_0_1_1_1_0_4 port map ( clk
       =>clk, reset=>reset, set=>set, \in\=>\in\(1), \out\=>nx5);
-   ix178 : shiftregister_reg_p5m_0_clk_reset_set_0_1_1_1_0_4 port map ( clk
+   ix180 : shiftregister_reg_p5m_0_clk_reset_set_0_1_1_1_0_4 port map ( clk
       =>clk, reset=>reset, set=>set, \in\=>\in\(0), \out\=>nx6);
 end INTERFACE ;
 
@@ -1899,7 +1899,7 @@ architecture INTERFACE of shiftregister_with_taps_1_3_1 is
 begin
    \out\(0) <= nx4 ;
    tap_out(0) <= nx4 ;
-   ix179 : shiftregister_reg_p40_clk_reset_set_0_1_1_1_0_3 port map ( clk=>
+   ix181 : shiftregister_reg_p40_clk_reset_set_0_1_1_1_0_3 port map ( clk=>
       clk, reset=>reset, set=>set, \in\=>\in\(0), \out\=>nx4);
 end INTERFACE ;
 
@@ -2010,27 +2010,6 @@ architecture main of flow is
            q <= 'X' ;
        end if ;
    end DFFPC ;
-   procedure DFFPCE (
-      constant data   : in std_logic;
-      constant preset : in std_logic;
-      constant clear  : in std_logic;
-      constant enable : in std_logic;
-      signal clk      : in std_logic;
-      signal q        : out std_logic)
-   is begin
-       if (preset = '1') then
-           q <= '1' ;
-       elsif (clear = '1') then
-           q <= '0' ;
-       elsif (clk'event and clk'last_value = '0' and clk = '1') then
-           if (enable = '1') then
-               q <= data and data ;    -- takes care of q<='X' if data='Z'
-           end if ;
-       end if ;
-       if ((clear/='1' or preset/='1') and clk/='0' and clk/='1') then
-           q <= 'X' ;
-       end if ;
-   end DFFPCE ;
    procedure DFFRSE (
       constant data   : in std_logic;
       constant set    : in std_logic;
@@ -2052,6 +2031,27 @@ architecture main of flow is
            q <= 'X' ;
        end if ;
    end DFFRSE ;
+   procedure DFFPCE (
+      constant data   : in std_logic;
+      constant preset : in std_logic;
+      constant clear  : in std_logic;
+      constant enable : in std_logic;
+      signal clk      : in std_logic;
+      signal q        : out std_logic)
+   is begin
+       if (preset = '1') then
+           q <= '1' ;
+       elsif (clear = '1') then
+           q <= '0' ;
+       elsif (clk'event and clk'last_value = '0' and clk = '1') then
+           if (enable = '1') then
+               q <= data and data ;    -- takes care of q<='X' if data='Z'
+           end if ;
+       end if ;
+       if ((clear/='1' or preset/='1') and clk/='0' and clk/='1') then
+           q <= 'X' ;
+       end if ;
+   end DFFPCE ;
    component modgen_adderblock_add_2_3_0_0_0_9_0
       port (
          a0 : IN std_logic_vector (7 DOWNTO 0) ;
@@ -2096,7 +2096,7 @@ architecture main of flow is
          reset : IN std_logic ;
          set : IN std_logic) ;
    end component ;
-   signal o_dir_EXMPLR485: std_logic_vector (2 DOWNTO 0) ;
+   signal o_dir_2_EXMPLR460, o_dir_1_EXMPLR461: std_logic ;
    
    signal p11: std_logic_vector (9 DOWNTO 0) ;
    
@@ -2123,6 +2123,8 @@ architecture main of flow is
    
    signal p5m: std_logic_vector (1 DOWNTO 0) ;
    
+   signal max_fwd: std_logic ;
+   
    signal prev_max: std_logic_vector (11 DOWNTO 0) ;
    
    signal state: std_logic_vector (3 DOWNTO 0) ;
@@ -2131,7 +2133,7 @@ architecture main of flow is
    
    signal p13_0n0s2: std_logic_vector (8 DOWNTO 0) ;
    
-   signal rtlc1n72, not_o_dir_0, rtlc1n76, rtlc1n77, rtlc1n84, not_i_reset: 
+   signal rtlc1n72, not_max_fwd, rtlc1n76, rtlc1n77, rtlc1n84, not_i_reset: 
    std_logic ;
    
    signal p21_3n0r4: std_logic_vector (10 DOWNTO 1) ;
@@ -2152,19 +2154,22 @@ architecture main of flow is
    
    signal p31_4n1ss1: std_logic_vector (11 DOWNTO 0) ;
    
-   signal rtlc4n47, rtlc5n80, rtlc5n81, not_p4s_11, rtlc5n83, rtlc6n127, 
-      not_rtlcn213, rtlcn196, rtlcn204, not_state_0, not_state_2, rtlcn213, 
-      rtlcn214, not_rtlc4n47, not_p21_3n0r4_10, rtlcn1062, not_rtlcn1062, 
-      not_p22_3n0r4_10, rtlcn1143, not_rtlcn1143, rtlcn1383, rtlcn1384, 
-      rtlcn1386, rtlcn1387, rtlcn1388, rtlcn1389, rtlcn1390, rtlcn1391: 
+   signal rtlc4n47, rtlc5n80, rtlc5n81, not_p4s_11, rtlc5n83, rtlc6n34: 
    std_logic ;
+   
+   signal rtlc7_max_dir_D_n11: std_logic_vector (0 DOWNTO 0) ;
+   
+   signal rtlc7n78, not_rtlcn213, rtlcn196, rtlcn204, not_state_0, 
+      not_state_2, rtlcn213, rtlcn214, not_rtlc4n47, not_p21_3n0r4_10, 
+      rtlcn1062, not_rtlcn1062, not_p22_3n0r4_10, rtlcn1143, not_rtlcn1143, 
+      rtlcn1384, rtlcn1386, rtlcn1387, rtlcn1388, rtlcn1389, rtlcn1390, 
+      rtlcn1391: std_logic ;
    
    signal DANGLING : std_logic_vector (19 downto 0 );
 
 begin
-   o_dir(2) <= o_dir_EXMPLR485(2) ;
-   o_dir(1) <= o_dir_EXMPLR485(1) ;
-   o_dir(0) <= o_dir_EXMPLR485(0) ;
+   o_dir(2) <= o_dir_2_EXMPLR460 ;
+   o_dir(1) <= o_dir_1_EXMPLR461 ;
    GND <= '0' ;
    PWR <= '1' ;
    p4s_sub12_0 : sub_12u_12u_12u_0 port map ( cin=>PWR, a(11)=>p31(11), 
@@ -2183,7 +2188,7 @@ begin
       prev_max(8), b(7)=>prev_max(7), b(6)=>prev_max(6), b(5)=>prev_max(5), 
       b(4)=>prev_max(4), b(3)=>prev_max(3), b(2)=>prev_max(2), b(1)=>
       prev_max(1), b(0)=>prev_max(0), d=>rtlc1n72);
-   rtlc1_12_and_25 : and_3u_3u port map ( a(2)=>rtlc1n72, a(1)=>not_o_dir_0, 
+   rtlc1_12_and_25 : and_3u_3u port map ( a(2)=>rtlc1n72, a(1)=>not_max_fwd, 
       a(0)=>p45, d=>rtlc1n76);
    rtlc1_13_gt_26 : gt_12s_12s port map ( a(11)=>p43(11), a(10)=>p43(10), 
       a(9)=>p43(9), a(8)=>p43(8), a(7)=>p43(7), a(6)=>p43(6), a(5)=>p43(5), 
@@ -2193,7 +2198,7 @@ begin
       b(4)=>prev_max(4), b(3)=>prev_max(3), b(2)=>prev_max(2), b(1)=>
       prev_max(1), b(0)=>prev_max(0), d=>rtlc1n84);
    rtlc1n77 <= rtlc1n84 OR rtlc1n76 ;
-   not_o_dir_0 <= NOT o_dir_EXMPLR485(0) ;
+   not_max_fwd <= NOT max_fwd ;
    not_i_reset <= NOT i_reset ;
    rtlc4_88_gt_27 : gt_12s_12s port map ( a(11)=>p22(11), a(10)=>p22(10), 
       a(9)=>p22(9), a(8)=>p22(8), a(7)=>p22(7), a(6)=>p22(6), a(5)=>p22(5), 
@@ -2204,6 +2209,8 @@ begin
    rtlc5n80 <= p4s(7) AND p4s(8) ;
    not_p4s_11 <= NOT p4s(11) ;
    rtlc5n83 <= rtlc5n81 AND not_p4s_11 ;
+   rtlc6n34 <= i_reset OR state(3) ;
+   rtlc7_max_dir_D_n11(0) <= NOT p45 ;
    not_state_0 <= NOT state(0) ;
    not_state_2 <= NOT state(2) ;
    rtlcn204 <= state(1) OR not_state_2 ;
@@ -2221,9 +2228,9 @@ begin
    p31_4n1ss1(9) <= p22(9) when rtlc4n47 = '1' else p21(9) ;
    p31_4n1ss1(10) <= p22(10) when rtlc4n47 = '1' else p21(10) ;
    p31_4n1ss1(11) <= p22(11) when rtlc4n47 = '1' else p21(11) ;
-   rtlc_150_or_29 : or_4u_4u port map ( a(3)=>state(0), a(2)=>state(1), a(1)
+   rtlc_149_or_29 : or_4u_4u port map ( a(3)=>state(0), a(2)=>state(1), a(1)
       =>state(2), a(0)=>state(3), d=>rtlcn214);
-   rtlc6n127 <= rtlc1n77 AND rtlcn214 ;
+   rtlc7n78 <= rtlc1n77 AND rtlcn214 ;
    not_rtlc4n47 <= NOT rtlc4n47 ;
    rtlcn213 <= state(1) OR state(0) ;
    o_mode(0) <= p5m(0) OR i_reset ;
@@ -2250,7 +2257,7 @@ begin
       p21_3n0r3(5), d(4)=>p21_3n0r3(4), d(3)=>p21_3n0r3(3), d(2)=>
       p21_3n0r3(2), d(1)=>p21_3n0r3(1), d(0)=>p21_3n0r3(0), cout=>rtlcn1062
    );
-   rtlc_359_add_36 : add_10u_10u_10u_0_0 port map ( cin=>GND, a(9)=>
+   rtlc_358_add_36 : add_10u_10u_10u_0_0 port map ( cin=>GND, a(9)=>
       p21_3n0r3(11), a(8)=>p21_3n0r3(10), a(7)=>p21_3n0r3(9), a(6)=>
       p21_3n0r3(8), a(5)=>p21_3n0r3(7), a(4)=>p21_3n0r3(6), a(3)=>
       p21_3n0r3(5), a(2)=>p21_3n0r3(4), a(1)=>p21_3n0r3(3), a(0)=>
@@ -2282,7 +2289,7 @@ begin
       p22_3n0r3(5), d(4)=>p22_3n0r3(4), d(3)=>p22_3n0r3(3), d(2)=>
       p22_3n0r3(2), d(1)=>p22_3n0r3(1), d(0)=>p22_3n0r3(0), cout=>rtlcn1143
    );
-   rtlc_389_add_39 : add_10u_10u_10u_0_0 port map ( cin=>GND, a(9)=>
+   rtlc_388_add_39 : add_10u_10u_10u_0_0 port map ( cin=>GND, a(9)=>
       p22_3n0r3(11), a(8)=>p22_3n0r3(10), a(7)=>p22_3n0r3(9), a(6)=>
       p22_3n0r3(8), a(5)=>p22_3n0r3(7), a(4)=>p22_3n0r3(6), a(3)=>
       p22_3n0r3(5), a(2)=>p22_3n0r3(4), a(1)=>p22_3n0r3(3), a(0)=>
@@ -2310,14 +2317,13 @@ begin
       =>DANGLING(5));
    p21_3n0r3(10) <= rtlcn1062 XOR not_p21_3n0r4_10 ;
    p22_3n0r3(10) <= rtlcn1143 XOR not_p22_3n0r4_10 ;
-   rtlcn1383 <= state(3) OR i_reset ;
    rtlcn1384 <= p40 OR i_reset ;
-   rtlcn1386 <= rtlcn196 when rtlc6n127 = '1' else o_dir_EXMPLR485(2) ;
-   rtlcn1387 <= not_rtlcn213 when rtlc6n127 = '1' else o_dir_EXMPLR485(1) ;
+   rtlcn1386 <= rtlcn196 when rtlc7n78 = '1' else o_dir_2_EXMPLR460 ;
+   rtlcn1387 <= not_rtlcn213 when rtlc7n78 = '1' else o_dir_1_EXMPLR461 ;
    rtlcn1388 <= state(2) when p40 = '1' else state(3) ;
    rtlcn1389 <= state(1) when p40 = '1' else state(2) ;
    rtlcn1390 <= state(0) when p40 = '1' else state(1) ;
-   rtlcn1391 <= rtlcn1383 when rtlcn1384 = '1' else state(0) ;
+   rtlcn1391 <= rtlc6n34 when rtlcn1384 = '1' else state(0) ;
    DFFPC (p13_10,GND,GND,i_clock,p23(10)) ;
    DFFPC (p13_9,GND,GND,i_clock,p23(9)) ;
    DFFPC (p13_8,GND,GND,i_clock,p23(8)) ;
@@ -2391,23 +2397,24 @@ begin
    DFFPC (p4s(1),GND,GND,i_clock,p43(1)) ;
    DFFPC (p4s(0),GND,GND,i_clock,p43(0)) ;
    DFFPC (rtlc5n83,GND,GND,i_clock,p41) ;
-   DFFPCE (p45,GND,GND,rtlc1n77,i_clock,o_dir_EXMPLR485(0)) ;
-   DFFPCE (p41,GND,GND,rtlc1n77,i_clock,o_edge) ;
-   DFFPCE (p43(11),GND,GND,rtlc1n77,i_clock,prev_max(11)) ;
-   DFFPCE (p43(10),GND,GND,rtlc1n77,i_clock,prev_max(10)) ;
-   DFFPCE (p43(9),GND,GND,rtlc1n77,i_clock,prev_max(9)) ;
-   DFFPCE (p43(8),GND,GND,rtlc1n77,i_clock,prev_max(8)) ;
-   DFFPCE (p43(7),GND,GND,rtlc1n77,i_clock,prev_max(7)) ;
-   DFFPCE (p43(6),GND,GND,rtlc1n77,i_clock,prev_max(6)) ;
-   DFFPCE (p43(5),GND,GND,rtlc1n77,i_clock,prev_max(5)) ;
-   DFFPCE (p43(4),GND,GND,rtlc1n77,i_clock,prev_max(4)) ;
-   DFFPCE (p43(3),GND,GND,rtlc1n77,i_clock,prev_max(3)) ;
-   DFFPCE (p43(2),GND,GND,rtlc1n77,i_clock,prev_max(2)) ;
-   DFFPCE (p43(1),GND,GND,rtlc1n77,i_clock,prev_max(1)) ;
-   DFFPCE (p43(0),GND,GND,rtlc1n77,i_clock,prev_max(0)) ;
+   DFFRSE (p41,GND,rtlc6n34,rtlc1n77,i_clock,o_edge) ;
+   DFFRSE (p45,GND,rtlc6n34,rtlc1n77,i_clock,max_fwd) ;
+   DFFRSE (p43(11),GND,rtlc6n34,rtlc1n77,i_clock,prev_max(11)) ;
+   DFFRSE (p43(10),GND,rtlc6n34,rtlc1n77,i_clock,prev_max(10)) ;
+   DFFRSE (p43(9),GND,rtlc6n34,rtlc1n77,i_clock,prev_max(9)) ;
+   DFFRSE (p43(8),GND,rtlc6n34,rtlc1n77,i_clock,prev_max(8)) ;
+   DFFRSE (p43(7),GND,rtlc6n34,rtlc1n77,i_clock,prev_max(7)) ;
+   DFFRSE (p43(6),GND,rtlc6n34,rtlc1n77,i_clock,prev_max(6)) ;
+   DFFRSE (p43(5),GND,rtlc6n34,rtlc1n77,i_clock,prev_max(5)) ;
+   DFFRSE (p43(4),GND,rtlc6n34,rtlc1n77,i_clock,prev_max(4)) ;
+   DFFRSE (p43(3),GND,rtlc6n34,rtlc1n77,i_clock,prev_max(3)) ;
+   DFFRSE (p43(2),GND,rtlc6n34,rtlc1n77,i_clock,prev_max(2)) ;
+   DFFRSE (p43(1),GND,rtlc6n34,rtlc1n77,i_clock,prev_max(1)) ;
+   DFFRSE (p43(0),GND,rtlc6n34,rtlc1n77,i_clock,prev_max(0)) ;
+   DFFPCE (rtlc7_max_dir_D_n11(0),GND,GND,rtlc1n77,i_clock,o_dir(0)) ;
    DFFRSE (state(3),GND,i_reset,PWR,i_clock,o_valid) ;
-   DFFPC (rtlcn1386,GND,GND,i_clock,o_dir_EXMPLR485(2)) ;
-   DFFPC (rtlcn1387,GND,GND,i_clock,o_dir_EXMPLR485(1)) ;
+   DFFPC (rtlcn1386,GND,GND,i_clock,o_dir_2_EXMPLR460) ;
+   DFFPC (rtlcn1387,GND,GND,i_clock,o_dir_1_EXMPLR461) ;
    DFFRSE (rtlcn1388,GND,i_reset,PWR,i_clock,state(3)) ;
    DFFRSE (rtlcn1389,GND,i_reset,PWR,i_clock,state(2)) ;
    DFFRSE (rtlcn1390,GND,i_reset,PWR,i_clock,state(1)) ;
@@ -2430,7 +2437,7 @@ begin
       d(4)=>p11(4), d(3)=>p11(3), d(2)=>p11(2), d(1)=>p11(1), d(0)=>p11(0));
    modgen_or_4 : or_4u_4u port map ( a(3)=>p4s(9), a(2)=>p4s(10), a(1)=>
       p4s(11), a(0)=>rtlc5n80, d=>rtlc5n81);
-   ix180 : shiftregister_with_taps_8_4_1 port map ( \in\(7)=>i_row(7), 
+   ix182 : shiftregister_with_taps_8_4_1 port map ( \in\(7)=>i_row(7), 
       \in\(6)=>i_row(6), \in\(5)=>i_row(5), \in\(4)=>i_row(4), \in\(3)=>
       i_row(3), \in\(2)=>i_row(2), \in\(1)=>i_row(1), \in\(0)=>i_row(0), 
       \out\(7)=>o_row(7), \out\(6)=>o_row(6), \out\(5)=>o_row(5), \out\(4)=>
@@ -2440,11 +2447,11 @@ begin
       (10), tap_out(2)=>DANGLING(11), tap_out(1)=>DANGLING(12), tap_out(0)=>
       DANGLING(13), clk=>i_clock, clken=>DANGLING(14), reset=>GND, set=>GND
    );
-   ix181 : shiftregister_with_taps_2_4_1 port map ( \in\(1)=>i_mode(1), 
+   ix183 : shiftregister_with_taps_2_4_1 port map ( \in\(1)=>i_mode(1), 
       \in\(0)=>i_mode(0), \out\(1)=>p5m(1), \out\(0)=>p5m(0), tap_out(1)=>
       DANGLING(15), tap_out(0)=>DANGLING(16), clk=>i_clock, clken=>DANGLING(
       17), reset=>GND, set=>GND);
-   ix182 : shiftregister_with_taps_1_3_1 port map ( \in\(0)=>i_valid, 
+   ix184 : shiftregister_with_taps_1_3_1 port map ( \in\(0)=>i_valid, 
       \out\(0)=>p40, tap_out(0)=>DANGLING(18), clk=>i_clock, clken=>DANGLING
       (19), reset=>GND, set=>GND);
 end main ;

@@ -4,8 +4,8 @@ Device Utilization for EP2S15F484C
 Resource                Used    Avail   Utilization
 -----------------------------------------------
 IOs                     216     343      62.97%
-LUTs                    299     12480     2.40%
-Registers               329     14410     2.28%
+LUTs                    301     12480     2.41%
+Registers               331     14410     2.30%
 Memory Bits             6144    419328    1.47%
 DSP block 9-bit elems   0       96        0.00%
 
@@ -21,8 +21,9 @@ Library: work    Cell: kirsch    View: main
 
  GND                     stratixii     1 x
  NOT                     stratixii     1 x
- flow                    work          1 x    125    125 Registers
-                                              150    150 LUTs
+ flow                    work          1 x    127    127 Registers
+                                                0      0 LCs
+                                              152    152 LUTs
  memory                  work          1 x      0      0 LCs
                                              6144   6144 Memory Bits
                                               117    117 Registers
@@ -39,7 +40,7 @@ Library: work    Cell: kirsch    View: main
 Total accumulated area : 
  Number of IOs :                       216
  Number of LCs :                         0
- Number of LUTs :                      299
+ Number of LUTs :                      301
  Number of Memory Bits :              6144
- Number of Registers :                 329
- Number of accumulated instances :     855
+ Number of Registers :                 331
+ Number of accumulated instances :     860

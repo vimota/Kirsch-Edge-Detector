@@ -1,4 +1,4 @@
-uw-sim /home/ece327/bin/uw-sim kirsch.uwp
+uw-sim /home/ece327/bin/uw-sim -Gtest_num=1 kirsch.uwp
 INFO: Using testbench        : kirsch_tb
 INFO: Using design entity    : kirsch
 INFO: Using simulation script: kirsch_tb.sim

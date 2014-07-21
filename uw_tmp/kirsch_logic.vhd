@@ -2,7 +2,7 @@
 -- 
 -- Definition of  kirsch
 -- 
---      Sun Jul 20 23:55:10 2014
+--      Mon Jul 21 01:00:45 2014
 --      
 --      Precision RTL Synthesis, 2008a.47
 -- 
@@ -2048,17 +2048,17 @@ entity flow is
       p_f_i2_next_1 : IN std_logic ;
       p_o_image1_2_dup0_1 : IN std_logic ;
       GND : OUT std_logic ;
-      p_ix182_ix179_nx7_repl0 : IN std_logic ;
-      p_ix180_ix169_nx7_repl0 : IN std_logic ;
-      p_ix180_ix170_nx7_repl0 : IN std_logic ;
-      p_ix180_ix171_nx7_repl0 : IN std_logic ;
-      p_ix180_ix172_nx7_repl0 : IN std_logic ;
-      p_ix180_ix173_nx7_repl0 : IN std_logic ;
-      p_ix180_ix174_nx7_repl0 : IN std_logic ;
-      p_ix180_ix175_nx7_repl0 : IN std_logic ;
-      p_ix180_ix176_nx7_repl0 : IN std_logic ;
-      p_ix181_ix177_nx7_repl0 : IN std_logic ;
-      p_ix181_ix178_nx7_repl0 : IN std_logic) ;
+      p_ix184_ix181_nx7_repl0 : IN std_logic ;
+      p_ix182_ix170_nx7_repl0 : IN std_logic ;
+      p_ix182_ix172_nx7_repl0 : IN std_logic ;
+      p_ix182_ix173_nx7_repl0 : IN std_logic ;
+      p_ix182_ix174_nx7_repl0 : IN std_logic ;
+      p_ix182_ix175_nx7_repl0 : IN std_logic ;
+      p_ix182_ix176_nx7_repl0 : IN std_logic ;
+      p_ix182_ix177_nx7_repl0 : IN std_logic ;
+      p_ix182_ix178_nx7_repl0 : IN std_logic ;
+      p_ix183_ix179_nx7_repl0 : IN std_logic ;
+      p_ix183_ix180_nx7_repl0 : IN std_logic) ;
 end flow ;
 
 architecture main of flow is 
@@ -2177,7 +2177,7 @@ architecture main of flow is
          a2 : IN std_logic_vector (8 DOWNTO 0) ;
          d : OUT std_logic_vector (9 DOWNTO 0)) ;
    end component ;
-   signal o_dir_EXMPLR1028: std_logic_vector (2 DOWNTO 0) ;
+   signal o_dir_2_EXMPLR1007, o_dir_1_EXMPLR1008: std_logic ;
    
    signal p11: std_logic_vector (9 DOWNTO 0) ;
    
@@ -2204,7 +2204,9 @@ architecture main of flow is
    
    signal p5m: std_logic_vector (1 DOWNTO 0) ;
    
-   signal prev_max: std_logic_vector (10 DOWNTO 0) ;
+   signal max_fwd: std_logic ;
+   
+   signal prev_max: std_logic_vector (11 DOWNTO 0) ;
    
    signal state: std_logic_vector (3 DOWNTO 0) ;
    
@@ -2222,24 +2224,23 @@ architecture main of flow is
    signal p22_3n0r3: std_logic_vector (9 DOWNTO 0) ;
    
    signal nx47840z1, nx46843z1, nx12683z1, nx11686z1, nx10689z1, nx9692z1, 
-      nx8695z1, nx7698z1, nx6701z1, nx5704z1, nx51413z2, nx5704z2, nx21188z1, 
-      nx49483z1, nx20191z1, nx50480z1, nx19194z1, nx51477z1, nx18197z1, 
-      nx52474z1, nx17200z1, nx53471z1, nx16203z1, nx54468z1, nx15206z1, 
-      nx55465z1, nx14209z1, nx56462z1, nx4014z1, nx9149z1, nx5011z1, 
-      nx10146z1, nx7680z1, nx25836z2, nx45188z2, nx26026z1, nx28524z1, 
-      nx29521z1, nx25836z1, nx26833z1, nx45188z1, nx44191z1, nx49569z1, 
-      nx50566z1, nx51563z1, nx52560z1, nx53557z1, nx54554z1, nx55551z1, 
-      nx56548z1, nx57545z1, nx58542z1, nx45188z4, nx45188z6, nx622z4, 
-      nx622z1, nx25836z7, nx25836z3, nx45188z3, nx45188z5, nx45188z7, 
-      nx25836z4, nx25836z5, nx25836z6, nx622z3, nx622z5, nx622z6, nx622z2, 
-      nx60988z1: std_logic ;
+      nx8695z1, nx7698z1, nx6701z1, nx5704z1, nx51413z2, nx5704z2, nx29630z1, 
+      nx24495z1, nx28633z1, nx23498z1, nx27636z1, nx22501z1, nx26639z1, 
+      nx21504z1, nx25642z1, nx20507z1, nx24645z1, nx19510z1, nx23648z1, 
+      nx18513z1, nx22651z1, nx17516z1, nx4428z1, nx64829z1, nx3431z1, 
+      nx63832z1, nx53186z1, nx25836z2, nx45188z2, nx26026z1, nx29521z1, 
+      nx27830z1, nx29521z2, nx60988z1, nx25836z1, nx26833z1, nx45188z1, 
+      nx44191z1, nx49569z1, nx50566z1, nx51563z1, nx52560z1, nx53557z1, 
+      nx54554z1, nx55551z1, nx56548z1, nx57545z1, nx58542z1, nx25836z11, 
+      nx25836z8, nx25836z7, nx45188z4, nx45188z6, nx25836z3, nx45188z3, 
+      nx25836z4, nx25836z5, nx25836z6, nx45188z5, nx45188z7, nx25836z10, 
+      nx25836z12, nx25836z13, nx25836z9, nx27830z2, nx60988z2: std_logic ;
    
    signal DANGLING : std_logic_vector (62 downto 0 );
 
 begin
-   o_dir(2) <= o_dir_EXMPLR1028(2) ;
-   o_dir(1) <= o_dir_EXMPLR1028(1) ;
-   o_dir(0) <= o_dir_EXMPLR1028(0) ;
+   o_dir(2) <= o_dir_2_EXMPLR1007 ;
+   o_dir(1) <= o_dir_1_EXMPLR1008 ;
    p4s_sub12_0 : sub_12_0 port map ( cin=>DANGLING(0), a(11)=>p31(11), a(10)
       =>p31(10), a(9)=>p31(9), a(8)=>p31(8), a(7)=>p31(7), a(6)=>p31(6), 
       a(5)=>p31(5), a(4)=>p31(4), a(3)=>p31(3), a(2)=>p31(2), a(1)=>p31(1), 
@@ -2354,38 +2355,41 @@ begin
       t3(4), a2(3)=>t3(3), a2(2)=>t3(2), a2(1)=>t3(1), a2(0)=>t3(0), d(9)=>
       p11(9), d(8)=>p11(8), d(7)=>p11(7), d(6)=>p11(6), d(5)=>p11(5), d(4)=>
       p11(4), d(3)=>p11(3), d(2)=>p11(2), d(1)=>p11(1), d(0)=>p11(0));
+   nx27830z1 <= NOT p45;
    reg_state_3 : stratixii_lcell_ff port map ( regout=>state(3), datain=>
-      state(2), clk=>i_clock, ena=>nx28524z1, sclr=>i_reset);
+      state(2), clk=>i_clock, ena=>nx29521z2, sclr=>i_reset);
    reg_state_2 : stratixii_lcell_ff port map ( regout=>state(2), datain=>
-      state(1), clk=>i_clock, ena=>nx28524z1, sclr=>i_reset);
+      state(1), clk=>i_clock, ena=>nx29521z2, sclr=>i_reset);
    reg_state_1 : stratixii_lcell_ff port map ( regout=>state(1), datain=>
-      state(0), clk=>i_clock, ena=>nx28524z1, sclr=>i_reset);
+      state(0), clk=>i_clock, ena=>nx29521z2, sclr=>i_reset);
    reg_state_0 : stratixii_lcell_ff port map ( regout=>state(0), datain=>
-      nx29521z1, clk=>i_clock, ena=>nx28524z1);
+      nx29521z1, clk=>i_clock, ena=>nx29521z2);
    reg_prev_max_9 : stratixii_lcell_ff port map ( regout=>prev_max(9), 
-      datain=>p43(9), clk=>i_clock, ena=>nx60988z1);
+      datain=>p43(9), clk=>i_clock, ena=>nx60988z1, sclr=>nx60988z2);
    reg_prev_max_8 : stratixii_lcell_ff port map ( regout=>prev_max(8), 
-      datain=>p43(8), clk=>i_clock, ena=>nx60988z1);
+      datain=>p43(8), clk=>i_clock, ena=>nx60988z1, sclr=>nx60988z2);
    reg_prev_max_7 : stratixii_lcell_ff port map ( regout=>prev_max(7), 
-      datain=>p43(7), clk=>i_clock, ena=>nx60988z1);
+      datain=>p43(7), clk=>i_clock, ena=>nx60988z1, sclr=>nx60988z2);
    reg_prev_max_6 : stratixii_lcell_ff port map ( regout=>prev_max(6), 
-      datain=>p43(6), clk=>i_clock, ena=>nx60988z1);
+      datain=>p43(6), clk=>i_clock, ena=>nx60988z1, sclr=>nx60988z2);
    reg_prev_max_5 : stratixii_lcell_ff port map ( regout=>prev_max(5), 
-      datain=>p43(5), clk=>i_clock, ena=>nx60988z1);
+      datain=>p43(5), clk=>i_clock, ena=>nx60988z1, sclr=>nx60988z2);
    reg_prev_max_4 : stratixii_lcell_ff port map ( regout=>prev_max(4), 
-      datain=>p43(4), clk=>i_clock, ena=>nx60988z1);
+      datain=>p43(4), clk=>i_clock, ena=>nx60988z1, sclr=>nx60988z2);
    reg_prev_max_3 : stratixii_lcell_ff port map ( regout=>prev_max(3), 
-      datain=>p43(3), clk=>i_clock, ena=>nx60988z1);
+      datain=>p43(3), clk=>i_clock, ena=>nx60988z1, sclr=>nx60988z2);
    reg_prev_max_2 : stratixii_lcell_ff port map ( regout=>prev_max(2), 
-      datain=>p43(2), clk=>i_clock, ena=>nx60988z1);
+      datain=>p43(2), clk=>i_clock, ena=>nx60988z1, sclr=>nx60988z2);
+   reg_prev_max_11 : stratixii_lcell_ff port map ( regout=>prev_max(11), 
+      datain=>p43(11), clk=>i_clock, ena=>nx60988z1, sclr=>nx60988z2);
    reg_prev_max_10 : stratixii_lcell_ff port map ( regout=>prev_max(10), 
-      datain=>p43(10), clk=>i_clock, ena=>nx60988z1);
+      datain=>p43(10), clk=>i_clock, ena=>nx60988z1, sclr=>nx60988z2);
    reg_prev_max_1 : stratixii_lcell_ff port map ( regout=>prev_max(1), 
-      datain=>p43(1), clk=>i_clock, ena=>nx60988z1);
+      datain=>p43(1), clk=>i_clock, ena=>nx60988z1, sclr=>nx60988z2);
    reg_prev_max_0 : stratixii_lcell_ff port map ( regout=>prev_max(0), 
-      datain=>p43(0), clk=>i_clock, ena=>nx60988z1);
+      datain=>p43(0), clk=>i_clock, ena=>nx60988z1, sclr=>nx60988z2);
    reg_prev_edge : stratixii_lcell_ff port map ( regout=>o_edge, datain=>p41, 
-      clk=>i_clock, ena=>nx60988z1);
+      clk=>i_clock, ena=>nx60988z1, sclr=>nx60988z2);
    reg_p45 : stratixii_lcell_ff port map ( regout=>p45, datain=>p35, clk=>
       i_clock);
    reg_p43_9 : stratixii_lcell_ff port map ( regout=>p43(9), datain=>p4s(9), 
@@ -2534,28 +2538,39 @@ begin
       p21_3n0r3(0), clk=>i_clock);
    reg_o_valid : stratixii_lcell_ff port map ( regout=>o_valid, datain=>
       state(3), clk=>i_clock, sclr=>i_reset);
-   reg_max_dir_2 : stratixii_lcell_ff port map ( regout=>o_dir_EXMPLR1028(2), 
+   reg_max_fwd : stratixii_lcell_ff port map ( regout=>max_fwd, datain=>p45, 
+      clk=>i_clock, ena=>nx60988z1, sclr=>nx60988z2);
+   reg_max_dir_2 : stratixii_lcell_ff port map ( regout=>o_dir_2_EXMPLR1007, 
       datain=>nx25836z1, clk=>i_clock);
-   reg_max_dir_1 : stratixii_lcell_ff port map ( regout=>o_dir_EXMPLR1028(1), 
+   reg_max_dir_1 : stratixii_lcell_ff port map ( regout=>o_dir_1_EXMPLR1008, 
       datain=>nx26833z1, clk=>i_clock);
-   reg_max_dir_0 : stratixii_lcell_ff port map ( regout=>o_dir_EXMPLR1028(0), 
-      datain=>p45, clk=>i_clock, ena=>nx60988z1);
-   ix622z37202 : stratixii_lcell_comb
+   reg_max_dir_0 : stratixii_lcell_ff port map ( regout=>o_dir(0), datain=>
+      nx27830z1, clk=>i_clock, ena=>nx27830z2);
+   ix25836z37209 : stratixii_lcell_comb
       generic map (lut_mask => X"7fbfdfeff7fbfdfe") 
-       port map ( combout=>nx622z2, dataa=>prev_max(0), datab=>prev_max(2), 
+       port map ( combout=>nx25836z9, dataa=>prev_max(0), datab=>prev_max(2), 
       datac=>prev_max(3), datad=>p43(0), datae=>p43(2), dataf=>p43(3));
-   ix622z37206 : stratixii_lcell_comb
+   ix25836z37213 : stratixii_lcell_comb
       generic map (lut_mask => X"0ffff0ffff0ffff0") 
-       port map ( combout=>nx622z6, datac=>prev_max(6), datad=>prev_max(7), 
-      datae=>p43(6), dataf=>p43(7));
-   ix622z37205 : stratixii_lcell_comb
+       port map ( combout=>nx25836z13, datac=>prev_max(6), datad=>
+      prev_max(7), datae=>p43(6), dataf=>p43(7));
+   ix25836z37212 : stratixii_lcell_comb
       generic map (lut_mask => X"cffffcffffcffffc") 
-       port map ( combout=>nx622z5, datab=>nx622z6, datac=>prev_max(8), 
+       port map ( combout=>nx25836z12, datab=>nx25836z13, datac=>prev_max(8), 
       datad=>prev_max(9), datae=>p43(8), dataf=>p43(9));
-   ix622z37203 : stratixii_lcell_comb
-      generic map (lut_mask => X"0000000084210000") 
-       port map ( combout=>nx622z3, dataa=>prev_max(4), datab=>prev_max(5), 
-      datac=>p43(4), datad=>p43(5), datae=>p45, dataf=>o_dir_EXMPLR1028(0));
+   ix25836z37210 : stratixii_lcell_comb
+      generic map (lut_mask => X"0804020100000000") 
+       port map ( combout=>nx25836z10, dataa=>prev_max(4), datab=>
+      prev_max(5), datac=>max_fwd, datad=>p43(4), datae=>p43(5), dataf=>p45
+   );
+   ix45188z37207 : stratixii_lcell_comb
+      generic map (lut_mask => X"0000f000ff00fff0") 
+       port map ( combout=>nx45188z7, datac=>p22(0), datad=>p22(1), datae=>
+      p21(0), dataf=>p21(1));
+   ix45188z37205 : stratixii_lcell_comb
+      generic map (lut_mask => X"c000fc00ffc0fffc") 
+       port map ( combout=>nx45188z5, datab=>nx45188z6, datac=>p22(4), datad
+      =>p22(5), datae=>p21(4), dataf=>p21(5));
    ix25836z37206 : stratixii_lcell_comb
       generic map (lut_mask => X"cfff0cff00cf000c") 
        port map ( combout=>nx25836z6, datab=>nx25836z7, datac=>prev_max(3), 
@@ -2568,14 +2583,6 @@ begin
       generic map (lut_mask => X"cfff0cff00cf000c") 
        port map ( combout=>nx25836z4, datab=>nx25836z5, datac=>prev_max(7), 
       datad=>prev_max(8), datae=>p43(7), dataf=>p43(8));
-   ix45188z37207 : stratixii_lcell_comb
-      generic map (lut_mask => X"0000f000ff00fff0") 
-       port map ( combout=>nx45188z7, datac=>p22(0), datad=>p22(1), datae=>
-      p21(0), dataf=>p21(1));
-   ix45188z37205 : stratixii_lcell_comb
-      generic map (lut_mask => X"c000fc00ffc0fffc") 
-       port map ( combout=>nx45188z5, datab=>nx45188z6, datac=>p22(4), datad
-      =>p22(5), datae=>p21(4), dataf=>p21(5));
    ix45188z37203 : stratixii_lcell_comb
       generic map (lut_mask => X"c000fc00ffc0fffc") 
        port map ( combout=>nx45188z3, datab=>nx45188z4, datac=>p22(8), datad
@@ -2584,18 +2591,6 @@ begin
       generic map (lut_mask => X"cfff0cff00cf000c") 
        port map ( combout=>nx25836z3, datab=>nx25836z4, datac=>prev_max(9), 
       datad=>prev_max(10), datae=>p43(9), dataf=>p43(10));
-   ix25836z37207 : stratixii_lcell_comb
-      generic map (lut_mask => X"7f3f1f0f07030100") 
-       port map ( combout=>nx25836z7, dataa=>prev_max(0), datab=>prev_max(1), 
-      datac=>prev_max(2), datad=>p43(0), datae=>p43(1), dataf=>p43(2));
-   ix622z37201 : stratixii_lcell_comb
-      generic map (lut_mask => X"0030000000000030") 
-       port map ( combout=>nx622z1, datab=>nx622z2, datac=>nx622z3, datad=>
-      nx622z4, datae=>prev_max(1), dataf=>p43(1));
-   ix622z37204 : stratixii_lcell_comb
-      generic map (lut_mask => X"fffffffff0fffff0") 
-       port map ( combout=>nx622z4, datac=>nx622z5, datad=>prev_max(10), 
-      datae=>p43(10), dataf=>p43(11));
    ix45188z37206 : stratixii_lcell_comb
       generic map (lut_mask => X"c000fc00ffc0fffc") 
        port map ( combout=>nx45188z6, datab=>nx45188z7, datac=>p22(2), datad
@@ -2604,6 +2599,18 @@ begin
       generic map (lut_mask => X"c000fc00ffc0fffc") 
        port map ( combout=>nx45188z4, datab=>nx45188z5, datac=>p22(6), datad
       =>p22(7), datae=>p21(6), dataf=>p21(7));
+   ix25836z37207 : stratixii_lcell_comb
+      generic map (lut_mask => X"7f3f1f0f07030100") 
+       port map ( combout=>nx25836z7, dataa=>prev_max(0), datab=>prev_max(1), 
+      datac=>prev_max(2), datad=>p43(0), datae=>p43(1), dataf=>p43(2));
+   ix25836z37208 : stratixii_lcell_comb
+      generic map (lut_mask => X"0030000000000030") 
+       port map ( combout=>nx25836z8, datab=>nx25836z9, datac=>nx25836z10, 
+      datad=>nx25836z11, datae=>prev_max(1), dataf=>p43(1));
+   ix25836z37211 : stratixii_lcell_comb
+      generic map (lut_mask => X"cffffcffffcffffc") 
+       port map ( combout=>nx25836z11, datab=>nx25836z12, datac=>
+      prev_max(10), datad=>prev_max(11), datae=>p43(10), dataf=>p43(11));
    ix58542z37201 : stratixii_lcell_comb
       generic map (lut_mask => X"ffffff0000ff0000") 
        port map ( combout=>nx58542z1, datad=>nx45188z2, datae=>p22(0), dataf
@@ -2656,18 +2663,25 @@ begin
       generic map (lut_mask => X"5757575702020200") 
        port map ( combout=>nx26833z1, dataa=>nx25836z2, datab=>state(0), 
       datac=>state(1), datad=>state(2), datae=>state(3), dataf=>
-      o_dir_EXMPLR1028(1));
+      o_dir_1_EXMPLR1008);
    ix25836z37201 : stratixii_lcell_comb
       generic map (lut_mask => X"7577757720222020") 
        port map ( combout=>nx25836z1, dataa=>nx25836z2, datab=>state(0), 
       datac=>state(1), datad=>state(2), datae=>state(3), dataf=>
-      o_dir_EXMPLR1028(2));
+      o_dir_2_EXMPLR1007);
+   ix60988z37201 : stratixii_lcell_comb
+      generic map (lut_mask => X"ffffffffffffff00") 
+       port map ( combout=>nx60988z1, datad=>nx25836z2, datae=>state(3), 
+      dataf=>i_reset);
+   ix29521z37202 : stratixii_lcell_comb
+      generic map (lut_mask => X"ffffffffffff0000") 
+       port map ( combout=>nx29521z2, datae=>p40, dataf=>i_reset);
+   ix509_repl : stratixii_lcell_comb
+      generic map (lut_mask => X"ffffffffffff0000") 
+       port map ( combout=>nx60988z2, datae=>state(3), dataf=>i_reset);
    ix29521z37201 : stratixii_lcell_comb
       generic map (lut_mask => X"ffffffffffff0000") 
        port map ( combout=>nx29521z1, datae=>state(3), dataf=>i_reset);
-   ix28524z37201 : stratixii_lcell_comb
-      generic map (lut_mask => X"ffffffffffff0000") 
-       port map ( combout=>nx28524z1, datae=>p40, dataf=>i_reset);
    ix26026z37201 : stratixii_lcell_comb
       generic map (lut_mask => X"00000000ffffffc0") 
        port map ( combout=>nx26026z1, datab=>p4s(7), datac=>p4s(8), datad=>
@@ -2676,84 +2690,84 @@ begin
       generic map (lut_mask => X"3f000300ff3fff03") 
        port map ( combout=>nx45188z2, datab=>nx45188z3, datac=>p22(10), 
       datad=>p22(11), datae=>p21(10), dataf=>p21(11));
-   ix290_repl : stratixii_lcell_comb
-      generic map (lut_mask => X"ffff0000ffffff00") 
-       port map ( combout=>nx60988z1, datad=>nx25836z3, datae=>nx622z1, 
-      dataf=>p43(11));
+   ix502_repl : stratixii_lcell_comb
+      generic map (lut_mask => X"fff0ff00fffffff0") 
+       port map ( combout=>nx27830z2, datac=>nx25836z3, datad=>nx25836z8, 
+      datae=>prev_max(11), dataf=>p43(11));
    ix25836z37202 : stratixii_lcell_comb
-      generic map (lut_mask => X"ffff0000ffffff00") 
-       port map ( combout=>nx25836z2, datad=>nx25836z3, datae=>nx622z1, 
-      dataf=>p43(11));
+      generic map (lut_mask => X"fff0ff00fffffff0") 
+       port map ( combout=>nx25836z2, datac=>nx25836z3, datad=>nx25836z8, 
+      datae=>prev_max(11), dataf=>p43(11));
    ix15976z37201 : stratixii_lcell_comb
       generic map (lut_mask => X"ffffffffffff0000") 
        port map ( combout=>o_mode(0), datae=>p5m(0), dataf=>i_reset);
    ix16973z37201 : stratixii_lcell_comb
       generic map (lut_mask => X"00000000ffff0000") 
        port map ( combout=>o_mode(1), datae=>p5m(1), dataf=>i_reset);
-   ix182_reg_p40 : stratixii_lcell_ff port map ( regout=>p40, datain=>
-      nx7680z1, clk=>i_clock);
-   ix182_reg_p30 : stratixii_lcell_ff port map ( regout=>nx7680z1, datain=>
-      p_ix182_ix179_nx7_repl0, clk=>i_clock);
-   ix181_reg_p5m_1 : stratixii_lcell_ff port map ( regout=>p5m(1), datain=>
-      nx9149z1, clk=>i_clock);
-   ix181_reg_p5m_0 : stratixii_lcell_ff port map ( regout=>p5m(0), datain=>
-      nx10146z1, clk=>i_clock);
-   ix181_reg_p4m_1 : stratixii_lcell_ff port map ( regout=>nx9149z1, datain
-      =>nx4014z1, clk=>i_clock);
-   ix181_reg_p4m_0 : stratixii_lcell_ff port map ( regout=>nx10146z1, datain
-      =>nx5011z1, clk=>i_clock);
-   ix181_reg_p3m_1 : stratixii_lcell_ff port map ( regout=>nx4014z1, datain
-      =>p_ix181_ix177_nx7_repl0, clk=>i_clock);
-   ix181_reg_p3m_0 : stratixii_lcell_ff port map ( regout=>nx5011z1, datain
-      =>p_ix181_ix178_nx7_repl0, clk=>i_clock);
-   ix180_reg_p5r_7 : stratixii_lcell_ff port map ( regout=>o_row(7), datain
-      =>nx49483z1, clk=>i_clock);
-   ix180_reg_p5r_6 : stratixii_lcell_ff port map ( regout=>o_row(6), datain
-      =>nx50480z1, clk=>i_clock);
-   ix180_reg_p5r_5 : stratixii_lcell_ff port map ( regout=>o_row(5), datain
-      =>nx51477z1, clk=>i_clock);
-   ix180_reg_p5r_4 : stratixii_lcell_ff port map ( regout=>o_row(4), datain
-      =>nx52474z1, clk=>i_clock);
-   ix180_reg_p5r_3 : stratixii_lcell_ff port map ( regout=>o_row(3), datain
-      =>nx53471z1, clk=>i_clock);
-   ix180_reg_p5r_2 : stratixii_lcell_ff port map ( regout=>o_row(2), datain
-      =>nx54468z1, clk=>i_clock);
-   ix180_reg_p5r_1 : stratixii_lcell_ff port map ( regout=>o_row(1), datain
-      =>nx55465z1, clk=>i_clock);
-   ix180_reg_p5r_0 : stratixii_lcell_ff port map ( regout=>o_row(0), datain
-      =>nx56462z1, clk=>i_clock);
-   ix180_reg_p4r_7 : stratixii_lcell_ff port map ( regout=>nx49483z1, datain
-      =>nx21188z1, clk=>i_clock);
-   ix180_reg_p4r_6 : stratixii_lcell_ff port map ( regout=>nx50480z1, datain
-      =>nx20191z1, clk=>i_clock);
-   ix180_reg_p4r_5 : stratixii_lcell_ff port map ( regout=>nx51477z1, datain
-      =>nx19194z1, clk=>i_clock);
-   ix180_reg_p4r_4 : stratixii_lcell_ff port map ( regout=>nx52474z1, datain
-      =>nx18197z1, clk=>i_clock);
-   ix180_reg_p4r_3 : stratixii_lcell_ff port map ( regout=>nx53471z1, datain
-      =>nx17200z1, clk=>i_clock);
-   ix180_reg_p4r_2 : stratixii_lcell_ff port map ( regout=>nx54468z1, datain
-      =>nx16203z1, clk=>i_clock);
-   ix180_reg_p4r_1 : stratixii_lcell_ff port map ( regout=>nx55465z1, datain
-      =>nx15206z1, clk=>i_clock);
-   ix180_reg_p4r_0 : stratixii_lcell_ff port map ( regout=>nx56462z1, datain
-      =>nx14209z1, clk=>i_clock);
-   ix180_reg_p3r_7 : stratixii_lcell_ff port map ( regout=>nx21188z1, datain
-      =>p_ix180_ix169_nx7_repl0, clk=>i_clock);
-   ix180_reg_p3r_6 : stratixii_lcell_ff port map ( regout=>nx20191z1, datain
-      =>p_ix180_ix170_nx7_repl0, clk=>i_clock);
-   ix180_reg_p3r_5 : stratixii_lcell_ff port map ( regout=>nx19194z1, datain
-      =>p_ix180_ix171_nx7_repl0, clk=>i_clock);
-   ix180_reg_p3r_4 : stratixii_lcell_ff port map ( regout=>nx18197z1, datain
-      =>p_ix180_ix172_nx7_repl0, clk=>i_clock);
-   ix180_reg_p3r_3 : stratixii_lcell_ff port map ( regout=>nx17200z1, datain
-      =>p_ix180_ix173_nx7_repl0, clk=>i_clock);
-   ix180_reg_p3r_2 : stratixii_lcell_ff port map ( regout=>nx16203z1, datain
-      =>p_ix180_ix174_nx7_repl0, clk=>i_clock);
-   ix180_reg_p3r_1 : stratixii_lcell_ff port map ( regout=>nx15206z1, datain
-      =>p_ix180_ix175_nx7_repl0, clk=>i_clock);
-   ix180_reg_p3r_0 : stratixii_lcell_ff port map ( regout=>nx14209z1, datain
-      =>p_ix180_ix176_nx7_repl0, clk=>i_clock);
+   ix184_reg_p40 : stratixii_lcell_ff port map ( regout=>p40, datain=>
+      nx53186z1, clk=>i_clock);
+   ix184_reg_p30 : stratixii_lcell_ff port map ( regout=>nx53186z1, datain=>
+      p_ix184_ix181_nx7_repl0, clk=>i_clock);
+   ix183_reg_p5m_1 : stratixii_lcell_ff port map ( regout=>p5m(1), datain=>
+      nx64829z1, clk=>i_clock);
+   ix183_reg_p5m_0 : stratixii_lcell_ff port map ( regout=>p5m(0), datain=>
+      nx63832z1, clk=>i_clock);
+   ix183_reg_p4m_1 : stratixii_lcell_ff port map ( regout=>nx64829z1, datain
+      =>nx4428z1, clk=>i_clock);
+   ix183_reg_p4m_0 : stratixii_lcell_ff port map ( regout=>nx63832z1, datain
+      =>nx3431z1, clk=>i_clock);
+   ix183_reg_p3m_1 : stratixii_lcell_ff port map ( regout=>nx4428z1, datain
+      =>p_ix183_ix179_nx7_repl0, clk=>i_clock);
+   ix183_reg_p3m_0 : stratixii_lcell_ff port map ( regout=>nx3431z1, datain
+      =>p_ix183_ix180_nx7_repl0, clk=>i_clock);
+   ix182_reg_p5r_7 : stratixii_lcell_ff port map ( regout=>o_row(7), datain
+      =>nx24495z1, clk=>i_clock);
+   ix182_reg_p5r_6 : stratixii_lcell_ff port map ( regout=>o_row(6), datain
+      =>nx23498z1, clk=>i_clock);
+   ix182_reg_p5r_5 : stratixii_lcell_ff port map ( regout=>o_row(5), datain
+      =>nx22501z1, clk=>i_clock);
+   ix182_reg_p5r_4 : stratixii_lcell_ff port map ( regout=>o_row(4), datain
+      =>nx21504z1, clk=>i_clock);
+   ix182_reg_p5r_3 : stratixii_lcell_ff port map ( regout=>o_row(3), datain
+      =>nx20507z1, clk=>i_clock);
+   ix182_reg_p5r_2 : stratixii_lcell_ff port map ( regout=>o_row(2), datain
+      =>nx19510z1, clk=>i_clock);
+   ix182_reg_p5r_1 : stratixii_lcell_ff port map ( regout=>o_row(1), datain
+      =>nx18513z1, clk=>i_clock);
+   ix182_reg_p5r_0 : stratixii_lcell_ff port map ( regout=>o_row(0), datain
+      =>nx17516z1, clk=>i_clock);
+   ix182_reg_p4r_7 : stratixii_lcell_ff port map ( regout=>nx24495z1, datain
+      =>nx29630z1, clk=>i_clock);
+   ix182_reg_p4r_6 : stratixii_lcell_ff port map ( regout=>nx23498z1, datain
+      =>nx28633z1, clk=>i_clock);
+   ix182_reg_p4r_5 : stratixii_lcell_ff port map ( regout=>nx22501z1, datain
+      =>nx27636z1, clk=>i_clock);
+   ix182_reg_p4r_4 : stratixii_lcell_ff port map ( regout=>nx21504z1, datain
+      =>nx26639z1, clk=>i_clock);
+   ix182_reg_p4r_3 : stratixii_lcell_ff port map ( regout=>nx20507z1, datain
+      =>nx25642z1, clk=>i_clock);
+   ix182_reg_p4r_2 : stratixii_lcell_ff port map ( regout=>nx19510z1, datain
+      =>nx24645z1, clk=>i_clock);
+   ix182_reg_p4r_1 : stratixii_lcell_ff port map ( regout=>nx18513z1, datain
+      =>nx23648z1, clk=>i_clock);
+   ix182_reg_p4r_0 : stratixii_lcell_ff port map ( regout=>nx17516z1, datain
+      =>nx22651z1, clk=>i_clock);
+   ix182_reg_p3r_7 : stratixii_lcell_ff port map ( regout=>nx29630z1, datain
+      =>p_ix182_ix170_nx7_repl0, clk=>i_clock);
+   ix182_reg_p3r_6 : stratixii_lcell_ff port map ( regout=>nx28633z1, datain
+      =>p_ix182_ix172_nx7_repl0, clk=>i_clock);
+   ix182_reg_p3r_5 : stratixii_lcell_ff port map ( regout=>nx27636z1, datain
+      =>p_ix182_ix173_nx7_repl0, clk=>i_clock);
+   ix182_reg_p3r_4 : stratixii_lcell_ff port map ( regout=>nx26639z1, datain
+      =>p_ix182_ix174_nx7_repl0, clk=>i_clock);
+   ix182_reg_p3r_3 : stratixii_lcell_ff port map ( regout=>nx25642z1, datain
+      =>p_ix182_ix175_nx7_repl0, clk=>i_clock);
+   ix182_reg_p3r_2 : stratixii_lcell_ff port map ( regout=>nx24645z1, datain
+      =>p_ix182_ix176_nx7_repl0, clk=>i_clock);
+   ix182_reg_p3r_1 : stratixii_lcell_ff port map ( regout=>nx23648z1, datain
+      =>p_ix182_ix177_nx7_repl0, clk=>i_clock);
+   ix182_reg_p3r_0 : stratixii_lcell_ff port map ( regout=>nx22651z1, datain
+      =>p_ix182_ix178_nx7_repl0, clk=>i_clock);
 end main ;
 
 library IEEE;library altera_mf;library lpm;library altera; 
@@ -2870,17 +2884,17 @@ architecture main of kirsch is
          p_f_i2_next_1 : IN std_logic ;
          p_o_image1_2_dup0_1 : IN std_logic ;
          GND : OUT std_logic ;
-         p_ix182_ix179_nx7_repl0 : IN std_logic ;
-         p_ix180_ix169_nx7_repl0 : IN std_logic ;
-         p_ix180_ix170_nx7_repl0 : IN std_logic ;
-         p_ix180_ix171_nx7_repl0 : IN std_logic ;
-         p_ix180_ix172_nx7_repl0 : IN std_logic ;
-         p_ix180_ix173_nx7_repl0 : IN std_logic ;
-         p_ix180_ix174_nx7_repl0 : IN std_logic ;
-         p_ix180_ix175_nx7_repl0 : IN std_logic ;
-         p_ix180_ix176_nx7_repl0 : IN std_logic ;
-         p_ix181_ix177_nx7_repl0 : IN std_logic ;
-         p_ix181_ix178_nx7_repl0 : IN std_logic) ;
+         p_ix184_ix181_nx7_repl0 : IN std_logic ;
+         p_ix182_ix170_nx7_repl0 : IN std_logic ;
+         p_ix182_ix172_nx7_repl0 : IN std_logic ;
+         p_ix182_ix173_nx7_repl0 : IN std_logic ;
+         p_ix182_ix174_nx7_repl0 : IN std_logic ;
+         p_ix182_ix175_nx7_repl0 : IN std_logic ;
+         p_ix182_ix176_nx7_repl0 : IN std_logic ;
+         p_ix182_ix177_nx7_repl0 : IN std_logic ;
+         p_ix182_ix178_nx7_repl0 : IN std_logic ;
+         p_ix183_ix179_nx7_repl0 : IN std_logic ;
+         p_ix183_ix180_nx7_repl0 : IN std_logic) ;
    end component ;
    signal i_clock_EXMPLR1072, i_reset_EXMPLR1073, i_valid_EXMPLR1074: 
    std_logic ;
@@ -3029,10 +3043,10 @@ architecture main of kirsch is
    signal debug_led_red_dup0: std_logic_vector (17 DOWNTO 17) ;
    
    signal nx57127z1, nx15183z1, nx15183z2, nx61965z1, nx62962z1, nx63959z1, 
-      nx64956z1, ix182_ix179_nx7_repl0, ix180_ix169_nx7_repl0, 
-      ix180_ix170_nx7_repl0, ix180_ix171_nx7_repl0, ix180_ix172_nx7_repl0, 
-      ix180_ix173_nx7_repl0, ix180_ix174_nx7_repl0, ix180_ix175_nx7_repl0, 
-      ix180_ix176_nx7_repl0, ix181_ix177_nx7_repl0, ix181_ix178_nx7_repl0, 
+      nx64956z1, ix184_ix181_nx7_repl0, ix182_ix170_nx7_repl0, 
+      ix182_ix172_nx7_repl0, ix182_ix173_nx7_repl0, ix182_ix174_nx7_repl0, 
+      ix182_ix175_nx7_repl0, ix182_ix176_nx7_repl0, ix182_ix177_nx7_repl0, 
+      ix182_ix178_nx7_repl0, ix183_ix179_nx7_repl0, ix183_ix180_nx7_repl0, 
       nx57127z2: std_logic ;
    
    signal DANGLING : std_logic_vector (32 downto 0 );
@@ -3336,17 +3350,17 @@ begin
       o_image1_2_dup0_7, p_f_i2_next_5=>f_i2_next(5), p_o_image1_2_dup0_5=>
       o_image1_2_dup0_5, p_f_i2_next_3=>f_i2_next(3), p_o_image1_2_dup0_3=>
       o_image1_2_dup0_3, p_f_i2_next_1=>f_i2_next(1), p_o_image1_2_dup0_1=>
-      o_image1_2_dup0_1, GND=>DANGLING(32), p_ix182_ix179_nx7_repl0=>
-      ix182_ix179_nx7_repl0, p_ix180_ix169_nx7_repl0=>ix180_ix169_nx7_repl0, 
-      p_ix180_ix170_nx7_repl0=>ix180_ix170_nx7_repl0, 
-      p_ix180_ix171_nx7_repl0=>ix180_ix171_nx7_repl0, 
-      p_ix180_ix172_nx7_repl0=>ix180_ix172_nx7_repl0, 
-      p_ix180_ix173_nx7_repl0=>ix180_ix173_nx7_repl0, 
-      p_ix180_ix174_nx7_repl0=>ix180_ix174_nx7_repl0, 
-      p_ix180_ix175_nx7_repl0=>ix180_ix175_nx7_repl0, 
-      p_ix180_ix176_nx7_repl0=>ix180_ix176_nx7_repl0, 
-      p_ix181_ix177_nx7_repl0=>ix181_ix177_nx7_repl0, 
-      p_ix181_ix178_nx7_repl0=>ix181_ix178_nx7_repl0);
+      o_image1_2_dup0_1, GND=>DANGLING(32), p_ix184_ix181_nx7_repl0=>
+      ix184_ix181_nx7_repl0, p_ix182_ix170_nx7_repl0=>ix182_ix170_nx7_repl0, 
+      p_ix182_ix172_nx7_repl0=>ix182_ix172_nx7_repl0, 
+      p_ix182_ix173_nx7_repl0=>ix182_ix173_nx7_repl0, 
+      p_ix182_ix174_nx7_repl0=>ix182_ix174_nx7_repl0, 
+      p_ix182_ix175_nx7_repl0=>ix182_ix175_nx7_repl0, 
+      p_ix182_ix176_nx7_repl0=>ix182_ix176_nx7_repl0, 
+      p_ix182_ix177_nx7_repl0=>ix182_ix177_nx7_repl0, 
+      p_ix182_ix178_nx7_repl0=>ix182_ix178_nx7_repl0, 
+      p_ix183_ix179_nx7_repl0=>ix183_ix179_nx7_repl0, 
+      p_ix183_ix180_nx7_repl0=>ix183_ix180_nx7_repl0);
    o_mode_dup0(1) <= NOT i_reset_int;
    debug_led_red_dup0(17) <= '0';
    reg_f_t3_next_7 : stratixii_lcell_ff port map ( regout=>f_t3_next(7), 
@@ -4547,39 +4561,39 @@ begin
       generic map (lut_mask => X"00ff00ff000000ff") 
        port map ( combout=>nx57127z1, datad=>i_reset_int, datae=>nx15183z2, 
       dataf=>m_o_valid);
-   ix60277z37201 : stratixii_lcell_comb
+   ix13701z37201 : stratixii_lcell_comb
       generic map (lut_mask => X"ffffff0000ff0000") 
        port map ( combout=>f_i_mode(0), datad=>nx15183z2, datae=>
       f_i_mode_next(0), dataf=>m_o_mode(0));
-   ix24479z37201 : stratixii_lcell_comb
+   ix32921z37201 : stratixii_lcell_comb
       generic map (lut_mask => X"ffffff0000ff0000") 
        port map ( combout=>f_i_row(0), datad=>nx15183z2, datae=>
       f_i_row_next(0), dataf=>m_o_row(0));
-   ix25476z37201 : stratixii_lcell_comb
+   ix33918z37201 : stratixii_lcell_comb
       generic map (lut_mask => X"ffffff0000ff0000") 
        port map ( combout=>f_i_row(1), datad=>nx15183z2, datae=>
       f_i_row_next(1), dataf=>m_o_row(1));
-   ix26473z37201 : stratixii_lcell_comb
+   ix34915z37201 : stratixii_lcell_comb
       generic map (lut_mask => X"ffffff0000ff0000") 
        port map ( combout=>f_i_row(2), datad=>nx15183z2, datae=>
       f_i_row_next(2), dataf=>m_o_row(2));
-   ix27470z37201 : stratixii_lcell_comb
+   ix35912z37201 : stratixii_lcell_comb
       generic map (lut_mask => X"ffffff0000ff0000") 
        port map ( combout=>f_i_row(3), datad=>nx15183z2, datae=>
       f_i_row_next(3), dataf=>m_o_row(3));
-   ix28467z37201 : stratixii_lcell_comb
+   ix36909z37201 : stratixii_lcell_comb
       generic map (lut_mask => X"ffffff0000ff0000") 
        port map ( combout=>f_i_row(4), datad=>nx15183z2, datae=>
       f_i_row_next(4), dataf=>m_o_row(4));
-   ix29464z37201 : stratixii_lcell_comb
+   ix37906z37201 : stratixii_lcell_comb
       generic map (lut_mask => X"ffffff0000ff0000") 
        port map ( combout=>f_i_row(5), datad=>nx15183z2, datae=>
       f_i_row_next(5), dataf=>m_o_row(5));
-   ix30461z37201 : stratixii_lcell_comb
+   ix38903z37201 : stratixii_lcell_comb
       generic map (lut_mask => X"ffffff0000ff0000") 
        port map ( combout=>f_i_row(6), datad=>nx15183z2, datae=>
       f_i_row_next(6), dataf=>m_o_row(6));
-   ix31458z37201 : stratixii_lcell_comb
+   ix39900z37201 : stratixii_lcell_comb
       generic map (lut_mask => X"ffffff0000ff0000") 
        port map ( combout=>f_i_row(7), datad=>nx15183z2, datae=>
       f_i_row_next(7), dataf=>m_o_row(7));
@@ -4731,44 +4745,44 @@ begin
       generic map (lut_mask => X"ff00ffffff000000") 
        port map ( combout=>debug_num_3_dup0(4), datad=>o_image2_dup0(4), 
       datae=>nx15183z2, dataf=>f_b1_next(4));
+   ix184_reg_p20 : stratixii_lcell_ff port map ( regout=>
+      ix184_ix181_nx7_repl0, datain=>debug_valid_dup0, clk=>i_clock_int);
    ix20836z37227 : stratixii_lcell_comb
       generic map (lut_mask => X"ff00ffffff000000") 
        port map ( combout=>debug_num_3_dup0(5), datad=>o_image2_dup0(5), 
       datae=>nx15183z2, dataf=>f_b1_next(5));
+   ix183_reg_p2m_1 : stratixii_lcell_ff port map ( regout=>
+      ix183_ix179_nx7_repl0, datain=>f_i_mode(1), clk=>i_clock_int);
+   ix183_reg_p2m_0 : stratixii_lcell_ff port map ( regout=>
+      ix183_ix180_nx7_repl0, datain=>f_i_mode(0), clk=>i_clock_int);
    ix20836z37226 : stratixii_lcell_comb
       generic map (lut_mask => X"ff00ffffff000000") 
        port map ( combout=>debug_num_3_dup0(6), datad=>o_image2_dup0(6), 
       datae=>nx15183z2, dataf=>f_b1_next(6));
-   ix182_reg_p20 : stratixii_lcell_ff port map ( regout=>
-      ix182_ix179_nx7_repl0, datain=>debug_valid_dup0, clk=>i_clock_int);
+   ix182_reg_p2r_7 : stratixii_lcell_ff port map ( regout=>
+      ix182_ix170_nx7_repl0, datain=>f_i_row(7), clk=>i_clock_int);
+   ix182_reg_p2r_6 : stratixii_lcell_ff port map ( regout=>
+      ix182_ix172_nx7_repl0, datain=>f_i_row(6), clk=>i_clock_int);
+   ix182_reg_p2r_5 : stratixii_lcell_ff port map ( regout=>
+      ix182_ix173_nx7_repl0, datain=>f_i_row(5), clk=>i_clock_int);
+   ix182_reg_p2r_4 : stratixii_lcell_ff port map ( regout=>
+      ix182_ix174_nx7_repl0, datain=>f_i_row(4), clk=>i_clock_int);
+   ix182_reg_p2r_3 : stratixii_lcell_ff port map ( regout=>
+      ix182_ix175_nx7_repl0, datain=>f_i_row(3), clk=>i_clock_int);
+   ix182_reg_p2r_2 : stratixii_lcell_ff port map ( regout=>
+      ix182_ix176_nx7_repl0, datain=>f_i_row(2), clk=>i_clock_int);
+   ix182_reg_p2r_1 : stratixii_lcell_ff port map ( regout=>
+      ix182_ix177_nx7_repl0, datain=>f_i_row(1), clk=>i_clock_int);
+   ix182_reg_p2r_0 : stratixii_lcell_ff port map ( regout=>
+      ix182_ix178_nx7_repl0, datain=>f_i_row(0), clk=>i_clock_int);
    ix20836z37225 : stratixii_lcell_comb
       generic map (lut_mask => X"ff00ffffff000000") 
        port map ( combout=>debug_num_3_dup0(7), datad=>o_image2_dup0(7), 
       datae=>nx15183z2, dataf=>f_b1_next(7));
-   ix181_reg_p2m_1 : stratixii_lcell_ff port map ( regout=>
-      ix181_ix177_nx7_repl0, datain=>f_i_mode(1), clk=>i_clock_int);
-   ix181_reg_p2m_0 : stratixii_lcell_ff port map ( regout=>
-      ix181_ix178_nx7_repl0, datain=>f_i_mode(0), clk=>i_clock_int);
    ix20836z37224 : stratixii_lcell_comb
       generic map (lut_mask => X"ff00ffffff000000") 
        port map ( combout=>debug_num_2_dup0(0), datad=>o_image0_dup0(0), 
       datae=>nx15183z2, dataf=>f_t3_next(0));
-   ix180_reg_p2r_7 : stratixii_lcell_ff port map ( regout=>
-      ix180_ix169_nx7_repl0, datain=>f_i_row(7), clk=>i_clock_int);
-   ix180_reg_p2r_6 : stratixii_lcell_ff port map ( regout=>
-      ix180_ix170_nx7_repl0, datain=>f_i_row(6), clk=>i_clock_int);
-   ix180_reg_p2r_5 : stratixii_lcell_ff port map ( regout=>
-      ix180_ix171_nx7_repl0, datain=>f_i_row(5), clk=>i_clock_int);
-   ix180_reg_p2r_4 : stratixii_lcell_ff port map ( regout=>
-      ix180_ix172_nx7_repl0, datain=>f_i_row(4), clk=>i_clock_int);
-   ix180_reg_p2r_3 : stratixii_lcell_ff port map ( regout=>
-      ix180_ix173_nx7_repl0, datain=>f_i_row(3), clk=>i_clock_int);
-   ix180_reg_p2r_2 : stratixii_lcell_ff port map ( regout=>
-      ix180_ix174_nx7_repl0, datain=>f_i_row(2), clk=>i_clock_int);
-   ix180_reg_p2r_1 : stratixii_lcell_ff port map ( regout=>
-      ix180_ix175_nx7_repl0, datain=>f_i_row(1), clk=>i_clock_int);
-   ix180_reg_p2r_0 : stratixii_lcell_ff port map ( regout=>
-      ix180_ix176_nx7_repl0, datain=>f_i_row(0), clk=>i_clock_int);
    ix20836z37223 : stratixii_lcell_comb
       generic map (lut_mask => X"ff00ffffff000000") 
        port map ( combout=>debug_num_2_dup0(1), datad=>o_image0_dup0(1), 
@@ -4861,7 +4875,7 @@ begin
       generic map (lut_mask => X"ff00ffffff000000") 
        port map ( combout=>debug_num_0_dup0(7), datad=>o_image0_2_dup0_7, 
       datae=>nx15183z2, dataf=>f_t1_next(7));
-   ix5686z37201 : stratixii_lcell_comb
+   ix51192z37201 : stratixii_lcell_comb
       generic map (lut_mask => X"ffffffff0000ffff") 
        port map ( combout=>debug_valid_dup0, datae=>nx15183z2, dataf=>
       m_o_valid);
@@ -4869,7 +4883,7 @@ begin
       generic map (lut_mask => X"fffffffffff0f0f0") 
        port map ( combout=>o_mode_dup0(0), datac=>i_reset_int, datad=>
       f_o_mode(0), datae=>f_o_mode(1), dataf=>m_o_mode(0));
-   ix59280z37201 : stratixii_lcell_comb
+   ix14698z37201 : stratixii_lcell_comb
       generic map (lut_mask => X"00ff00ffffff0000") 
        port map ( combout=>f_i_mode(1), datad=>i_reset_int, datae=>
       f_i_mode_next(1), dataf=>nx15183z2);

@@ -151,6 +151,7 @@ begin
         p5m <= p4m;
         p5r <= p4r;
         p50 <= p40;
+        o_edge <= prev_edge;
     end process;
 
     process begin
@@ -171,7 +172,7 @@ begin
         end if;
     end process;
 
-    o_edge <= prev_edge;
+    
     o_dir <= max_dir;
     o_mode <= "01" when i_reset = '1' else p5m;
     o_row <= p5r;

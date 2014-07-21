@@ -132,7 +132,8 @@ set_attribute -name use_dffenable -value "0" -net -type default u_flow/state(3) 
 set_attribute -name use_dffenable -value "0" -net -type default u_flow/state(2) -design gatelevel 
 set_attribute -name use_dffenable -value "0" -net -type default u_flow/state(1) -design gatelevel 
 set_attribute -name use_dffenable -value "0" -net -type default u_flow/state(0) -design gatelevel 
-set_attribute -name MAX_FANOUT -value "1000" -net u_flow/nx60988z1 -design gatelevel 
+set_attribute -name MAX_FANOUT -value "1000" -net u_flow/nx27830z2 -design gatelevel 
+set_attribute -name MAX_FANOUT -value "1000" -net u_flow/nx60988z2 -design gatelevel 
 set_attribute -name shared_arith -value "on" -instance u_flow/p4s_sub12_0/ix97_dup_0 -design gatelevel 
 set_attribute -name shared_arith -value "on" -instance u_flow/p4s_sub12_0/ix86_dup_0 -design gatelevel 
 set_attribute -name shared_arith -value "on" -instance u_flow/p4s_sub12_0/ix75_dup_0 -design gatelevel 
@@ -198,6 +199,6 @@ set_attribute -name shared_arith -value "on" -instance u_flow/modgen_adderblock_
 ##################
 # Clocks
 ##################
-create_clock { i_clock } -domain ClockDomain0 -name i_clock -period 2.000000 -waveform { 0.000000 1.000000 } -design gatelevel 
 create_clock { i_valid } -domain ClockDomain1 -name i_valid -period 2.000000 -waveform { 0.000000 1.000000 } -design gatelevel 
+create_clock { i_clock } -domain ClockDomain0 -name i_clock -period 2.000000 -waveform { 0.000000 1.000000 } -design gatelevel 
 

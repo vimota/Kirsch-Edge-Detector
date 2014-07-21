@@ -7,9 +7,9 @@ setup_design \
 setup_design -frequency 250
 setup_design -design kirsch
 # setup_design -architecture DESIGN_ARCH
-setup_design -generics {  }
+setup_design -generics {  {test_num 1} }
 
-foreach file [concat {  } { mem.vhd kirsch_synth_pkg.vhd kirsch.vhd kirsch_utility_pkg.vhd memory.vhd flow.vhd }] {
+foreach file [concat {  } { mem.vhd kirsch_synth_pkg.vhd string_pkg.vhd kirsch_unsynth_pkg.vhd kirsch_spec.vhd }] {
   add_input_file $file
 }
 
@@ -24,6 +24,6 @@ auto_write uw_tmp/kirsch_gate.vhd
 
 puts "*** synthesis to generic gates succeeded ***"
 
-if { "True" != "True" } {
+if { "False" != "True" } {
   exit
 }
