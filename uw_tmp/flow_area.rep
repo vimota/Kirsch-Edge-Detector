@@ -1,0 +1,54 @@
+***********************************************
+Device Utilization for EP2C35F672C
+***********************************************
+Resource                Used    Avail   Utilization
+-----------------------------------------------
+IOs                     165     475      34.74%
+LUTs                    180     33216     0.54%
+Registers               128     33216     0.39%
+Memory Bits             0       483340    0.00%
+DSP block 9-bit elems   0       70        0.00%
+
+-----------------------------------------------
+
+*****************************************
+
+Library: work    Cell: flow    View: main
+
+*****************************************
+
+  Cell                   Library  References     Total Area
+
+ GND                     cycloneii     1 x
+ NOT                     cycloneii     3 x
+ VCC                     cycloneii     1 x
+ add_11_0                OPERATORS     1 x     11     11 LUTs
+ add_11_1                OPERATORS     1 x     11     11 LUTs
+ add_8_0                 OPERATORS     1 x      9      9 LUTs
+ add_8_1                 OPERATORS     1 x      9      9 LUTs
+ add_8_2                 OPERATORS     1 x      9      9 LUTs
+ add_9_0                 OPERATORS     1 x     10     10 LUTs
+ add_9_1                 OPERATORS     1 x     10     10 LUTs
+ add_9_2                 OPERATORS     1 x     10     10 LUTs
+ cycloneii_io            cycloneii   165 x      1    165 IOs
+ cycloneii_lcell_comb    cycloneii    21 x      1     21 LUTs
+ cycloneii_lcell_ff      cycloneii   128 x      1    128 Registers
+ gt_12_0                 OPERATORS     1 x     12     12 LUTs
+ gt_12_1                 OPERATORS     1 x     12     12 LUTs
+ sub_10_0                OPERATORS     1 x     11     11 LUTs
+ sub_10_1                OPERATORS     1 x     11     11 LUTs
+ sub_10_2                OPERATORS     1 x     11     11 LUTs
+ sub_10_3                OPERATORS     1 x     11     11 LUTs
+ sub_12_0                OPERATORS     1 x     12     12 LUTs
+
+ Number of ports :                     165
+ Number of nets :                      531
+ Number of instances :                 334
+ Number of references to this view :     0
+
+Total accumulated area : 
+ Number of IOs :                       165
+ Number of LCs :                         0
+ Number of LUTs :                      180
+ Number of Registers :                 128
+ Number of accumulated instances :     493

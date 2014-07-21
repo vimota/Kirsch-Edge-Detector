@@ -206,7 +206,14 @@ begin
 		end if;
 	end process;
 
-	mem_data <= i_pixel when i_valid = '1';
+	memDataProc : process(i_clock)
+	begin
+		if rising_edge(i_clock) then
+			mem_data <= i_pixel;
+		end if;
+	end process;
+
+	-- mem_data <= i_pixel when i_valid = '1';-- else (others => 'X');
 	mem_addr <= std_logic_vector(column);
 	o_image0 <= buffer0;
 	o_image1 <= buffer1;

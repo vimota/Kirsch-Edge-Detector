@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Jul 21 14:06:29 2014
+Quartus II Version : 9.0 Build 132 02/25/2009 SJ Full Version
+Revision Name : flow
+Top-level Entity Name : flow
+Family : Cyclone II
+Total logic elements : 257
+    Total combinational functions : 183
+    Dedicated logic registers : 128
+Total registers : 139
+Total pins : 165
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

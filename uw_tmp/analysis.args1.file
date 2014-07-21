@@ -1,10 +1,10 @@
 8:-out_dir
-55:P:/ece327/project/Kirsch-Edge-Detector/uw_tmp//rtlc.out
+66:/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp//rtlc.out
 10:-pipe_flow
 4:-vhf
-66:P:/ece327/project/Kirsch-Edge-Detector/uw_tmp//hdlAnalyze_vhdlfile
+77:/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp//hdlAnalyze_vhdlfile
 25:-comment_transoff_regions
 13:-lib_map_file
-55:P:/ece327/project/Kirsch-Edge-Detector/uw_tmp//.jaguarc
-86:+incdir+P:/ece327/project/Kirsch-Edge-Detector+P:/ece327/project/Kirsch-Edge-Detector/
+66:/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp//.jaguarc
+108:+incdir+/home/gm2kerr/ece327/project/Kirsch-Edge-Detector+/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/
 17:+define+synthesis

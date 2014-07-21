@@ -2,19 +2,19 @@
 
 	Domain                  Clock Name                            Min Period (Freq)
 	------                  ----------                            -----------------
-	ClockDomain0            clk                                   4.453 (224.568 MHz)  
+	ClockDomain0            i_clock                               5.308 (188.395 MHz)  
 
 Setup Slack Path Summary
 
-               Data                                                                                     Data
-       Setup   Path   Source  Dest.                                                                     End 
-Index  Slack   Delay  Clock   Clock         Data Start Pin                     Data End Pin             Edge
------  ------  -----  ------  -----  -----------------------------  ----------------------------------  ----
-  1    -0.453  3.070  clk     clk    reg_out_txflex_obuf/clk        txflex                              Rise
-  2    -0.418  4.322  clk     clk    u_kirsch/reg_f_b1_next(0)/clk  u_kirsch/u_flow/reg_p22(11)/datain  Rise
-  3    -0.418  4.322  clk     clk    u_kirsch/reg_f_t1_next(0)/clk  u_kirsch/u_flow/reg_p21(11)/datain  Rise
-  4    -0.395  4.299  clk     clk    u_kirsch/reg_f_t2_next(0)/clk  u_kirsch/u_flow/reg_p21(11)/datain  Rise
-  5    -0.395  4.299  clk     clk    u_kirsch/reg_f_b2_next(0)/clk  u_kirsch/u_flow/reg_p22(11)/datain  Rise
+               Data                                                                                      Data
+       Setup   Path   Source    Dest.                                                                    End 
+Index  Slack   Delay   Clock    Clock             Data Start Pin                   Data End Pin          Edge
+-----  ------  -----  -------  -------  ----------------------------------  ---------------------------  ----
+  1    -1.308  3.925  i_clock  i_clock  reg_busySignal/clk                  o_mode(0)                    Rise
+  2    -1.245  3.862  i_clock  i_clock  reg_busySignalDelayed/clk           o_mode(0)                    Rise
+  3    -1.239  4.659  i_clock  i_clock  modgen_counter_column/reg_q(7)/clk  reg_mem_wrn_current(2)/sclr  Rise
+  4    -1.216  4.636  i_clock  i_clock  modgen_counter_column/reg_q(6)/clk  reg_mem_wrn_current(2)/sclr  Rise
+  5    -1.095  4.515  i_clock  i_clock  modgen_counter_column/reg_q(3)/clk  reg_mem_wrn_current(2)/sclr  Rise
 
 -- Device: Altera - Cyclone II : EP2C35F672C : 7
 -- CTE report summary..

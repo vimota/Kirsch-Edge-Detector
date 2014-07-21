@@ -1,40 +1,960 @@
 INFO: Starting PRECISION_RTL for logic synthesis
-//  Precision RTL Synthesis 2008a.47 (Production Release) Tue Dec  9 03:06:25 PST 2008
-//  
-//  Copyright (c) Mentor Graphics Corporation, 1996-2008, All Rights Reserved.
-//             Portions copyright 1991-2004 Compuware Corporation
-//                       UNPUBLISHED, LICENSED SOFTWARE.
-//            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
-//          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
-//  
-//  Running on Windows Vista gm2kerr@ECE-RTOS25 Service Pack 1 6.01.7601 x86
-//  
-//  Start time Mon Jul 21 02:55:41 2014
--------------------------------------------------
-Info: Logging session transcript to file precision.log
-Info: Results directory: uw_tmp/
-Info: Moving session transcript to file uw_tmp/precision.log
-Info:  Setting up the design to use synthesis library "cycloneii.syn"
-Info: The global max fanout is currently set to 1000 for Altera - Cyclone II.
-Info:  Setting Part to: "EP2C35F672C"
-Info:  Setting Process to: "7"
-Info: "USING DESIGN ARCH"
-Info: Reading file: C:/PROGRA~2/MENTOR~1/PRECIS~1.47/Mgc_home/pkgs/psr/techlibs//cycloneii.syn.
-Info: Loading library initialization file C:/PROGRA~2/MENTOR~1/PRECIS~1.47/Mgc_home/pkgs/psr/userware//yeager_rename.tcl
-Info: vhdlorder, Release 2008a.22
-Info: Files sorted successfully.
-Info: hdl-analyze, Release RTLC-Precision 2008a.22
+precision: Executing on platform: CentOS release 5.10 (Final) Kernel \r on an \m  Linux eceLinux1.uwaterloo.ca 2.6.18-371.8.1.el5 #1 SMP Thu Apr 24 18:19:36 EDT 2014 x86_64 x86_64 x86_64 GNU/Linux 
+precision: Setting MGC_HOME to /opt/Precision_Synthesis_2008a.47/Mgc_home ...
+Note: Defaulting to use the Next Generation GUI.
+//  Precision RTL Synthesis 2008a.47 (Production Release) Tue Dec  9 03:06:25 PST 2008
+//  
+//  Copyright (c) Mentor Graphics Corporation, 1996-2008, All Rights Reserved.
+//             Portions copyright 1991-2004 Compuware Corporation
+//                       UNPUBLISHED, LICENSED SOFTWARE.
+//            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
+//          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+//  
+//  Running on Linux gm2kerr@eceLinux1.uwaterloo.ca #1 SMP Thu Apr 24 18:19:36 EDT 2014 2.6.18-371.8.1.el5 x86_64
+//  
+//  Start time Mon Jul 21 14:16:41 2014
+-------------------------------------------------
+Info: Logging session transcript to file precision.log
+Info: Results directory: uw_tmp/
+Info: Moving session transcript to file uw_tmp/precision.log
+Info:  Setting up the design to use synthesis library "cycloneii.syn"
+Info: The global max fanout is currently set to 1000 for Altera - Cyclone II.
+Info:  Setting Part to: "EP2C35F672C"
+Info:  Setting Process to: "7"
+Info: USING DESIGN ARCH
+Info: Reading file: /opt/Precision_Synthesis_2008a.47/Mgc_home/pkgs/psr/techlibs/cycloneii.syn.
+Info: Loading library initialization file /opt/Precision_Synthesis_2008a.47/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
+Info: vhdlorder, Release 2008a.22
+Info: Files sorted successfully.
+Info: hdl-analyze, Release RTLC-Precision 2008a.22
 INFO: Analyzing "mem.vhd"
-INFO: Analyzing "kirsch_synth_pkg.vhd"
-INFO: Analyzing "lib_kirsch.vhd"
 INFO: Analyzing "kirsch_utility_pkg.vhd"
 INFO: Analyzing "memory.vhd"
-INFO: Analyzing "flow.vhd"
-INFO: Analyzing "kirsch.vhd"
-INFO: Analyzing "top_kirsch.vhd"
-Warning: "top_kirsch.vhd", line 91: Size  4 of rhs expression does not match with the size 8 of lhs expr
-Error: "top_kirsch.vhd", line 97: Type mismatch in actual association for formal debug_num_0
-Error: "top_kirsch.vhd", line 81: Port and Port Map does not match
-Error: HDL analysis failed.
-Error: near file uw_tmp/uw-logic-synth-precision_rtl.tcl, line 24: 
-ERROR: Failure when running `precision -shell -file uw_tmp/uw-logic-synth-precision_rtl.tcl'
+Info: Current working directory: uw_tmp/.
+Info: RTLC-Driver, Release RTLC-Precision 2008a.22
+Info: Last compiled on Nov 27 2008 12:40:04
+Info: Initializing...
+Info: Partitioning design ....
+
+Info: RTLCompiler, Release RTLC-Precision 2008a.22
+Info: Last compiled on Nov 27 2008 12:46:53
+Info: Initializing...
+Info: Root Module work.memory(main): Pre-processing...
+Info: Module work.mem(main){generic map (data_width => 8 addr_width => 8)}: Pre-processing...
+Info: Built-in hardware memory core inferred for variable ': mem.mem depth = 256, width = 8'.
+Info: Module work.mem(main){generic map (data_width => 8 addr_width => 8)}: Compiling...
+Info: Root Module work.memory(main): Compiling...
+Warning: "memory.vhd", line 92: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 92: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 84: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 196: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 186: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 40: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 190: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Info: "memory.vhd", line 116: Macro Modgen_Counter "counter_up_sclear_clock_cnt_en_0_8" inferred for node "row".
+Info: "memory.vhd", line 120: Macro Modgen_Counter "counter_up_sclear_clock_clk_en_cnt_en_0_8" inferred for node "column".
+Info: Compilation successfully completed.
+Info: Counter Inferencing === Detected : 2, Inferred (Modgen/Selcounter/AddSub) : 2 (2 / 0 / 0), AcrossDH (Merged/Not-Merged) : (0 / 0), Not-Inferred (Acrossdh/Attempted) : (0 / 0), Local Vars : 0 ===
+Info: Total CPU time taken for compilation: 0.0 secs.
+Info: Total lines of RTL compiled: 359.
+Info: Overall running time 1.0 secs.
+Info: Current working directory: uw_tmp/.
+Info: Finished compiling design.
+Info: -- Saving the design database in uw_tmp/memory_gate.xdb
+Info: Writing file: uw_tmp/memory_gate.vhd.
+Info: Info, Command 'auto_write' finished successfully
+Info: Current working directory: uw_tmp/.
+Info: 3 Instances are flattened in hierarchical block .work.memory.main.
+Info: Optimizing design view:.work.memory.main
+Info: -- Running timing characterization...
+Info: Optimizing design view:.work.memory.main
+Info: 65 I/O registers on critical path unpacked.
+Info: -- Saving the design database in uw_tmp/memory.xdb
+Info: Writing file: uw_tmp/memory.edf.
+Info: Info, Writing xrf file 'uw_tmp/memory.xrf'
+Info: Writing file: uw_tmp/memory.xrf.
+Info: -- Writing file uw_tmp/memory.tcl
+Info: exq_pr_compile_project gen_vcf memory 1
+Info: Finished synthesizing design.
+Info: Total CPU time taken for synthesis: 1.9 secs.
+Info: Overall running time 2.1 secs.
+Info: uw_tmp/precision_tech.sdc
+Info: -- Saving the design database in uw_tmp/memory_logic.xdb
+Info: Writing file: uw_tmp/memory_logic.vhd.
+Info: Info, Writing xrf file 'uw_tmp/memory_logic.xrf'
+Info: Writing file: uw_tmp/memory_logic.xrf.
+Info: Info, Command 'auto_write' finished successfully
+Info: i_clock
+Info: -- Saving the design database in uw_tmp/memory_logic.xdb
+Info: Writing file: uw_tmp/memory_logic.v.
+Info: Warning, Moving uw_tmp/memory_logic.xrf to uw_tmp/mgc_old_memory_logic.xrf as uw_tmp/memory_logic.xrf exists
+Info: Writing file: uw_tmp/memory_logic.xrf.
+Info: Info, Command 'auto_write' finished successfully
+Info: *** logic synthesis succeeded ***
+Warning: vmap will not overwrite local modelsim.ini.
+Warning: Library already exists at "work-msim".
+Warning: Library already exists at "altera_mf".
+Modifying modelsim.ini
+Warning: Library already exists at "cycloneii".
+Modifying modelsim.ini
+INFO: generic-gate       netlist         written to uw_tmp/memory_gate.vhd
+INFO: generic-gate       area estimate   written to RPT/area_gate.rpt
+INFO: logic-synthesis    netlist         written to uw_tmp/memory_logic.edf
+INFO: logic-synthesis    area estimate   written to RPT/area_logic.rpt
+INFO: logic-synthesis    timing estimate written to RPT/timing_logic.rpt
+INFO: -----------------------------------------------------------------------
+INFO: CRITICAL PATHS (slowest 5 paths, estimated by logic synthesis)
+INFO: 
+INFO: ..........Delays.........
+INFO:  Total  Datapath  Routing          Source              Dest
+INFO: ------  --------  -------   --------------------  ---------------------
+INFO:   5.31     3.92     1.38    reg_busySignal/clk    o_mode(0)            
+INFO:   5.25     3.86     1.38    reg_busyS...layed/clk o_mode(0)            
+INFO:   5.24     4.66     0.58    column/reg_q(7)/clk   reg_mem_w...t(2)/sclr
+INFO:   5.22     4.64     0.58    column/reg_q(6)/clk   reg_mem_w...t(2)/sclr
+INFO:   5.09     4.51     0.58    column/reg_q(3)/clk   reg_mem_w...t(2)/sclr
+INFO: -----------------------------------------------------------------------
+INFO: Speed on Cyclone II = 188 MHz,  5.31 ns (estimated by logic-synthesis)
+INFO: AREA = 138 cells (97 luts, 138 regs) (estimated by logic-synthesis)
+INFO: Starting QUARTUS for physical synthesis
+Info: *******************************************************************
+Info: Running Quartus II Shell
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Copyright (C) 1991-2009 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Mon Jul 21 14:16:47 2014
+Info: Command: quartus_sh -t uw-chip-synth-quartus.tcl memory
+Info: Quartus(args): memory
+Info: Evaluation of Tcl script uw-chip-synth-quartus.tcl was successful
+Info: Quartus II Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 50 megabytes
+    Info: Processing ended: Mon Jul 21 14:16:47 2014
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+Info: *******************************************************************
+Info: Running Quartus II Shell
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Copyright (C) 1991-2009 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Mon Jul 21 14:16:48 2014
+Info: Command: quartus_sh -t /home/ece327/lib/pins-NULL.tcl memory
+Info: Quartus(args): memory
+Info: Evaluation of Tcl script /home/ece327/lib/pins-NULL.tcl was successful
+Info: Quartus II Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 48 megabytes
+    Info: Processing ended: Mon Jul 21 14:16:48 2014
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+Warning: Can't contact license server "7417@maxwell5.uwaterloo.ca" -- this server will be ignored
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Copyright (C) 1991-2009 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Mon Jul 21 14:16:48 2014
+Info: Command: quartus_map memory --source=memory_logic.edf --family=CycloneII
+Info: Found 6 design units, including 6 entities, in source file memory_logic.edf
+    Info: Found entity 1: modgen_counter_8_0
+    Info: Found entity 2: modgen_counter_8_1
+    Info: Found entity 3: ram_dq_8_0
+    Info: Found entity 4: ram_dq_8_1
+    Info: Found entity 5: ram_dq_8_2
+    Info: Found entity 6: memory
+Info: Elaborating entity "memory" for the top level hierarchy
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "modgen_counter_8_1" for hierarchy "modgen_counter_8_1:modgen_counter_column"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "modgen_counter_8_0" for hierarchy "modgen_counter_8_0:modgen_counter_row"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "ram_dq_8_0" for hierarchy "ram_dq_8_0:u_mem1_mem"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "altsyncram" for hierarchy "ram_dq_8_0:u_mem1_mem|altsyncram:ix64056z29481"
+Info: Elaborated megafunction instantiation "ram_dq_8_0:u_mem1_mem|altsyncram:ix64056z29481"
+Info: Instantiated megafunction "ram_dq_8_0:u_mem1_mem|altsyncram:ix64056z29481" with the following parameter:
+    Info: Parameter "init_file_layout" = "UNUSED"
+    Info: Parameter "numwords_b" = "256"
+    Info: Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info: Parameter "width_a" = "8"
+    Info: Parameter "byteena_aclr_a" = "NONE"
+    Info: Parameter "rdcontrol_aclr_b" = "NONE"
+    Info: Parameter "width_b" = "8"
+    Info: Parameter "byteena_aclr_b" = "NONE"
+    Info: Parameter "indata_aclr_a" = "NONE"
+    Info: Parameter "maximum_depth" = "0"
+    Info: Parameter "indata_aclr_b" = "NONE"
+    Info: Parameter "init_file" = "UNUSED"
+    Info: Parameter "intended_device_family" = "Stratix"
+    Info: Parameter "outdata_aclr_a" = "NONE"
+    Info: Parameter "ram_block_type" = "AUTO"
+    Info: Parameter "wrcontrol_aclr_a" = "NONE"
+    Info: Parameter "address_reg_b" = "CLOCK1"
+    Info: Parameter "outdata_aclr_b" = "NONE"
+    Info: Parameter "wrcontrol_aclr_b" = "NONE"
+    Info: Parameter "operation_mode" = "SINGLE_PORT"
+    Info: Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info: Parameter "widthad_a" = "8"
+    Info: Parameter "byte_size" = "8"
+    Info: Parameter "byteena_reg_b" = "CLOCK1"
+    Info: Parameter "widthad_b" = "8"
+    Info: Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info: Parameter "address_aclr_a" = "NONE"
+    Info: Parameter "indata_reg_b" = "CLOCK1"
+    Info: Parameter "numwords_a" = "256"
+    Info: Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info: Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info: Parameter "width_byteena_a" = "1"
+    Info: Parameter "address_aclr_b" = "NONE"
+    Info: Parameter "width_byteena_b" = "1"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_jpg2.tdf
+    Info: Found entity 1: altsyncram_jpg2
+Info: Elaborating entity "altsyncram_jpg2" for hierarchy "ram_dq_8_0:u_mem1_mem|altsyncram:ix64056z29481|altsyncram_jpg2:auto_generated"
+Info: Elaborating entity "ram_dq_8_1" for hierarchy "ram_dq_8_1:u_mem2_mem"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "ram_dq_8_2" for hierarchy "ram_dq_8_2:u_mem3_mem"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Implemented 319 device resources after synthesis - the final resource count might be different
+    Info: Implemented 11 input pins
+    Info: Implemented 91 output pins
+    Info: Implemented 193 logic cells
+    Info: Implemented 24 RAM segments
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 188 megabytes
+    Info: Processing ended: Mon Jul 21 14:16:51 2014
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:01
+Warning: Can't contact license server "7417@maxwell5.uwaterloo.ca" -- this server will be ignored
+Info: *******************************************************************
+Info: Running Quartus II Fitter
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Copyright (C) 1991-2009 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Mon Jul 21 14:16:51 2014
+Info: Command: quartus_fit memory --effort=fast --part=EP2C35F672C7
+Info: Parallel compilation is enabled and will use 4 of the 8 processors detected
+Info: Selected device EP2C35F672C7 for design "memory"
+Info: Fitter is performing a Fast Fit compilation, which decreases Fitter effort to reduce compilation time
+Info: Device migration not selected. If you intend to use device migration later, you may need to change the pin assignments as they may be incompatible with other devices
+    Info: Device EP2C50F672C7 is compatible
+    Info: Device EP2C70F672C7 is compatible
+Info: Fitter converted 3 user pins into dedicated programming pins
+    Info: Pin ~ASDO~ is reserved at location E3
+    Info: Pin ~nCSO~ is reserved at location D3
+    Info: Pin ~LVDS150p/nCEO~ is reserved at location AE24
+Info: Design uses memory blocks. Violating setup or hold times of memory block address registers for either read or write operations could cause memory contents to be corrupted. Make sure that all memory block address registers meet the setup and hold time requirements.
+Warning: No exact pin location assignment(s) for 102 pins of 102 total pins
+    Info: Pin o_valid not assigned to an exact location on the device
+    Info: Pin o_mode[0] not assigned to an exact location on the device
+    Info: Pin o_mode[1] not assigned to an exact location on the device
+    Info: Pin o_column[0] not assigned to an exact location on the device
+    Info: Pin o_column[1] not assigned to an exact location on the device
+    Info: Pin o_column[2] not assigned to an exact location on the device
+    Info: Pin o_column[3] not assigned to an exact location on the device
+    Info: Pin o_column[4] not assigned to an exact location on the device
+    Info: Pin o_column[5] not assigned to an exact location on the device
+    Info: Pin o_column[6] not assigned to an exact location on the device
+    Info: Pin o_column[7] not assigned to an exact location on the device
+    Info: Pin o_row[0] not assigned to an exact location on the device
+    Info: Pin o_row[1] not assigned to an exact location on the device
+    Info: Pin o_row[2] not assigned to an exact location on the device
+    Info: Pin o_row[3] not assigned to an exact location on the device
+    Info: Pin o_row[4] not assigned to an exact location on the device
+    Info: Pin o_row[5] not assigned to an exact location on the device
+    Info: Pin o_row[6] not assigned to an exact location on the device
+    Info: Pin o_row[7] not assigned to an exact location on the device
+    Info: Pin o_image0_0_[0] not assigned to an exact location on the device
+    Info: Pin o_image0_0_[1] not assigned to an exact location on the device
+    Info: Pin o_image0_0_[2] not assigned to an exact location on the device
+    Info: Pin o_image0_0_[3] not assigned to an exact location on the device
+    Info: Pin o_image0_0_[4] not assigned to an exact location on the device
+    Info: Pin o_image0_0_[5] not assigned to an exact location on the device
+    Info: Pin o_image0_0_[6] not assigned to an exact location on the device
+    Info: Pin o_image0_0_[7] not assigned to an exact location on the device
+    Info: Pin o_image0_1_[0] not assigned to an exact location on the device
+    Info: Pin o_image0_1_[1] not assigned to an exact location on the device
+    Info: Pin o_image0_1_[2] not assigned to an exact location on the device
+    Info: Pin o_image0_1_[3] not assigned to an exact location on the device
+    Info: Pin o_image0_1_[4] not assigned to an exact location on the device
+    Info: Pin o_image0_1_[5] not assigned to an exact location on the device
+    Info: Pin o_image0_1_[6] not assigned to an exact location on the device
+    Info: Pin o_image0_1_[7] not assigned to an exact location on the device
+    Info: Pin o_image0_2_[0] not assigned to an exact location on the device
+    Info: Pin o_image0_2_[1] not assigned to an exact location on the device
+    Info: Pin o_image0_2_[2] not assigned to an exact location on the device
+    Info: Pin o_image0_2_[3] not assigned to an exact location on the device
+    Info: Pin o_image0_2_[4] not assigned to an exact location on the device
+    Info: Pin o_image0_2_[5] not assigned to an exact location on the device
+    Info: Pin o_image0_2_[6] not assigned to an exact location on the device
+    Info: Pin o_image0_2_[7] not assigned to an exact location on the device
+    Info: Pin o_image1_0_[0] not assigned to an exact location on the device
+    Info: Pin o_image1_0_[1] not assigned to an exact location on the device
+    Info: Pin o_image1_0_[2] not assigned to an exact location on the device
+    Info: Pin o_image1_0_[3] not assigned to an exact location on the device
+    Info: Pin o_image1_0_[4] not assigned to an exact location on the device
+    Info: Pin o_image1_0_[5] not assigned to an exact location on the device
+    Info: Pin o_image1_0_[6] not assigned to an exact location on the device
+    Info: Pin o_image1_0_[7] not assigned to an exact location on the device
+    Info: Pin o_image1_1_[0] not assigned to an exact location on the device
+    Info: Pin o_image1_1_[1] not assigned to an exact location on the device
+    Info: Pin o_image1_1_[2] not assigned to an exact location on the device
+    Info: Pin o_image1_1_[3] not assigned to an exact location on the device
+    Info: Pin o_image1_1_[4] not assigned to an exact location on the device
+    Info: Pin o_image1_1_[5] not assigned to an exact location on the device
+    Info: Pin o_image1_1_[6] not assigned to an exact location on the device
+    Info: Pin o_image1_1_[7] not assigned to an exact location on the device
+    Info: Pin o_image1_2_[0] not assigned to an exact location on the device
+    Info: Pin o_image1_2_[1] not assigned to an exact location on the device
+    Info: Pin o_image1_2_[2] not assigned to an exact location on the device
+    Info: Pin o_image1_2_[3] not assigned to an exact location on the device
+    Info: Pin o_image1_2_[4] not assigned to an exact location on the device
+    Info: Pin o_image1_2_[5] not assigned to an exact location on the device
+    Info: Pin o_image1_2_[6] not assigned to an exact location on the device
+    Info: Pin o_image1_2_[7] not assigned to an exact location on the device
+    Info: Pin o_image2_0_[0] not assigned to an exact location on the device
+    Info: Pin o_image2_0_[1] not assigned to an exact location on the device
+    Info: Pin o_image2_0_[2] not assigned to an exact location on the device
+    Info: Pin o_image2_0_[3] not assigned to an exact location on the device
+    Info: Pin o_image2_0_[4] not assigned to an exact location on the device
+    Info: Pin o_image2_0_[5] not assigned to an exact location on the device
+    Info: Pin o_image2_0_[6] not assigned to an exact location on the device
+    Info: Pin o_image2_0_[7] not assigned to an exact location on the device
+    Info: Pin o_image2_1_[0] not assigned to an exact location on the device
+    Info: Pin o_image2_1_[1] not assigned to an exact location on the device
+    Info: Pin o_image2_1_[2] not assigned to an exact location on the device
+    Info: Pin o_image2_1_[3] not assigned to an exact location on the device
+    Info: Pin o_image2_1_[4] not assigned to an exact location on the device
+    Info: Pin o_image2_1_[5] not assigned to an exact location on the device
+    Info: Pin o_image2_1_[6] not assigned to an exact location on the device
+    Info: Pin o_image2_1_[7] not assigned to an exact location on the device
+    Info: Pin o_image2_2_[0] not assigned to an exact location on the device
+    Info: Pin o_image2_2_[1] not assigned to an exact location on the device
+    Info: Pin o_image2_2_[2] not assigned to an exact location on the device
+    Info: Pin o_image2_2_[3] not assigned to an exact location on the device
+    Info: Pin o_image2_2_[4] not assigned to an exact location on the device
+    Info: Pin o_image2_2_[5] not assigned to an exact location on the device
+    Info: Pin o_image2_2_[6] not assigned to an exact location on the device
+    Info: Pin o_image2_2_[7] not assigned to an exact location on the device
+    Info: Pin i_valid not assigned to an exact location on the device
+    Info: Pin i_reset not assigned to an exact location on the device
+    Info: Pin i_clock not assigned to an exact location on the device
+    Info: Pin i_pixel[0] not assigned to an exact location on the device
+    Info: Pin i_pixel[1] not assigned to an exact location on the device
+    Info: Pin i_pixel[2] not assigned to an exact location on the device
+    Info: Pin i_pixel[3] not assigned to an exact location on the device
+    Info: Pin i_pixel[4] not assigned to an exact location on the device
+    Info: Pin i_pixel[5] not assigned to an exact location on the device
+    Info: Pin i_pixel[6] not assigned to an exact location on the device
+    Info: Pin i_pixel[7] not assigned to an exact location on the device
+Info: Fitter is using the Classic Timing Analyzer
+Info: Timing requirements not specified -- optimizing circuit to achieve the following default global requirements
+    Info: Assuming a global fmax requirement of 1000 MHz
+    Info: Not setting a global tsu requirement
+    Info: Not setting a global tco requirement
+    Info: Not setting a global tpd requirement
+Info: Automatically promoted node i_clock (placed in PIN P2 (CLK2, LVDSCLK1p, Input))
+    Info: Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G3
+Info: Starting register packing
+Info: Finished register packing
+    Extra Info: No registers were packed into other blocks
+Info: Statistics of I/O pins that need to be placed that use the same VCCIO and VREF, before I/O pin placement
+    Info: Number of I/O pins in group: 101 (unused VREF, 3.3V VCCIO, 10 input, 91 output, 0 bidirectional)
+        Info: I/O standards used: 3.3-V LVTTL.
+Info: I/O bank details before I/O pin placement
+    Info: Statistics of I/O banks
+        Info: I/O bank number 1 does not use VREF pins and has undetermined VCCIO pins. 1 total pin(s) used --  63 pins available
+        Info: I/O bank number 2 does not use VREF pins and has undetermined VCCIO pins. 2 total pin(s) used --  57 pins available
+        Info: I/O bank number 3 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  56 pins available
+        Info: I/O bank number 4 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  58 pins available
+        Info: I/O bank number 5 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  65 pins available
+        Info: I/O bank number 6 does not use VREF pins and has undetermined VCCIO pins. 1 total pin(s) used --  58 pins available
+        Info: I/O bank number 7 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  58 pins available
+        Info: I/O bank number 8 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  56 pins available
+Info: Fitter preparation operations ending: elapsed time is 00:00:01
+Info: Fitter placement preparation operations beginning
+Info: Fitter placement preparation operations ending: elapsed time is 00:00:00
+Info: Fitter placement operations beginning
+Info: Fitter placement was successful
+Info: Fitter placement operations ending: elapsed time is 00:00:01
+Info: Slack time is -5.713 ns between source memory "ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482|altsyncram_jpg2:auto_generated|ram_block1a0~porta_address_reg7" and destination register "o_image2_0__dup0_0_"
+    Info: + Largest memory to register requirement is 0.659 ns
+    Info:   Shortest clock path from clock "i_clock" to destination register is 2.672 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.783 ns) = 0.783 ns; Loc. = Unassigned; Fanout = 1; CLK Node = 'i_clock'
+        Info: 2: + IC(0.176 ns) + CELL(0.000 ns) = 0.959 ns; Loc. = Unassigned; Fanout = 402; COMB Node = 'i_clock~clkctrl'
+        Info: 3: + IC(1.111 ns) + CELL(0.602 ns) = 2.672 ns; Loc. = Unassigned; Fanout = 3; REG Node = 'o_image2_0__dup0_0_'
+        Info: Total cell delay = 1.385 ns ( 51.83 % )
+        Info: Total interconnect delay = 1.287 ns ( 48.17 % )
+    Info:   Longest clock path from clock "i_clock" to destination register is 2.672 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.783 ns) = 0.783 ns; Loc. = Unassigned; Fanout = 1; CLK Node = 'i_clock'
+        Info: 2: + IC(0.176 ns) + CELL(0.000 ns) = 0.959 ns; Loc. = Unassigned; Fanout = 402; COMB Node = 'i_clock~clkctrl'
+        Info: 3: + IC(1.111 ns) + CELL(0.602 ns) = 2.672 ns; Loc. = Unassigned; Fanout = 3; REG Node = 'o_image2_0__dup0_0_'
+        Info: Total cell delay = 1.385 ns ( 51.83 % )
+        Info: Total interconnect delay = 1.287 ns ( 48.17 % )
+    Info:   Shortest clock path from clock "i_clock" to source register is 2.817 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.783 ns) = 0.783 ns; Loc. = Unassigned; Fanout = 1; CLK Node = 'i_clock'
+        Info: 2: + IC(0.176 ns) + CELL(0.000 ns) = 0.959 ns; Loc. = Unassigned; Fanout = 402; COMB Node = 'i_clock~clkctrl'
+        Info: 3: + IC(1.111 ns) + CELL(0.747 ns) = 2.817 ns; Loc. = Unassigned; Fanout = 1; MEM Node = 'ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482|altsyncram_jpg2:auto_generated|ram_block1a0~porta_address_reg7'
+        Info: Total cell delay = 1.530 ns ( 54.31 % )
+        Info: Total interconnect delay = 1.287 ns ( 45.69 % )
+    Info:   Longest clock path from clock "i_clock" to source register is 2.817 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.783 ns) = 0.783 ns; Loc. = Unassigned; Fanout = 1; CLK Node = 'i_clock'
+        Info: 2: + IC(0.176 ns) + CELL(0.000 ns) = 0.959 ns; Loc. = Unassigned; Fanout = 402; COMB Node = 'i_clock~clkctrl'
+        Info: 3: + IC(1.111 ns) + CELL(0.747 ns) = 2.817 ns; Loc. = Unassigned; Fanout = 1; MEM Node = 'ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482|altsyncram_jpg2:auto_generated|ram_block1a0~porta_address_reg7'
+        Info: Total cell delay = 1.530 ns ( 54.31 % )
+        Info: Total interconnect delay = 1.287 ns ( 45.69 % )
+    Info:   Micro clock to output delay of source is 0.234 ns
+    Info:   Micro setup delay of destination is -0.038 ns
+    Info: - Longest memory to register delay is 6.372 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = Unassigned; Fanout = 1; MEM Node = 'ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482|altsyncram_jpg2:auto_generated|ram_block1a0~porta_address_reg7'
+        Info: 2: + IC(0.000 ns) + CELL(3.377 ns) = 3.377 ns; Loc. = Unassigned; Fanout = 2; MEM Node = 'ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482|altsyncram_jpg2:auto_generated|q_a[0]'
+        Info: 3: + IC(1.026 ns) + CELL(0.521 ns) = 4.924 ns; Loc. = Unassigned; Fanout = 2; COMB Node = 'buffer2_4n2ss1_0_'
+        Info: 4: + IC(0.132 ns) + CELL(0.544 ns) = 5.600 ns; Loc. = Unassigned; Fanout = 1; COMB Node = 'nx5021z2'
+        Info: 5: + IC(0.155 ns) + CELL(0.521 ns) = 6.276 ns; Loc. = Unassigned; Fanout = 1; COMB Node = 'nx5021z1'
+        Info: 6: + IC(0.000 ns) + CELL(0.096 ns) = 6.372 ns; Loc. = Unassigned; Fanout = 3; REG Node = 'o_image2_0__dup0_0_'
+        Info: Total cell delay = 5.059 ns ( 79.39 % )
+        Info: Total interconnect delay = 1.313 ns ( 20.61 % )
+Info: Estimated most critical path is memory to register delay of 6.372 ns
+    Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = M4K_X26_Y24; Fanout = 1; MEM Node = 'ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482|altsyncram_jpg2:auto_generated|ram_block1a0~porta_address_reg7'
+    Info: 2: + IC(0.000 ns) + CELL(3.377 ns) = 3.377 ns; Loc. = M4K_X26_Y24; Fanout = 2; MEM Node = 'ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482|altsyncram_jpg2:auto_generated|q_a[0]'
+    Info: 3: + IC(1.026 ns) + CELL(0.521 ns) = 4.924 ns; Loc. = LAB_X28_Y23; Fanout = 2; COMB Node = 'buffer2_4n2ss1_0_'
+    Info: 4: + IC(0.132 ns) + CELL(0.544 ns) = 5.600 ns; Loc. = LAB_X28_Y23; Fanout = 1; COMB Node = 'nx5021z2'
+    Info: 5: + IC(0.155 ns) + CELL(0.521 ns) = 6.276 ns; Loc. = LAB_X28_Y23; Fanout = 1; COMB Node = 'nx5021z1'
+    Info: 6: + IC(0.000 ns) + CELL(0.096 ns) = 6.372 ns; Loc. = LAB_X28_Y23; Fanout = 3; REG Node = 'o_image2_0__dup0_0_'
+    Info: Total cell delay = 5.059 ns ( 79.39 % )
+    Info: Total interconnect delay = 1.313 ns ( 20.61 % )
+Info: Fitter routing operations beginning
+Info: Average interconnect usage is 0% of the available device resources
+    Info: Peak interconnect usage is 3% of the available device resources in the region that extends from location X22_Y24 to location X32_Y36
+Info: Fitter routing operations ending: elapsed time is 00:00:00
+Info: Started post-fitting delay annotation
+Warning: Found 91 output pins without output pin load capacitance assignment
+    Info: Pin "o_valid" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_mode[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_mode[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_column[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_column[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_column[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_column[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_column[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_column[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_column[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_column[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_row[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_row[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_row[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_row[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_row[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_row[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_row[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_row[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_0_[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_0_[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_0_[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_0_[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_0_[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_0_[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_0_[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_0_[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_1_[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_1_[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_1_[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_1_[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_1_[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_1_[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_1_[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_1_[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_2_[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_2_[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_2_[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_2_[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_2_[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_2_[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_2_[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image0_2_[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_0_[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_0_[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_0_[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_0_[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_0_[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_0_[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_0_[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_0_[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_1_[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_1_[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_1_[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_1_[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_1_[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_1_[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_1_[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_1_[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_2_[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_2_[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_2_[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_2_[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_2_[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_2_[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_2_[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image1_2_[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_0_[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_0_[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_0_[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_0_[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_0_[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_0_[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_0_[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_0_[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_1_[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_1_[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_1_[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_1_[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_1_[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_1_[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_1_[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_1_[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_2_[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_2_[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_2_[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_2_[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_2_[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_2_[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_2_[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_image2_2_[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+Info: Delay annotation completed successfully
+Info: Design uses memory blocks. Violating setup or hold times of memory block address registers for either read or write operations could cause memory contents to be corrupted. Make sure that all memory block address registers meet the setup and hold time requirements.
+Warning: The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
+Info: Quartus II Fitter was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 314 megabytes
+    Info: Processing ended: Mon Jul 21 14:16:59 2014
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:08
+Warning: Can't contact license server "7417@maxwell5.uwaterloo.ca" -- this server will be ignored
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Copyright (C) 1991-2009 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Mon Jul 21 14:17:00 2014
+Info: Command: quartus_sta -t uw-chip-synth-quartus-timing.tcl memory
+Info: Quartus(args): memory
+Info: Detected changes in Quartus II Settings File (.qsf).
+    Info: Assignment USE_TIMEQUEST_TIMING_ANALYZER changed value from OFF to ON.
+Info: Parallel compilation is enabled and will use 4 of the 8 processors detected
+Info: No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info: Deriving Clocks
+    Info: create_clock -period 1.000 -name i_clock i_clock
+Info: Fmax Summary
+    Info:                Restricted
+    Info:         Fmax         Fmax      Clock Note
+    Info: ============ ============ ========== =====================
+    Info:   165.23 MHz   165.23 MHz    i_clock   
+Info: Report Timing: Found 5 setup paths (5 violated).  Worst case slack is -5.052
+    Info: -setup
+    Info: -npaths 5
+    Info: -detail path_only
+    Info: -file {timing_chip_path.rpt}
+Info: Report Timing: Found 5 setup paths (5 violated).  Worst case slack is -5.052
+    Info: -setup
+    Info: -npaths 5
+    Info: -detail path_only
+Info: Path #1: Setup slack is -5.052 (VIOLATED)
+    Info: ===================================================================
+    Info: From Node    : ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482|altsyncram_jpg2:auto_generated|ram_block1a0~porta_we_reg
+    Info: To Node      : o_image2_1__dup0_0_
+    Info: Launch Clock : i_clock
+    Info: Latch Clock  : i_clock
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.000      0.000           launch edge time
+    Info:      2.995      2.995  R        clock network delay
+    Info:      3.229      0.234     uTco  ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482|altsyncram_jpg2:auto_generated|ram_block1a0~porta_we_reg
+    Info:      6.606      3.377 RR  CELL  u_mem2_mem|ix64056z29482|auto_generated|ram_block1a0|portadataout[0]
+    Info:      7.776      1.170 RR    IC  ix5021z52925|datad
+    Info:      7.954      0.178 RR  CELL  ix5021z52925|combout
+    Info:      8.255      0.301 RR    IC  ix55380z52924|datad
+    Info:      8.433      0.178 RR  CELL  ix55380z52924|combout
+    Info:      8.743      0.310 RR    IC  ix55380z52923|datad
+    Info:      8.921      0.178 RR  CELL  ix55380z52923|combout
+    Info:      8.921      0.000 RR    IC  reg_buffer2_1__0_|datain
+    Info:      9.017      0.096 RR  CELL  o_image2_1__dup0_0_
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      1.000      1.000           latch edge time
+    Info:      3.927      2.927  R        clock network delay
+    Info:      3.965      0.038     uTsu  o_image2_1__dup0_0_
+    Info: 
+    Info: Data Arrival Time  :     9.017
+    Info: Data Required Time :     3.965
+    Info: Slack              :    -5.052 (VIOLATED)
+    Info: ===================================================================
+    Info: 
+Info: Path #2: Setup slack is -5.052 (VIOLATED)
+    Info: ===================================================================
+    Info: From Node    : ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482|altsyncram_jpg2:auto_generated|ram_block1a0~porta_address_reg0
+    Info: To Node      : o_image2_1__dup0_0_
+    Info: Launch Clock : i_clock
+    Info: Latch Clock  : i_clock
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.000      0.000           launch edge time
+    Info:      2.995      2.995  R        clock network delay
+    Info:      3.229      0.234     uTco  ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482|altsyncram_jpg2:auto_generated|ram_block1a0~porta_address_reg0
+    Info:      6.606      3.377 RR  CELL  u_mem2_mem|ix64056z29482|auto_generated|ram_block1a0|portadataout[0]
+    Info:      7.776      1.170 RR    IC  ix5021z52925|datad
+    Info:      7.954      0.178 RR  CELL  ix5021z52925|combout
+    Info:      8.255      0.301 RR    IC  ix55380z52924|datad
+    Info:      8.433      0.178 RR  CELL  ix55380z52924|combout
+    Info:      8.743      0.310 RR    IC  ix55380z52923|datad
+    Info:      8.921      0.178 RR  CELL  ix55380z52923|combout
+    Info:      8.921      0.000 RR    IC  reg_buffer2_1__0_|datain
+    Info:      9.017      0.096 RR  CELL  o_image2_1__dup0_0_
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      1.000      1.000           latch edge time
+    Info:      3.927      2.927  R        clock network delay
+    Info:      3.965      0.038     uTsu  o_image2_1__dup0_0_
+    Info: 
+    Info: Data Arrival Time  :     9.017
+    Info: Data Required Time :     3.965
+    Info: Slack              :    -5.052 (VIOLATED)
+    Info: ===================================================================
+    Info: 
+Info: Path #3: Setup slack is -5.052 (VIOLATED)
+    Info: ===================================================================
+    Info: From Node    : ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482|altsyncram_jpg2:auto_generated|ram_block1a0~porta_address_reg1
+    Info: To Node      : o_image2_1__dup0_0_
+    Info: Launch Clock : i_clock
+    Info: Latch Clock  : i_clock
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.000      0.000           launch edge time
+    Info:      2.995      2.995  R        clock network delay
+    Info:      3.229      0.234     uTco  ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482|altsyncram_jpg2:auto_generated|ram_block1a0~porta_address_reg1
+    Info:      6.606      3.377 RR  CELL  u_mem2_mem|ix64056z29482|auto_generated|ram_block1a0|portadataout[0]
+    Info:      7.776      1.170 RR    IC  ix5021z52925|datad
+    Info:      7.954      0.178 RR  CELL  ix5021z52925|combout
+    Info:      8.255      0.301 RR    IC  ix55380z52924|datad
+    Info:      8.433      0.178 RR  CELL  ix55380z52924|combout
+    Info:      8.743      0.310 RR    IC  ix55380z52923|datad
+    Info:      8.921      0.178 RR  CELL  ix55380z52923|combout
+    Info:      8.921      0.000 RR    IC  reg_buffer2_1__0_|datain
+    Info:      9.017      0.096 RR  CELL  o_image2_1__dup0_0_
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      1.000      1.000           latch edge time
+    Info:      3.927      2.927  R        clock network delay
+    Info:      3.965      0.038     uTsu  o_image2_1__dup0_0_
+    Info: 
+    Info: Data Arrival Time  :     9.017
+    Info: Data Required Time :     3.965
+    Info: Slack              :    -5.052 (VIOLATED)
+    Info: ===================================================================
+    Info: 
+Info: Path #4: Setup slack is -5.052 (VIOLATED)
+    Info: ===================================================================
+    Info: From Node    : ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482|altsyncram_jpg2:auto_generated|ram_block1a0~porta_address_reg2
+    Info: To Node      : o_image2_1__dup0_0_
+    Info: Launch Clock : i_clock
+    Info: Latch Clock  : i_clock
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.000      0.000           launch edge time
+    Info:      2.995      2.995  R        clock network delay
+    Info:      3.229      0.234     uTco  ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482|altsyncram_jpg2:auto_generated|ram_block1a0~porta_address_reg2
+    Info:      6.606      3.377 RR  CELL  u_mem2_mem|ix64056z29482|auto_generated|ram_block1a0|portadataout[0]
+    Info:      7.776      1.170 RR    IC  ix5021z52925|datad
+    Info:      7.954      0.178 RR  CELL  ix5021z52925|combout
+    Info:      8.255      0.301 RR    IC  ix55380z52924|datad
+    Info:      8.433      0.178 RR  CELL  ix55380z52924|combout
+    Info:      8.743      0.310 RR    IC  ix55380z52923|datad
+    Info:      8.921      0.178 RR  CELL  ix55380z52923|combout
+    Info:      8.921      0.000 RR    IC  reg_buffer2_1__0_|datain
+    Info:      9.017      0.096 RR  CELL  o_image2_1__dup0_0_
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      1.000      1.000           latch edge time
+    Info:      3.927      2.927  R        clock network delay
+    Info:      3.965      0.038     uTsu  o_image2_1__dup0_0_
+    Info: 
+    Info: Data Arrival Time  :     9.017
+    Info: Data Required Time :     3.965
+    Info: Slack              :    -5.052 (VIOLATED)
+    Info: ===================================================================
+    Info: 
+Info: Path #5: Setup slack is -5.052 (VIOLATED)
+    Info: ===================================================================
+    Info: From Node    : ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482|altsyncram_jpg2:auto_generated|ram_block1a0~porta_address_reg3
+    Info: To Node      : o_image2_1__dup0_0_
+    Info: Launch Clock : i_clock
+    Info: Latch Clock  : i_clock
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.000      0.000           launch edge time
+    Info:      2.995      2.995  R        clock network delay
+    Info:      3.229      0.234     uTco  ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482|altsyncram_jpg2:auto_generated|ram_block1a0~porta_address_reg3
+    Info:      6.606      3.377 RR  CELL  u_mem2_mem|ix64056z29482|auto_generated|ram_block1a0|portadataout[0]
+    Info:      7.776      1.170 RR    IC  ix5021z52925|datad
+    Info:      7.954      0.178 RR  CELL  ix5021z52925|combout
+    Info:      8.255      0.301 RR    IC  ix55380z52924|datad
+    Info:      8.433      0.178 RR  CELL  ix55380z52924|combout
+    Info:      8.743      0.310 RR    IC  ix55380z52923|datad
+    Info:      8.921      0.178 RR  CELL  ix55380z52923|combout
+    Info:      8.921      0.000 RR    IC  reg_buffer2_1__0_|datain
+    Info:      9.017      0.096 RR  CELL  o_image2_1__dup0_0_
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      1.000      1.000           latch edge time
+    Info:      3.927      2.927  R        clock network delay
+    Info:      3.965      0.038     uTsu  o_image2_1__dup0_0_
+    Info: 
+    Info: Data Arrival Time  :     9.017
+    Info: Data Required Time :     3.965
+    Info: Slack              :    -5.052 (VIOLATED)
+    Info: ===================================================================
+    Info: 
+Info: Evaluation of Tcl script uw-chip-synth-quartus-timing.tcl was successful
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 142 megabytes
+    Info: Processing ended: Mon Jul 21 14:17:01 2014
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+Warning: Can't contact license server "7417@maxwell5.uwaterloo.ca" -- this server will be ignored
+Info: *******************************************************************
+Info: Running Quartus II Assembler
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Copyright (C) 1991-2009 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Mon Jul 21 14:17:01 2014
+Info: Command: quartus_asm memory
+Info: Writing out detailed assembly data for power analysis
+Info: Assembler is generating device programming files
+Info: Quartus II Assembler was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 232 megabytes
+    Info: Processing ended: Mon Jul 21 14:17:10 2014
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:08
+Warning: Can't contact license server "7417@maxwell5.uwaterloo.ca" -- this server will be ignored
+Info: *******************************************************************
+Info: Running Quartus II EDA Netlist Writer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Copyright (C) 1991-2009 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Mon Jul 21 14:17:11 2014
+Info: Command: quartus_eda memory --simulation=on --tool=modelsim --format=vhdl
+Info: Generated files "memory.vho" and "memory_vhd.sdo" in directory "simulation/modelsim/" for EDA simulation tool
+Info: Quartus II EDA Netlist Writer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 165 megabytes
+    Info: Processing ended: Mon Jul 21 14:17:11 2014
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+Warning: Can't contact license server "7417@maxwell5.uwaterloo.ca" -- this server will be ignored
+Info: *******************************************************************
+Info: Running Quartus II EDA Netlist Writer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Copyright (C) 1991-2009 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Mon Jul 21 14:17:12 2014
+Info: Command: quartus_eda memory --simulation=on --tool=modelsim --format=verilog
+Info: Generated files "memory.vo" and "memory_v.sdo" in directory "simulation/modelsim/" for EDA simulation tool
+Info: Quartus II EDA Netlist Writer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 165 megabytes
+    Info: Processing ended: Mon Jul 21 14:17:13 2014
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+Warning: vmap will not overwrite local modelsim.ini.
+Warning: Library already exists at "work-msim".
+Warning: Library already exists at "altera_mf".
+Modifying modelsim.ini
+Warning: Library already exists at "cycloneii".
+Modifying modelsim.ini
+Model Technology ModelSim SE-64 vlog 10.1 Compiler 2011.12 Dec  5 2011
+-- Compiling module memory
+-- Compiling module ram_dq_8_2
+-- Compiling module ram_dq_8_1
+-- Compiling module ram_dq_8_0
+-- Compiling module modgen_counter_8_1
+-- Compiling module modgen_counter_8_0
+
+Top level modules:
+	memory
+Warning: vmap will not overwrite local modelsim.ini.
+Warning: Library already exists at "work-msim".
+DEBUG: modelsim_pfx: testing: /opt/ModelSim101/modeltech/bin/
+DEBUG: try_set: altera_sim_lib: True: /home/ece327/altera
+DEBUG: default_board: DE2
+** Warning: (vlib-34) Library already exists at "work-msim".
+** Warning: (vlib-34) Library already exists at "work-msim".
+  Model Technology ModelSim SE-64 vcom 10.1 Compiler 2011.12 Dec  5 2011
+Model Technology ModelSim SE-64 vcom 10.1 Compiler 2011.12 Dec  5 2011
+-- Loading package STANDARD
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package NUMERIC_STD
+-- Loading package kirsch_utility_pkg
+-- Loading package kirsch_utility_pkg
+-- Compiling entity memory
+-- Compiling entity memory
+-- Compiling architecture main of memory
+-- Compiling architecture main of memory
+-- Loading entity mem
+-- Loading entity mem
+-- Compiling entity mem
+-- Compiling entity mem
+-- Compiling architecture main of mem
+-- Compiling architecture main of mem
+-- Compiling package kirsch_utility_pkg
+-- Compiling package kirsch_utility_pkg
+ 
+Warning: vmap will not overwrite local modelsim.ini.
+Warning: Library already exists at "work-msim".
+DEBUG: modelsim_pfx: testing: /opt/ModelSim101/modeltech/bin/
+DEBUG: try_set: altera_sim_lib: True: /home/ece327/altera
+DEBUG: default_board: DE2
+** Warning: (vlib-34) Library already exists at "work-msim".
+** Warning: (vlib-34) Library already exists at "work-msim".
+  Model Technology ModelSim SE-64 vlog 10.1 Compiler 2011.12 Dec  5 2011
+Model Technology ModelSim SE-64 vlog 10.1 Compiler 2011.12 Dec  5 2011
+-- Compiling module memory_chip
+-- Compiling module memory_chip
+
+
+Top level modules:
+Top level modules:
+	memory_chip
+	memory_chip
+ 
+Warning: vmap will not overwrite local modelsim.ini.
+Warning: Library already exists at "work-msim".
+INFO: generic-gate       netlist         written to uw_tmp/memory_gate.vhd
+INFO: generic-gate       area estimate   written to RPT/area_gate.rpt
+INFO: logic-synthesis    netlist         written to uw_tmp/memory_logic.edf
+INFO: logic-synthesis    area estimate   written to RPT/area_logic.rpt
+INFO: logic-synthesis    timing estimate written to RPT/timing_logic.rpt
+INFO: chip               netlist         written to uw_tmp/memory_chip.vhd
+INFO: chip               area estimate   written to RPT/area_chip.rpt
+INFO: 
+INFO: ***********************************************
+INFO: *
+INFO: * uw-synth to DE2 was successful
+INFO: * log file stored in LOG/uw-synth.log
+INFO: *
+INFO: ***********************************************

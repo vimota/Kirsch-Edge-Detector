@@ -15,5 +15,5 @@ xsys( "vlib work-msim")
 #------------------------------------------------------------------------
 # compile source files
 
-xsys( "uw-msim-com  flow.vhd ")
+xsys( "uw-msim-com  uw_tmp/memory_chip.v ")
 

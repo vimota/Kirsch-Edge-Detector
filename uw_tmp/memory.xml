@@ -1,0 +1,20 @@
+<interfaceDefinition version='1.2' language='vhdl' kind='component' name='memory'>
+  <useClause path='work.kirsch_utility_pkg.all' />
+  <useClause path='ieee.NUMERIC_STD.all' />
+  <useClause path='ieee.std_logic_1164.all' />
+    <portList>
+
+      <port name='i_valid' direction='in' type='STD_LOGIC' kind='' />
+      <port name='i_reset' direction='in' type='STD_LOGIC' kind='' />
+      <port name='i_pixel' direction='in' type='std_logic_vector (7 downto 0)' kind='array' library='work' package='memory' packedDimension='(7 downto 0)' />
+      <port name='i_clock' direction='in' type='STD_LOGIC' kind='' />
+      <port name='o_valid' direction='out' type='STD_LOGIC' kind='' />
+      <port name='o_mode' direction='out' type='std_logic_vector (1 downto 0)' kind='array' library='work' package='memory' packedDimension='(1 downto 0)' />
+      <port name='o_column' direction='out' type='std_logic_vector (7 downto 0)' kind='array' library='work' package='memory' packedDimension='(7 downto 0)' />
+      <port name='o_row' direction='out' type='std_logic_vector (7 downto 0)' kind='array' library='work' package='memory' packedDimension='(7 downto 0)' />
+      <port name='o_image0' direction='out' type='std_logic_vector (7 downto 0)' kind='array' library='work' package='kirsch_utility_pkg' unpackedDimension='(2 downto 0)' packedDimension='(7 downto 0)' />
+      <port name='o_image1' direction='out' type='std_logic_vector (7 downto 0)' kind='array' library='work' package='kirsch_utility_pkg' unpackedDimension='(2 downto 0)' packedDimension='(7 downto 0)' />
+      <port name='o_image2' direction='out' type='std_logic_vector (7 downto 0)' kind='array' library='work' package='kirsch_utility_pkg' unpackedDimension='(2 downto 0)' packedDimension='(7 downto 0)' />
+
+    </portList>
+</interfaceDefinition>

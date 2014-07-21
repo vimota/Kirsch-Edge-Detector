@@ -4,6 +4,17 @@ use ieee.numeric_std.all;
 
 entity flow is
   port(
+    -- debug outputs
+    debug_valid    : out std_logic;
+    debug_num_0    : out unsigned(7 downto 0) ;
+    debug_num_1    : out unsigned(7 downto 0) ;
+    debug_num_2    : out unsigned(7 downto 0) ;
+    debug_num_3    : out unsigned(7 downto 0) ;
+    debug_num_4    : out unsigned(7 downto 0) ;
+    debug_num_5    : out unsigned(7 downto 0);
+    debug_num_6    : out unsigned(7 downto 0); 
+    debug_num_7    : out unsigned(7 downto 0);
+    debug_num_8    : out unsigned(7 downto 0);
   	------------------------------------------
     -- main inputs and outputs
     t1, t2, t3, b1, b2, b3, i1, i2	: in  unsigned(7 downto 0);

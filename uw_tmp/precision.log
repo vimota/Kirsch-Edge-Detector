@@ -1,5 +1,4 @@
-# Info: [9566]: Logging session transcript to file P:/ece327/project/Kirsch-Edge-Detector/precision.log
-# Error: [3029]: Failure parsing file: C:/PROGRA~2/MENTOR~1/PRECIS~1.47/Mgc_home/pkgs/psr/userware/.precision.ini: Missing section "ApplInfo".
+# Info: [9566]: Logging session transcript to file /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/precision.log
 //  Precision RTL Synthesis 2008a.47 (Production Release) Tue Dec  9 03:06:25 PST 2008
 //  
 //  Copyright (c) Mentor Graphics Corporation, 1996-2008, All Rights Reserved.
@@ -8,33 +7,83 @@
 //            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
 //          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 //  
-//  Running on Windows Vista gm2kerr@ECE-RTOS25 Service Pack 1 6.01.7601 x86
+//  Running on Linux gm2kerr@eceLinux1.uwaterloo.ca #1 SMP Thu Apr 24 18:19:36 EDT 2014 2.6.18-371.8.1.el5 x86_64
 //  
-//  Start time Mon Jul 21 02:55:41 2014
+//  Start time Mon Jul 21 14:16:41 2014
 # -------------------------------------------------
-# Info: [9566]: Logging session transcript to file P:/ece327/project/Kirsch-Edge-Detector/precision.log
-# Info: [9575]: Results directory: P:/ece327/project/Kirsch-Edge-Detector/uw_tmp/
-# Info: [9569]: Moving session transcript to file P:/ece327/project/Kirsch-Edge-Detector/uw_tmp/precision.log
+# Info: [9566]: Logging session transcript to file /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/precision.log
+# Info: [9575]: Results directory: /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/
+# Info: [9569]: Moving session transcript to file /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/precision.log
 # Info: [15291]:  Setting up the design to use synthesis library "cycloneii.syn"
 # Info: [566]: The global max fanout is currently set to 1000 for Altera - Cyclone II.
 # Info:  Setting Part to: "EP2C35F672C"
 # Info:  Setting Process to: "7"
-# Info: "USING DESIGN ARCH"
-# Info: [3021]: Reading file: C:/PROGRA~2/MENTOR~1/PRECIS~1.47/Mgc_home/pkgs/psr/techlibs//cycloneii.syn.
-# Info: [618]: Loading library initialization file C:/PROGRA~2/MENTOR~1/PRECIS~1.47/Mgc_home/pkgs/psr/userware//yeager_rename.tcl
+# Info: USING DESIGN ARCH
+# Info: [3021]: Reading file: /opt/Precision_Synthesis_2008a.47/Mgc_home/pkgs/psr/techlibs/cycloneii.syn.
+# Info: [618]: Loading library initialization file /opt/Precision_Synthesis_2008a.47/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
 # Info: [40000]: vhdlorder, Release 2008a.22
 # Info: [40000]: Files sorted successfully.
 # Info: [40000]: hdl-analyze, Release RTLC-Precision 2008a.22
-# Info: [42502]: Analyzing input file "P:/ece327/project/Kirsch-Edge-Detector/mem.vhd" ...
-# Info: [42502]: Analyzing input file "P:/ece327/project/Kirsch-Edge-Detector/kirsch_synth_pkg.vhd" ...
-# Info: [42502]: Analyzing input file "P:/ece327/project/Kirsch-Edge-Detector/lib_kirsch.vhd" ...
-# Info: [42502]: Analyzing input file "P:/ece327/project/Kirsch-Edge-Detector/kirsch_utility_pkg.vhd" ...
-# Info: [42502]: Analyzing input file "P:/ece327/project/Kirsch-Edge-Detector/memory.vhd" ...
-# Info: [42502]: Analyzing input file "P:/ece327/project/Kirsch-Edge-Detector/flow.vhd" ...
-# Info: [42502]: Analyzing input file "P:/ece327/project/Kirsch-Edge-Detector/kirsch.vhd" ...
-# Info: [42502]: Analyzing input file "P:/ece327/project/Kirsch-Edge-Detector/top_kirsch.vhd" ...
-# Warning: [43032]: "P:/ece327/project/Kirsch-Edge-Detector/top_kirsch.vhd", line 91: Size  4 of rhs expression does not match with the size 8 of lhs expr
-# Error: [42770]: "P:/ece327/project/Kirsch-Edge-Detector/top_kirsch.vhd", line 97: Type mismatch in actual association for formal debug_num_0
-# Error: [42604]: "P:/ece327/project/Kirsch-Edge-Detector/top_kirsch.vhd", line 81: Port and Port Map does not match
-# Error: [40000]: HDL analysis failed.
-# Error: [573]: near file uw_tmp/uw-logic-synth-precision_rtl.tcl, line 24: 
+# Info: [42502]: Analyzing input file "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/mem.vhd" ...
+# Info: [42502]: Analyzing input file "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/kirsch_utility_pkg.vhd" ...
+# Info: [42502]: Analyzing input file "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd" ...
+# Info: [641]: Current working directory: /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/.
+# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2008a.22
+# Info: [40000]: Last compiled on Nov 27 2008 12:40:04
+# Info: [44512]: Initializing...
+# Info: [44504]: Partitioning design ....
+# Info: [40000]: RTLCompiler, Release RTLC-Precision 2008a.22
+# Info: [40000]: Last compiled on Nov 27 2008 12:46:53
+# Info: [44512]: Initializing...
+# Info: [44522]: Root Module work.memory(main): Pre-processing...
+# Info: [44506]: Module work.mem(main){generic map (data_width => 8 addr_width => 8)}: Pre-processing...
+# Info: [45251]: Built-in hardware memory core inferred for variable ': mem.mem depth = 256, width = 8'.
+# Info: [44508]: Module work.mem(main){generic map (data_width => 8 addr_width => 8)}: Compiling...
+# Info: [44523]: Root Module work.memory(main): Compiling...
+# Warning: [45765]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 92: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+# Warning: [45765]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 92: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+# Warning: [45765]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 84: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+# Warning: [45765]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 196: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+# Warning: [45765]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 186: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+# Warning: [45765]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 40: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+# Warning: [45765]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 190: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+# Info: [44838]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 116: Macro Modgen_Counter "counter_up_sclear_clock_cnt_en_0_8" inferred for node "row".
+# Info: [44838]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 120: Macro Modgen_Counter "counter_up_sclear_clock_clk_en_cnt_en_0_8" inferred for node "column".
+# Info: [44842]: Compilation successfully completed.
+# Info: [44841]: Counter Inferencing === Detected : 2, Inferred (Modgen/Selcounter/AddSub) : 2 (2 / 0 / 0), AcrossDH (Merged/Not-Merged) : (0 / 0), Not-Inferred (Acrossdh/Attempted) : (0 / 0), Local Vars : 0 ===
+# Info: [44835]: Total CPU time taken for compilation: 0.0 secs.
+# Info: [44856]: Total lines of RTL compiled: 359.
+# Info: [44513]: Overall running time 1.0 secs.
+# Info: [641]: Current working directory: /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/.
+# Info: [644]: Finished compiling design.
+# Info: -- Saving the design database in uw_tmp/memory_gate.xdb
+# Info: [3026]: Writing file: uw_tmp/memory_gate.vhd.
+# Info: Info, Command 'auto_write' finished successfully
+# Info: [641]: Current working directory: /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/.
+# Info: [4552]: 3 Instances are flattened in hierarchical block .work.memory.main.
+# Info: [15002]: Optimizing design view:.work.memory.main
+# Info: [12041]: -- Running timing characterization...
+# Info: [15002]: Optimizing design view:.work.memory.main
+# Info: [15111]: 65 I/O registers on critical path unpacked.
+# Info: -- Saving the design database in /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/memory.xdb
+# Info: [3026]: Writing file: /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/memory.edf.
+# Info: Info, Writing xrf file '/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/memory.xrf'
+# Info: [3026]: Writing file: /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/memory.xrf.
+# Info: -- Writing file /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/memory.tcl
+# Info: exq_pr_compile_project gen_vcf memory 1
+# Info: [644]: Finished synthesizing design.
+# Info: [11019]: Total CPU time taken for synthesis: 1.9 secs.
+# Info: [11020]: Overall running time 2.1 secs.
+# Info: /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/precision_tech.sdc
+# Info: -- Saving the design database in uw_tmp/memory_logic.xdb
+# Info: [3026]: Writing file: uw_tmp/memory_logic.vhd.
+# Info: Info, Writing xrf file 'uw_tmp/memory_logic.xrf'
+# Info: [3026]: Writing file: uw_tmp/memory_logic.xrf.
+# Info: Info, Command 'auto_write' finished successfully
+# Info: i_clock
+# Info: -- Saving the design database in uw_tmp/memory_logic.xdb
+# Info: [3026]: Writing file: uw_tmp/memory_logic.v.
+# Info: Warning, Moving uw_tmp/memory_logic.xrf to uw_tmp/mgc_old_memory_logic.xrf as uw_tmp/memory_logic.xrf exists
+# Info: [3026]: Writing file: uw_tmp/memory_logic.xrf.
+# Info: Info, Command 'auto_write' finished successfully
+# Info: *** logic synthesis succeeded ***
