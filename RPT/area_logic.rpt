@@ -3,13 +3,265 @@ Device Utilization for EP2S15F484C
 ***********************************************
 Resource                Used    Avail   Utilization
 -----------------------------------------------
-IOs                     175     343      51.02%
-LUTs                    65      12480     0.52%
-Registers               123     14410     0.85%
+IOs                     167     343      48.69%
+LUTs                    280     12480     2.24%
+Registers               319     14410     2.21%
 Memory Bits             6144    419328    1.47%
 DSP block 9-bit elems   0       96        0.00%
 
 -----------------------------------------------
+
+*************************************************************************
+
+Library: OPERATORS    Cell: modgen_adderblock_3_1    View: IMPLEMENTATION
+
+*************************************************************************
+
+  Cell                   Library  References     Total Area
+
+ GND                     stratixii     1 x
+ stratixii_lcell_comb    stratixii    10 x      1     10 LUTs
+
+ Number of ports :                      35
+ Number of nets :                       53
+ Number of instances :                  11
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of LUTs :                       10
+ Number of accumulated instances :      11
+
+*************************************************************************
+
+Library: OPERATORS    Cell: modgen_adderblock_3_0    View: IMPLEMENTATION
+
+*************************************************************************
+
+  Cell                   Library  References     Total Area
+
+ GND                     stratixii     1 x
+ stratixii_lcell_comb    stratixii    10 x      1     10 LUTs
+
+ Number of ports :                      35
+ Number of nets :                       53
+ Number of instances :                  11
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of LUTs :                       10
+ Number of accumulated instances :      11
+
+***********************************************************
+
+Library: OPERATORS    Cell: add_9_0    View: IMPLEMENTATION
+
+***********************************************************
+
+  Cell                   Library  References     Total Area
+
+ GND                     stratixii     2 x
+ stratixii_lcell_comb    stratixii     9 x      1      9 LUTs
+
+ Number of ports :                      29
+ Number of nets :                       28
+ Number of instances :                  11
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of LUTs :                        9
+ Number of accumulated instances :      11
+
+***********************************************************
+
+Library: OPERATORS    Cell: add_8_0    View: IMPLEMENTATION
+
+***********************************************************
+
+  Cell                   Library  References     Total Area
+
+ GND                     stratixii     2 x
+ stratixii_lcell_comb    stratixii     9 x      1      9 LUTs
+
+ Number of ports :                      51
+ Number of nets :                       48
+ Number of instances :                  11
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of LUTs :                        9
+ Number of accumulated instances :      11
+
+************************************************************
+
+Library: OPERATORS    Cell: add_10_3    View: IMPLEMENTATION
+
+************************************************************
+
+  Cell                   Library  References     Total Area
+
+ GND                     stratixii     1 x
+ stratixii_lcell_comb    stratixii    10 x      1     10 LUTs
+
+ Number of ports :                      34
+ Number of nets :                       40
+ Number of instances :                  11
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of LUTs :                       10
+ Number of accumulated instances :      11
+
+************************************************************
+
+Library: OPERATORS    Cell: sub_10_1    View: IMPLEMENTATION
+
+************************************************************
+
+  Cell                   Library  References     Total Area
+
+ GND                     stratixii     1 x
+ stratixii_lcell_comb    stratixii    11 x      1     11 LUTs
+
+ Number of ports :                      32
+ Number of nets :                       52
+ Number of instances :                  12
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of LUTs :                       11
+ Number of accumulated instances :      12
+
+************************************************************
+
+Library: OPERATORS    Cell: add_10_2    View: IMPLEMENTATION
+
+************************************************************
+
+  Cell                   Library  References     Total Area
+
+ GND                     stratixii     2 x
+ stratixii_lcell_comb    stratixii    10 x      1     10 LUTs
+
+ Number of ports :                      32
+ Number of nets :                       31
+ Number of instances :                  12
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of LUTs :                       10
+ Number of accumulated instances :      12
+
+************************************************************
+
+Library: OPERATORS    Cell: add_10_1    View: IMPLEMENTATION
+
+************************************************************
+
+  Cell                   Library  References     Total Area
+
+ GND                     stratixii     1 x
+ stratixii_lcell_comb    stratixii    10 x      1     10 LUTs
+
+ Number of ports :                      34
+ Number of nets :                       40
+ Number of instances :                  11
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of LUTs :                       10
+ Number of accumulated instances :      11
+
+************************************************************
+
+Library: OPERATORS    Cell: sub_10_0    View: IMPLEMENTATION
+
+************************************************************
+
+  Cell                   Library  References     Total Area
+
+ GND                     stratixii     1 x
+ stratixii_lcell_comb    stratixii    11 x      1     11 LUTs
+
+ Number of ports :                      32
+ Number of nets :                       52
+ Number of instances :                  12
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of LUTs :                       11
+ Number of accumulated instances :      12
+
+************************************************************
+
+Library: OPERATORS    Cell: add_10_0    View: IMPLEMENTATION
+
+************************************************************
+
+  Cell                   Library  References     Total Area
+
+ GND                     stratixii     2 x
+ stratixii_lcell_comb    stratixii    10 x      1     10 LUTs
+
+ Number of ports :                      32
+ Number of nets :                       31
+ Number of instances :                  12
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of LUTs :                       10
+ Number of accumulated instances :      12
+
+************************************************************
+
+Library: OPERATORS    Cell: sub_12_0    View: IMPLEMENTATION
+
+************************************************************
+
+  Cell                   Library  References     Total Area
+
+ GND                     stratixii     1 x
+ stratixii_lcell_comb    stratixii    12 x      1     12 LUTs
+
+ Number of ports :                      38
+ Number of nets :                       58
+ Number of instances :                  13
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of LUTs :                       12
+ Number of accumulated instances :      13
+
+*****************************************
+
+Library: work    Cell: flow    View: main
+
+*****************************************
+
+  Cell                    Library  References     Total Area
+
+ add_10_0                 OPERATORS     1 x     10     10 LUTs
+ add_10_1                 OPERATORS     1 x     10     10 LUTs
+ add_10_2                 OPERATORS     1 x     10     10 LUTs
+ add_10_3                 OPERATORS     1 x     10     10 LUTs
+ add_8_0                  OPERATORS     1 x      9      9 LUTs
+ add_9_0                  OPERATORS     1 x      9      9 LUTs
+ modgen_adderblock_3_0    OPERATORS     1 x     10     10 LUTs
+ modgen_adderblock_3_1    OPERATORS     1 x     10     10 LUTs
+ stratixii_lcell_comb     stratixii    42 x      1     42 LUTs
+ stratixii_lcell_ff       stratixii   133 x      1    133 Registers
+ sub_10_0                 OPERATORS     1 x     11     11 LUTs
+ sub_10_1                 OPERATORS     1 x     11     11 LUTs
+ sub_12_0                 OPERATORS     1 x     12     12 LUTs
+
+ Number of ports :                     121
+ Number of nets :                      377
+ Number of instances :                 186
+ Number of references to this view :     1
+
+Total accumulated area : 
+ Number of LUTs :                      154
+ Number of Registers :                 133
+ Number of accumulated instances :     302
 
 **************************************************************
 
@@ -117,11 +369,11 @@ Total accumulated area :
  Number of Registers :                   8
  Number of accumulated instances :      22
 
-*******************************************
+*******************************************************
 
-Library: work    Cell: memory    View: main
+Library: work    Cell: memory    View: main_unfold_1492
 
-*******************************************
+*******************************************************
 
   Cell                   Library  References     Total Area
 
@@ -135,19 +387,19 @@ Library: work    Cell: memory    View: main
  ram_dq_8_1              OPERATORS     1 x   2048   2048 Memory Bits
  ram_dq_8_2              OPERATORS     1 x   2048   2048 Memory Bits
  stratixii_lcell_comb    stratixii    45 x      1     45 LUTs
- stratixii_lcell_ff      stratixii    99 x      1     99 Registers
+ stratixii_lcell_ff      stratixii    93 x      1     93 Registers
 
- Number of ports :                     102
- Number of nets :                      204
- Number of instances :                 158
+ Number of ports :                     105
+ Number of nets :                      198
+ Number of instances :                 152
  Number of references to this view :     1
 
 Total accumulated area : 
  Number of LCs :                         0
  Number of LUTs :                       65
  Number of Memory Bits :              6144
- Number of Registers :                 123
- Number of accumulated instances :     203
+ Number of Registers :                 117
+ Number of accumulated instances :     197
 
 *******************************************
 
@@ -155,25 +407,29 @@ Library: work    Cell: kirsch    View: main
 
 *******************************************
 
-  Cell           Library  References     Total Area
+  Cell                   Library  References     Total Area
 
- GND             stratixii     1 x
- VCC             stratixii     1 x
- memory          work          1 x      0      0 LCs
-                                     6144   6144 Memory Bits
-                                      123    123 Registers
-                                       65     65 LUTs
- stratixii_io    stratixii   154 x      1    154 IOs
+ GND                     stratixii     1 x
+ VCC                     stratixii     1 x
+ flow                    work          1 x    133    133 Registers
+                                              154    154 LUTs
+ memory                  work          1 x      0      0 LCs
+                                             6144   6144 Memory Bits
+                                              117    117 Registers
+                                               65     65 LUTs
+ stratixii_io            stratixii   146 x      1    146 IOs
+ stratixii_lcell_comb    stratixii    61 x      1     61 LUTs
+ stratixii_lcell_ff      stratixii    69 x      1     69 Registers
 
- Number of ports :                     175
- Number of nets :                      258
- Number of instances :                 157
+ Number of ports :                     167
+ Number of nets :                      387
+ Number of instances :                 280
  Number of references to this view :     0
 
 Total accumulated area : 
- Number of IOs :                       175
+ Number of IOs :                       167
  Number of LCs :                         0
- Number of LUTs :                       65
+ Number of LUTs :                      280
  Number of Memory Bits :              6144
- Number of Registers :                 123
- Number of accumulated instances :     359
+ Number of Registers :                 319
+ Number of accumulated instances :     777

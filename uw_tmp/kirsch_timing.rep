@@ -2,7 +2,7 @@
 
 	Domain                  Clock Name                            Min Period (Freq)
 	------                  ----------                            -----------------
-	ClockDomain0            i_clock                               4.482 (223.115 MHz)  
+	ClockDomain0            i_clock                               6.735 (148.478 MHz)  
 -- Device: Altera - Stratix II : EP2S15F484C : 5
 -- CTE report summary..
                   CTE Report Summary
@@ -11,20 +11,20 @@ End CTE Report Summary ..... CPU Time Used: 0 sec.
 
 Setup Slack Path Summary
 
-               Data                                                                                                               Data
-       Setup   Path   Source    Dest.                                                                                             End 
-Index  Slack   Delay   Clock    Clock                 Data Start Pin                                Data End Pin                  Edge
------  ------  -----  -------  -------  -------------------------------------------  -------------------------------------------  ----
-  1    -2.482  3.482  i_clock  i_clock  u_memory/modgen_counter_column/reg_q(4)/clk  u_memory/modgen_counter_column/reg_q(7)/ena  Rise
-  2    -2.482  3.482  i_clock  i_clock  u_memory/modgen_counter_column/reg_q(5)/clk  u_memory/modgen_counter_column/reg_q(7)/ena  Rise
-  3    -2.324  3.324  i_clock  i_clock  u_memory/modgen_counter_column/reg_q(6)/clk  u_memory/modgen_counter_column/reg_q(7)/ena  Rise
-  4    -2.189  3.189  i_clock  i_clock  u_memory/modgen_counter_column/reg_q(7)/clk  u_memory/modgen_counter_column/reg_q(7)/ena  Rise
-  5    -1.892  2.892  i_clock  i_clock  u_memory/modgen_counter_row/reg_q(2)/clk     u_memory/modgen_counter_column/reg_q(7)/ena  Rise
-  6    -1.863  2.863  i_clock  i_clock  u_memory/modgen_counter_row/reg_q(3)/clk     u_memory/modgen_counter_column/reg_q(7)/ena  Rise
-  7    -1.789  2.789  i_clock  i_clock  u_memory/modgen_counter_column/reg_q(0)/clk  u_memory/modgen_counter_column/reg_q(7)/ena  Rise
-  8    -1.749  2.749  i_clock  i_clock  u_memory/modgen_counter_row/reg_q(4)/clk     u_memory/modgen_counter_column/reg_q(7)/ena  Rise
-  9    -1.749  2.749  i_clock  i_clock  u_memory/modgen_counter_row/reg_q(5)/clk     u_memory/modgen_counter_column/reg_q(7)/ena  Rise
- 10    -1.685  2.685  i_clock  i_clock  u_memory/modgen_counter_column/reg_q(1)/clk  u_memory/modgen_counter_column/reg_q(7)/ena  Rise
+               Data                                                                                Data
+       Setup   Path   Source    Dest.                                                              End 
+Index  Slack   Delay   Clock    Clock           Data Start Pin                Data End Pin         Edge
+-----  ------  -----  -------  -------  ------------------------------  -------------------------  ----
+  1    -4.735  6.528  i_clock  i_clock  reg_f_state(0)/clk              u_flow/reg_p21(11)/datain  Rise
+  2    -4.735  6.528  i_clock  i_clock  reg_f_state(1)/clk              u_flow/reg_p21(11)/datain  Rise
+  3    -4.577  6.370  i_clock  i_clock  reg_f_state(2)/clk              u_flow/reg_p21(11)/datain  Rise
+  4    -4.442  6.235  i_clock  i_clock  reg_f_state(3)/clk              u_flow/reg_p21(11)/datain  Rise
+  5    -4.079  5.872  i_clock  i_clock  u_memory/reg_buffer2(0)(0)/clk  u_flow/reg_p21(11)/datain  Rise
+  6    -4.069  5.862  i_clock  i_clock  u_memory/reg_buffer0(2)(0)/clk  u_flow/reg_p22(11)/datain  Rise
+  7    -4.032  5.825  i_clock  i_clock  u_memory/reg_buffer2(0)(1)/clk  u_flow/reg_p21(11)/datain  Rise
+  8    -4.022  5.815  i_clock  i_clock  u_memory/reg_buffer0(2)(1)/clk  u_flow/reg_p22(11)/datain  Rise
+  9    -3.985  5.778  i_clock  i_clock  u_memory/reg_buffer2(0)(2)/clk  u_flow/reg_p21(11)/datain  Rise
+ 10    -3.975  5.768  i_clock  i_clock  u_memory/reg_buffer0(2)(2)/clk  u_flow/reg_p22(11)/datain  Rise
 
 -- Device: Altera - Stratix II : EP2S15F484C : 5
 -- CTE report summary..
@@ -37,44 +37,80 @@ End CTE Report Summary ..... CPU Time Used: 0 sec.
                   CTE Path Report
 
 
-Critical path #1, (path slack = -2.482):
+Critical path #1, (path slack = -4.735):
 
 SOURCE CLOCK: name: i_clock period: 2.000000
      Times are relative to the 1st rising edge
   DEST CLOCK: name: i_clock period: 2.000000
      Times are relative to the 2nd rising edge
 
-NAME                                                    GATE                     DELAY    ARRIVAL DIR  FANOUT
-u_memory/modgen_counter_column/reg_q(4)/clk          stratixii_lcell_ff                   0.000   up
-u_memory/modgen_counter_column/reg_q(4)/regout       stratixii_lcell_ff         0.000     0.000   up
-u_memory/modgen_counter_column/nx58250z8             (net)                      0.340                   7
-u_memory/ix47386z37203/datac                         stratixii_lcell_comb                 0.340   up
-u_memory/ix47386z37203/combout                       stratixii_lcell_comb       0.364     0.704   up
-u_memory/nx47386z3                                   (net)                      0.290                   1
-u_memory/ix47386z37202/dataa                         stratixii_lcell_comb                 0.994   up
-u_memory/ix47386z37202/combout                       stratixii_lcell_comb       0.507     1.501   up
-u_memory/nx47386z2                                   (net)                      0.340                   7
-u_memory/ix47386z37204/datac                         stratixii_lcell_comb                 1.841   up
-u_memory/ix47386z37204/combout                       stratixii_lcell_comb       0.364     2.205   up
-u_memory/nx47386z4                                   (net)                      0.360                   9
-u_memory/ix47386z37201/dataf                         stratixii_lcell_comb                 2.565   up
-u_memory/ix47386z37201/combout                       stratixii_lcell_comb       0.071     2.636   up
-u_memory/nx47386z1                                   (net)                      0.290                   1
-u_memory/modgen_counter_column/ix57253z37201/datae   stratixii_lcell_comb                 2.926   up
-u_memory/modgen_counter_column/ix57253z37201/combout stratixii_lcell_comb       0.206     3.132   up
-u_memory/modgen_counter_column/nx57253z3             (net)                      0.350                   8
-u_memory/modgen_counter_column/reg_q(7)/ena          stratixii_lcell_ff                   3.482   up
+NAME                                          GATE                     DELAY    ARRIVAL DIR  FANOUT
+reg_f_state(0)/clk                         stratixii_lcell_ff                   0.000   up
+reg_f_state(0)/regout                      stratixii_lcell_ff         0.000     0.000   up
+f_state(0)                                 (net)                      0.310                   3
+ix20836z37202/datac                        stratixii_lcell_comb                 0.310   up
+ix20836z37202/combout                      stratixii_lcell_comb       0.364     0.674   up
+nx20836z1                                  (net)                      0.460                  61
+ix20836z37233/datae                        stratixii_lcell_comb                 1.134   up
+ix20836z37233/combout                      stratixii_lcell_comb       0.206     1.340   up
+f_b1(0)                                    (net)                      0.290                   1
+u_flow/modgen_adderblock/ix22_dup_0/datab  stratixii_lcell_comb                 1.630   up
+u_flow/modgen_adderblock/ix22_dup_0/cout   stratixii_lcell_comb       0.691     2.321   up
+u_flow/modgen_adderblock/nx42866z1         (net)                *     0.000                   1
+u_flow/modgen_adderblock/ix33_dup_0/cin    stratixii_lcell_comb                 2.321   up
+u_flow/modgen_adderblock/ix33_dup_0/cout   stratixii_lcell_comb       0.047     2.368   up
+u_flow/modgen_adderblock/nx9720z1          (net)                *     0.000                   1
+u_flow/modgen_adderblock/ix44_dup_0/cin    stratixii_lcell_comb                 2.368   up
+u_flow/modgen_adderblock/ix44_dup_0/cout   stratixii_lcell_comb       0.047     2.415   up
+u_flow/modgen_adderblock/nx3230z1          (net)                *     0.000                   1
+u_flow/modgen_adderblock/ix55_dup_0/cin    stratixii_lcell_comb                 2.415   up
+u_flow/modgen_adderblock/ix55_dup_0/cout   stratixii_lcell_comb       0.047     2.462   up
+u_flow/modgen_adderblock/nx49356z1         (net)                *     0.000                   1
+u_flow/modgen_adderblock/ix66_dup_0/cin    stratixii_lcell_comb                 2.462   up
+u_flow/modgen_adderblock/ix66_dup_0/cout   stratixii_lcell_comb       0.047     2.509   up
+u_flow/modgen_adderblock/nx29130z1         (net)                *     0.000                   1
+u_flow/modgen_adderblock/ix77_dup_0/cin    stratixii_lcell_comb                 2.509   up
+u_flow/modgen_adderblock/ix77_dup_0/cout   stratixii_lcell_comb       0.047     2.556   up
+u_flow/modgen_adderblock/nx23456z1         (net)                *     0.000                   1
+u_flow/modgen_adderblock/ix88_dup_0/cin    stratixii_lcell_comb                 2.556   up
+u_flow/modgen_adderblock/ix88_dup_0/cout   stratixii_lcell_comb       0.047     2.603   up
+u_flow/modgen_adderblock/nx55030z1         (net)                *     0.000                   1
+u_flow/modgen_adderblock/ix99_dup_0/cin    stratixii_lcell_comb                 2.603   up
+u_flow/modgen_adderblock/ix99_dup_0/sumout stratixii_lcell_comb       0.168     2.771   up
+u_flow/modgen_adderblock/d(7)              (net)                *     0.320                   4
+u_flow/p21_add10_4i1/ix46946z37205/dataa   stratixii_lcell_comb                 3.091   up
+u_flow/p21_add10_4i1/ix46946z37205/cout    stratixii_lcell_comb       0.731     3.822   up
+u_flow/p21_add10_4i1/nx46946z8             (net)                *     0.000                   1
+u_flow/p21_add10_4i1/ix46946z37204/cin     stratixii_lcell_comb                 3.822   up
+u_flow/p21_add10_4i1/ix46946z37204/cout    stratixii_lcell_comb       0.047     3.869   up
+u_flow/p21_add10_4i1/nx46946z6             (net)                *     0.000                   1
+u_flow/p21_add10_4i1/ix46946z37203/cin     stratixii_lcell_comb                 3.869   up
+u_flow/p21_add10_4i1/ix46946z37203/sumout  stratixii_lcell_comb       0.168     4.037   up
+u_flow/p21_add10_4i1/nx45949z1             (net)                *     0.290                   1
+u_flow/p21_sub10_4i2/ix163_dup_0/datac     stratixii_lcell_comb                 4.327   up
+u_flow/p21_sub10_4i2/ix163_dup_0/cout      stratixii_lcell_comb       0.584     4.911   up
+u_flow/p21_sub10_4i2/nx9356z1              (net)                *     0.000                   1
+u_flow/p21_sub10_4i2/ix174_dup_0/cin       stratixii_lcell_comb                 4.911   up
+u_flow/p21_sub10_4i2/ix174_dup_0/sumout    stratixii_lcell_comb       0.168     5.079   up
+u_flow/p21_sub10_4i2/nx23445z1             (net)                *     0.300                   2
+u_flow/ix51413z41662/ix46946z37202/datab   stratixii_lcell_comb                 5.379   up
+u_flow/ix51413z41662/ix46946z37202/cout    stratixii_lcell_comb       0.691     6.070   up
+u_flow/ix51413z41662/nx46946z4             (net)                *     0.000                   1
+u_flow/ix51413z41662/ix46946z37201/cin     stratixii_lcell_comb                 6.070   up
+u_flow/ix51413z41662/ix46946z37201/sumout  stratixii_lcell_comb       0.168     6.238   up
+u_flow/ix51413z41662/nx46946z1             (net)                *     0.290                   1
+u_flow/reg_p21(11)/datain                  stratixii_lcell_ff                   6.528   up
 
 		Initial edge separation:      2.000
 		Source clock delay:      -    1.168
 		Dest clock delay:        +    1.168
 		                        -----------
 		Edge separation:              2.000
-		Setup constraint:        -    1.000
+		Setup constraint:        -    0.207
 		                        -----------
-		Data required time:           1.000
-		Data arrival time:       -    3.482   ( 43.42% cell delay, 56.58% net delay )
+		Data required time:           1.793
+		Data arrival time:       -    6.528   ( 65.38% cell delay, 34.62% net delay )
 		                        -----------
-		Slack (VIOLATED):            -2.482
+		Slack (VIOLATED):            -4.735
 
 End CTE Analysis ..... CPU Time Used: 0 sec.

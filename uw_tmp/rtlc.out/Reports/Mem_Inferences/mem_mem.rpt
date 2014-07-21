@@ -1,7 +1,7 @@
 Inferred RAM
 ------------
-  1. Instance: rtlcmem_mem_12_n1
-    File: /home/vcmota/ece327/Kirsch-Edge-Detector/mem.vhd , Net: mem, Type: single port
+  1. Instance: rtlcmem_mem_32_n1
+    File: /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/mem.vhd , Net: mem, Type: single port
     port 1  read
     port 1  address width: 8
     port 1  data width: 8

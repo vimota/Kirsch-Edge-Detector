@@ -50,4 +50,4 @@ xsys( "vmap stratixii /home/ece327/altera/vhdl_libs/stratixii")
 
 # get synthesized entity (std_logic vector and no generics)
 # xsys( "vlog -novopt -work work-msim uw_tmp/kirsch_logic.v")
-# vgencomp_to_arch( "kirsch", "logic", [] + [ "mem.vhd", "kirsch_synth_pkg.vhd", "kirsch.vhd", "kirsch_utility_pkg.vhd", "memory.vhd" ] )
+# vgencomp_to_arch( "kirsch", "logic", [] + [ "mem.vhd", "kirsch_synth_pkg.vhd", "kirsch.vhd", "kirsch_utility_pkg.vhd", "memory.vhd", "flow.vhd" ] )

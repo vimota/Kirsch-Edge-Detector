@@ -3,9 +3,9 @@ Device Utilization for EP2S15F484C
 ***********************************************
 Resource                Used    Avail   Utilization
 -----------------------------------------------
-IOs                     175     343      51.02%
-LUTs                    65      12480     0.52%
-Registers               123     14410     0.85%
+IOs                     167     343      48.69%
+LUTs                    280     12480     2.24%
+Registers               319     14410     2.21%
 Memory Bits             6144    419328    1.47%
 DSP block 9-bit elems   0       96        0.00%
 
@@ -17,25 +17,29 @@ Library: work    Cell: kirsch    View: main
 
 *******************************************
 
-  Cell           Library  References     Total Area
+  Cell                   Library  References     Total Area
 
- GND             stratixii     1 x
- VCC             stratixii     1 x
- memory          work          1 x      0      0 LCs
-                                     6144   6144 Memory Bits
-                                      123    123 Registers
-                                       65     65 LUTs
- stratixii_io    stratixii   154 x      1    154 IOs
+ GND                     stratixii     1 x
+ VCC                     stratixii     1 x
+ flow                    work          1 x    133    133 Registers
+                                              154    154 LUTs
+ memory                  work          1 x      0      0 LCs
+                                             6144   6144 Memory Bits
+                                              117    117 Registers
+                                               65     65 LUTs
+ stratixii_io            stratixii   146 x      1    146 IOs
+ stratixii_lcell_comb    stratixii    61 x      1     61 LUTs
+ stratixii_lcell_ff      stratixii    69 x      1     69 Registers
 
- Number of ports :                     175
- Number of nets :                      258
- Number of instances :                 157
+ Number of ports :                     167
+ Number of nets :                      387
+ Number of instances :                 280
  Number of references to this view :     0
 
 Total accumulated area : 
- Number of IOs :                       175
+ Number of IOs :                       167
  Number of LCs :                         0
- Number of LUTs :                       65
+ Number of LUTs :                      280
  Number of Memory Bits :              6144
- Number of Registers :                 123
- Number of accumulated instances :     359
+ Number of Registers :                 319
+ Number of accumulated instances :     777

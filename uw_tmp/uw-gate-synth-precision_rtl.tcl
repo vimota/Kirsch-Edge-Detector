@@ -5,11 +5,11 @@ setup_design \
   -part EP2C35F672C \
   -speed 7 
 setup_design -frequency 250
-setup_design -design memory
+setup_design -design kirsch
 # setup_design -architecture DESIGN_ARCH
 setup_design -generics {  }
 
-foreach file [concat {  } { memory.vhd mem.vhd kirsch_utility_pkg.vhd }] {
+foreach file [concat {  } { mem.vhd kirsch_synth_pkg.vhd kirsch.vhd kirsch_utility_pkg.vhd memory.vhd flow.vhd }] {
   add_input_file $file
 }
 
@@ -20,7 +20,7 @@ if { [ llength $clocks ] != 0 } {
   set_input_delay 0 [ all_inputs ] -clock $clock
   set_output_delay 0 [ all_outputs ] -clock $clock
 }
-auto_write uw_tmp/memory_gate.vhd
+auto_write uw_tmp/kirsch_gate.vhd
 
 puts "*** synthesis to generic gates succeeded ***"
 

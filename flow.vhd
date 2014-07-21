@@ -9,9 +9,11 @@ entity flow is
     t1, t2, t3, b1, b2, b3, i1, i2	: in  unsigned(7 downto 0);
     i_clock, i_reset, i_valid       : in  std_logic;
     i_mode                          : in  std_logic_vector(1 downto 0);
+    i_row                           : in  std_logic_vector(7 downto 0);
     o_dir							: out std_logic_vector(2 downto 0);
     o_edge, o_valid					: out std_logic;
-    o_mode                          : out std_logic_vector(1 downto 0)
+    o_mode                          : out std_logic_vector(1 downto 0);
+    o_row                           : out std_logic_vector(7 downto 0)
     ------------------------------------------
   );  
 end entity;
@@ -30,27 +32,32 @@ signal p11, p12     	: unsigned(9 downto 0);
 signal p13              : unsigned(10 downto 0);
 signal p10              : std_logic;
 signal p1m              : std_logic_vector(1 downto 0);
+signal p1r              : std_logic_vector(7 downto 0);
 
 -- P2 related signals
 signal p21, p22    		: signed(11 downto 0);
 signal p23              : unsigned(10 downto 0);
 signal p20              : std_logic;
 signal p2m              : std_logic_vector(1 downto 0);
+signal p2r              : std_logic_vector(7 downto 0);
 
 -- P3 related signals
 signal p31         		: signed(11 downto 0);
 signal p32              : unsigned(10 downto 0);
 signal p35, p30   		: std_logic;
 signal p3m              : std_logic_vector(1 downto 0);
+signal p3r              : std_logic_vector(7 downto 0);
 
 -- P4 related signals
 signal p41, p45, p40    : std_logic;
 signal p43, p4s    		: signed(11 downto 0);
 signal p4m              : std_logic_vector(1 downto 0);
+signal p4r              : std_logic_vector(7 downto 0);
 
 -- P5 related signals
-signal p51				: std_logic;
+signal p51, p50			: std_logic;
 signal p5m              : std_logic_vector(1 downto 0);
+signal p5r              : std_logic_vector(7 downto 0);
 
 -- persistents
 signal max_fwd, prev_edge	: std_logic;
@@ -69,6 +76,7 @@ begin
         p13 <= resize(resize(i1, 9) + resize(i2, 9), 11) + (resize(resize(i1, 9) + resize(i2, 9), 11) sll 2);
         p10 <= i_valid;
         p1m <= i_mode;
+        p1r <= i_row;
     --end process;
 
     -- P2 ---------------------------
@@ -79,6 +87,7 @@ begin
         p23 <= p13;
         p20 <= p10;
         p2m <= p1m;
+        p2r <= p1r;
     end process;
 
     -- P3 ---------------------------
@@ -97,6 +106,7 @@ begin
 		p32 <= p23;
         p30 <= p20;
         p3m <= p2m;
+        p3r <= p2r;
     end process;
 
     -- P4 ---------------------------
@@ -114,6 +124,7 @@ begin
         p45 <= p35;
         p4m <= p3m;
         p40 <= p30;
+        p4r <= p3r;
     end process;
 
     -- P5 ---------------------------
@@ -147,11 +158,15 @@ begin
         end if;
 
         p5m <= p4m;
+        p5r <= p4r;
+        p50 <= p40;
     end process;
 
     o_edge <= prev_edge;
     o_dir <= max_dir;
     o_mode <= "01" when i_reset = '1' else p5m;
+    o_valid <= p50 when i_reset = '0' and state(3) = '1' else '0';
+    o_row <= p5r;
 
     ------------------------------------
 
@@ -160,14 +175,14 @@ begin
         if (i_reset = '1') then 
             state <= "0001";
         elsif (p40 = '1') then
-            state <= state rol 1;
+            state <= "rol"(state, 1);
         end if;
 
-        if (state(3) = '1' and i_reset = '0') then
-            o_valid <= '1';
-        else
-            o_valid <= '0';
-        end if;
+--        if (state(3) = '1' and i_reset = '0') then
+--            o_valid <= '1';
+--        else
+--            o_valid <= '0';
+--        end if;
     end process;
 
 end architecture main;

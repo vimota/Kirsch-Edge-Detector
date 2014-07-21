@@ -16,8 +16,8 @@ setup_design -generics {  }
 
 
 # add_input_file -search_path $VHDL_PATH
-# add_input_file [list [concat {  } { mem.vhd kirsch_synth_pkg.vhd kirsch.vhd kirsch_utility_pkg.vhd memory.vhd }] ]
-foreach file [concat {  } { mem.vhd kirsch_synth_pkg.vhd kirsch.vhd kirsch_utility_pkg.vhd memory.vhd }] {
+# add_input_file [list [concat {  } { mem.vhd kirsch_synth_pkg.vhd kirsch.vhd kirsch_utility_pkg.vhd memory.vhd flow.vhd }] ]
+foreach file [concat {  } { mem.vhd kirsch_synth_pkg.vhd kirsch.vhd kirsch_utility_pkg.vhd memory.vhd flow.vhd }] {
   add_input_file $file
 }  
 

@@ -9,9 +9,9 @@ Module : work.kirsch(main)
 Number of FSMs Extracted : zero
 
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Module : work.memory(main)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
+Module : work.flow(main)
+~~~~~~~~~~~~~~~~~~~~~~~~~
 Number of FSMs Extracted : zero
 
 

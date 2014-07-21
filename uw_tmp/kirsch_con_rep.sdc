@@ -6,6 +6,10 @@
 #################
 # Attributes
 #################
+set_attribute -name use_dffenable -value "0" -net -type default f_state(3) -design rtl 
+set_attribute -name use_dffenable -value "0" -net -type default f_state(2) -design rtl 
+set_attribute -name use_dffenable -value "0" -net -type default f_state(1) -design rtl 
+set_attribute -name use_dffenable -value "0" -net -type default f_state(0) -design rtl 
 set_attribute -name use_dffenable -value "0" -net -type default u_memory/o_valid -design rtl 
 set_attribute -name ignore_ram_rw_collision -value "true" -instance -type default u_memory/u_mem1/mem -design rtl 
 set_attribute -name ram_processed -value "true" -instance u_memory/u_mem1/mem/mem -design rtl 
@@ -22,6 +26,14 @@ set_attribute -name ram_processed -value "true" -instance u_memory/u_mem3/mem/me
 set_attribute -name ignore_ram_rw_collision -value "true" -instance -type default u_memory/u_mem3/mem/mem -design rtl 
 
 
+set_attribute -name use_dffenable -value "0" -net -type default u_flow/o_dir(2) -design rtl 
+set_attribute -name use_dffenable -value "0" -net -type default u_flow/o_dir(1) -design rtl 
+set_attribute -name use_dffenable -value "0" -net -type default u_flow/state(3) -design rtl 
+set_attribute -name use_dffenable -value "0" -net -type default u_flow/state(2) -design rtl 
+set_attribute -name use_dffenable -value "0" -net -type default u_flow/state(1) -design rtl 
+set_attribute -name use_dffenable -value "0" -net -type default u_flow/state(0) -design rtl 
+set_attribute -name DONT_TOUCH -value "true" -instance u_flow/modgen_adderblock -design rtl 
+set_attribute -name DONT_TOUCH -value "true" -instance u_flow/modgen_adderblock_dup_0 -design rtl 
 
 ##################
 # Clocks

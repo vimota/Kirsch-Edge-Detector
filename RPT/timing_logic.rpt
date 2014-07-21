@@ -2,19 +2,19 @@
 
 	Domain                  Clock Name                            Min Period (Freq)
 	------                  ----------                            -----------------
-	ClockDomain0            i_clock                               4.482 (223.115 MHz)  
+	ClockDomain0            i_clock                               6.735 (148.478 MHz)  
 
 Setup Slack Path Summary
 
-               Data                                                                                                               Data
-       Setup   Path   Source    Dest.                                                                                             End 
-Index  Slack   Delay   Clock    Clock                 Data Start Pin                                Data End Pin                  Edge
------  ------  -----  -------  -------  -------------------------------------------  -------------------------------------------  ----
-  1    -2.482  3.482  i_clock  i_clock  u_memory/modgen_counter_column/reg_q(4)/clk  u_memory/modgen_counter_column/reg_q(7)/ena  Rise
-  2    -2.482  3.482  i_clock  i_clock  u_memory/modgen_counter_column/reg_q(5)/clk  u_memory/modgen_counter_column/reg_q(7)/ena  Rise
-  3    -2.324  3.324  i_clock  i_clock  u_memory/modgen_counter_column/reg_q(6)/clk  u_memory/modgen_counter_column/reg_q(7)/ena  Rise
-  4    -2.189  3.189  i_clock  i_clock  u_memory/modgen_counter_column/reg_q(7)/clk  u_memory/modgen_counter_column/reg_q(7)/ena  Rise
-  5    -1.970  2.802  i_clock  i_clock  u_memory/reg_busySignal/clk                  o_mode(0)                                    Rise
+               Data                                                                                Data
+       Setup   Path   Source    Dest.                                                              End 
+Index  Slack   Delay   Clock    Clock           Data Start Pin                Data End Pin         Edge
+-----  ------  -----  -------  -------  ------------------------------  -------------------------  ----
+  1    -4.735  6.528  i_clock  i_clock  reg_f_state(0)/clk              u_flow/reg_p21(11)/datain  Rise
+  2    -4.735  6.528  i_clock  i_clock  reg_f_state(1)/clk              u_flow/reg_p21(11)/datain  Rise
+  3    -4.577  6.370  i_clock  i_clock  reg_f_state(2)/clk              u_flow/reg_p21(11)/datain  Rise
+  4    -4.442  6.235  i_clock  i_clock  reg_f_state(3)/clk              u_flow/reg_p21(11)/datain  Rise
+  5    -4.079  5.872  i_clock  i_clock  u_memory/reg_buffer2(0)(0)/clk  u_flow/reg_p21(11)/datain  Rise
 
 -- Device: Altera - Stratix II : EP2S15F484C : 5
 -- CTE report summary..

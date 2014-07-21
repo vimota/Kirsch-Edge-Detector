@@ -65,13 +65,14 @@ architecture main of kirsch_tb is
 
 	signal out_mode       : mode_ty;
 	signal out_row        : unsigned(7 downto 0);
-	signal out_column     : unsigned(7 downto 0);
 	signal out_valid      : std_logic;
 	signal out_edge       : std_logic;
 	signal out_dir        : direction_ty;
 
 	signal out_image0, out_image1, out_image2   : image_type;
 	signal image00, image01, image02, image10, image11, image12, image20, image21, image22 : unsigned(7 downto 0);
+	signal debug_num_0, debug_num_1, 		debug_num_2, 		debug_num_3,		debug_num_4, debug_num_5,	debug_num_6, debug_num_7: unsigned(7 downto 0);
+	signal debug_valid       : std_logic;
 
 	--------------------------------------------------------------
 	-- 2-d arrays for images
@@ -94,13 +95,21 @@ begin
 				i_reset              => reset,
 				o_valid              => out_valid,
 				o_edge               => out_edge,
+				debug_valid					 => debug_valid,
+				debug_num_0					 => debug_num_0,
+				debug_num_1					 => debug_num_1,
+				debug_num_2					 => debug_num_2,
+				debug_num_3					 => debug_num_3,
+				debug_num_4					 => debug_num_4,
+				debug_num_5					 => debug_num_5,
+				debug_num_6					 => debug_num_6,
+				debug_num_7					 => debug_num_7,
 				o_image0 						 => out_image0,
 				o_image1 						 => out_image1,
 				o_image2 						 => out_image2,
 				direction_ty(o_dir)  => out_dir,
 				mode_ty(o_mode)      => out_mode,
 				unsigned(o_row)      => out_row,
-				unsigned(o_column)   => out_column,
 				debug_key            => (others => '0'),
 				debug_switch         => (others => '0')
 			);
