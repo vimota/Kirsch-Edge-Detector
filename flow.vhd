@@ -134,11 +134,28 @@ begin
     process begin
         wait until rising_edge(i_clock);
 
-        if (p51 = '1') then
+        if (i_reset = '1' or state(3) = '1') then
+            prev_max <= (others => '0');
+            max_fwd <= '0';
+            prev_edge <= '0';
+        elsif (p51 = '1') then
         	prev_max <= p43;
         	max_fwd <= p45;
         	prev_edge <= p41;
+        else
+        	prev_max <= prev_max;
+        	max_fwd <= max_fwd;
+        	prev_edge <= prev_edge;
+        end if;
 
+        p5m <= p4m;
+        p5r <= p4r;
+        p50 <= p40;
+    end process;
+
+    process begin
+        wait until rising_edge(i_clock);
+        if (p51 = '1') then
             if (state(0) = '1') then
                 max_dir(2 downto 1) <= "00";
             elsif (state(1) = '1') then
@@ -149,17 +166,9 @@ begin
                 max_dir(2 downto 1) <= "11";
             end if;
             max_dir(0) <= p45;
-
-        else
-        	prev_max <= prev_max;
-        	max_fwd <= max_fwd;
-        	prev_edge <= prev_edge;
+        else 
             max_dir <= max_dir;
         end if;
-
-        p5m <= p4m;
-        p5r <= p4r;
-        p50 <= p40;
     end process;
 
     o_edge <= prev_edge;
