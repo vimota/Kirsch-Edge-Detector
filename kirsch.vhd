@@ -61,6 +61,7 @@ signal m_o_valid			: std_logic;
 signal f_t1, f_t2, f_t3, f_b1, f_b2, f_b3, f_i1, f_i2	: unsigned(7 downto 0);
 signal f_t1_next, f_t2_next, f_t3_next, f_b1_next		: unsigned(7 downto 0);
 signal f_b2_next, f_b3_next, f_i1_next, f_i2_next		: unsigned(7 downto 0);
+signal f_i_row, f_i_row_next							: std_logic_vector(7 downto 0);
 signal f_i_valid										: std_logic;
 signal f_o_mode, f_i_mode, f_i_mode_next				: std_logic_vector(1 downto 0);
 
@@ -95,6 +96,7 @@ begin
 	f_i1 <= unsigned(m_o_image1(0)) when f_state = "0001" else f_i1_next;
 	f_i2 <= unsigned(m_o_image1(2)) when f_state = "0001" else f_i2_next;
 	f_i_mode <= m_o_mode when f_state = "0001" else f_i_mode_next;
+	f_i_row <= m_o_row when f_state = "0001" else f_i_row_next;
 	f_i_valid <= '1' when (f_state = "0001" and m_o_valid = '1') or f_state /= "0001" else '0';
 
 	o_image0 <= m_o_image0;
@@ -102,9 +104,8 @@ begin
 	o_image2 <= m_o_image2;
 
 	o_mode <= "01" when i_reset = '1' else
-			  "11" when f_o_mode = "11" or m_o_mode = "11" else
-			  "10";
-
+			 "11" when f_o_mode = "11" or m_o_mode = "11" else
+			 "10";
 
 	process begin
         wait until rising_edge(i_clock);
@@ -122,6 +123,7 @@ begin
 				f_i2_next <= unsigned(m_o_image0(2));
 
 				f_i_mode_next <= m_o_mode;
+				f_i_row_next <= m_o_row;
             else
                 f_t1_next <= f_t2_next;
 				f_t2_next <= f_t3_next;
@@ -133,6 +135,7 @@ begin
 				f_i2_next <= f_t1_next;
 
 				f_i_mode_next <= f_i_mode_next;
+				f_i_row_next <= f_i_row_next;
             end if;
             f_state <= "rol" (f_state, 1);
         end if;
@@ -168,8 +171,8 @@ begin
 		i_clock		=> i_clock,
 		i_reset		=> i_reset,
 		i_valid		=> f_i_valid,
-		i_mode		=> m_o_mode,
-		i_row		=> m_o_row,
+		i_mode		=> f_i_mode,
+		i_row		=> f_i_row,
 		o_row 		=> o_row,
 		o_dir		=> o_dir,
 		o_edge		=> o_edge,

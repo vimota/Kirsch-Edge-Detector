@@ -1,5 +1,5 @@
 INFO: Starting PRECISION_RTL for logic synthesis
-precision: Executing on platform: CentOS release 5.10 (Final) Kernel \r on an \m  Linux eceLinux2.uwaterloo.ca 2.6.18-371.9.1.el5 #1 SMP Tue Jun 10 17:49:56 EDT 2014 x86_64 x86_64 x86_64 GNU/Linux 
+precision: Executing on platform: CentOS release 5.10 (Final) Kernel \r on an \m  Linux eceLinux1.uwaterloo.ca 2.6.18-371.8.1.el5 #1 SMP Thu Apr 24 18:19:36 EDT 2014 x86_64 x86_64 x86_64 GNU/Linux 
 precision: Setting MGC_HOME to /opt/Precision_Synthesis_2008a.47/Mgc_home ...
 Note: Defaulting to use the Next Generation GUI.
 //  Precision RTL Synthesis 2008a.47 (Production Release) Tue Dec  9 03:06:25 PST 2008
@@ -10,9 +10,9 @@ Note: Defaulting to use the Next Generation GUI.
 //            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
 //          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 //  
-//  Running on Linux gm2kerr@eceLinux2.uwaterloo.ca #1 SMP Tue Jun 10 17:49:56 EDT 2014 2.6.18-371.9.1.el5 x86_64
+//  Running on Linux gm2kerr@eceLinux1.uwaterloo.ca #1 SMP Thu Apr 24 18:19:36 EDT 2014 2.6.18-371.8.1.el5 x86_64
 //  
-//  Start time Sun Jul 20 19:40:34 2014
+//  Start time Sun Jul 20 23:54:55 2014
 -------------------------------------------------
 Info: Logging session transcript to file precision.log
 Info: Results directory: uw_tmp/
@@ -47,8 +47,10 @@ Info: Module work.memory(main): Pre-processing...
 Info: Module work.mem(main){generic map (data_width => 8 addr_width => 8)}: Pre-processing...
 Info: Built-in hardware memory core inferred for variable ': mem.mem depth = 256, width = 8'.
 Info: Module work.flow(main): Pre-processing...
+Warning: "flow.vhd", line 58: signal p50 has never been used.
 Warning: "kirsch.vhd", line 23: Input port debug_key has never been used.
 Warning: "kirsch.vhd", line 24: Input port debug_switch has never been used.
+Warning: "kirsch.vhd", line 36: Output port debug_num_8 has never been assigned a value.
 Info: Module work.mem(main){generic map (data_width => 8 addr_width => 8)}: Compiling...
 Info: Module work.memory(main): Compiling...
 Warning: "memory.vhd", line 92: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
@@ -67,23 +69,23 @@ Info: Rebalanced Expression Tree...
 Info: Compilation successfully completed.
 Info: Counter Inferencing === Detected : 2, Inferred (Modgen/Selcounter/AddSub) : 2 (2 / 0 / 0), AcrossDH (Merged/Not-Merged) : (0 / 0), Not-Inferred (Acrossdh/Attempted) : (0 / 0), Local Vars : 0 ===
 Info: Total CPU time taken for compilation: 0.0 secs.
-Info: Total lines of RTL compiled: 700.
+Info: Total lines of RTL compiled: 713.
 Info: Overall running time 1.0 secs.
 Info: Current working directory: uw_tmp/.
-Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix170' of type 'cell:shiftregister_reg_p5r(7)_clk_reset_set_0_1_1_1_0_4'
-Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix172' of type 'cell:shiftregister_reg_p5r(6)_clk_reset_set_0_1_1_1_0_4'
-Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix173' of type 'cell:shiftregister_reg_p5r(5)_clk_reset_set_0_1_1_1_0_4'
-Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix174' of type 'cell:shiftregister_reg_p5r(4)_clk_reset_set_0_1_1_1_0_4'
-Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix175' of type 'cell:shiftregister_reg_p5r(3)_clk_reset_set_0_1_1_1_0_4'
-Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix176' of type 'cell:shiftregister_reg_p5r(2)_clk_reset_set_0_1_1_1_0_4'
-Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix177' of type 'cell:shiftregister_reg_p5r(1)_clk_reset_set_0_1_1_1_0_4'
-Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix178' of type 'cell:shiftregister_reg_p5r(0)_clk_reset_set_0_1_1_1_0_4'
-Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix179' of type 'cell:shiftregister_reg_p5m(1)_clk_reset_set_0_1_1_1_0_4'
-Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix180' of type 'cell:shiftregister_reg_p5m(0)_clk_reset_set_0_1_1_1_0_4'
-Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix181' of type 'cell:shiftregister_reg_p40_clk_reset_set_0_1_1_1_0_3'
-Info: "flow.vhd", line 84: : Inferred shift register with taps Instance 'instance:u_flow.ix182' of type 'cell:shiftregister_with_taps_8_4_1'
-Info: "flow.vhd", line 84: : Inferred shift register with taps Instance 'instance:u_flow.ix183' of type 'cell:shiftregister_with_taps_2_4_1'
-Info: "flow.vhd", line 84: : Inferred shift register with taps Instance 'instance:u_flow.ix184' of type 'cell:shiftregister_with_taps_1_3_1'
+Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix169' of type 'cell:shiftregister_reg_p5r(7)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix170' of type 'cell:shiftregister_reg_p5r(6)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix171' of type 'cell:shiftregister_reg_p5r(5)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix172' of type 'cell:shiftregister_reg_p5r(4)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix173' of type 'cell:shiftregister_reg_p5r(3)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix174' of type 'cell:shiftregister_reg_p5r(2)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix175' of type 'cell:shiftregister_reg_p5r(1)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix176' of type 'cell:shiftregister_reg_p5r(0)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix177' of type 'cell:shiftregister_reg_p5m(1)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix178' of type 'cell:shiftregister_reg_p5m(0)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 84: : Inferred shift register Instance 'instance:u_flow.ix179' of type 'cell:shiftregister_reg_p40_clk_reset_set_0_1_1_1_0_3'
+Info: "flow.vhd", line 84: : Inferred shift register with taps Instance 'instance:u_flow.ix180' of type 'cell:shiftregister_with_taps_8_4_1'
+Info: "flow.vhd", line 84: : Inferred shift register with taps Instance 'instance:u_flow.ix181' of type 'cell:shiftregister_with_taps_2_4_1'
+Info: "flow.vhd", line 84: : Inferred shift register with taps Instance 'instance:u_flow.ix182' of type 'cell:shiftregister_with_taps_1_3_1'
 Info: Finished compiling design.
 Info: -- Saving the design database in uw_tmp/kirsch_gate.xdb
 Info: Writing file: uw_tmp/kirsch_gate.vhd.
@@ -95,19 +97,35 @@ Info:  1 adder tree of 3 input operands was generated.
 Info: Optimizing design view:.work.memory.main_unfold_1492
 Info: Optimizing design view:.work.flow.main
 Info: Optimizing design view:.work.kirsch.main
+Warning: Port debug_num_8(0) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_num_8(1) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_num_8(2) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_num_8(3) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_num_8(4) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_num_8(5) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_num_8(6) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_num_8(7) is connected to a disabled tristate, possibly unconnected Port in design.
 Info: -- Running timing characterization...
 Warning: Timer notification: Attempt to propagate clock i_valid(2) assigned to pin i_valid from
 Warning:     instance u_memory/ix548 over non-unate connection, stopping propagation of clocks to O..
 Info: Optimizing design view:.work.memory.main_unfold_1492
 Info: Optimizing design view:.work.flow.main
 Info: Optimizing design view:.work.kirsch.main
+Warning: Port debug_num_8(0) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_num_8(1) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_num_8(2) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_num_8(3) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_num_8(4) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_num_8(5) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_num_8(6) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_num_8(7) is connected to a disabled tristate, possibly unconnected Port in design.
 Info: -- Saving the design database in uw_tmp/kirsch.xdb
 Info: Writing file: uw_tmp/kirsch.edf.
 Info: -- Writing file uw_tmp/kirsch.tcl
 Info: exq_pr_compile_project gen_vcf kirsch 1
 Info: Finished synthesizing design.
-Info: Total CPU time taken for synthesis: 5.8 secs.
-Info: Overall running time 6.2 secs.
+Info: Total CPU time taken for synthesis: 5.9 secs.
+Info: Overall running time 6.3 secs.
 Info: uw_tmp/precision_tech.sdc
 Info: -- Saving the design database in uw_tmp/kirsch_logic.xdb
 Info: Writing file: uw_tmp/kirsch_logic.vhd.
@@ -134,21 +152,21 @@ INFO:
 INFO: ..........Delays.........
 INFO:  Total  Datapath  Routing          Source              Dest
 INFO: ------  --------  -------   --------------------  ---------------------
-INFO:   6.74     6.53     0.21    reg_f_state(0)/clk    u_flow/re...1)/datain
-INFO:   6.74     6.53     0.21    reg_f_state(1)/clk    u_flow/re...1)/datain
-INFO:   6.58     6.37     0.21    reg_f_state(2)/clk    u_flow/re...1)/datain
-INFO:   6.44     6.24     0.21    reg_f_state(3)/clk    u_flow/re...1)/datain
-INFO:   6.08     5.87     0.21    u_memory/...0)(0)/clk u_flow/re...1)/datain
+INFO:   6.75     6.54     0.21    reg_f_state(0)/clk    u_flow/re...1)/datain
+INFO:   6.75     6.54     0.21    reg_f_state(1)/clk    u_flow/re...1)/datain
+INFO:   6.59     6.38     0.21    reg_f_state(2)/clk    u_flow/re...1)/datain
+INFO:   6.45     6.25     0.21    reg_f_state(3)/clk    u_flow/re...1)/datain
+INFO:   6.09     5.88     0.21    u_memory/...0)(0)/clk u_flow/re...1)/datain
 INFO: -----------------------------------------------------------------------
-INFO: Speed on Stratix II = 148 MHz,  6.74 ns (estimated by logic-synthesis)
-INFO: AREA = 319 cells (280 luts, 319 regs) (estimated by logic-synthesis)
+INFO: Speed on Stratix II = 148 MHz,  6.75 ns (estimated by logic-synthesis)
+INFO: AREA = 329 cells (299 luts, 329 regs) (estimated by logic-synthesis)
 INFO: OPTIMALITY
 INFO: 
 INFO:              ..............latency...............
 INFO:              =<  8cyc   9cyc  10cyc   11cyc   12cyc
-INFO: optimality   =   463    440    418     398     379
-INFO: latency                 = 2
-INFO: optimality with latency = 463
+INFO: optimality   =   449    427    406     386     367
+INFO: latency                 = 9
+INFO: optimality with latency = 427
 INFO: 
 INFO: ***********************************************
 INFO: *

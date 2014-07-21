@@ -28,5 +28,5 @@ add wave -radix unsigned sim:/kirsch_tb/debug_num_3
 add wave -radix unsigned sim:/kirsch_tb/debug_num_4
 add wave -radix unsigned sim:/kirsch_tb/debug_num_5
 
-run 5260000 ns
+run 5243400 ns
 

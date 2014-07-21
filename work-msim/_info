@@ -4,9 +4,9 @@ K3
 cModel Technology
 Z0 d/home/gm2kerr/ece327/project/Kirsch-Edge-Detector
 T_opt
-V37NFzzS5Dk=fE7IO>8V<Q0
+VBT7>EH?RYGGXzjaF5b:3l3
 04 9 4 work kirsch_tb main 1
-=1-14dae9740818-53cc7e43-dca9b-b6a
+=1-14dae9740821-53cc8dce-c22a-4a4f
 o-quiet -auto_acc_if_foreign -work work-msim
 n@_opt
 OL;O;10.1;51
@@ -24,7 +24,7 @@ VgOUVm0_N_ATfV]2=@Fkaj2
 Z8 OL;C;10.1;51
 31
 b1
-Z9 !s108 1405910585.676919
+Z9 !s108 1405914564.064269
 Z10 !s90 -93|+acc|-work|work-msim|mem.vhd|kirsch_synth_pkg.vhd|kirsch.vhd|kirsch_utility_pkg.vhd|memory.vhd|flow.vhd|string_pkg.vhd|kirsch_synth_pkg.vhd|kirsch_unsynth_pkg.vhd|kirsch_tb.vhd|
 Z11 !s107 kirsch_tb.vhd|kirsch_unsynth_pkg.vhd|string_pkg.vhd|flow.vhd|memory.vhd|kirsch_utility_pkg.vhd|kirsch.vhd|kirsch_synth_pkg.vhd|mem.vhd|
 Z12 o-93 +acc -work work-msim
@@ -50,7 +50,7 @@ nbody
 !s100 g:lfbMCK>>nPJKkD:3RF52
 !i10b 1
 Eflow
-Z15 w1405906887
+Z15 w1405914547
 R1
 R2
 R3
@@ -76,7 +76,7 @@ R3
 Z18 DEx4 work 4 flow 0 22 =h?50jJRMYm2hlG:o7Pf^2
 l70
 L21
-VG2Pm;oJLTI5i^dUM6YlkW1
+V`j=9nESgUl>HJg_KDafke0
 R8
 31
 R9
@@ -84,10 +84,10 @@ R10
 R11
 R12
 R13
-!s100 OZc:Lj=ISCUF4Q=`ROlJN3
+!s100 <<4aPz?6H[S6?_Z8h`Ij<2
 !i10b 1
 Ekirsch
-Z19 w1405910511
+Z19 w1405912535
 Z20 DPx4 work 18 kirsch_utility_pkg 0 22 a1U1FohR3F9;Bf2h4TPDg1
 R1
 R2
@@ -115,9 +115,9 @@ R1
 R2
 R3
 Z24 DEx4 work 6 kirsch 0 22 c12KVHlc@zeG5NY0;]Da:2
-l69
+l70
 L42
-V@Vk3ifkI_6G5]C[K96ce90
+Vjl5lCj1_IazE?9MCVC7o<0
 R8
 31
 R9
@@ -125,7 +125,7 @@ R10
 R11
 R12
 R13
-!s100 4GZK6hUNGA4]L=j@?0YbJ0
+!s100 n3hh2]9jFIb9l5>E_HcE<1
 !i10b 1
 Pkirsch_synth_pkg
 R1

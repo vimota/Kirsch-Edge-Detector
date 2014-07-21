@@ -3,9 +3,9 @@ Device Utilization for EP2S15F484C
 ***********************************************
 Resource                Used    Avail   Utilization
 -----------------------------------------------
-IOs                     167     343      48.69%
-LUTs                    280     12480     2.24%
-Registers               319     14410     2.21%
+IOs                     216     343      62.97%
+LUTs                    299     12480     2.40%
+Registers               329     14410     2.28%
 Memory Bits             6144    419328    1.47%
 DSP block 9-bit elems   0       96        0.00%
 
@@ -247,21 +247,21 @@ Library: work    Cell: flow    View: main
  add_9_0                  OPERATORS     1 x      9      9 LUTs
  modgen_adderblock_3_0    OPERATORS     1 x     10     10 LUTs
  modgen_adderblock_3_1    OPERATORS     1 x     10     10 LUTs
- stratixii_lcell_comb     stratixii    42 x      1     42 LUTs
- stratixii_lcell_ff       stratixii   133 x      1    133 Registers
+ stratixii_lcell_comb     stratixii    38 x      1     38 LUTs
+ stratixii_lcell_ff       stratixii   125 x      1    125 Registers
  sub_10_0                 OPERATORS     1 x     11     11 LUTs
  sub_10_1                 OPERATORS     1 x     11     11 LUTs
  sub_12_0                 OPERATORS     1 x     12     12 LUTs
 
- Number of ports :                     121
- Number of nets :                      377
- Number of instances :                 186
+ Number of ports :                     129
+ Number of nets :                      365
+ Number of instances :                 174
  Number of references to this view :     1
 
 Total accumulated area : 
- Number of LUTs :                      154
- Number of Registers :                 133
- Number of accumulated instances :     302
+ Number of LUTs :                      150
+ Number of Registers :                 125
+ Number of accumulated instances :     290
 
 **************************************************************
 
@@ -389,8 +389,8 @@ Library: work    Cell: memory    View: main_unfold_1492
  stratixii_lcell_comb    stratixii    45 x      1     45 LUTs
  stratixii_lcell_ff      stratixii    93 x      1     93 Registers
 
- Number of ports :                     105
- Number of nets :                      198
+ Number of ports :                     106
+ Number of nets :                      199
  Number of instances :                 152
  Number of references to this view :     1
 
@@ -410,26 +410,26 @@ Library: work    Cell: kirsch    View: main
   Cell                   Library  References     Total Area
 
  GND                     stratixii     1 x
- VCC                     stratixii     1 x
- flow                    work          1 x    133    133 Registers
-                                              154    154 LUTs
+ NOT                     stratixii     1 x
+ flow                    work          1 x    125    125 Registers
+                                              150    150 LUTs
  memory                  work          1 x      0      0 LCs
                                              6144   6144 Memory Bits
                                               117    117 Registers
                                                65     65 LUTs
- stratixii_io            stratixii   146 x      1    146 IOs
- stratixii_lcell_comb    stratixii    61 x      1     61 LUTs
- stratixii_lcell_ff      stratixii    69 x      1     69 Registers
+ stratixii_io            stratixii   195 x      1    195 IOs
+ stratixii_lcell_comb    stratixii    84 x      1     84 LUTs
+ stratixii_lcell_ff      stratixii    87 x      1     87 Registers
 
- Number of ports :                     167
- Number of nets :                      387
- Number of instances :                 280
+ Number of ports :                     216
+ Number of nets :                      478
+ Number of instances :                 370
  Number of references to this view :     0
 
 Total accumulated area : 
- Number of IOs :                       167
+ Number of IOs :                       216
  Number of LCs :                         0
- Number of LUTs :                      280
+ Number of LUTs :                      299
  Number of Memory Bits :              6144
- Number of Registers :                 319
- Number of accumulated instances :     777
+ Number of Registers :                 329
+ Number of accumulated instances :     855

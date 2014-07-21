@@ -146,29 +146,29 @@ set_attribute -name shared_arith -value "on" -instance u_flow/p4s_sub12_0/ix130_
 set_attribute -name shared_arith -value "on" -instance u_flow/p4s_sub12_0/ix119_dup_0 -design gatelevel 
 set_attribute -name shared_arith -value "on" -instance u_flow/p4s_sub12_0/ix108_dup_0 -design gatelevel 
 
-set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_4i2/ix97_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_4i2/ix86_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_4i2/ix75_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_4i2/ix64_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_4i2/ix174_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_4i2/ix163_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_4i2/ix152_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_4i2/ix141_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_4i2/ix130_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_4i2/ix119_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_4i2/ix108_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_3i2/ix97_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_3i2/ix86_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_3i2/ix75_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_3i2/ix64_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_3i2/ix174_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_3i2/ix163_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_3i2/ix152_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_3i2/ix141_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_3i2/ix130_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_3i2/ix119_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p21_sub10_3i2/ix108_dup_0 -design gatelevel 
 
-set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_4i4/ix97_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_4i4/ix86_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_4i4/ix75_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_4i4/ix64_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_4i4/ix174_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_4i4/ix163_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_4i4/ix152_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_4i4/ix141_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_4i4/ix130_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_4i4/ix119_dup_0 -design gatelevel 
-set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_4i4/ix108_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_3i4/ix97_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_3i4/ix86_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_3i4/ix75_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_3i4/ix64_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_3i4/ix174_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_3i4/ix163_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_3i4/ix152_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_3i4/ix141_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_3i4/ix130_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_3i4/ix119_dup_0 -design gatelevel 
+set_attribute -name shared_arith -value "on" -instance u_flow/p22_sub10_3i4/ix108_dup_0 -design gatelevel 
 
 set_attribute -name shared_arith -value "on" -instance u_flow/modgen_adderblock/ix99_dup_0 -design gatelevel 
 set_attribute -name shared_arith -value "on" -instance u_flow/modgen_adderblock/ix88_dup_0 -design gatelevel 
@@ -198,6 +198,6 @@ set_attribute -name shared_arith -value "on" -instance u_flow/modgen_adderblock_
 ##################
 # Clocks
 ##################
-create_clock { i_valid } -domain ClockDomain1 -name i_valid -period 2.000000 -waveform { 0.000000 1.000000 } -design gatelevel 
 create_clock { i_clock } -domain ClockDomain0 -name i_clock -period 2.000000 -waveform { 0.000000 1.000000 } -design gatelevel 
+create_clock { i_valid } -domain ClockDomain1 -name i_valid -period 2.000000 -waveform { 0.000000 1.000000 } -design gatelevel 
 

@@ -453,9 +453,10 @@ Library: work    Cell: flow    View: main
 
   Cell                                  Library  References     Total Area
 
- AND2                                   PRIMITIVES    12 x      1     12 AND2
- DFF                                    PRIMITIVES    80 x      1     80 DFF
+ AND2                                   PRIMITIVES     7 x      1      7 AND2
+ DFF                                    PRIMITIVES    76 x      1     76 DFF
  DFFE                                   PRIMITIVES    14 x      1     14 DFFE
+ DFFRSE                                 PRIMITIVES     4 x      1      4 DFFRSE
  FALSE                                  PRIMITIVES     1 x      1      1 FALSE
  INV                                    PRIMITIVES    11 x      1     11 INV
  MUX                                    PRIMITIVES    18 x      1     18 MUX
@@ -482,14 +483,15 @@ Library: work    Cell: flow    View: main
  sub_12u_12u_12u_0                      OPERATORS      1 x      1      1 sub_12u_12u_12u_0
 
  Number of ports :                      92
- Number of nets :                      351
- Number of instances :                 165
+ Number of nets :                      346
+ Number of instances :                 160
  Number of references to this view :     1
 
 Total accumulated area : 
- Black Box AND2 :                       12
- Black Box DFF :                       123
+ Black Box AND2 :                        7
+ Black Box DFF :                       119
  Black Box DFFE :                       14
+ Black Box DFFRSE :                      4
  Black Box FALSE :                       3
  Black Box INV :                        11
  Black Box MUX :                        18
@@ -505,7 +507,7 @@ Total accumulated area :
  Black Box or_4u_4u :                    2
  Black Box sub_10u_10u_10u_0 :           2
  Black Box sub_12u_12u_12u_0 :           1
- Number of accumulated instances :     209
+ Number of accumulated instances :     204
 
 ****************************************************************************************
 
@@ -634,7 +636,7 @@ Library: OPERATORS    Cell: and_3u_3u    View: INTERFACE
  Number of ports :                       4
  Number of nets :                        0
  Number of instances :                   0
- Number of references to this view :     2
+ Number of references to this view :     3
 
 Total accumulated area : 
  Number of and_3u_3u :                   1
@@ -921,17 +923,19 @@ Library: work    Cell: kirsch    View: main
 
   Cell        Library  References     Total Area
 
- AND2         PRIMITIVES     4 x      1      4 AND2
+ AND2         PRIMITIVES     6 x      1      6 AND2
  DFF          PRIMITIVES     4 x      1      4 DFF
- DFFE         PRIMITIVES    64 x      1     64 DFFE
+ DFFE         PRIMITIVES    74 x      1     74 DFFE
  FALSE        PRIMITIVES     1 x      1      1 FALSE
  INV          PRIMITIVES     5 x      1      5 INV
- MUX          PRIMITIVES    68 x      1     68 MUX
- OR2          PRIMITIVES     3 x      1      3 OR2
- TRUE         PRIMITIVES     1 x      1      1 TRUE
+ MUX          PRIMITIVES    76 x      1     76 MUX
+ OR2          PRIMITIVES     5 x      1      5 OR2
+ TRI          PRIMITIVES     8 x      1      8 TRI
+ and_3u_3u    OPERATORS      1 x      1      1 and_3u_3u
  and_4u_4u    OPERATORS      1 x      1      1 and_4u_4u
- flow         work           1 x     14     14 DFFE
-                                    123    123 DFF
+ flow         work           1 x      4      4 DFFRSE
+                                     14     14 DFFE
+                                    119    119 DFF
                                       2      2 XOR2
                                       3      3 add_9u_9u_9u_0_0
                                       3      3 add_8u_8u_8u_0_0
@@ -939,7 +943,7 @@ Library: work    Cell: kirsch    View: main
                                       4      4 add_10u_10u_10u_0_0
                                       2      2 or_4u_4u
                                      18     18 MUX
-                                     12     12 AND2
+                                      7      7 AND2
                                      11     11 INV
                                       6      6 OR2
                                       2      2 gt_12s_12s
@@ -966,27 +970,28 @@ Library: work    Cell: kirsch    View: main
                                       9      9 FALSE
                                       9      9 TRUE
 
- Number of ports :                     167
- Number of nets :                      260
- Number of instances :                 153
+ Number of ports :                     216
+ Number of nets :                      290
+ Number of instances :                 183
  Number of references to this view :     0
 
 Total accumulated area : 
- Black Box AND2 :                       54
- Black Box DFF :                       162
- Black Box DFFE :                      166
- Black Box DFFRSE :                      7
+ Black Box AND2 :                       51
+ Black Box DFF :                       158
+ Black Box DFFE :                      176
+ Black Box DFFRSE :                     11
  Black Box FALSE :                      13
  Black Box INV :                        32
  Black Box LATRS :                       8
- Black Box MUX :                       104
- Black Box OR2 :                        27
- Black Box TRUE :                       11
+ Black Box MUX :                       112
+ Black Box OR2 :                        29
+ Black Box TRI :                         8
+ Black Box TRUE :                       10
  Black Box XOR2 :                        2
  Black Box add_10u_10u_10u_0_0 :         4
  Black Box add_8u_8u_8u_0_0 :            3
  Black Box add_9u_9u_9u_0_0 :            3
- Black Box and_3u_3u :                   2
+ Black Box and_3u_3u :                   3
  Black Box and_4u_4u :                   1
  Black Box and_8u_8u :                   2
  Black Box clocked_ram_8_8_256_F_T_F_F_F_F_F_F :     3
@@ -999,4 +1004,4 @@ Total accumulated area :
  Black Box select_3_3 :                 16
  Black Box sub_10u_10u_10u_0 :           2
  Black Box sub_12u_12u_12u_0 :           1
- Number of accumulated instances :     634
+ Number of accumulated instances :     659

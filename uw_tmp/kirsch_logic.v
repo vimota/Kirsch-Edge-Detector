@@ -1,6 +1,6 @@
 //
 // Verilog description for cell kirsch, 
-// Sun Jul 20 19:40:49 2014
+// Sun Jul 20 23:55:11 2014
 //
 // Precision RTL Synthesis, 2008a.47//
 
@@ -9,8 +9,9 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                 o_mode, o_row, o_image0_0_, o_image0_1_, o_image0_2_, 
                 o_image1_0_, o_image1_1_, o_image1_2_, o_image2_0_, o_image2_1_, 
                 o_image2_2_, debug_key, debug_switch, debug_led_red, 
-                debug_led_grn, debug_num_0, debug_num_1, debug_num_2, 
-                debug_num_3, debug_num_4, debug_num_5 ) ;
+                debug_led_grn, debug_valid, debug_num_0, debug_num_1, 
+                debug_num_2, debug_num_3, debug_num_4, debug_num_5, debug_num_6, 
+                debug_num_7, debug_num_8 ) ;
 
     input i_clock ;
     input i_reset ;
@@ -34,18 +35,22 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
     input [17:0]debug_switch ;
     output [17:0]debug_led_red ;
     output [5:0]debug_led_grn ;
-    output [3:0]debug_num_0 ;
-    output [3:0]debug_num_1 ;
-    output [3:0]debug_num_2 ;
-    output [3:0]debug_num_3 ;
-    output [3:0]debug_num_4 ;
-    output [3:0]debug_num_5 ;
+    output debug_valid ;
+    output [7:0]debug_num_0 ;
+    output [7:0]debug_num_1 ;
+    output [7:0]debug_num_2 ;
+    output [7:0]debug_num_3 ;
+    output [7:0]debug_num_4 ;
+    output [7:0]debug_num_5 ;
+    output [7:0]debug_num_6 ;
+    output [7:0]debug_num_7 ;
+    output [7:0]debug_num_8 ;
 
     wire o_valid_dup0, o_edge_dup0;
     wire [2:0]o_dir_dup0;
-    wire [1:0]o_mode_dup0;
     wire [7:0]o_row_dup0;
     wire [3:0]f_state;
+    wire [0:0]m_o_mode;
     wire [7:0]m_o_row;
     wire m_o_valid;
     wire [7:0]f_t1_next;
@@ -56,6 +61,9 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
     wire [7:0]f_b3_next;
     wire [7:0]f_i1_next;
     wire [7:0]f_i2_next;
+    wire [7:0]f_i_row_next;
+    wire [1:0]f_o_mode;
+    wire [1:0]f_i_mode_next;
     wire [7:0]o_image0_dup0;
     wire o_image0_1__dup0_7_, o_image0_1__dup0_6_, o_image0_1__dup0_5_, 
          o_image0_1__dup0_4_, o_image0_1__dup0_3_, o_image0_1__dup0_2_, 
@@ -78,18 +86,26 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
          o_image2_2__dup0_3_, o_image2_2__dup0_2_, o_image2_2__dup0_1_, 
          o_image2_2__dup0_0_, i_clock_int, i_reset_int, i_valid_int;
     wire [7:0]i_pixel_int;
-    wire [7:0]f_t1;
-    wire [7:0]f_t2;
-    wire [7:0]f_t3;
-    wire [7:0]f_b1;
-    wire [7:0]f_b2;
-    wire [7:0]f_b3;
-    wire f_i2_6_, f_i2_4_, f_i2_2_, f_i2_0_, debug_num_5_dup0_1_;
-    wire [17:17]debug_num_5_dup0;
-    wire nx20836z1, nx51192z1, nx57127z1, nx63959z2, nx61965z1, nx62962z1, 
-         nx63959z1, nx64956z1, ix183_ix179_nx7_repl0, ix183_ix180_nx7_repl0, 
-         ix184_ix181_nx7_repl0, nx57127z2;
-    wire [7368:0] xmplr_dummy ;
+    wire [1:0]o_mode_dup0;
+    wire debug_valid_dup0;
+    wire [7:0]debug_num_0_dup0;
+    wire [7:0]debug_num_1_dup0;
+    wire [7:0]debug_num_2_dup0;
+    wire [7:0]debug_num_3_dup0;
+    wire [7:0]debug_num_4_dup0;
+    wire [7:0]debug_num_5_dup0;
+    wire [7:0]debug_num_6_dup0;
+    wire [7:0]debug_num_7_dup0;
+    wire [7:0]f_i_row;
+    wire [1:0]f_i_mode;
+    wire [17:17]debug_led_red_dup0;
+    wire nx57127z1, nx15183z1, nx15183z2, nx61965z1, nx62962z1, nx63959z1, 
+         nx64956z1, ix182_ix179_nx7_repl0, ix180_ix169_nx7_repl0, 
+         ix180_ix170_nx7_repl0, ix180_ix171_nx7_repl0, ix180_ix172_nx7_repl0, 
+         ix180_ix173_nx7_repl0, ix180_ix174_nx7_repl0, ix180_ix175_nx7_repl0, 
+         ix180_ix176_nx7_repl0, ix181_ix177_nx7_repl0, ix181_ix178_nx7_repl0, 
+         nx57127z2;
+    wire [9875:0] xmplr_dummy ;
 
 
 
@@ -97,23 +113,23 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
     memory u_memory (.i_valid (i_valid_int), .i_reset (i_reset_int), .i_pixel ({
            i_pixel_int[7],i_pixel_int[6],i_pixel_int[5],i_pixel_int[4],
            i_pixel_int[3],i_pixel_int[2],i_pixel_int[1],i_pixel_int[0]}), .i_clock (
-           i_clock_int), .o_valid (m_o_valid), .o_row ({m_o_row[7],m_o_row[6],
-           m_o_row[5],m_o_row[4],m_o_row[3],m_o_row[2],m_o_row[1],m_o_row[0]}), 
-           .o_image0_0_ ({o_image0_dup0[7],o_image0_dup0[6],o_image0_dup0[5],
-           o_image0_dup0[4],o_image0_dup0[3],o_image0_dup0[2],o_image0_dup0[1],
-           o_image0_dup0[0]}), .o_image0_1_ ({o_image0_1__dup0_7_,
-           o_image0_1__dup0_6_,o_image0_1__dup0_5_,o_image0_1__dup0_4_,
-           o_image0_1__dup0_3_,o_image0_1__dup0_2_,o_image0_1__dup0_1_,
-           o_image0_1__dup0_0_}), .o_image0_2_ ({o_image0_2__dup0_7_,
-           o_image0_2__dup0_6_,o_image0_2__dup0_5_,o_image0_2__dup0_4_,
-           o_image0_2__dup0_3_,o_image0_2__dup0_2_,o_image0_2__dup0_1_,
-           o_image0_2__dup0_0_}), .o_image1_0_ ({o_image1_dup0[7],
-           o_image1_dup0[6],o_image1_dup0[5],o_image1_dup0[4],o_image1_dup0[3],
-           o_image1_dup0[2],o_image1_dup0[1],o_image1_dup0[0]}), .o_image1_1_ ({
-           o_image1_1__dup0_7_,o_image1_1__dup0_6_,o_image1_1__dup0_5_,
-           o_image1_1__dup0_4_,o_image1_1__dup0_3_,o_image1_1__dup0_2_,
-           o_image1_1__dup0_1_,o_image1_1__dup0_0_}), .o_image1_2_ ({
-           o_image1_2__dup0_7_,o_image1_2__dup0_6_,o_image1_2__dup0_5_,
+           i_clock_int), .o_valid (m_o_valid), .o_mode ({xmplr_dummy [0],
+           m_o_mode[0]}), .o_row ({m_o_row[7],m_o_row[6],m_o_row[5],m_o_row[4],
+           m_o_row[3],m_o_row[2],m_o_row[1],m_o_row[0]}), .o_image0_0_ ({
+           o_image0_dup0[7],o_image0_dup0[6],o_image0_dup0[5],o_image0_dup0[4],
+           o_image0_dup0[3],o_image0_dup0[2],o_image0_dup0[1],o_image0_dup0[0]})
+           , .o_image0_1_ ({o_image0_1__dup0_7_,o_image0_1__dup0_6_,
+           o_image0_1__dup0_5_,o_image0_1__dup0_4_,o_image0_1__dup0_3_,
+           o_image0_1__dup0_2_,o_image0_1__dup0_1_,o_image0_1__dup0_0_}), .o_image0_2_ (
+           {o_image0_2__dup0_7_,o_image0_2__dup0_6_,o_image0_2__dup0_5_,
+           o_image0_2__dup0_4_,o_image0_2__dup0_3_,o_image0_2__dup0_2_,
+           o_image0_2__dup0_1_,o_image0_2__dup0_0_}), .o_image1_0_ ({
+           o_image1_dup0[7],o_image1_dup0[6],o_image1_dup0[5],o_image1_dup0[4],
+           o_image1_dup0[3],o_image1_dup0[2],o_image1_dup0[1],o_image1_dup0[0]})
+           , .o_image1_1_ ({o_image1_1__dup0_7_,o_image1_1__dup0_6_,
+           o_image1_1__dup0_5_,o_image1_1__dup0_4_,o_image1_1__dup0_3_,
+           o_image1_1__dup0_2_,o_image1_1__dup0_1_,o_image1_1__dup0_0_}), .o_image1_2_ (
+           {o_image1_2__dup0_7_,o_image1_2__dup0_6_,o_image1_2__dup0_5_,
            o_image1_2__dup0_4_,o_image1_2__dup0_3_,o_image1_2__dup0_2_,
            o_image1_2__dup0_1_,o_image1_2__dup0_0_}), .o_image2_0_ ({
            o_image2_dup0[7],o_image2_dup0[6],o_image2_dup0[5],o_image2_dup0[4],
@@ -123,26 +139,33 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
            o_image2_1__dup0_2_,o_image2_1__dup0_1_,o_image2_1__dup0_0_}), .o_image2_2_ (
            {o_image2_2__dup0_7_,o_image2_2__dup0_6_,o_image2_2__dup0_5_,
            o_image2_2__dup0_4_,o_image2_2__dup0_3_,o_image2_2__dup0_2_,
-           o_image2_2__dup0_1_,o_image2_2__dup0_0_}), .p_ix183_ix179_nx7_repl0 (
-           ix183_ix179_nx7_repl0), .p_ix183_ix180_nx7_repl0 (
-           ix183_ix180_nx7_repl0)) ;
-    flow u_flow (.t1 ({f_t1[7],f_t1[6],f_t1[5],f_t1[4],f_t1[3],f_t1[2],f_t1[1],
-         f_t1[0]}), .t2 ({f_t2[7],f_t2[6],f_t2[5],f_t2[4],f_t2[3],f_t2[2],
-         f_t2[1],f_t2[0]}), .t3 ({f_t3[7],f_t3[6],f_t3[5],f_t3[4],f_t3[3],
-         f_t3[2],f_t3[1],f_t3[0]}), .b1 ({f_b1[7],f_b1[6],f_b1[5],f_b1[4],
-         f_b1[3],f_b1[2],f_b1[1],f_b1[0]}), .b2 ({f_b2[7],f_b2[6],f_b2[5],
-         f_b2[4],f_b2[3],f_b2[2],f_b2[1],f_b2[0]}), .b3 ({f_b3[7],f_b3[6],
-         f_b3[5],f_b3[4],f_b3[3],f_b3[2],f_b3[1],f_b3[0]}), .i2 ({
-         xmplr_dummy [0],f_i2_6_,xmplr_dummy [1],f_i2_4_,xmplr_dummy [2],f_i2_2_
-         ,xmplr_dummy [3],f_i2_0_}), .i_clock (i_clock_int), .i_reset (
-         i_reset_int), .i_row ({m_o_row[7],m_o_row[6],m_o_row[5],m_o_row[4],
-         m_o_row[3],m_o_row[2],m_o_row[1],m_o_row[0]}), .o_dir ({o_dir_dup0[2],
-         o_dir_dup0[1],o_dir_dup0[0]}), .o_edge (o_edge_dup0), .o_valid (
-         o_valid_dup0), .o_mode ({o_mode_dup0[1],o_mode_dup0[0]}), .o_row ({
-         o_row_dup0[7],o_row_dup0[6],o_row_dup0[5],o_row_dup0[4],o_row_dup0[3],
-         o_row_dup0[2],o_row_dup0[1],o_row_dup0[0]}), .p_ix183_ix179_nx7_repl0 (
-         ix183_ix179_nx7_repl0), .p_ix183_ix180_nx7_repl0 (ix183_ix180_nx7_repl0
-         ), .p_f_i1_next_7_ (f_i1_next[7]), .p_rtlc1n11 (nx20836z1), .p_o_image1_0__dup0_7_ (
+           o_image2_2__dup0_1_,o_image2_2__dup0_0_}), .p_debug_led_red_dup0_17_ (
+           debug_led_red_dup0[17]), .p_rtlc13n197 (nx15183z1), .p_f_i_mode_next_1__repl0 (
+           f_i_mode_next[1]), .p_f_i_mode_next_0__repl0 (f_i_mode_next[0])) ;
+    flow u_flow (.t1 ({debug_num_0_dup0[7],debug_num_0_dup0[6],
+         debug_num_0_dup0[5],debug_num_0_dup0[4],debug_num_0_dup0[3],
+         debug_num_0_dup0[2],debug_num_0_dup0[1],debug_num_0_dup0[0]}), .t2 ({
+         debug_num_1_dup0[7],debug_num_1_dup0[6],debug_num_1_dup0[5],
+         debug_num_1_dup0[4],debug_num_1_dup0[3],debug_num_1_dup0[2],
+         debug_num_1_dup0[1],debug_num_1_dup0[0]}), .t3 ({debug_num_2_dup0[7],
+         debug_num_2_dup0[6],debug_num_2_dup0[5],debug_num_2_dup0[4],
+         debug_num_2_dup0[3],debug_num_2_dup0[2],debug_num_2_dup0[1],
+         debug_num_2_dup0[0]}), .b1 ({debug_num_3_dup0[7],debug_num_3_dup0[6],
+         debug_num_3_dup0[5],debug_num_3_dup0[4],debug_num_3_dup0[3],
+         debug_num_3_dup0[2],debug_num_3_dup0[1],debug_num_3_dup0[0]}), .b2 ({
+         debug_num_4_dup0[7],debug_num_4_dup0[6],debug_num_4_dup0[5],
+         debug_num_4_dup0[4],debug_num_4_dup0[3],debug_num_4_dup0[2],
+         debug_num_4_dup0[1],debug_num_4_dup0[0]}), .b3 ({debug_num_5_dup0[7],
+         debug_num_5_dup0[6],debug_num_5_dup0[5],debug_num_5_dup0[4],
+         debug_num_5_dup0[3],debug_num_5_dup0[2],debug_num_5_dup0[1],
+         debug_num_5_dup0[0]}), .i2 ({xmplr_dummy [1],debug_num_7_dup0[6],
+         xmplr_dummy [2],debug_num_7_dup0[4],xmplr_dummy [3],debug_num_7_dup0[2]
+         ,xmplr_dummy [4],debug_num_7_dup0[0]}), .i_clock (i_clock_int), .i_reset (
+         i_reset_int), .o_dir ({o_dir_dup0[2],o_dir_dup0[1],o_dir_dup0[0]}), .o_edge (
+         o_edge_dup0), .o_valid (o_valid_dup0), .o_mode ({f_o_mode[1],
+         f_o_mode[0]}), .o_row ({o_row_dup0[7],o_row_dup0[6],o_row_dup0[5],
+         o_row_dup0[4],o_row_dup0[3],o_row_dup0[2],o_row_dup0[1],o_row_dup0[0]})
+         , .p_f_i1_next_7_ (f_i1_next[7]), .p_rtlcs0 (nx15183z2), .p_o_image1_0__dup0_7_ (
          o_image1_dup0[7]), .p_f_i1_next_6_ (f_i1_next[6]), .p_o_image1_0__dup0_6_ (
          o_image1_dup0[6]), .p_f_i1_next_5_ (f_i1_next[5]), .p_o_image1_0__dup0_5_ (
          o_image1_dup0[5]), .p_f_i1_next_4_ (f_i1_next[4]), .p_o_image1_0__dup0_4_ (
@@ -154,10 +177,16 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
          o_image1_2__dup0_7_), .p_f_i2_next_5_ (f_i2_next[5]), .p_o_image1_2__dup0_5_ (
          o_image1_2__dup0_5_), .p_f_i2_next_3_ (f_i2_next[3]), .p_o_image1_2__dup0_3_ (
          o_image1_2__dup0_3_), .p_f_i2_next_1_ (f_i2_next[1]), .p_o_image1_2__dup0_1_ (
-         o_image1_2__dup0_1_), .p_ix184_ix181_nx7_repl0 (ix184_ix181_nx7_repl0)
-         ) ;
-    assign debug_num_5_dup0_1_ = 1 ;
-    assign debug_num_5_dup0[17] = 0 ;
+         o_image1_2__dup0_1_), .p_ix182_ix179_nx7_repl0 (ix182_ix179_nx7_repl0)
+         , .p_ix180_ix169_nx7_repl0 (ix180_ix169_nx7_repl0), .p_ix180_ix170_nx7_repl0 (
+         ix180_ix170_nx7_repl0), .p_ix180_ix171_nx7_repl0 (ix180_ix171_nx7_repl0
+         ), .p_ix180_ix172_nx7_repl0 (ix180_ix172_nx7_repl0), .p_ix180_ix173_nx7_repl0 (
+         ix180_ix173_nx7_repl0), .p_ix180_ix174_nx7_repl0 (ix180_ix174_nx7_repl0
+         ), .p_ix180_ix175_nx7_repl0 (ix180_ix175_nx7_repl0), .p_ix180_ix176_nx7_repl0 (
+         ix180_ix176_nx7_repl0), .p_ix181_ix177_nx7_repl0 (ix181_ix177_nx7_repl0
+         ), .p_ix181_ix178_nx7_repl0 (ix181_ix178_nx7_repl0)) ;
+    assign o_mode_dup0[1] = ~i_reset_int ;
+    assign debug_led_red_dup0[17] = 0 ;
     stratixii_lcell_ff reg_f_t3_next_7_ (.regout (f_t3_next[7]), .datain (
                        f_i1_next[7]), .adatasdata (o_image1_dup0[7]), .clk (
                        i_clock_int), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0
@@ -255,17 +284,41 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                        i_clock_int), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0
                        ), .sload (nx57127z2)) ;
     stratixii_lcell_ff reg_f_state_3_ (.regout (f_state[3]), .datain (nx61965z1)
-                       , .adatasdata (1'b0), .clk (i_clock_int), .ena (nx63959z2
-                       ), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+                       , .adatasdata (1'b0), .clk (i_clock_int), .ena (1'b1), .aclr (
+                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
     stratixii_lcell_ff reg_f_state_2_ (.regout (f_state[2]), .datain (nx62962z1)
-                       , .adatasdata (1'b0), .clk (i_clock_int), .ena (nx63959z2
-                       ), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+                       , .adatasdata (1'b0), .clk (i_clock_int), .ena (1'b1), .aclr (
+                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
     stratixii_lcell_ff reg_f_state_1_ (.regout (f_state[1]), .datain (nx63959z1)
-                       , .adatasdata (1'b0), .clk (i_clock_int), .ena (nx63959z2
-                       ), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+                       , .adatasdata (1'b0), .clk (i_clock_int), .ena (1'b1), .aclr (
+                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
     stratixii_lcell_ff reg_f_state_0_ (.regout (f_state[0]), .datain (nx64956z1)
-                       , .adatasdata (1'b0), .clk (i_clock_int), .ena (nx63959z2
-                       ), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+                       , .adatasdata (1'b0), .clk (i_clock_int), .ena (1'b1), .aclr (
+                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff reg_f_i_row_next_7_ (.regout (f_i_row_next[7]), .datain (
+                       m_o_row[7]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       nx15183z1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff reg_f_i_row_next_6_ (.regout (f_i_row_next[6]), .datain (
+                       m_o_row[6]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       nx15183z1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff reg_f_i_row_next_5_ (.regout (f_i_row_next[5]), .datain (
+                       m_o_row[5]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       nx15183z1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff reg_f_i_row_next_4_ (.regout (f_i_row_next[4]), .datain (
+                       m_o_row[4]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       nx15183z1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff reg_f_i_row_next_3_ (.regout (f_i_row_next[3]), .datain (
+                       m_o_row[3]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       nx15183z1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff reg_f_i_row_next_2_ (.regout (f_i_row_next[2]), .datain (
+                       m_o_row[2]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       nx15183z1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff reg_f_i_row_next_1_ (.regout (f_i_row_next[1]), .datain (
+                       m_o_row[1]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       nx15183z1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff reg_f_i_row_next_0_ (.regout (f_i_row_next[0]), .datain (
+                       m_o_row[0]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       nx15183z1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
     stratixii_lcell_ff reg_f_i2_next_7_ (.regout (f_i2_next[7]), .datain (
                        f_t1_next[7]), .adatasdata (o_image0_2__dup0_7_), .clk (
                        i_clock_int), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0
@@ -1803,225 +1856,18 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  defparam o_dir_obuf_0_.tie_off_oe_clock_enable = "false";
                  
                  defparam o_dir_obuf_0_.input_register_mode = "none";
-    stratixii_lcell_comb ix20836z37235 (.combout (f_b2[6]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_1__dup0_6_), .datae (
-                         nx20836z1), .dataf (f_b2_next[6]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37235.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37234 (.combout (f_b2[7]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_1__dup0_7_), .datae (
-                         nx20836z1), .dataf (f_b2_next[7]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37234.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37233 (.combout (f_b1[0]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_dup0[0]), .datae (
-                         nx20836z1), .dataf (f_b1_next[0]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37233.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37232 (.combout (f_b1[1]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_dup0[1]), .datae (
-                         nx20836z1), .dataf (f_b1_next[1]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37232.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37231 (.combout (f_b1[2]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_dup0[2]), .datae (
-                         nx20836z1), .dataf (f_b1_next[2]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37231.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37230 (.combout (f_b1[3]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_dup0[3]), .datae (
-                         nx20836z1), .dataf (f_b1_next[3]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37230.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37229 (.combout (f_b1[4]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_dup0[4]), .datae (
-                         nx20836z1), .dataf (f_b1_next[4]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37229.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37228 (.combout (f_b1[5]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_dup0[5]), .datae (
-                         nx20836z1), .dataf (f_b1_next[5]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37228.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37227 (.combout (f_b1[6]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_dup0[6]), .datae (
-                         nx20836z1), .dataf (f_b1_next[6]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37227.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37226 (.combout (f_b1[7]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_dup0[7]), .datae (
-                         nx20836z1), .dataf (f_b1_next[7]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37226.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37225 (.combout (f_t3[0]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_dup0[0]), .datae (
-                         nx20836z1), .dataf (f_t3_next[0]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37225.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37224 (.combout (f_t3[1]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_dup0[1]), .datae (
-                         nx20836z1), .dataf (f_t3_next[1]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37224.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37223 (.combout (f_t3[2]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_dup0[2]), .datae (
-                         nx20836z1), .dataf (f_t3_next[2]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37223.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37222 (.combout (f_t3[3]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_dup0[3]), .datae (
-                         nx20836z1), .dataf (f_t3_next[3]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37222.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37221 (.combout (f_t3[4]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_dup0[4]), .datae (
-                         nx20836z1), .dataf (f_t3_next[4]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37221.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37220 (.combout (f_t3[5]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_dup0[5]), .datae (
-                         nx20836z1), .dataf (f_t3_next[5]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37220.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37219 (.combout (f_t3[6]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_dup0[6]), .datae (
-                         nx20836z1), .dataf (f_t3_next[6]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37219.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37218 (.combout (f_t3[7]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_dup0[7]), .datae (
-                         nx20836z1), .dataf (f_t3_next[7]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37218.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37217 (.combout (f_t2[0]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_1__dup0_0_), .datae (
-                         nx20836z1), .dataf (f_t2_next[0]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37217.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37216 (.combout (f_t2[1]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_1__dup0_1_), .datae (
-                         nx20836z1), .dataf (f_t2_next[1]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37216.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37215 (.combout (f_t2[2]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_1__dup0_2_), .datae (
-                         nx20836z1), .dataf (f_t2_next[2]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37215.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37214 (.combout (f_t2[3]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_1__dup0_3_), .datae (
-                         nx20836z1), .dataf (f_t2_next[3]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37214.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37213 (.combout (f_t2[4]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_1__dup0_4_), .datae (
-                         nx20836z1), .dataf (f_t2_next[4]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37213.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37212 (.combout (f_t2[5]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_1__dup0_5_), .datae (
-                         nx20836z1), .dataf (f_t2_next[5]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37212.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37211 (.combout (f_t2[6]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_1__dup0_6_), .datae (
-                         nx20836z1), .dataf (f_t2_next[6]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37211.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37210 (.combout (f_t2[7]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_1__dup0_7_), .datae (
-                         nx20836z1), .dataf (f_t2_next[7]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37210.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37209 (.combout (f_t1[0]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_2__dup0_0_), .datae (
-                         nx20836z1), .dataf (f_t1_next[0]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37209.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37208 (.combout (f_t1[1]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_2__dup0_1_), .datae (
-                         nx20836z1), .dataf (f_t1_next[1]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37208.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37207 (.combout (f_t1[2]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_2__dup0_2_), .datae (
-                         nx20836z1), .dataf (f_t1_next[2]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37207.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37206 (.combout (f_t1[3]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_2__dup0_3_), .datae (
-                         nx20836z1), .dataf (f_t1_next[3]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37206.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37205 (.combout (f_t1[4]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_2__dup0_4_), .datae (
-                         nx20836z1), .dataf (f_t1_next[4]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37205.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37204 (.combout (f_t1[5]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_2__dup0_5_), .datae (
-                         nx20836z1), .dataf (f_t1_next[5]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37204.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37203 (.combout (f_t1[6]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_2__dup0_6_), .datae (
-                         nx20836z1), .dataf (f_t1_next[6]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37203.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37201 (.combout (f_t1[7]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image0_2__dup0_7_), .datae (
-                         nx20836z1), .dataf (f_t1_next[7]), .datag (1'b1), .cin (
-                         1'b0)) ;
-                         
-                         defparam ix20836z37201.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_ff ix184_reg_p20 (.regout (ix184_ix181_nx7_repl0), .datain (
-                       nx51192z1), .adatasdata (1'b0), .clk (i_clock_int), .ena (
-                       1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
     stratixii_lcell_comb ix64956z37201 (.combout (nx64956z1), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (1'b1), .datae (
-                         i_reset_int), .dataf (f_state[3]), .datag (1'b1), .cin (
+                         1'b1), .datac (i_reset_int), .datad (nx15183z2), .datae (
+                         m_o_valid), .dataf (f_state[3]), .datag (1'b1), .cin (
                          1'b0)) ;
                          
-                         defparam ix64956z37201.lut_mask = 64'hffffffffffff0000;
+                         defparam ix64956z37201.lut_mask = 64'hfffffffff0f0fff0;
     stratixii_lcell_comb ix63959z37201 (.combout (nx63959z1), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (1'b1), .datae (
-                         i_reset_int), .dataf (f_state[0]), .datag (1'b1), .cin (
+                         1'b1), .datac (i_reset_int), .datad (nx15183z2), .datae (
+                         m_o_valid), .dataf (f_state[0]), .datag (1'b1), .cin (
                          1'b0)) ;
                          
-                         defparam ix63959z37201.lut_mask = 64'h0000ffff00000000;
+                         defparam ix63959z37201.lut_mask = 64'h0f0f000f00000000;
     stratixii_lcell_comb ix62962z37201 (.combout (nx62962z1), .dataa (1'b1), .datab (
                          1'b1), .datac (1'b1), .datad (1'b1), .datae (
                          i_reset_int), .dataf (f_state[1]), .datag (1'b1), .cin (
@@ -2034,143 +1880,520 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                          1'b0)) ;
                          
                          defparam ix61965z37201.lut_mask = 64'h0000ffff00000000;
-    stratixii_lcell_comb ix63959z37202 (.combout (nx63959z2), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (1'b1), .datae (
-                         i_reset_int), .dataf (m_o_valid), .datag (1'b1), .cin (
+    stratixii_lcell_comb ix234_repl (.combout (nx57127z2), .dataa (1'b1), .datab (
+                         1'b1), .datac (f_state[0]), .datad (f_state[1]), .datae (
+                         f_state[2]), .dataf (f_state[3]), .datag (1'b1), .cin (
                          1'b0)) ;
                          
-                         defparam ix63959z37202.lut_mask = 64'hffffffffffff0000;
+                         defparam ix234_repl.lut_mask = 64'h00000000000000f0;
+    stratixii_lcell_comb ix15183z37202 (.combout (nx15183z2), .dataa (1'b1), .datab (
+                         1'b1), .datac (f_state[0]), .datad (f_state[1]), .datae (
+                         f_state[2]), .dataf (f_state[3]), .datag (1'b1), .cin (
+                         1'b0)) ;
+                         
+                         defparam ix15183z37202.lut_mask = 64'h00000000000000f0;
+    stratixii_lcell_comb ix15183z37201 (.combout (nx15183z1), .dataa (1'b1), .datab (
+                         1'b1), .datac (1'b1), .datad (i_reset_int), .datae (
+                         nx15183z2), .dataf (m_o_valid), .datag (1'b1), .cin (
+                         1'b0)) ;
+                         
+                         defparam ix15183z37201.lut_mask = 64'h00ff000000000000;
     stratixii_lcell_comb ix57127z37201 (.combout (nx57127z1), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (1'b1), .datae (
-                         i_reset_int), .dataf (m_o_valid), .datag (1'b1), .cin (
+                         1'b1), .datac (1'b1), .datad (i_reset_int), .datae (
+                         nx15183z2), .dataf (m_o_valid), .datag (1'b1), .cin (
                          1'b0)) ;
                          
-                         defparam ix57127z37201.lut_mask = 64'h0000ffff00000000;
-    stratixii_lcell_comb ix51192z37201 (.combout (nx51192z1), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (1'b1), .datae (nx20836z1)
-                         , .dataf (m_o_valid), .datag (1'b1), .cin (1'b0)) ;
+                         defparam ix57127z37201.lut_mask = 64'h00ff00ff000000ff;
+    stratixii_lcell_comb ix60277z37201 (.combout (f_i_mode[0]), .dataa (1'b1), .datab (
+                         1'b1), .datac (1'b1), .datad (nx15183z2), .datae (
+                         f_i_mode_next[0]), .dataf (m_o_mode[0]), .datag (1'b1)
+                         , .cin (1'b0)) ;
                          
-                         defparam ix51192z37201.lut_mask = 64'hffffffff0000ffff;
-    stratixii_lcell_comb ix130_repl (.combout (nx57127z2), .dataa (1'b1), .datab (
-                         1'b1), .datac (f_state[0]), .datad (f_state[1]), .datae (
-                         f_state[2]), .dataf (f_state[3]), .datag (1'b1), .cin (
+                         defparam ix60277z37201.lut_mask = 64'hffffff0000ff0000;
+    stratixii_lcell_comb ix24479z37201 (.combout (f_i_row[0]), .dataa (1'b1), .datab (
+                         1'b1), .datac (1'b1), .datad (nx15183z2), .datae (
+                         f_i_row_next[0]), .dataf (m_o_row[0]), .datag (1'b1), .cin (
                          1'b0)) ;
                          
-                         defparam ix130_repl.lut_mask = 64'h00000000000000f0;
-    stratixii_lcell_comb ix20836z37202 (.combout (nx20836z1), .dataa (1'b1), .datab (
-                         1'b1), .datac (f_state[0]), .datad (f_state[1]), .datae (
-                         f_state[2]), .dataf (f_state[3]), .datag (1'b1), .cin (
+                         defparam ix24479z37201.lut_mask = 64'hffffff0000ff0000;
+    stratixii_lcell_comb ix25476z37201 (.combout (f_i_row[1]), .dataa (1'b1), .datab (
+                         1'b1), .datac (1'b1), .datad (nx15183z2), .datae (
+                         f_i_row_next[1]), .dataf (m_o_row[1]), .datag (1'b1), .cin (
                          1'b0)) ;
                          
-                         defparam ix20836z37202.lut_mask = 64'h00000000000000f0;
-    stratixii_lcell_comb ix20836z37253 (.combout (f_i2_0_), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image1_2__dup0_0_), .datae (
-                         nx20836z1), .dataf (f_i2_next[0]), .datag (1'b1), .cin (
+                         defparam ix25476z37201.lut_mask = 64'hffffff0000ff0000;
+    stratixii_lcell_comb ix26473z37201 (.combout (f_i_row[2]), .dataa (1'b1), .datab (
+                         1'b1), .datac (1'b1), .datad (nx15183z2), .datae (
+                         f_i_row_next[2]), .dataf (m_o_row[2]), .datag (1'b1), .cin (
                          1'b0)) ;
                          
-                         defparam ix20836z37253.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37252 (.combout (f_i2_2_), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image1_2__dup0_2_), .datae (
-                         nx20836z1), .dataf (f_i2_next[2]), .datag (1'b1), .cin (
+                         defparam ix26473z37201.lut_mask = 64'hffffff0000ff0000;
+    stratixii_lcell_comb ix27470z37201 (.combout (f_i_row[3]), .dataa (1'b1), .datab (
+                         1'b1), .datac (1'b1), .datad (nx15183z2), .datae (
+                         f_i_row_next[3]), .dataf (m_o_row[3]), .datag (1'b1), .cin (
                          1'b0)) ;
+                         
+                         defparam ix27470z37201.lut_mask = 64'hffffff0000ff0000;
+    stratixii_lcell_comb ix28467z37201 (.combout (f_i_row[4]), .dataa (1'b1), .datab (
+                         1'b1), .datac (1'b1), .datad (nx15183z2), .datae (
+                         f_i_row_next[4]), .dataf (m_o_row[4]), .datag (1'b1), .cin (
+                         1'b0)) ;
+                         
+                         defparam ix28467z37201.lut_mask = 64'hffffff0000ff0000;
+    stratixii_lcell_comb ix29464z37201 (.combout (f_i_row[5]), .dataa (1'b1), .datab (
+                         1'b1), .datac (1'b1), .datad (nx15183z2), .datae (
+                         f_i_row_next[5]), .dataf (m_o_row[5]), .datag (1'b1), .cin (
+                         1'b0)) ;
+                         
+                         defparam ix29464z37201.lut_mask = 64'hffffff0000ff0000;
+    stratixii_lcell_comb ix30461z37201 (.combout (f_i_row[6]), .dataa (1'b1), .datab (
+                         1'b1), .datac (1'b1), .datad (nx15183z2), .datae (
+                         f_i_row_next[6]), .dataf (m_o_row[6]), .datag (1'b1), .cin (
+                         1'b0)) ;
+                         
+                         defparam ix30461z37201.lut_mask = 64'hffffff0000ff0000;
+    stratixii_lcell_comb ix31458z37201 (.combout (f_i_row[7]), .dataa (1'b1), .datab (
+                         1'b1), .datac (1'b1), .datad (nx15183z2), .datae (
+                         f_i_row_next[7]), .dataf (m_o_row[7]), .datag (1'b1), .cin (
+                         1'b0)) ;
+                         
+                         defparam ix31458z37201.lut_mask = 64'hffffff0000ff0000;
+    stratixii_lcell_comb ix20836z37252 (.combout (debug_num_7_dup0[0]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image1_2__dup0_0_), .datae (nx15183z2), .dataf (
+                         f_i2_next[0]), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix20836z37252.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37251 (.combout (f_i2_4_), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image1_2__dup0_4_), .datae (
-                         nx20836z1), .dataf (f_i2_next[4]), .datag (1'b1), .cin (
-                         1'b0)) ;
+    stratixii_lcell_comb ix24509z37201 (.combout (debug_num_7_dup0[1]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image1_2__dup0_1_), .datae (nx15183z2), .dataf (
+                         f_i2_next[1]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix24509z37201.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37251 (.combout (debug_num_7_dup0[2]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image1_2__dup0_2_), .datae (nx15183z2), .dataf (
+                         f_i2_next[2]), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix20836z37251.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37250 (.combout (f_i2_6_), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image1_2__dup0_6_), .datae (
-                         nx20836z1), .dataf (f_i2_next[6]), .datag (1'b1), .cin (
-                         1'b0)) ;
+    stratixii_lcell_comb ix26503z37201 (.combout (debug_num_7_dup0[3]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image1_2__dup0_3_), .datae (nx15183z2), .dataf (
+                         f_i2_next[3]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix26503z37201.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37250 (.combout (debug_num_7_dup0[4]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image1_2__dup0_4_), .datae (nx15183z2), .dataf (
+                         f_i2_next[4]), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix20836z37250.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37249 (.combout (f_b3[0]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_2__dup0_0_), .datae (
-                         nx20836z1), .dataf (f_b3_next[0]), .datag (1'b1), .cin (
-                         1'b0)) ;
+    stratixii_lcell_comb ix28497z37201 (.combout (debug_num_7_dup0[5]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image1_2__dup0_5_), .datae (nx15183z2), .dataf (
+                         f_i2_next[5]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix28497z37201.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37249 (.combout (debug_num_7_dup0[6]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image1_2__dup0_6_), .datae (nx15183z2), .dataf (
+                         f_i2_next[6]), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix20836z37249.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37248 (.combout (f_b3[1]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_2__dup0_1_), .datae (
-                         nx20836z1), .dataf (f_b3_next[1]), .datag (1'b1), .cin (
-                         1'b0)) ;
+    stratixii_lcell_comb ix30491z37201 (.combout (debug_num_7_dup0[7]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image1_2__dup0_7_), .datae (nx15183z2), .dataf (
+                         f_i2_next[7]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix30491z37201.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix759z37201 (.combout (debug_num_6_dup0[0]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image1_dup0[0]), .datae (nx15183z2), .dataf (
+                         f_i1_next[0]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix759z37201.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix1756z37201 (.combout (debug_num_6_dup0[1]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image1_dup0[1]), .datae (nx15183z2), .dataf (
+                         f_i1_next[1]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix1756z37201.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix2753z37201 (.combout (debug_num_6_dup0[2]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image1_dup0[2]), .datae (nx15183z2), .dataf (
+                         f_i1_next[2]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix2753z37201.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix3750z37201 (.combout (debug_num_6_dup0[3]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image1_dup0[3]), .datae (nx15183z2), .dataf (
+                         f_i1_next[3]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix3750z37201.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix4747z37201 (.combout (debug_num_6_dup0[4]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image1_dup0[4]), .datae (nx15183z2), .dataf (
+                         f_i1_next[4]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix4747z37201.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix5744z37201 (.combout (debug_num_6_dup0[5]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image1_dup0[5]), .datae (nx15183z2), .dataf (
+                         f_i1_next[5]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix5744z37201.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix6741z37201 (.combout (debug_num_6_dup0[6]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image1_dup0[6]), .datae (nx15183z2), .dataf (
+                         f_i1_next[6]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix6741z37201.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix7738z37201 (.combout (debug_num_6_dup0[7]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image1_dup0[7]), .datae (nx15183z2), .dataf (
+                         f_i1_next[7]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix7738z37201.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37248 (.combout (debug_num_5_dup0[0]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_2__dup0_0_), .datae (nx15183z2), .dataf (
+                         f_b3_next[0]), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix20836z37248.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37247 (.combout (f_b3[2]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_2__dup0_2_), .datae (
-                         nx20836z1), .dataf (f_b3_next[2]), .datag (1'b1), .cin (
-                         1'b0)) ;
+    stratixii_lcell_comb ix20836z37247 (.combout (debug_num_5_dup0[1]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_2__dup0_1_), .datae (nx15183z2), .dataf (
+                         f_b3_next[1]), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix20836z37247.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37246 (.combout (f_b3[3]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_2__dup0_3_), .datae (
-                         nx20836z1), .dataf (f_b3_next[3]), .datag (1'b1), .cin (
-                         1'b0)) ;
+    stratixii_lcell_comb ix20836z37246 (.combout (debug_num_5_dup0[2]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_2__dup0_2_), .datae (nx15183z2), .dataf (
+                         f_b3_next[2]), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix20836z37246.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37245 (.combout (f_b3[4]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_2__dup0_4_), .datae (
-                         nx20836z1), .dataf (f_b3_next[4]), .datag (1'b1), .cin (
-                         1'b0)) ;
+    stratixii_lcell_comb ix20836z37245 (.combout (debug_num_5_dup0[3]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_2__dup0_3_), .datae (nx15183z2), .dataf (
+                         f_b3_next[3]), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix20836z37245.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37244 (.combout (f_b3[5]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_2__dup0_5_), .datae (
-                         nx20836z1), .dataf (f_b3_next[5]), .datag (1'b1), .cin (
-                         1'b0)) ;
+    stratixii_lcell_comb ix20836z37244 (.combout (debug_num_5_dup0[4]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_2__dup0_4_), .datae (nx15183z2), .dataf (
+                         f_b3_next[4]), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix20836z37244.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37243 (.combout (f_b3[6]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_2__dup0_6_), .datae (
-                         nx20836z1), .dataf (f_b3_next[6]), .datag (1'b1), .cin (
-                         1'b0)) ;
+    stratixii_lcell_comb ix20836z37243 (.combout (debug_num_5_dup0[5]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_2__dup0_5_), .datae (nx15183z2), .dataf (
+                         f_b3_next[5]), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix20836z37243.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37242 (.combout (f_b3[7]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_2__dup0_7_), .datae (
-                         nx20836z1), .dataf (f_b3_next[7]), .datag (1'b1), .cin (
-                         1'b0)) ;
+    stratixii_lcell_comb ix20836z37242 (.combout (debug_num_5_dup0[6]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_2__dup0_6_), .datae (nx15183z2), .dataf (
+                         f_b3_next[6]), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix20836z37242.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37241 (.combout (f_b2[0]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_1__dup0_0_), .datae (
-                         nx20836z1), .dataf (f_b2_next[0]), .datag (1'b1), .cin (
-                         1'b0)) ;
+    stratixii_lcell_comb ix20836z37241 (.combout (debug_num_5_dup0[7]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_2__dup0_7_), .datae (nx15183z2), .dataf (
+                         f_b3_next[7]), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix20836z37241.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37240 (.combout (f_b2[1]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_1__dup0_1_), .datae (
-                         nx20836z1), .dataf (f_b2_next[1]), .datag (1'b1), .cin (
-                         1'b0)) ;
+    stratixii_lcell_comb ix20836z37240 (.combout (debug_num_4_dup0[0]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_1__dup0_0_), .datae (nx15183z2), .dataf (
+                         f_b2_next[0]), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix20836z37240.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37239 (.combout (f_b2[2]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_1__dup0_2_), .datae (
-                         nx20836z1), .dataf (f_b2_next[2]), .datag (1'b1), .cin (
-                         1'b0)) ;
+    stratixii_lcell_comb ix20836z37239 (.combout (debug_num_4_dup0[1]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_1__dup0_1_), .datae (nx15183z2), .dataf (
+                         f_b2_next[1]), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix20836z37239.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37238 (.combout (f_b2[3]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_1__dup0_3_), .datae (
-                         nx20836z1), .dataf (f_b2_next[3]), .datag (1'b1), .cin (
-                         1'b0)) ;
+    stratixii_lcell_comb ix20836z37238 (.combout (debug_num_4_dup0[2]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_1__dup0_2_), .datae (nx15183z2), .dataf (
+                         f_b2_next[2]), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix20836z37238.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37237 (.combout (f_b2[4]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_1__dup0_4_), .datae (
-                         nx20836z1), .dataf (f_b2_next[4]), .datag (1'b1), .cin (
-                         1'b0)) ;
+    stratixii_lcell_comb ix20836z37237 (.combout (debug_num_4_dup0[3]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_1__dup0_3_), .datae (nx15183z2), .dataf (
+                         f_b2_next[3]), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix20836z37237.lut_mask = 64'hff00ffffff000000;
-    stratixii_lcell_comb ix20836z37236 (.combout (f_b2[5]), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (o_image2_1__dup0_5_), .datae (
-                         nx20836z1), .dataf (f_b2_next[5]), .datag (1'b1), .cin (
-                         1'b0)) ;
+    stratixii_lcell_comb ix20836z37236 (.combout (debug_num_4_dup0[4]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_1__dup0_4_), .datae (nx15183z2), .dataf (
+                         f_b2_next[4]), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix20836z37236.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37235 (.combout (debug_num_4_dup0[5]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_1__dup0_5_), .datae (nx15183z2), .dataf (
+                         f_b2_next[5]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37235.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37234 (.combout (debug_num_4_dup0[6]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_1__dup0_6_), .datae (nx15183z2), .dataf (
+                         f_b2_next[6]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37234.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37233 (.combout (debug_num_4_dup0[7]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_1__dup0_7_), .datae (nx15183z2), .dataf (
+                         f_b2_next[7]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37233.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37232 (.combout (debug_num_3_dup0[0]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_dup0[0]), .datae (nx15183z2), .dataf (
+                         f_b1_next[0]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37232.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37231 (.combout (debug_num_3_dup0[1]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_dup0[1]), .datae (nx15183z2), .dataf (
+                         f_b1_next[1]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37231.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37230 (.combout (debug_num_3_dup0[2]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_dup0[2]), .datae (nx15183z2), .dataf (
+                         f_b1_next[2]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37230.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37229 (.combout (debug_num_3_dup0[3]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_dup0[3]), .datae (nx15183z2), .dataf (
+                         f_b1_next[3]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37229.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37228 (.combout (debug_num_3_dup0[4]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_dup0[4]), .datae (nx15183z2), .dataf (
+                         f_b1_next[4]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37228.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37227 (.combout (debug_num_3_dup0[5]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_dup0[5]), .datae (nx15183z2), .dataf (
+                         f_b1_next[5]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37227.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37226 (.combout (debug_num_3_dup0[6]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_dup0[6]), .datae (nx15183z2), .dataf (
+                         f_b1_next[6]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37226.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_ff ix182_reg_p20 (.regout (ix182_ix179_nx7_repl0), .datain (
+                       debug_valid_dup0), .adatasdata (1'b0), .clk (i_clock_int)
+                       , .ena (1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)
+                       ) ;
+    stratixii_lcell_comb ix20836z37225 (.combout (debug_num_3_dup0[7]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image2_dup0[7]), .datae (nx15183z2), .dataf (
+                         f_b1_next[7]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37225.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_ff ix181_reg_p2m_1_ (.regout (ix181_ix177_nx7_repl0), .datain (
+                       f_i_mode[1]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff ix181_reg_p2m_0_ (.regout (ix181_ix178_nx7_repl0), .datain (
+                       f_i_mode[0]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_comb ix20836z37224 (.combout (debug_num_2_dup0[0]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_dup0[0]), .datae (nx15183z2), .dataf (
+                         f_t3_next[0]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37224.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_ff ix180_reg_p2r_7_ (.regout (ix180_ix169_nx7_repl0), .datain (
+                       f_i_row[7]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff ix180_reg_p2r_6_ (.regout (ix180_ix170_nx7_repl0), .datain (
+                       f_i_row[6]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff ix180_reg_p2r_5_ (.regout (ix180_ix171_nx7_repl0), .datain (
+                       f_i_row[5]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff ix180_reg_p2r_4_ (.regout (ix180_ix172_nx7_repl0), .datain (
+                       f_i_row[4]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff ix180_reg_p2r_3_ (.regout (ix180_ix173_nx7_repl0), .datain (
+                       f_i_row[3]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff ix180_reg_p2r_2_ (.regout (ix180_ix174_nx7_repl0), .datain (
+                       f_i_row[2]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff ix180_reg_p2r_1_ (.regout (ix180_ix175_nx7_repl0), .datain (
+                       f_i_row[1]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff ix180_reg_p2r_0_ (.regout (ix180_ix176_nx7_repl0), .datain (
+                       f_i_row[0]), .adatasdata (1'b0), .clk (i_clock_int), .ena (
+                       1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_comb ix20836z37223 (.combout (debug_num_2_dup0[1]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_dup0[1]), .datae (nx15183z2), .dataf (
+                         f_t3_next[1]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37223.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37222 (.combout (debug_num_2_dup0[2]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_dup0[2]), .datae (nx15183z2), .dataf (
+                         f_t3_next[2]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37222.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37221 (.combout (debug_num_2_dup0[3]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_dup0[3]), .datae (nx15183z2), .dataf (
+                         f_t3_next[3]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37221.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37220 (.combout (debug_num_2_dup0[4]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_dup0[4]), .datae (nx15183z2), .dataf (
+                         f_t3_next[4]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37220.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37219 (.combout (debug_num_2_dup0[5]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_dup0[5]), .datae (nx15183z2), .dataf (
+                         f_t3_next[5]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37219.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37218 (.combout (debug_num_2_dup0[6]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_dup0[6]), .datae (nx15183z2), .dataf (
+                         f_t3_next[6]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37218.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37217 (.combout (debug_num_2_dup0[7]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_dup0[7]), .datae (nx15183z2), .dataf (
+                         f_t3_next[7]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37217.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37216 (.combout (debug_num_1_dup0[0]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_1__dup0_0_), .datae (nx15183z2), .dataf (
+                         f_t2_next[0]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37216.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37215 (.combout (debug_num_1_dup0[1]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_1__dup0_1_), .datae (nx15183z2), .dataf (
+                         f_t2_next[1]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37215.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37214 (.combout (debug_num_1_dup0[2]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_1__dup0_2_), .datae (nx15183z2), .dataf (
+                         f_t2_next[2]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37214.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37213 (.combout (debug_num_1_dup0[3]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_1__dup0_3_), .datae (nx15183z2), .dataf (
+                         f_t2_next[3]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37213.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37212 (.combout (debug_num_1_dup0[4]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_1__dup0_4_), .datae (nx15183z2), .dataf (
+                         f_t2_next[4]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37212.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37211 (.combout (debug_num_1_dup0[5]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_1__dup0_5_), .datae (nx15183z2), .dataf (
+                         f_t2_next[5]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37211.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37210 (.combout (debug_num_1_dup0[6]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_1__dup0_6_), .datae (nx15183z2), .dataf (
+                         f_t2_next[6]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37210.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37209 (.combout (debug_num_1_dup0[7]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_1__dup0_7_), .datae (nx15183z2), .dataf (
+                         f_t2_next[7]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37209.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37208 (.combout (debug_num_0_dup0[0]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_2__dup0_0_), .datae (nx15183z2), .dataf (
+                         f_t1_next[0]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37208.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37207 (.combout (debug_num_0_dup0[1]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_2__dup0_1_), .datae (nx15183z2), .dataf (
+                         f_t1_next[1]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37207.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37206 (.combout (debug_num_0_dup0[2]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_2__dup0_2_), .datae (nx15183z2), .dataf (
+                         f_t1_next[2]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37206.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37205 (.combout (debug_num_0_dup0[3]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_2__dup0_3_), .datae (nx15183z2), .dataf (
+                         f_t1_next[3]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37205.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37204 (.combout (debug_num_0_dup0[4]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_2__dup0_4_), .datae (nx15183z2), .dataf (
+                         f_t1_next[4]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37204.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37203 (.combout (debug_num_0_dup0[5]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_2__dup0_5_), .datae (nx15183z2), .dataf (
+                         f_t1_next[5]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37203.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37202 (.combout (debug_num_0_dup0[6]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_2__dup0_6_), .datae (nx15183z2), .dataf (
+                         f_t1_next[6]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37202.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix20836z37201 (.combout (debug_num_0_dup0[7]), .dataa (
+                         1'b1), .datab (1'b1), .datac (1'b1), .datad (
+                         o_image0_2__dup0_7_), .datae (nx15183z2), .dataf (
+                         f_t1_next[7]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix20836z37201.lut_mask = 64'hff00ffffff000000;
+    stratixii_lcell_comb ix5686z37201 (.combout (debug_valid_dup0), .dataa (1'b1
+                         ), .datab (1'b1), .datac (1'b1), .datad (1'b1), .datae (
+                         nx15183z2), .dataf (m_o_valid), .datag (1'b1), .cin (
+                         1'b0)) ;
+                         
+                         defparam ix5686z37201.lut_mask = 64'hffffffff0000ffff;
+    stratixii_lcell_comb ix47893z37201 (.combout (o_mode_dup0[0]), .dataa (1'b1)
+                         , .datab (1'b1), .datac (i_reset_int), .datad (
+                         f_o_mode[0]), .datae (f_o_mode[1]), .dataf (m_o_mode[0]
+                         ), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix47893z37201.lut_mask = 64'hfffffffffff0f0f0;
+    stratixii_lcell_comb ix59280z37201 (.combout (f_i_mode[1]), .dataa (1'b1), .datab (
+                         1'b1), .datac (1'b1), .datad (i_reset_int), .datae (
+                         f_i_mode_next[1]), .dataf (nx15183z2), .datag (1'b1), .cin (
+                         1'b0)) ;
+                         
+                         defparam ix59280z37201.lut_mask = 64'h00ff00ffffff0000;
     stratixii_io i_valid_ibuf (.combout (i_valid_int), .padio (i_valid), .datain (
                  1'b0), .ddiodatain (1'b0), .oe (1'b1), .outclk (1'b0), .outclkena (
                  1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (1'b0), .sreset (
@@ -2335,8 +2558,472 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam i_clock_ibuf.tie_off_oe_clock_enable = "false";
                  defparam i_clock_ibuf.input_register_mode = "none";
+    stratixii_io debug_valid_obuf (.padio (debug_valid), .datain (
+                 debug_valid_dup0), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_valid_obuf.operation_mode = "output";
+                 
+                 defparam debug_valid_obuf.output_register_mode = "none";
+                 
+                 defparam debug_valid_obuf.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_valid_obuf.oe_register_mode = "none";
+                 
+                 defparam debug_valid_obuf.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_valid_obuf.input_register_mode = "none";
+    stratixii_io debug_num_8_triBus11_7_ (.padio (debug_num_8[7]), .datain (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (
+                 debug_led_red_dup0[17]), .outclk (1'b0), .outclkena (1'b1), .inclk (
+                 1'b0), .inclkena (1'b1), .areset (1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_8_triBus11_7_.operation_mode = "output";
+                 
+                 defparam debug_num_8_triBus11_7_.output_register_mode = "none";
+                 
+                 defparam debug_num_8_triBus11_7_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_8_triBus11_7_.oe_register_mode = "none";
+                 
+                 defparam debug_num_8_triBus11_7_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_8_triBus11_7_.input_register_mode = "none";
+    stratixii_io debug_num_8_triBus11_6_ (.padio (debug_num_8[6]), .datain (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (
+                 debug_led_red_dup0[17]), .outclk (1'b0), .outclkena (1'b1), .inclk (
+                 1'b0), .inclkena (1'b1), .areset (1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_8_triBus11_6_.operation_mode = "output";
+                 
+                 defparam debug_num_8_triBus11_6_.output_register_mode = "none";
+                 
+                 defparam debug_num_8_triBus11_6_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_8_triBus11_6_.oe_register_mode = "none";
+                 
+                 defparam debug_num_8_triBus11_6_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_8_triBus11_6_.input_register_mode = "none";
+    stratixii_io debug_num_8_triBus11_5_ (.padio (debug_num_8[5]), .datain (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (
+                 debug_led_red_dup0[17]), .outclk (1'b0), .outclkena (1'b1), .inclk (
+                 1'b0), .inclkena (1'b1), .areset (1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_8_triBus11_5_.operation_mode = "output";
+                 
+                 defparam debug_num_8_triBus11_5_.output_register_mode = "none";
+                 
+                 defparam debug_num_8_triBus11_5_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_8_triBus11_5_.oe_register_mode = "none";
+                 
+                 defparam debug_num_8_triBus11_5_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_8_triBus11_5_.input_register_mode = "none";
+    stratixii_io debug_num_8_triBus11_4_ (.padio (debug_num_8[4]), .datain (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (
+                 debug_led_red_dup0[17]), .outclk (1'b0), .outclkena (1'b1), .inclk (
+                 1'b0), .inclkena (1'b1), .areset (1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_8_triBus11_4_.operation_mode = "output";
+                 
+                 defparam debug_num_8_triBus11_4_.output_register_mode = "none";
+                 
+                 defparam debug_num_8_triBus11_4_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_8_triBus11_4_.oe_register_mode = "none";
+                 
+                 defparam debug_num_8_triBus11_4_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_8_triBus11_4_.input_register_mode = "none";
+    stratixii_io debug_num_8_triBus11_3_ (.padio (debug_num_8[3]), .datain (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (
+                 debug_led_red_dup0[17]), .outclk (1'b0), .outclkena (1'b1), .inclk (
+                 1'b0), .inclkena (1'b1), .areset (1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_8_triBus11_3_.operation_mode = "output";
+                 
+                 defparam debug_num_8_triBus11_3_.output_register_mode = "none";
+                 
+                 defparam debug_num_8_triBus11_3_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_8_triBus11_3_.oe_register_mode = "none";
+                 
+                 defparam debug_num_8_triBus11_3_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_8_triBus11_3_.input_register_mode = "none";
+    stratixii_io debug_num_8_triBus11_2_ (.padio (debug_num_8[2]), .datain (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (
+                 debug_led_red_dup0[17]), .outclk (1'b0), .outclkena (1'b1), .inclk (
+                 1'b0), .inclkena (1'b1), .areset (1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_8_triBus11_2_.operation_mode = "output";
+                 
+                 defparam debug_num_8_triBus11_2_.output_register_mode = "none";
+                 
+                 defparam debug_num_8_triBus11_2_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_8_triBus11_2_.oe_register_mode = "none";
+                 
+                 defparam debug_num_8_triBus11_2_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_8_triBus11_2_.input_register_mode = "none";
+    stratixii_io debug_num_8_triBus11_1_ (.padio (debug_num_8[1]), .datain (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (
+                 debug_led_red_dup0[17]), .outclk (1'b0), .outclkena (1'b1), .inclk (
+                 1'b0), .inclkena (1'b1), .areset (1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_8_triBus11_1_.operation_mode = "output";
+                 
+                 defparam debug_num_8_triBus11_1_.output_register_mode = "none";
+                 
+                 defparam debug_num_8_triBus11_1_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_8_triBus11_1_.oe_register_mode = "none";
+                 
+                 defparam debug_num_8_triBus11_1_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_8_triBus11_1_.input_register_mode = "none";
+    stratixii_io debug_num_8_triBus11_0_ (.padio (debug_num_8[0]), .datain (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (
+                 debug_led_red_dup0[17]), .outclk (1'b0), .outclkena (1'b1), .inclk (
+                 1'b0), .inclkena (1'b1), .areset (1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_8_triBus11_0_.operation_mode = "output";
+                 
+                 defparam debug_num_8_triBus11_0_.output_register_mode = "none";
+                 
+                 defparam debug_num_8_triBus11_0_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_8_triBus11_0_.oe_register_mode = "none";
+                 
+                 defparam debug_num_8_triBus11_0_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_8_triBus11_0_.input_register_mode = "none";
+    stratixii_io debug_num_7_obuf_7_ (.padio (debug_num_7[7]), .datain (
+                 debug_num_7_dup0[7]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_7_obuf_7_.operation_mode = "output";
+                 
+                 defparam debug_num_7_obuf_7_.output_register_mode = "none";
+                 
+                 defparam debug_num_7_obuf_7_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_7_obuf_7_.oe_register_mode = "none";
+                 
+                 defparam debug_num_7_obuf_7_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_7_obuf_7_.input_register_mode = "none";
+    stratixii_io debug_num_7_obuf_6_ (.padio (debug_num_7[6]), .datain (
+                 debug_num_7_dup0[6]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_7_obuf_6_.operation_mode = "output";
+                 
+                 defparam debug_num_7_obuf_6_.output_register_mode = "none";
+                 
+                 defparam debug_num_7_obuf_6_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_7_obuf_6_.oe_register_mode = "none";
+                 
+                 defparam debug_num_7_obuf_6_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_7_obuf_6_.input_register_mode = "none";
+    stratixii_io debug_num_7_obuf_5_ (.padio (debug_num_7[5]), .datain (
+                 debug_num_7_dup0[5]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_7_obuf_5_.operation_mode = "output";
+                 
+                 defparam debug_num_7_obuf_5_.output_register_mode = "none";
+                 
+                 defparam debug_num_7_obuf_5_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_7_obuf_5_.oe_register_mode = "none";
+                 
+                 defparam debug_num_7_obuf_5_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_7_obuf_5_.input_register_mode = "none";
+    stratixii_io debug_num_7_obuf_4_ (.padio (debug_num_7[4]), .datain (
+                 debug_num_7_dup0[4]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_7_obuf_4_.operation_mode = "output";
+                 
+                 defparam debug_num_7_obuf_4_.output_register_mode = "none";
+                 
+                 defparam debug_num_7_obuf_4_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_7_obuf_4_.oe_register_mode = "none";
+                 
+                 defparam debug_num_7_obuf_4_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_7_obuf_4_.input_register_mode = "none";
+    stratixii_io debug_num_7_obuf_3_ (.padio (debug_num_7[3]), .datain (
+                 debug_num_7_dup0[3]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_7_obuf_3_.operation_mode = "output";
+                 
+                 defparam debug_num_7_obuf_3_.output_register_mode = "none";
+                 
+                 defparam debug_num_7_obuf_3_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_7_obuf_3_.oe_register_mode = "none";
+                 
+                 defparam debug_num_7_obuf_3_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_7_obuf_3_.input_register_mode = "none";
+    stratixii_io debug_num_7_obuf_2_ (.padio (debug_num_7[2]), .datain (
+                 debug_num_7_dup0[2]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_7_obuf_2_.operation_mode = "output";
+                 
+                 defparam debug_num_7_obuf_2_.output_register_mode = "none";
+                 
+                 defparam debug_num_7_obuf_2_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_7_obuf_2_.oe_register_mode = "none";
+                 
+                 defparam debug_num_7_obuf_2_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_7_obuf_2_.input_register_mode = "none";
+    stratixii_io debug_num_7_obuf_1_ (.padio (debug_num_7[1]), .datain (
+                 debug_num_7_dup0[1]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_7_obuf_1_.operation_mode = "output";
+                 
+                 defparam debug_num_7_obuf_1_.output_register_mode = "none";
+                 
+                 defparam debug_num_7_obuf_1_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_7_obuf_1_.oe_register_mode = "none";
+                 
+                 defparam debug_num_7_obuf_1_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_7_obuf_1_.input_register_mode = "none";
+    stratixii_io debug_num_7_obuf_0_ (.padio (debug_num_7[0]), .datain (
+                 debug_num_7_dup0[0]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_7_obuf_0_.operation_mode = "output";
+                 
+                 defparam debug_num_7_obuf_0_.output_register_mode = "none";
+                 
+                 defparam debug_num_7_obuf_0_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_7_obuf_0_.oe_register_mode = "none";
+                 
+                 defparam debug_num_7_obuf_0_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_7_obuf_0_.input_register_mode = "none";
+    stratixii_io debug_num_6_obuf_7_ (.padio (debug_num_6[7]), .datain (
+                 debug_num_6_dup0[7]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_6_obuf_7_.operation_mode = "output";
+                 
+                 defparam debug_num_6_obuf_7_.output_register_mode = "none";
+                 
+                 defparam debug_num_6_obuf_7_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_6_obuf_7_.oe_register_mode = "none";
+                 
+                 defparam debug_num_6_obuf_7_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_6_obuf_7_.input_register_mode = "none";
+    stratixii_io debug_num_6_obuf_6_ (.padio (debug_num_6[6]), .datain (
+                 debug_num_6_dup0[6]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_6_obuf_6_.operation_mode = "output";
+                 
+                 defparam debug_num_6_obuf_6_.output_register_mode = "none";
+                 
+                 defparam debug_num_6_obuf_6_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_6_obuf_6_.oe_register_mode = "none";
+                 
+                 defparam debug_num_6_obuf_6_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_6_obuf_6_.input_register_mode = "none";
+    stratixii_io debug_num_6_obuf_5_ (.padio (debug_num_6[5]), .datain (
+                 debug_num_6_dup0[5]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_6_obuf_5_.operation_mode = "output";
+                 
+                 defparam debug_num_6_obuf_5_.output_register_mode = "none";
+                 
+                 defparam debug_num_6_obuf_5_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_6_obuf_5_.oe_register_mode = "none";
+                 
+                 defparam debug_num_6_obuf_5_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_6_obuf_5_.input_register_mode = "none";
+    stratixii_io debug_num_6_obuf_4_ (.padio (debug_num_6[4]), .datain (
+                 debug_num_6_dup0[4]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_6_obuf_4_.operation_mode = "output";
+                 
+                 defparam debug_num_6_obuf_4_.output_register_mode = "none";
+                 
+                 defparam debug_num_6_obuf_4_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_6_obuf_4_.oe_register_mode = "none";
+                 
+                 defparam debug_num_6_obuf_4_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_6_obuf_4_.input_register_mode = "none";
+    stratixii_io debug_num_6_obuf_3_ (.padio (debug_num_6[3]), .datain (
+                 debug_num_6_dup0[3]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_6_obuf_3_.operation_mode = "output";
+                 
+                 defparam debug_num_6_obuf_3_.output_register_mode = "none";
+                 
+                 defparam debug_num_6_obuf_3_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_6_obuf_3_.oe_register_mode = "none";
+                 
+                 defparam debug_num_6_obuf_3_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_6_obuf_3_.input_register_mode = "none";
+    stratixii_io debug_num_6_obuf_2_ (.padio (debug_num_6[2]), .datain (
+                 debug_num_6_dup0[2]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_6_obuf_2_.operation_mode = "output";
+                 
+                 defparam debug_num_6_obuf_2_.output_register_mode = "none";
+                 
+                 defparam debug_num_6_obuf_2_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_6_obuf_2_.oe_register_mode = "none";
+                 
+                 defparam debug_num_6_obuf_2_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_6_obuf_2_.input_register_mode = "none";
+    stratixii_io debug_num_6_obuf_1_ (.padio (debug_num_6[1]), .datain (
+                 debug_num_6_dup0[1]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_6_obuf_1_.operation_mode = "output";
+                 
+                 defparam debug_num_6_obuf_1_.output_register_mode = "none";
+                 
+                 defparam debug_num_6_obuf_1_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_6_obuf_1_.oe_register_mode = "none";
+                 
+                 defparam debug_num_6_obuf_1_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_6_obuf_1_.input_register_mode = "none";
+    stratixii_io debug_num_6_obuf_0_ (.padio (debug_num_6[0]), .datain (
+                 debug_num_6_dup0[0]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_6_obuf_0_.operation_mode = "output";
+                 
+                 defparam debug_num_6_obuf_0_.output_register_mode = "none";
+                 
+                 defparam debug_num_6_obuf_0_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_6_obuf_0_.oe_register_mode = "none";
+                 
+                 defparam debug_num_6_obuf_0_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_6_obuf_0_.input_register_mode = "none";
+    stratixii_io debug_num_5_obuf_7_ (.padio (debug_num_5[7]), .datain (
+                 debug_num_5_dup0[7]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_5_obuf_7_.operation_mode = "output";
+                 
+                 defparam debug_num_5_obuf_7_.output_register_mode = "none";
+                 
+                 defparam debug_num_5_obuf_7_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_5_obuf_7_.oe_register_mode = "none";
+                 
+                 defparam debug_num_5_obuf_7_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_5_obuf_7_.input_register_mode = "none";
+    stratixii_io debug_num_5_obuf_6_ (.padio (debug_num_5[6]), .datain (
+                 debug_num_5_dup0[6]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_5_obuf_6_.operation_mode = "output";
+                 
+                 defparam debug_num_5_obuf_6_.output_register_mode = "none";
+                 
+                 defparam debug_num_5_obuf_6_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_5_obuf_6_.oe_register_mode = "none";
+                 
+                 defparam debug_num_5_obuf_6_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_5_obuf_6_.input_register_mode = "none";
+    stratixii_io debug_num_5_obuf_5_ (.padio (debug_num_5[5]), .datain (
+                 debug_num_5_dup0[5]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_5_obuf_5_.operation_mode = "output";
+                 
+                 defparam debug_num_5_obuf_5_.output_register_mode = "none";
+                 
+                 defparam debug_num_5_obuf_5_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_5_obuf_5_.oe_register_mode = "none";
+                 
+                 defparam debug_num_5_obuf_5_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_5_obuf_5_.input_register_mode = "none";
+    stratixii_io debug_num_5_obuf_4_ (.padio (debug_num_5[4]), .datain (
+                 debug_num_5_dup0[4]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_5_obuf_4_.operation_mode = "output";
+                 
+                 defparam debug_num_5_obuf_4_.output_register_mode = "none";
+                 
+                 defparam debug_num_5_obuf_4_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_5_obuf_4_.oe_register_mode = "none";
+                 
+                 defparam debug_num_5_obuf_4_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_5_obuf_4_.input_register_mode = "none";
     stratixii_io debug_num_5_obuf_3_ (.padio (debug_num_5[3]), .datain (
-                 debug_num_5_dup0_1_), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_5_dup0[3]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2352,7 +3039,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_5_obuf_3_.input_register_mode = "none";
     stratixii_io debug_num_5_obuf_2_ (.padio (debug_num_5[2]), .datain (
-                 debug_num_5_dup0_1_), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_5_dup0[2]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2368,7 +3055,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_5_obuf_2_.input_register_mode = "none";
     stratixii_io debug_num_5_obuf_1_ (.padio (debug_num_5[1]), .datain (
-                 debug_num_5_dup0_1_), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_5_dup0[1]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2384,7 +3071,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_5_obuf_1_.input_register_mode = "none";
     stratixii_io debug_num_5_obuf_0_ (.padio (debug_num_5[0]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_5_dup0[0]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2399,8 +3086,72 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  defparam debug_num_5_obuf_0_.tie_off_oe_clock_enable = "false";
                  
                  defparam debug_num_5_obuf_0_.input_register_mode = "none";
+    stratixii_io debug_num_4_obuf_7_ (.padio (debug_num_4[7]), .datain (
+                 debug_num_4_dup0[7]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_4_obuf_7_.operation_mode = "output";
+                 
+                 defparam debug_num_4_obuf_7_.output_register_mode = "none";
+                 
+                 defparam debug_num_4_obuf_7_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_4_obuf_7_.oe_register_mode = "none";
+                 
+                 defparam debug_num_4_obuf_7_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_4_obuf_7_.input_register_mode = "none";
+    stratixii_io debug_num_4_obuf_6_ (.padio (debug_num_4[6]), .datain (
+                 debug_num_4_dup0[6]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_4_obuf_6_.operation_mode = "output";
+                 
+                 defparam debug_num_4_obuf_6_.output_register_mode = "none";
+                 
+                 defparam debug_num_4_obuf_6_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_4_obuf_6_.oe_register_mode = "none";
+                 
+                 defparam debug_num_4_obuf_6_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_4_obuf_6_.input_register_mode = "none";
+    stratixii_io debug_num_4_obuf_5_ (.padio (debug_num_4[5]), .datain (
+                 debug_num_4_dup0[5]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_4_obuf_5_.operation_mode = "output";
+                 
+                 defparam debug_num_4_obuf_5_.output_register_mode = "none";
+                 
+                 defparam debug_num_4_obuf_5_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_4_obuf_5_.oe_register_mode = "none";
+                 
+                 defparam debug_num_4_obuf_5_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_4_obuf_5_.input_register_mode = "none";
+    stratixii_io debug_num_4_obuf_4_ (.padio (debug_num_4[4]), .datain (
+                 debug_num_4_dup0[4]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_4_obuf_4_.operation_mode = "output";
+                 
+                 defparam debug_num_4_obuf_4_.output_register_mode = "none";
+                 
+                 defparam debug_num_4_obuf_4_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_4_obuf_4_.oe_register_mode = "none";
+                 
+                 defparam debug_num_4_obuf_4_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_4_obuf_4_.input_register_mode = "none";
     stratixii_io debug_num_4_obuf_3_ (.padio (debug_num_4[3]), .datain (
-                 debug_num_5_dup0_1_), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_4_dup0[3]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2416,7 +3167,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_4_obuf_3_.input_register_mode = "none";
     stratixii_io debug_num_4_obuf_2_ (.padio (debug_num_4[2]), .datain (
-                 debug_num_5_dup0_1_), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_4_dup0[2]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2432,7 +3183,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_4_obuf_2_.input_register_mode = "none";
     stratixii_io debug_num_4_obuf_1_ (.padio (debug_num_4[1]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_4_dup0[1]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2448,7 +3199,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_4_obuf_1_.input_register_mode = "none";
     stratixii_io debug_num_4_obuf_0_ (.padio (debug_num_4[0]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_4_dup0[0]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2463,8 +3214,72 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  defparam debug_num_4_obuf_0_.tie_off_oe_clock_enable = "false";
                  
                  defparam debug_num_4_obuf_0_.input_register_mode = "none";
+    stratixii_io debug_num_3_obuf_7_ (.padio (debug_num_3[7]), .datain (
+                 debug_num_3_dup0[7]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_3_obuf_7_.operation_mode = "output";
+                 
+                 defparam debug_num_3_obuf_7_.output_register_mode = "none";
+                 
+                 defparam debug_num_3_obuf_7_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_3_obuf_7_.oe_register_mode = "none";
+                 
+                 defparam debug_num_3_obuf_7_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_3_obuf_7_.input_register_mode = "none";
+    stratixii_io debug_num_3_obuf_6_ (.padio (debug_num_3[6]), .datain (
+                 debug_num_3_dup0[6]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_3_obuf_6_.operation_mode = "output";
+                 
+                 defparam debug_num_3_obuf_6_.output_register_mode = "none";
+                 
+                 defparam debug_num_3_obuf_6_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_3_obuf_6_.oe_register_mode = "none";
+                 
+                 defparam debug_num_3_obuf_6_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_3_obuf_6_.input_register_mode = "none";
+    stratixii_io debug_num_3_obuf_5_ (.padio (debug_num_3[5]), .datain (
+                 debug_num_3_dup0[5]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_3_obuf_5_.operation_mode = "output";
+                 
+                 defparam debug_num_3_obuf_5_.output_register_mode = "none";
+                 
+                 defparam debug_num_3_obuf_5_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_3_obuf_5_.oe_register_mode = "none";
+                 
+                 defparam debug_num_3_obuf_5_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_3_obuf_5_.input_register_mode = "none";
+    stratixii_io debug_num_3_obuf_4_ (.padio (debug_num_3[4]), .datain (
+                 debug_num_3_dup0[4]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_3_obuf_4_.operation_mode = "output";
+                 
+                 defparam debug_num_3_obuf_4_.output_register_mode = "none";
+                 
+                 defparam debug_num_3_obuf_4_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_3_obuf_4_.oe_register_mode = "none";
+                 
+                 defparam debug_num_3_obuf_4_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_3_obuf_4_.input_register_mode = "none";
     stratixii_io debug_num_3_obuf_3_ (.padio (debug_num_3[3]), .datain (
-                 debug_num_5_dup0_1_), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_3_dup0[3]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2480,7 +3295,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_3_obuf_3_.input_register_mode = "none";
     stratixii_io debug_num_3_obuf_2_ (.padio (debug_num_3[2]), .datain (
-                 debug_num_5_dup0_1_), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_3_dup0[2]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2496,7 +3311,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_3_obuf_2_.input_register_mode = "none";
     stratixii_io debug_num_3_obuf_1_ (.padio (debug_num_3[1]), .datain (
-                 debug_num_5_dup0_1_), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_3_dup0[1]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2512,7 +3327,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_3_obuf_1_.input_register_mode = "none";
     stratixii_io debug_num_3_obuf_0_ (.padio (debug_num_3[0]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_3_dup0[0]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2527,8 +3342,72 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  defparam debug_num_3_obuf_0_.tie_off_oe_clock_enable = "false";
                  
                  defparam debug_num_3_obuf_0_.input_register_mode = "none";
+    stratixii_io debug_num_2_obuf_7_ (.padio (debug_num_2[7]), .datain (
+                 debug_num_2_dup0[7]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_2_obuf_7_.operation_mode = "output";
+                 
+                 defparam debug_num_2_obuf_7_.output_register_mode = "none";
+                 
+                 defparam debug_num_2_obuf_7_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_2_obuf_7_.oe_register_mode = "none";
+                 
+                 defparam debug_num_2_obuf_7_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_2_obuf_7_.input_register_mode = "none";
+    stratixii_io debug_num_2_obuf_6_ (.padio (debug_num_2[6]), .datain (
+                 debug_num_2_dup0[6]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_2_obuf_6_.operation_mode = "output";
+                 
+                 defparam debug_num_2_obuf_6_.output_register_mode = "none";
+                 
+                 defparam debug_num_2_obuf_6_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_2_obuf_6_.oe_register_mode = "none";
+                 
+                 defparam debug_num_2_obuf_6_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_2_obuf_6_.input_register_mode = "none";
+    stratixii_io debug_num_2_obuf_5_ (.padio (debug_num_2[5]), .datain (
+                 debug_num_2_dup0[5]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_2_obuf_5_.operation_mode = "output";
+                 
+                 defparam debug_num_2_obuf_5_.output_register_mode = "none";
+                 
+                 defparam debug_num_2_obuf_5_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_2_obuf_5_.oe_register_mode = "none";
+                 
+                 defparam debug_num_2_obuf_5_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_2_obuf_5_.input_register_mode = "none";
+    stratixii_io debug_num_2_obuf_4_ (.padio (debug_num_2[4]), .datain (
+                 debug_num_2_dup0[4]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_2_obuf_4_.operation_mode = "output";
+                 
+                 defparam debug_num_2_obuf_4_.output_register_mode = "none";
+                 
+                 defparam debug_num_2_obuf_4_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_2_obuf_4_.oe_register_mode = "none";
+                 
+                 defparam debug_num_2_obuf_4_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_2_obuf_4_.input_register_mode = "none";
     stratixii_io debug_num_2_obuf_3_ (.padio (debug_num_2[3]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_2_dup0[3]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2544,7 +3423,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_2_obuf_3_.input_register_mode = "none";
     stratixii_io debug_num_2_obuf_2_ (.padio (debug_num_2[2]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_2_dup0[2]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2560,7 +3439,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_2_obuf_2_.input_register_mode = "none";
     stratixii_io debug_num_2_obuf_1_ (.padio (debug_num_2[1]), .datain (
-                 debug_num_5_dup0_1_), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_2_dup0[1]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2576,7 +3455,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_2_obuf_1_.input_register_mode = "none";
     stratixii_io debug_num_2_obuf_0_ (.padio (debug_num_2[0]), .datain (
-                 debug_num_5_dup0_1_), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_2_dup0[0]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2591,8 +3470,72 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  defparam debug_num_2_obuf_0_.tie_off_oe_clock_enable = "false";
                  
                  defparam debug_num_2_obuf_0_.input_register_mode = "none";
+    stratixii_io debug_num_1_obuf_7_ (.padio (debug_num_1[7]), .datain (
+                 debug_num_1_dup0[7]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_1_obuf_7_.operation_mode = "output";
+                 
+                 defparam debug_num_1_obuf_7_.output_register_mode = "none";
+                 
+                 defparam debug_num_1_obuf_7_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_1_obuf_7_.oe_register_mode = "none";
+                 
+                 defparam debug_num_1_obuf_7_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_1_obuf_7_.input_register_mode = "none";
+    stratixii_io debug_num_1_obuf_6_ (.padio (debug_num_1[6]), .datain (
+                 debug_num_1_dup0[6]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_1_obuf_6_.operation_mode = "output";
+                 
+                 defparam debug_num_1_obuf_6_.output_register_mode = "none";
+                 
+                 defparam debug_num_1_obuf_6_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_1_obuf_6_.oe_register_mode = "none";
+                 
+                 defparam debug_num_1_obuf_6_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_1_obuf_6_.input_register_mode = "none";
+    stratixii_io debug_num_1_obuf_5_ (.padio (debug_num_1[5]), .datain (
+                 debug_num_1_dup0[5]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_1_obuf_5_.operation_mode = "output";
+                 
+                 defparam debug_num_1_obuf_5_.output_register_mode = "none";
+                 
+                 defparam debug_num_1_obuf_5_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_1_obuf_5_.oe_register_mode = "none";
+                 
+                 defparam debug_num_1_obuf_5_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_1_obuf_5_.input_register_mode = "none";
+    stratixii_io debug_num_1_obuf_4_ (.padio (debug_num_1[4]), .datain (
+                 debug_num_1_dup0[4]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_1_obuf_4_.operation_mode = "output";
+                 
+                 defparam debug_num_1_obuf_4_.output_register_mode = "none";
+                 
+                 defparam debug_num_1_obuf_4_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_1_obuf_4_.oe_register_mode = "none";
+                 
+                 defparam debug_num_1_obuf_4_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_1_obuf_4_.input_register_mode = "none";
     stratixii_io debug_num_1_obuf_3_ (.padio (debug_num_1[3]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_1_dup0[3]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2608,7 +3551,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_1_obuf_3_.input_register_mode = "none";
     stratixii_io debug_num_1_obuf_2_ (.padio (debug_num_1[2]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_1_dup0[2]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2624,7 +3567,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_1_obuf_2_.input_register_mode = "none";
     stratixii_io debug_num_1_obuf_1_ (.padio (debug_num_1[1]), .datain (
-                 debug_num_5_dup0_1_), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_1_dup0[1]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2640,7 +3583,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_1_obuf_1_.input_register_mode = "none";
     stratixii_io debug_num_1_obuf_0_ (.padio (debug_num_1[0]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_1_dup0[0]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2655,8 +3598,72 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  defparam debug_num_1_obuf_0_.tie_off_oe_clock_enable = "false";
                  
                  defparam debug_num_1_obuf_0_.input_register_mode = "none";
+    stratixii_io debug_num_0_obuf_7_ (.padio (debug_num_0[7]), .datain (
+                 debug_num_0_dup0[7]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_0_obuf_7_.operation_mode = "output";
+                 
+                 defparam debug_num_0_obuf_7_.output_register_mode = "none";
+                 
+                 defparam debug_num_0_obuf_7_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_0_obuf_7_.oe_register_mode = "none";
+                 
+                 defparam debug_num_0_obuf_7_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_0_obuf_7_.input_register_mode = "none";
+    stratixii_io debug_num_0_obuf_6_ (.padio (debug_num_0[6]), .datain (
+                 debug_num_0_dup0[6]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_0_obuf_6_.operation_mode = "output";
+                 
+                 defparam debug_num_0_obuf_6_.output_register_mode = "none";
+                 
+                 defparam debug_num_0_obuf_6_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_0_obuf_6_.oe_register_mode = "none";
+                 
+                 defparam debug_num_0_obuf_6_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_0_obuf_6_.input_register_mode = "none";
+    stratixii_io debug_num_0_obuf_5_ (.padio (debug_num_0[5]), .datain (
+                 debug_num_0_dup0[5]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_0_obuf_5_.operation_mode = "output";
+                 
+                 defparam debug_num_0_obuf_5_.output_register_mode = "none";
+                 
+                 defparam debug_num_0_obuf_5_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_0_obuf_5_.oe_register_mode = "none";
+                 
+                 defparam debug_num_0_obuf_5_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_0_obuf_5_.input_register_mode = "none";
+    stratixii_io debug_num_0_obuf_4_ (.padio (debug_num_0[4]), .datain (
+                 debug_num_0_dup0[4]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
+                 1'b0), .sreset (1'b0)) ;
+                 
+                 defparam debug_num_0_obuf_4_.operation_mode = "output";
+                 
+                 defparam debug_num_0_obuf_4_.output_register_mode = "none";
+                 
+                 defparam debug_num_0_obuf_4_.tie_off_output_clock_enable = "false";
+                 
+                 defparam debug_num_0_obuf_4_.oe_register_mode = "none";
+                 
+                 defparam debug_num_0_obuf_4_.tie_off_oe_clock_enable = "false";
+                 
+                 defparam debug_num_0_obuf_4_.input_register_mode = "none";
     stratixii_io debug_num_0_obuf_3_ (.padio (debug_num_0[3]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_0_dup0[3]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2672,7 +3679,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_0_obuf_3_.input_register_mode = "none";
     stratixii_io debug_num_0_obuf_2_ (.padio (debug_num_0[2]), .datain (
-                 debug_num_5_dup0_1_), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_0_dup0[2]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2688,7 +3695,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_0_obuf_2_.input_register_mode = "none";
     stratixii_io debug_num_0_obuf_1_ (.padio (debug_num_0[1]), .datain (
-                 debug_num_5_dup0_1_), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_0_dup0[1]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2704,7 +3711,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_0_obuf_1_.input_register_mode = "none";
     stratixii_io debug_num_0_obuf_0_ (.padio (debug_num_0[0]), .datain (
-                 debug_num_5_dup0_1_), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_num_0_dup0[0]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2720,7 +3727,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_num_0_obuf_0_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_9_ (.padio (debug_led_red[9]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2736,7 +3743,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_9_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_8_ (.padio (debug_led_red[8]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2752,7 +3759,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_8_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_7_ (.padio (debug_led_red[7]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2768,7 +3775,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_7_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_6_ (.padio (debug_led_red[6]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2784,7 +3791,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_6_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_5_ (.padio (debug_led_red[5]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2800,7 +3807,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_5_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_4_ (.padio (debug_led_red[4]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2816,7 +3823,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_4_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_3_ (.padio (debug_led_red[3]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2832,7 +3839,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_3_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_2_ (.padio (debug_led_red[2]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2848,7 +3855,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_2_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_17_ (.padio (debug_led_red[17]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2864,7 +3871,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_17_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_16_ (.padio (debug_led_red[16]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2880,7 +3887,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_16_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_15_ (.padio (debug_led_red[15]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2896,7 +3903,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_15_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_14_ (.padio (debug_led_red[14]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2912,7 +3919,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_14_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_13_ (.padio (debug_led_red[13]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2928,7 +3935,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_13_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_12_ (.padio (debug_led_red[12]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2944,7 +3951,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_12_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_11_ (.padio (debug_led_red[11]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2960,7 +3967,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_11_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_10_ (.padio (debug_led_red[10]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2976,7 +3983,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_10_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_1_ (.padio (debug_led_red[1]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -2992,7 +3999,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_1_.input_register_mode = "none";
     stratixii_io debug_led_red_obuf_0_ (.padio (debug_led_red[0]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -3008,7 +4015,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_red_obuf_0_.input_register_mode = "none";
     stratixii_io debug_led_grn_obuf_5_ (.padio (debug_led_grn[5]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -3024,7 +4031,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_grn_obuf_5_.input_register_mode = "none";
     stratixii_io debug_led_grn_obuf_4_ (.padio (debug_led_grn[4]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -3040,7 +4047,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_grn_obuf_4_.input_register_mode = "none";
     stratixii_io debug_led_grn_obuf_3_ (.padio (debug_led_grn[3]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -3056,7 +4063,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_grn_obuf_3_.input_register_mode = "none";
     stratixii_io debug_led_grn_obuf_2_ (.padio (debug_led_grn[2]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -3072,7 +4079,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_grn_obuf_2_.input_register_mode = "none";
     stratixii_io debug_led_grn_obuf_1_ (.padio (debug_led_grn[1]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -3088,7 +4095,7 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                  
                  defparam debug_led_grn_obuf_1_.input_register_mode = "none";
     stratixii_io debug_led_grn_obuf_0_ (.padio (debug_led_grn[0]), .datain (
-                 debug_num_5_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
+                 debug_led_red_dup0[17]), .ddiodatain (1'b0), .oe (1'b1), .outclk (
                  1'b0), .outclkena (1'b1), .inclk (1'b0), .inclkena (1'b1), .areset (
                  1'b0), .sreset (1'b0)) ;
                  
@@ -3107,17 +4114,21 @@ endmodule
 
 
 module flow ( t1, t2, t3, b1, b2, b3, i1, i2, i_clock, i_reset, i_valid, i_mode, 
-              i_row, o_dir, o_edge, o_valid, o_mode, o_row, GND, 
-              p_ix183_ix179_nx7_repl0, p_ix183_ix180_nx7_repl0, p_f_i1_next_7_, 
-              p_rtlc1n11, p_o_image1_0__dup0_7_, p_f_i1_next_6_, 
+              i_row, o_dir, o_edge, o_valid, o_mode, o_row, p_f_i1_next_7_, 
+              p_rtlcs0, p_o_image1_0__dup0_7_, p_f_i1_next_6_, 
               p_o_image1_0__dup0_6_, p_f_i1_next_5_, p_o_image1_0__dup0_5_, 
               p_f_i1_next_4_, p_o_image1_0__dup0_4_, p_f_i1_next_3_, 
               p_o_image1_0__dup0_3_, p_f_i1_next_2_, p_o_image1_0__dup0_2_, 
               p_f_i1_next_1_, p_o_image1_0__dup0_1_, p_f_i1_next_0_, 
               p_o_image1_0__dup0_0_, p_f_i2_next_7_, p_o_image1_2__dup0_7_, 
               p_f_i2_next_5_, p_o_image1_2__dup0_5_, p_f_i2_next_3_, 
-              p_o_image1_2__dup0_3_, p_f_i2_next_1_, p_o_image1_2__dup0_1_, 
-              p_ix184_ix181_nx7_repl0 ) ;
+              p_o_image1_2__dup0_3_, p_f_i2_next_1_, p_o_image1_2__dup0_1_, GND, 
+              p_ix182_ix179_nx7_repl0, p_ix180_ix169_nx7_repl0, 
+              p_ix180_ix170_nx7_repl0, p_ix180_ix171_nx7_repl0, 
+              p_ix180_ix172_nx7_repl0, p_ix180_ix173_nx7_repl0, 
+              p_ix180_ix174_nx7_repl0, p_ix180_ix175_nx7_repl0, 
+              p_ix180_ix176_nx7_repl0, p_ix181_ix177_nx7_repl0, 
+              p_ix181_ix178_nx7_repl0 ) ;
 
     input [7:0]t1 ;
     input [7:0]t2 ;
@@ -3137,11 +4148,8 @@ module flow ( t1, t2, t3, b1, b2, b3, i1, i2, i_clock, i_reset, i_valid, i_mode,
     output o_valid ;
     output [1:0]o_mode ;
     output [7:0]o_row ;
-    output GND ;
-    input p_ix183_ix179_nx7_repl0 ;
-    input p_ix183_ix180_nx7_repl0 ;
     input p_f_i1_next_7_ ;
-    input p_rtlc1n11 ;
+    input p_rtlcs0 ;
     input p_o_image1_0__dup0_7_ ;
     input p_f_i1_next_6_ ;
     input p_o_image1_0__dup0_6_ ;
@@ -3165,7 +4173,18 @@ module flow ( t1, t2, t3, b1, b2, b3, i1, i2, i_clock, i_reset, i_valid, i_mode,
     input p_o_image1_2__dup0_3_ ;
     input p_f_i2_next_1_ ;
     input p_o_image1_2__dup0_1_ ;
-    input p_ix184_ix181_nx7_repl0 ;
+    output GND ;
+    input p_ix182_ix179_nx7_repl0 ;
+    input p_ix180_ix169_nx7_repl0 ;
+    input p_ix180_ix170_nx7_repl0 ;
+    input p_ix180_ix171_nx7_repl0 ;
+    input p_ix180_ix172_nx7_repl0 ;
+    input p_ix180_ix173_nx7_repl0 ;
+    input p_ix180_ix174_nx7_repl0 ;
+    input p_ix180_ix175_nx7_repl0 ;
+    input p_ix180_ix176_nx7_repl0 ;
+    input p_ix181_ix177_nx7_repl0 ;
+    input p_ix181_ix178_nx7_repl0 ;
 
     wire [9:0]p11;
     wire [9:0]p12;
@@ -3179,32 +4198,28 @@ module flow ( t1, t2, t3, b1, b2, b3, i1, i2, i_clock, i_reset, i_valid, i_mode,
     wire p35, p41, p45, p40;
     wire [11:0]p43;
     wire [11:0]p4s;
-    wire p50;
     wire [1:0]p5m;
     wire [10:0]prev_max;
     wire [3:0]state;
     wire [8:0]p13_0n0s2;
-    wire [10:1]p21_4n0r4;
-    wire [10:1]p22_4n0r4;
-    wire [9:0]p21_4n0r3;
+    wire [10:1]p21_3n0r4;
+    wire [10:1]p22_3n0r4;
+    wire [9:0]p21_3n0r3;
     wire nx52975z1, nx51978z1, nx44434z1, nx45431z1, nx46428z1, nx47425z1, 
          nx48422z1, nx49419z1, nx50416z1, nx51413z1;
-    wire [9:0]p22_4n0r3;
+    wire [9:0]p22_3n0r3;
     wire nx47840z1, nx46843z1, nx12683z1, nx11686z1, nx10689z1, nx9692z1, 
-         nx8695z1, nx7698z1, nx6701z1, nx5704z1, nx51413z2, nx5704z2, nx34765z1, 
-         nx29630z1, nx24495z1, nx33768z1, nx28633z1, nx23498z1, nx32771z1, 
-         nx27636z1, nx22501z1, nx31774z1, nx26639z1, nx21504z1, nx30777z1, 
-         nx25642z1, nx20507z1, nx29780z1, nx24645z1, nx19510z1, nx28783z1, 
-         nx23648z1, nx18513z1, nx27786z1, nx22651z1, nx17516z1, nx4428z1, 
-         nx64829z1, nx3431z1, nx63832z1, nx53186z1, nx25836z2, nx45188z2, 
-         nx26026z1, nx28524z2, nx26530z1, nx27527z1, nx28524z1, nx29521z1, 
-         nx25836z1, nx26833z1, nx45188z1, nx44191z1, nx49569z1, nx50566z1, 
-         nx51563z1, nx52560z1, nx53557z1, nx54554z1, nx55551z1, nx56548z1, 
-         nx57545z1, nx58542z1, nx45188z4, nx45188z6, nx35078z4, nx35078z1, 
+         nx8695z1, nx7698z1, nx6701z1, nx5704z1, nx51413z2, nx5704z2, nx21188z1, 
+         nx49483z1, nx20191z1, nx50480z1, nx19194z1, nx51477z1, nx18197z1, 
+         nx52474z1, nx17200z1, nx53471z1, nx16203z1, nx54468z1, nx15206z1, 
+         nx55465z1, nx14209z1, nx56462z1, nx4014z1, nx9149z1, nx5011z1, 
+         nx10146z1, nx7680z1, nx25836z2, nx45188z2, nx26026z1, nx28524z1, 
+         nx29521z1, nx25836z1, nx26833z1, nx45188z1, nx44191z1, nx49569z1, 
+         nx50566z1, nx51563z1, nx52560z1, nx53557z1, nx54554z1, nx55551z1, 
+         nx56548z1, nx57545z1, nx58542z1, nx45188z4, nx45188z6, nx622z4, nx622z1, 
          nx25836z7, nx25836z3, nx45188z3, nx45188z5, nx45188z7, nx25836z4, 
-         nx25836z5, nx25836z6, nx35078z3, nx35078z5, nx35078z6, nx35078z2, 
-         nx60988z1;
-    wire [1186:0] xmplr_dummy ;
+         nx25836z5, nx25836z6, nx622z3, nx622z5, nx622z6, nx622z2, nx60988z1;
+    wire [1095:0] xmplr_dummy ;
 
 
 
@@ -3214,51 +4229,51 @@ module flow ( t1, t2, t3, b1, b2, b3, i1, i2, i_clock, i_reset, i_valid, i_mode,
              xmplr_dummy [0],p32[9],p32[8],p32[7],p32[6],p32[5],p32[4],p32[3],
              p32[2],p32[1],p32[0]}), .d ({p4s[11],p4s[10],p4s[9],p4s[8],p4s[7],
              p4s[6],p4s[5],p4s[4],p4s[3],p4s[2],p4s[1],p4s[0]})) ;
-    add_10_0 p21_add10_4i1 (.a ({xmplr_dummy [1],p12[9],p12[8],p12[7],p12[6],
+    add_10_0 p21_add10_3i1 (.a ({xmplr_dummy [1],p12[9],p12[8],p12[7],p12[6],
              p12[5],p12[4],p12[3],p12[2],p12[1]}), .b ({xmplr_dummy [2],
              xmplr_dummy [3],xmplr_dummy [4],xmplr_dummy [5],xmplr_dummy [6],
              xmplr_dummy [7],xmplr_dummy [8],xmplr_dummy [9],xmplr_dummy [10],
-             p12[0]}), .d ({p21_4n0r4[10],p21_4n0r4[9],p21_4n0r4[8],p21_4n0r4[7]
-             ,p21_4n0r4[6],p21_4n0r4[5],p21_4n0r4[4],p21_4n0r4[3],p21_4n0r4[2],
-             p21_4n0r4[1]})) ;
-    sub_10_0 p21_sub10_4i2 (.a ({p11[9],p11[8],p11[7],p11[6],p11[5],p11[4],
-             p11[3],p11[2],p11[1],p11[0]}), .b ({p21_4n0r4[9],p21_4n0r4[8],
-             p21_4n0r4[7],p21_4n0r4[6],p21_4n0r4[5],p21_4n0r4[4],p21_4n0r4[3],
-             p21_4n0r4[2],p21_4n0r4[1],p12[0]}), .d ({p21_4n0r3[9],p21_4n0r3[8],
-             p21_4n0r3[7],p21_4n0r3[6],p21_4n0r3[5],p21_4n0r3[4],p21_4n0r3[3],
-             p21_4n0r3[2],p21_4n0r3[1],p21_4n0r3[0]}), .cout (nx51413z2)) ;
-    add_10_1 ix51413z41662 (.a ({xmplr_dummy [11],xmplr_dummy [12],p21_4n0r3[9],
-             p21_4n0r3[8],p21_4n0r3[7],p21_4n0r3[6],p21_4n0r3[5],p21_4n0r3[4],
-             p21_4n0r3[3],p21_4n0r3[2]}), .b ({p11[9],p11[8],p11[7],p11[6],
+             p12[0]}), .d ({p21_3n0r4[10],p21_3n0r4[9],p21_3n0r4[8],p21_3n0r4[7]
+             ,p21_3n0r4[6],p21_3n0r4[5],p21_3n0r4[4],p21_3n0r4[3],p21_3n0r4[2],
+             p21_3n0r4[1]})) ;
+    sub_10_0 p21_sub10_3i2 (.a ({p11[9],p11[8],p11[7],p11[6],p11[5],p11[4],
+             p11[3],p11[2],p11[1],p11[0]}), .b ({p21_3n0r4[9],p21_3n0r4[8],
+             p21_3n0r4[7],p21_3n0r4[6],p21_3n0r4[5],p21_3n0r4[4],p21_3n0r4[3],
+             p21_3n0r4[2],p21_3n0r4[1],p12[0]}), .d ({p21_3n0r3[9],p21_3n0r3[8],
+             p21_3n0r3[7],p21_3n0r3[6],p21_3n0r3[5],p21_3n0r3[4],p21_3n0r3[3],
+             p21_3n0r3[2],p21_3n0r3[1],p21_3n0r3[0]}), .cout (nx51413z2)) ;
+    add_10_1 ix51413z41662 (.a ({xmplr_dummy [11],xmplr_dummy [12],p21_3n0r3[9],
+             p21_3n0r3[8],p21_3n0r3[7],p21_3n0r3[6],p21_3n0r3[5],p21_3n0r3[4],
+             p21_3n0r3[3],p21_3n0r3[2]}), .b ({p11[9],p11[8],p11[7],p11[6],
              p11[5],p11[4],p11[3],p11[2],p11[1],p11[0]}), .d ({nx52975z1,
              nx51978z1,nx44434z1,nx45431z1,nx46428z1,nx47425z1,nx48422z1,
-             nx49419z1,nx50416z1,nx51413z1}), .p_p21_4n0r4_10_ (p21_4n0r4[10]), 
-             .p_rtlcn1061 (nx51413z2)) ;
-    add_10_2 p22_add10_4i3 (.a ({xmplr_dummy [13],p11[9],p11[8],p11[7],p11[6],
+             nx49419z1,nx50416z1,nx51413z1}), .p_p21_3n0r4_10_ (p21_3n0r4[10]), 
+             .p_rtlcn1062 (nx51413z2)) ;
+    add_10_2 p22_add10_3i3 (.a ({xmplr_dummy [13],p11[9],p11[8],p11[7],p11[6],
              p11[5],p11[4],p11[3],p11[2],p11[1]}), .b ({xmplr_dummy [14],
              xmplr_dummy [15],xmplr_dummy [16],xmplr_dummy [17],xmplr_dummy [18]
              ,xmplr_dummy [19],xmplr_dummy [20],xmplr_dummy [21],
-             xmplr_dummy [22],p11[0]}), .d ({p22_4n0r4[10],p22_4n0r4[9],
-             p22_4n0r4[8],p22_4n0r4[7],p22_4n0r4[6],p22_4n0r4[5],p22_4n0r4[4],
-             p22_4n0r4[3],p22_4n0r4[2],p22_4n0r4[1]})) ;
-    sub_10_1 p22_sub10_4i4 (.a ({p12[9],p12[8],p12[7],p12[6],p12[5],p12[4],
-             p12[3],p12[2],p12[1],p12[0]}), .b ({p22_4n0r4[9],p22_4n0r4[8],
-             p22_4n0r4[7],p22_4n0r4[6],p22_4n0r4[5],p22_4n0r4[4],p22_4n0r4[3],
-             p22_4n0r4[2],p22_4n0r4[1],p11[0]}), .d ({p22_4n0r3[9],p22_4n0r3[8],
-             p22_4n0r3[7],p22_4n0r3[6],p22_4n0r3[5],p22_4n0r3[4],p22_4n0r3[3],
-             p22_4n0r3[2],p22_4n0r3[1],p22_4n0r3[0]}), .cout (nx5704z2)) ;
-    add_10_3 ix5704z41664 (.a ({xmplr_dummy [23],xmplr_dummy [24],p22_4n0r3[9],
-             p22_4n0r3[8],p22_4n0r3[7],p22_4n0r3[6],p22_4n0r3[5],p22_4n0r3[4],
-             p22_4n0r3[3],p22_4n0r3[2]}), .b ({p12[9],p12[8],p12[7],p12[6],
+             xmplr_dummy [22],p11[0]}), .d ({p22_3n0r4[10],p22_3n0r4[9],
+             p22_3n0r4[8],p22_3n0r4[7],p22_3n0r4[6],p22_3n0r4[5],p22_3n0r4[4],
+             p22_3n0r4[3],p22_3n0r4[2],p22_3n0r4[1]})) ;
+    sub_10_1 p22_sub10_3i4 (.a ({p12[9],p12[8],p12[7],p12[6],p12[5],p12[4],
+             p12[3],p12[2],p12[1],p12[0]}), .b ({p22_3n0r4[9],p22_3n0r4[8],
+             p22_3n0r4[7],p22_3n0r4[6],p22_3n0r4[5],p22_3n0r4[4],p22_3n0r4[3],
+             p22_3n0r4[2],p22_3n0r4[1],p11[0]}), .d ({p22_3n0r3[9],p22_3n0r3[8],
+             p22_3n0r3[7],p22_3n0r3[6],p22_3n0r3[5],p22_3n0r3[4],p22_3n0r3[3],
+             p22_3n0r3[2],p22_3n0r3[1],p22_3n0r3[0]}), .cout (nx5704z2)) ;
+    add_10_3 ix5704z41664 (.a ({xmplr_dummy [23],xmplr_dummy [24],p22_3n0r3[9],
+             p22_3n0r3[8],p22_3n0r3[7],p22_3n0r3[6],p22_3n0r3[5],p22_3n0r3[4],
+             p22_3n0r3[3],p22_3n0r3[2]}), .b ({p12[9],p12[8],p12[7],p12[6],
              p12[5],p12[4],p12[3],p12[2],p12[1],p12[0]}), .d ({nx47840z1,
              nx46843z1,nx12683z1,nx11686z1,nx10689z1,nx9692z1,nx8695z1,nx7698z1,
-             nx6701z1,nx5704z1}), .p_p22_4n0r4_10_ (p22_4n0r4[10]), .p_rtlcn1142 (
+             nx6701z1,nx5704z1}), .p_p22_3n0r4_10_ (p22_3n0r4[10]), .p_rtlcn1143 (
              nx5704z2)) ;
     add_8_0 p13_add8_0i3 (.b ({xmplr_dummy [25],i2[6],xmplr_dummy [26],i2[4],
             xmplr_dummy [27],i2[2],xmplr_dummy [28],i2[0]}), .d ({p13_0n0s2[7],
             p13_0n0s2[6],p13_0n0s2[5],p13_0n0s2[4],p13_0n0s2[3],p13_0n0s2[2],
             p13_0n0s2[1],p13_0n0s2[0]}), .cout (p13_0n0s2[8]), .p_f_i1_next_7_ (
-            p_f_i1_next_7_), .p_rtlc1n11 (p_rtlc1n11), .p_o_image1_0__dup0_7_ (
+            p_f_i1_next_7_), .p_rtlcs0 (p_rtlcs0), .p_o_image1_0__dup0_7_ (
             p_o_image1_0__dup0_7_), .p_f_i1_next_6_ (p_f_i1_next_6_), .p_o_image1_0__dup0_6_ (
             p_o_image1_0__dup0_6_), .p_f_i1_next_5_ (p_f_i1_next_5_), .p_o_image1_0__dup0_5_ (
             p_o_image1_0__dup0_5_), .p_f_i1_next_4_ (p_f_i1_next_4_), .p_o_image1_0__dup0_4_ (
@@ -3289,17 +4304,17 @@ module flow ( t1, t2, t3, b1, b2, b3, i1, i2, i_clock, i_reset, i_valid, i_mode,
                           xmplr_dummy [39],t3[7],t3[6],t3[5],t3[4],t3[3],t3[2],
                           t3[1],t3[0]}), .d ({p11[9],p11[8],p11[7],p11[6],p11[5]
                           ,p11[4],p11[3],p11[2],p11[1],p11[0]})) ;
-    stratixii_lcell_ff reg_state_3_ (.regout (state[3]), .datain (nx26530z1), .adatasdata (
-                       1'b0), .clk (i_clock), .ena (nx28524z2), .aclr (1'b0), .sclr (
-                       1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff reg_state_2_ (.regout (state[2]), .datain (nx27527z1), .adatasdata (
-                       1'b0), .clk (i_clock), .ena (nx28524z2), .aclr (1'b0), .sclr (
-                       1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff reg_state_1_ (.regout (state[1]), .datain (nx28524z1), .adatasdata (
-                       1'b0), .clk (i_clock), .ena (nx28524z2), .aclr (1'b0), .sclr (
-                       1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff reg_state_3_ (.regout (state[3]), .datain (state[2]), .adatasdata (
+                       1'b0), .clk (i_clock), .ena (nx28524z1), .aclr (1'b0), .sclr (
+                       i_reset), .sload (1'b0)) ;
+    stratixii_lcell_ff reg_state_2_ (.regout (state[2]), .datain (state[1]), .adatasdata (
+                       1'b0), .clk (i_clock), .ena (nx28524z1), .aclr (1'b0), .sclr (
+                       i_reset), .sload (1'b0)) ;
+    stratixii_lcell_ff reg_state_1_ (.regout (state[1]), .datain (state[0]), .adatasdata (
+                       1'b0), .clk (i_clock), .ena (nx28524z1), .aclr (1'b0), .sclr (
+                       i_reset), .sload (1'b0)) ;
     stratixii_lcell_ff reg_state_0_ (.regout (state[0]), .datain (nx29521z1), .adatasdata (
-                       1'b0), .clk (i_clock), .ena (nx28524z2), .aclr (1'b0), .sclr (
+                       1'b0), .clk (i_clock), .ena (nx28524z1), .aclr (1'b0), .sclr (
                        1'b0), .sload (1'b0)) ;
     stratixii_lcell_ff reg_prev_max_9_ (.regout (prev_max[9]), .datain (p43[9])
                        , .adatasdata (1'b0), .clk (i_clock), .ena (nx60988z1), .aclr (
@@ -3337,9 +4352,6 @@ module flow ( t1, t2, t3, b1, b2, b3, i1, i2, i_clock, i_reset, i_valid, i_mode,
     stratixii_lcell_ff reg_prev_edge (.regout (o_edge), .datain (p41), .adatasdata (
                        1'b0), .clk (i_clock), .ena (nx60988z1), .aclr (1'b0), .sclr (
                        1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff reg_p50 (.regout (p50), .datain (p40), .adatasdata (1'b0)
-                       , .clk (i_clock), .ena (1'b1), .aclr (1'b0), .sclr (1'b0)
-                       , .sload (1'b0)) ;
     stratixii_lcell_ff reg_p45 (.regout (p45), .datain (p35), .adatasdata (1'b0)
                        , .clk (i_clock), .ena (1'b1), .aclr (1'b0), .sclr (1'b0)
                        , .sload (1'b0)) ;
@@ -3517,10 +4529,10 @@ module flow ( t1, t2, t3, b1, b2, b3, i1, i2, i_clock, i_reset, i_valid, i_mode,
     stratixii_lcell_ff reg_p22_10_ (.regout (p22[10]), .datain (nx46843z1), .adatasdata (
                        1'b0), .clk (i_clock), .ena (1'b1), .aclr (1'b0), .sclr (
                        1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff reg_p22_1_ (.regout (p22[1]), .datain (p22_4n0r3[1]), .adatasdata (
+    stratixii_lcell_ff reg_p22_1_ (.regout (p22[1]), .datain (p22_3n0r3[1]), .adatasdata (
                        1'b0), .clk (i_clock), .ena (1'b1), .aclr (1'b0), .sclr (
                        1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff reg_p22_0_ (.regout (p22[0]), .datain (p22_4n0r3[0]), .adatasdata (
+    stratixii_lcell_ff reg_p22_0_ (.regout (p22[0]), .datain (p22_3n0r3[0]), .adatasdata (
                        1'b0), .clk (i_clock), .ena (1'b1), .aclr (1'b0), .sclr (
                        1'b0), .sload (1'b0)) ;
     stratixii_lcell_ff reg_p21_9_ (.regout (p21[9]), .datain (nx44434z1), .adatasdata (
@@ -3553,12 +4565,15 @@ module flow ( t1, t2, t3, b1, b2, b3, i1, i2, i_clock, i_reset, i_valid, i_mode,
     stratixii_lcell_ff reg_p21_10_ (.regout (p21[10]), .datain (nx51978z1), .adatasdata (
                        1'b0), .clk (i_clock), .ena (1'b1), .aclr (1'b0), .sclr (
                        1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff reg_p21_1_ (.regout (p21[1]), .datain (p21_4n0r3[1]), .adatasdata (
+    stratixii_lcell_ff reg_p21_1_ (.regout (p21[1]), .datain (p21_3n0r3[1]), .adatasdata (
                        1'b0), .clk (i_clock), .ena (1'b1), .aclr (1'b0), .sclr (
                        1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff reg_p21_0_ (.regout (p21[0]), .datain (p21_4n0r3[0]), .adatasdata (
+    stratixii_lcell_ff reg_p21_0_ (.regout (p21[0]), .datain (p21_3n0r3[0]), .adatasdata (
                        1'b0), .clk (i_clock), .ena (1'b1), .aclr (1'b0), .sclr (
                        1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff reg_o_valid (.regout (o_valid), .datain (state[3]), .adatasdata (
+                       1'b0), .clk (i_clock), .ena (1'b1), .aclr (1'b0), .sclr (
+                       i_reset), .sload (1'b0)) ;
     stratixii_lcell_ff reg_max_dir_2_ (.regout (o_dir[2]), .datain (nx25836z1), 
                        .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
@@ -3568,29 +4583,28 @@ module flow ( t1, t2, t3, b1, b2, b3, i1, i2, i_clock, i_reset, i_valid, i_mode,
     stratixii_lcell_ff reg_max_dir_0_ (.regout (o_dir[0]), .datain (p45), .adatasdata (
                        1'b0), .clk (i_clock), .ena (nx60988z1), .aclr (1'b0), .sclr (
                        1'b0), .sload (1'b0)) ;
-    stratixii_lcell_comb ix35078z37202 (.combout (nx35078z2), .dataa (
-                         prev_max[0]), .datab (prev_max[2]), .datac (prev_max[3]
-                         ), .datad (p43[0]), .datae (p43[2]), .dataf (p43[3]), .datag (
-                         1'b1), .cin (1'b0)) ;
+    stratixii_lcell_comb ix622z37202 (.combout (nx622z2), .dataa (prev_max[0]), 
+                         .datab (prev_max[2]), .datac (prev_max[3]), .datad (
+                         p43[0]), .datae (p43[2]), .dataf (p43[3]), .datag (1'b1
+                         ), .cin (1'b0)) ;
                          
-                         defparam ix35078z37202.lut_mask = 64'h7fbfdfeff7fbfdfe;
-    stratixii_lcell_comb ix35078z37206 (.combout (nx35078z6), .dataa (1'b1), .datab (
+                         defparam ix622z37202.lut_mask = 64'h7fbfdfeff7fbfdfe;
+    stratixii_lcell_comb ix622z37206 (.combout (nx622z6), .dataa (1'b1), .datab (
                          1'b1), .datac (prev_max[6]), .datad (prev_max[7]), .datae (
                          p43[6]), .dataf (p43[7]), .datag (1'b1), .cin (1'b0)) ;
                          
-                         defparam ix35078z37206.lut_mask = 64'h0ffff0ffff0ffff0;
-    stratixii_lcell_comb ix35078z37205 (.combout (nx35078z5), .dataa (1'b1), .datab (
-                         nx35078z6), .datac (prev_max[8]), .datad (prev_max[9])
-                         , .datae (p43[8]), .dataf (p43[9]), .datag (1'b1), .cin (
+                         defparam ix622z37206.lut_mask = 64'h0ffff0ffff0ffff0;
+    stratixii_lcell_comb ix622z37205 (.combout (nx622z5), .dataa (1'b1), .datab (
+                         nx622z6), .datac (prev_max[8]), .datad (prev_max[9]), .datae (
+                         p43[8]), .dataf (p43[9]), .datag (1'b1), .cin (1'b0)) ;
+                         
+                         defparam ix622z37205.lut_mask = 64'hcffffcffffcffffc;
+    stratixii_lcell_comb ix622z37203 (.combout (nx622z3), .dataa (prev_max[4]), 
+                         .datab (prev_max[5]), .datac (p43[4]), .datad (p43[5])
+                         , .datae (p45), .dataf (o_dir[0]), .datag (1'b1), .cin (
                          1'b0)) ;
                          
-                         defparam ix35078z37205.lut_mask = 64'hcffffcffffcffffc;
-    stratixii_lcell_comb ix35078z37203 (.combout (nx35078z3), .dataa (
-                         prev_max[4]), .datab (prev_max[5]), .datac (p43[4]), .datad (
-                         p43[5]), .datae (p45), .dataf (o_dir[0]), .datag (1'b1)
-                         , .cin (1'b0)) ;
-                         
-                         defparam ix35078z37203.lut_mask = 64'h0000000084210000;
+                         defparam ix622z37203.lut_mask = 64'h0000000084210000;
     stratixii_lcell_comb ix25836z37206 (.combout (nx25836z6), .dataa (1'b1), .datab (
                          nx25836z7), .datac (prev_max[3]), .datad (prev_max[4])
                          , .datae (p43[3]), .dataf (p43[4]), .datag (1'b1), .cin (
@@ -3636,18 +4650,18 @@ module flow ( t1, t2, t3, b1, b2, b3, i1, i2, i_clock, i_reset, i_valid, i_mode,
                          1'b1), .cin (1'b0)) ;
                          
                          defparam ix25836z37207.lut_mask = 64'h7f3f1f0f07030100;
-    stratixii_lcell_comb ix35078z37201 (.combout (nx35078z1), .dataa (1'b1), .datab (
-                         nx35078z2), .datac (nx35078z3), .datad (nx35078z4), .datae (
+    stratixii_lcell_comb ix622z37201 (.combout (nx622z1), .dataa (1'b1), .datab (
+                         nx622z2), .datac (nx622z3), .datad (nx622z4), .datae (
                          prev_max[1]), .dataf (p43[1]), .datag (1'b1), .cin (
                          1'b0)) ;
                          
-                         defparam ix35078z37201.lut_mask = 64'h0030000000000030;
-    stratixii_lcell_comb ix35078z37204 (.combout (nx35078z4), .dataa (1'b1), .datab (
-                         1'b1), .datac (nx35078z5), .datad (prev_max[10]), .datae (
+                         defparam ix622z37201.lut_mask = 64'h0030000000000030;
+    stratixii_lcell_comb ix622z37204 (.combout (nx622z4), .dataa (1'b1), .datab (
+                         1'b1), .datac (nx622z5), .datad (prev_max[10]), .datae (
                          p43[10]), .dataf (p43[11]), .datag (1'b1), .cin (1'b0)
                          ) ;
                          
-                         defparam ix35078z37204.lut_mask = 64'hfffffffff0fffff0;
+                         defparam ix622z37204.lut_mask = 64'hfffffffff0fffff0;
     stratixii_lcell_comb ix45188z37206 (.combout (nx45188z6), .dataa (1'b1), .datab (
                          nx45188z7), .datac (p22[2]), .datad (p22[3]), .datae (
                          p21[2]), .dataf (p21[3]), .datag (1'b1), .cin (1'b0)) ;
@@ -3738,25 +4752,10 @@ module flow ( t1, t2, t3, b1, b2, b3, i1, i2, i_clock, i_reset, i_valid, i_mode,
                          
                          defparam ix29521z37201.lut_mask = 64'hffffffffffff0000;
     stratixii_lcell_comb ix28524z37201 (.combout (nx28524z1), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (1'b1), .datae (state[0])
-                         , .dataf (i_reset), .datag (1'b1), .cin (1'b0)) ;
-                         
-                         defparam ix28524z37201.lut_mask = 64'h00000000ffff0000;
-    stratixii_lcell_comb ix27527z37201 (.combout (nx27527z1), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (1'b1), .datae (state[1])
-                         , .dataf (i_reset), .datag (1'b1), .cin (1'b0)) ;
-                         
-                         defparam ix27527z37201.lut_mask = 64'h00000000ffff0000;
-    stratixii_lcell_comb ix26530z37201 (.combout (nx26530z1), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (1'b1), .datae (state[2])
-                         , .dataf (i_reset), .datag (1'b1), .cin (1'b0)) ;
-                         
-                         defparam ix26530z37201.lut_mask = 64'h00000000ffff0000;
-    stratixii_lcell_comb ix28524z37202 (.combout (nx28524z2), .dataa (1'b1), .datab (
                          1'b1), .datac (1'b1), .datad (1'b1), .datae (p40), .dataf (
                          i_reset), .datag (1'b1), .cin (1'b0)) ;
                          
-                         defparam ix28524z37202.lut_mask = 64'hffffffffffff0000;
+                         defparam ix28524z37201.lut_mask = 64'hffffffffffff0000;
     stratixii_lcell_comb ix26026z37201 (.combout (nx26026z1), .dataa (1'b1), .datab (
                          p4s[7]), .datac (p4s[8]), .datad (p4s[9]), .datae (
                          p4s[10]), .dataf (p4s[11]), .datag (1'b1), .cin (1'b0)
@@ -3769,16 +4768,16 @@ module flow ( t1, t2, t3, b1, b2, b3, i1, i2, i_clock, i_reset, i_valid, i_mode,
                          ) ;
                          
                          defparam ix45188z37202.lut_mask = 64'h3f000300ff3fff03;
-    stratixii_lcell_comb ix232_repl (.combout (nx60988z1), .dataa (1'b1), .datab (
+    stratixii_lcell_comb ix290_repl (.combout (nx60988z1), .dataa (1'b1), .datab (
                          1'b1), .datac (1'b1), .datad (nx25836z3), .datae (
-                         nx35078z1), .dataf (p43[11]), .datag (1'b1), .cin (1'b0
-                         )) ;
+                         nx622z1), .dataf (p43[11]), .datag (1'b1), .cin (1'b0)
+                         ) ;
                          
-                         defparam ix232_repl.lut_mask = 64'hffff0000ffffff00;
+                         defparam ix290_repl.lut_mask = 64'hffff0000ffffff00;
     stratixii_lcell_comb ix25836z37202 (.combout (nx25836z2), .dataa (1'b1), .datab (
                          1'b1), .datac (1'b1), .datad (nx25836z3), .datae (
-                         nx35078z1), .dataf (p43[11]), .datag (1'b1), .cin (1'b0
-                         )) ;
+                         nx622z1), .dataf (p43[11]), .datag (1'b1), .cin (1'b0)
+                         ) ;
                          
                          defparam ix25836z37202.lut_mask = 64'hffff0000ffffff00;
     stratixii_lcell_comb ix15976z37201 (.combout (o_mode[0]), .dataa (1'b1), .datab (
@@ -3791,134 +4790,113 @@ module flow ( t1, t2, t3, b1, b2, b3, i1, i2, i_clock, i_reset, i_valid, i_mode,
                          i_reset), .datag (1'b1), .cin (1'b0)) ;
                          
                          defparam ix16973z37201.lut_mask = 64'h00000000ffff0000;
-    stratixii_lcell_comb ix51998z37201 (.combout (o_valid), .dataa (1'b1), .datab (
-                         1'b1), .datac (1'b1), .datad (state[3]), .datae (p50), 
-                         .dataf (i_reset), .datag (1'b1), .cin (1'b0)) ;
-                         
-                         defparam ix51998z37201.lut_mask = 64'h00000000ff000000;
-    stratixii_lcell_ff ix184_reg_p40 (.regout (p40), .datain (nx53186z1), .adatasdata (
+    stratixii_lcell_ff ix182_reg_p40 (.regout (p40), .datain (nx7680z1), .adatasdata (
                        1'b0), .clk (i_clock), .ena (1'b1), .aclr (1'b0), .sclr (
                        1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix184_reg_p30 (.regout (nx53186z1), .datain (
-                       p_ix184_ix181_nx7_repl0), .adatasdata (1'b0), .clk (
+    stratixii_lcell_ff ix182_reg_p30 (.regout (nx7680z1), .datain (
+                       p_ix182_ix179_nx7_repl0), .adatasdata (1'b0), .clk (
                        i_clock), .ena (1'b1), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
-    stratixii_lcell_ff ix183_reg_p5m_1_ (.regout (p5m[1]), .datain (nx64829z1), 
+    stratixii_lcell_ff ix181_reg_p5m_1_ (.regout (p5m[1]), .datain (nx9149z1), .adatasdata (
+                       1'b0), .clk (i_clock), .ena (1'b1), .aclr (1'b0), .sclr (
+                       1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff ix181_reg_p5m_0_ (.regout (p5m[0]), .datain (nx10146z1), 
                        .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix183_reg_p5m_0_ (.regout (p5m[0]), .datain (nx63832z1), 
-                       .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix183_reg_p4m_1_ (.regout (nx64829z1), .datain (nx4428z1)
+    stratixii_lcell_ff ix181_reg_p4m_1_ (.regout (nx9149z1), .datain (nx4014z1)
                        , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix183_reg_p4m_0_ (.regout (nx63832z1), .datain (nx3431z1)
+    stratixii_lcell_ff ix181_reg_p4m_0_ (.regout (nx10146z1), .datain (nx5011z1)
                        , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix183_reg_p3m_1_ (.regout (nx4428z1), .datain (
-                       p_ix183_ix179_nx7_repl0), .adatasdata (1'b0), .clk (
+    stratixii_lcell_ff ix181_reg_p3m_1_ (.regout (nx4014z1), .datain (
+                       p_ix181_ix177_nx7_repl0), .adatasdata (1'b0), .clk (
                        i_clock), .ena (1'b1), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
-    stratixii_lcell_ff ix183_reg_p3m_0_ (.regout (nx3431z1), .datain (
-                       p_ix183_ix180_nx7_repl0), .adatasdata (1'b0), .clk (
+    stratixii_lcell_ff ix181_reg_p3m_0_ (.regout (nx5011z1), .datain (
+                       p_ix181_ix178_nx7_repl0), .adatasdata (1'b0), .clk (
                        i_clock), .ena (1'b1), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p5r_7_ (.regout (o_row[7]), .datain (nx24495z1)
+    stratixii_lcell_ff ix180_reg_p5r_7_ (.regout (o_row[7]), .datain (nx49483z1)
                        , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p5r_6_ (.regout (o_row[6]), .datain (nx23498z1)
+    stratixii_lcell_ff ix180_reg_p5r_6_ (.regout (o_row[6]), .datain (nx50480z1)
                        , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p5r_5_ (.regout (o_row[5]), .datain (nx22501z1)
+    stratixii_lcell_ff ix180_reg_p5r_5_ (.regout (o_row[5]), .datain (nx51477z1)
                        , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p5r_4_ (.regout (o_row[4]), .datain (nx21504z1)
+    stratixii_lcell_ff ix180_reg_p5r_4_ (.regout (o_row[4]), .datain (nx52474z1)
                        , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p5r_3_ (.regout (o_row[3]), .datain (nx20507z1)
+    stratixii_lcell_ff ix180_reg_p5r_3_ (.regout (o_row[3]), .datain (nx53471z1)
                        , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p5r_2_ (.regout (o_row[2]), .datain (nx19510z1)
+    stratixii_lcell_ff ix180_reg_p5r_2_ (.regout (o_row[2]), .datain (nx54468z1)
                        , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p5r_1_ (.regout (o_row[1]), .datain (nx18513z1)
+    stratixii_lcell_ff ix180_reg_p5r_1_ (.regout (o_row[1]), .datain (nx55465z1)
                        , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p5r_0_ (.regout (o_row[0]), .datain (nx17516z1)
+    stratixii_lcell_ff ix180_reg_p5r_0_ (.regout (o_row[0]), .datain (nx56462z1)
                        , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p4r_7_ (.regout (nx24495z1), .datain (nx29630z1
+    stratixii_lcell_ff ix180_reg_p4r_7_ (.regout (nx49483z1), .datain (nx21188z1
                        ), .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p4r_6_ (.regout (nx23498z1), .datain (nx28633z1
+    stratixii_lcell_ff ix180_reg_p4r_6_ (.regout (nx50480z1), .datain (nx20191z1
                        ), .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p4r_5_ (.regout (nx22501z1), .datain (nx27636z1
+    stratixii_lcell_ff ix180_reg_p4r_5_ (.regout (nx51477z1), .datain (nx19194z1
                        ), .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p4r_4_ (.regout (nx21504z1), .datain (nx26639z1
+    stratixii_lcell_ff ix180_reg_p4r_4_ (.regout (nx52474z1), .datain (nx18197z1
                        ), .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p4r_3_ (.regout (nx20507z1), .datain (nx25642z1
+    stratixii_lcell_ff ix180_reg_p4r_3_ (.regout (nx53471z1), .datain (nx17200z1
                        ), .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p4r_2_ (.regout (nx19510z1), .datain (nx24645z1
+    stratixii_lcell_ff ix180_reg_p4r_2_ (.regout (nx54468z1), .datain (nx16203z1
                        ), .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p4r_1_ (.regout (nx18513z1), .datain (nx23648z1
+    stratixii_lcell_ff ix180_reg_p4r_1_ (.regout (nx55465z1), .datain (nx15206z1
                        ), .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p4r_0_ (.regout (nx17516z1), .datain (nx22651z1
+    stratixii_lcell_ff ix180_reg_p4r_0_ (.regout (nx56462z1), .datain (nx14209z1
                        ), .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
                        1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p3r_7_ (.regout (nx29630z1), .datain (nx34765z1
-                       ), .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p3r_6_ (.regout (nx28633z1), .datain (nx33768z1
-                       ), .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p3r_5_ (.regout (nx27636z1), .datain (nx32771z1
-                       ), .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p3r_4_ (.regout (nx26639z1), .datain (nx31774z1
-                       ), .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p3r_3_ (.regout (nx25642z1), .datain (nx30777z1
-                       ), .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p3r_2_ (.regout (nx24645z1), .datain (nx29780z1
-                       ), .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p3r_1_ (.regout (nx23648z1), .datain (nx28783z1
-                       ), .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p3r_0_ (.regout (nx22651z1), .datain (nx27786z1
-                       ), .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p2r_7_ (.regout (nx34765z1), .datain (i_row[7])
-                       , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p2r_6_ (.regout (nx33768z1), .datain (i_row[6])
-                       , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p2r_5_ (.regout (nx32771z1), .datain (i_row[5])
-                       , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p2r_4_ (.regout (nx31774z1), .datain (i_row[4])
-                       , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p2r_3_ (.regout (nx30777z1), .datain (i_row[3])
-                       , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p2r_2_ (.regout (nx29780z1), .datain (i_row[2])
-                       , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p2r_1_ (.regout (nx28783z1), .datain (i_row[1])
-                       , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
-    stratixii_lcell_ff ix182_reg_p2r_0_ (.regout (nx27786z1), .datain (i_row[0])
-                       , .adatasdata (1'b0), .clk (i_clock), .ena (1'b1), .aclr (
-                       1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff ix180_reg_p3r_7_ (.regout (nx21188z1), .datain (
+                       p_ix180_ix169_nx7_repl0), .adatasdata (1'b0), .clk (
+                       i_clock), .ena (1'b1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       1'b0)) ;
+    stratixii_lcell_ff ix180_reg_p3r_6_ (.regout (nx20191z1), .datain (
+                       p_ix180_ix170_nx7_repl0), .adatasdata (1'b0), .clk (
+                       i_clock), .ena (1'b1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       1'b0)) ;
+    stratixii_lcell_ff ix180_reg_p3r_5_ (.regout (nx19194z1), .datain (
+                       p_ix180_ix171_nx7_repl0), .adatasdata (1'b0), .clk (
+                       i_clock), .ena (1'b1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       1'b0)) ;
+    stratixii_lcell_ff ix180_reg_p3r_4_ (.regout (nx18197z1), .datain (
+                       p_ix180_ix172_nx7_repl0), .adatasdata (1'b0), .clk (
+                       i_clock), .ena (1'b1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       1'b0)) ;
+    stratixii_lcell_ff ix180_reg_p3r_3_ (.regout (nx17200z1), .datain (
+                       p_ix180_ix173_nx7_repl0), .adatasdata (1'b0), .clk (
+                       i_clock), .ena (1'b1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       1'b0)) ;
+    stratixii_lcell_ff ix180_reg_p3r_2_ (.regout (nx16203z1), .datain (
+                       p_ix180_ix174_nx7_repl0), .adatasdata (1'b0), .clk (
+                       i_clock), .ena (1'b1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       1'b0)) ;
+    stratixii_lcell_ff ix180_reg_p3r_1_ (.regout (nx15206z1), .datain (
+                       p_ix180_ix175_nx7_repl0), .adatasdata (1'b0), .clk (
+                       i_clock), .ena (1'b1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       1'b0)) ;
+    stratixii_lcell_ff ix180_reg_p3r_0_ (.regout (nx14209z1), .datain (
+                       p_ix180_ix176_nx7_repl0), .adatasdata (1'b0), .clk (
+                       i_clock), .ena (1'b1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       1'b0)) ;
 endmodule
 
 
@@ -4191,7 +5169,7 @@ module add_9_0 ( cin, a, b, d, cout ) ;
 endmodule
 
 
-module add_8_0 ( cin, a, b, d, cout, p_f_i1_next_7_, p_rtlc1n11, 
+module add_8_0 ( cin, a, b, d, cout, p_f_i1_next_7_, p_rtlcs0, 
                  p_o_image1_0__dup0_7_, p_f_i1_next_6_, p_o_image1_0__dup0_6_, 
                  p_f_i1_next_5_, p_o_image1_0__dup0_5_, p_f_i1_next_4_, 
                  p_o_image1_0__dup0_4_, p_f_i1_next_3_, p_o_image1_0__dup0_3_, 
@@ -4207,7 +5185,7 @@ module add_8_0 ( cin, a, b, d, cout, p_f_i1_next_7_, p_rtlc1n11,
     output [7:0]d ;
     output cout ;
     input p_f_i1_next_7_ ;
-    input p_rtlc1n11 ;
+    input p_rtlcs0 ;
     input p_o_image1_0__dup0_7_ ;
     input p_f_i1_next_6_ ;
     input p_o_image1_0__dup0_6_ ;
@@ -4247,53 +5225,53 @@ module add_8_0 ( cin, a, b, d, cout, p_f_i1_next_7_, p_rtlc1n11,
                          
                          defparam ix98_buf.lut_mask = 64'h00000f0f0000f0f0;
     stratixii_lcell_comb ix44952z37201 (.sumout (d[7]), .cout (nx25450z2), .dataa (
-                         p_rtlc1n11), .datab (p_f_i2_next_7_), .datac (
+                         p_rtlcs0), .datab (p_f_i2_next_7_), .datac (
                          p_f_i1_next_7_), .datad (p_o_image1_0__dup0_7_), .datae (
                          1'b1), .dataf (p_o_image1_2__dup0_7_), .datag (1'b1), .cin (
                          nx44952z3)) ;
                          
                          defparam ix44952z37201.lut_mask = 64'h000011bb0000fa50;
     stratixii_lcell_comb ix44952z37202 (.sumout (d[6]), .cout (nx44952z3), .dataa (
-                         p_rtlc1n11), .datab (1'b1), .datac (p_f_i1_next_6_), .datad (
+                         p_rtlcs0), .datab (1'b1), .datac (p_f_i1_next_6_), .datad (
                          p_o_image1_0__dup0_6_), .datae (1'b1), .dataf (b[6]), .datag (
                          1'b1), .cin (nx44952z5)) ;
                          
                          defparam ix44952z37202.lut_mask = 64'h000000ff0000fa50;
     stratixii_lcell_comb ix44952z37203 (.sumout (d[5]), .cout (nx44952z5), .dataa (
-                         p_rtlc1n11), .datab (p_f_i2_next_5_), .datac (
+                         p_rtlcs0), .datab (p_f_i2_next_5_), .datac (
                          p_f_i1_next_5_), .datad (p_o_image1_0__dup0_5_), .datae (
                          1'b1), .dataf (p_o_image1_2__dup0_5_), .datag (1'b1), .cin (
                          nx44952z6)) ;
                          
                          defparam ix44952z37203.lut_mask = 64'h000011bb0000fa50;
     stratixii_lcell_comb ix44952z37204 (.sumout (d[4]), .cout (nx44952z6), .dataa (
-                         p_rtlc1n11), .datab (1'b1), .datac (p_f_i1_next_4_), .datad (
+                         p_rtlcs0), .datab (1'b1), .datac (p_f_i1_next_4_), .datad (
                          p_o_image1_0__dup0_4_), .datae (1'b1), .dataf (b[4]), .datag (
                          1'b1), .cin (nx44952z8)) ;
                          
                          defparam ix44952z37204.lut_mask = 64'h000000ff0000fa50;
     stratixii_lcell_comb ix44952z37205 (.sumout (d[3]), .cout (nx44952z8), .dataa (
-                         p_rtlc1n11), .datab (p_f_i2_next_3_), .datac (
+                         p_rtlcs0), .datab (p_f_i2_next_3_), .datac (
                          p_f_i1_next_3_), .datad (p_o_image1_0__dup0_3_), .datae (
                          1'b1), .dataf (p_o_image1_2__dup0_3_), .datag (1'b1), .cin (
                          nx44952z9)) ;
                          
                          defparam ix44952z37205.lut_mask = 64'h000011bb0000fa50;
     stratixii_lcell_comb ix44952z37206 (.sumout (d[2]), .cout (nx44952z9), .dataa (
-                         p_rtlc1n11), .datab (1'b1), .datac (p_f_i1_next_2_), .datad (
+                         p_rtlcs0), .datab (1'b1), .datac (p_f_i1_next_2_), .datad (
                          p_o_image1_0__dup0_2_), .datae (1'b1), .dataf (b[2]), .datag (
                          1'b1), .cin (nx44952z11)) ;
                          
                          defparam ix44952z37206.lut_mask = 64'h000000ff0000fa50;
     stratixii_lcell_comb ix44952z37207 (.sumout (d[1]), .cout (nx44952z11), .dataa (
-                         p_rtlc1n11), .datab (p_f_i2_next_1_), .datac (
+                         p_rtlcs0), .datab (p_f_i2_next_1_), .datac (
                          p_f_i1_next_1_), .datad (p_o_image1_0__dup0_1_), .datae (
                          1'b1), .dataf (p_o_image1_2__dup0_1_), .datag (1'b1), .cin (
                          nx44952z12)) ;
                          
                          defparam ix44952z37207.lut_mask = 64'h000011bb0000fa50;
     stratixii_lcell_comb ix44952z37208 (.sumout (d[0]), .cout (nx44952z12), .dataa (
-                         p_rtlc1n11), .datab (1'b1), .datac (p_f_i1_next_0_), .datad (
+                         p_rtlcs0), .datab (1'b1), .datac (p_f_i1_next_0_), .datad (
                          p_o_image1_0__dup0_0_), .datae (1'b1), .dataf (b[0]), .datag (
                          1'b1), .cin (nx44952z14)) ;
                          
@@ -4301,15 +5279,15 @@ module add_8_0 ( cin, a, b, d, cout, p_f_i1_next_7_, p_rtlc1n11,
 endmodule
 
 
-module add_10_3 ( cin, a, b, d, cout, p_p22_4n0r4_10_, p_rtlcn1142 ) ;
+module add_10_3 ( cin, a, b, d, cout, p_p22_3n0r4_10_, p_rtlcn1143 ) ;
 
     input cin ;
     input [9:0]a ;
     input [9:0]b ;
     output [9:0]d ;
     output cout ;
-    input p_p22_4n0r4_10_ ;
-    input p_rtlcn1142 ;
+    input p_p22_3n0r4_10_ ;
+    input p_rtlcn1143 ;
 
     wire nx46946z30, nx46946z27, nx46946z24, nx46946z21, nx46946z18, nx46946z15, 
          nx46946z12, nx46946z9, nx46946z6, nx46946z4;
@@ -4361,14 +5339,14 @@ module add_10_3 ( cin, a, b, d, cout, p_p22_4n0r4_10_, p_rtlcn1142 ) ;
                          ) ;
                          
                          defparam ix46946z37210.lut_mask = 64'h000000ff0000ff00;
-    stratixii_lcell_comb ix46946z37201 (.sumout (d[9]), .dataa (p_p22_4n0r4_10_)
-                         , .datab (p_rtlcn1142), .datac (1'b1), .datad (1'b1), .datae (
+    stratixii_lcell_comb ix46946z37201 (.sumout (d[9]), .dataa (p_p22_3n0r4_10_)
+                         , .datab (p_rtlcn1143), .datac (1'b1), .datad (1'b1), .datae (
                          1'b1), .dataf (b[9]), .datag (1'b1), .cin (nx46946z4)
                          ) ;
                          
                          defparam ix46946z37201.lut_mask = 64'h000000ff00001111;
     stratixii_lcell_comb ix46946z37202 (.sumout (d[8]), .cout (nx46946z4), .dataa (
-                         p_p22_4n0r4_10_), .datab (p_rtlcn1142), .datac (1'b1), 
+                         p_p22_3n0r4_10_), .datab (p_rtlcn1143), .datac (1'b1), 
                          .datad (1'b1), .datae (1'b1), .dataf (b[8]), .datag (
                          1'b1), .cin (nx46946z6)) ;
                          
@@ -4569,15 +5547,15 @@ module add_10_2 ( cin, a, b, d, cout ) ;
 endmodule
 
 
-module add_10_1 ( cin, a, b, d, cout, p_p21_4n0r4_10_, p_rtlcn1061 ) ;
+module add_10_1 ( cin, a, b, d, cout, p_p21_3n0r4_10_, p_rtlcn1062 ) ;
 
     input cin ;
     input [9:0]a ;
     input [9:0]b ;
     output [9:0]d ;
     output cout ;
-    input p_p21_4n0r4_10_ ;
-    input p_rtlcn1061 ;
+    input p_p21_3n0r4_10_ ;
+    input p_rtlcn1062 ;
 
     wire nx46946z30, nx46946z27, nx46946z24, nx46946z21, nx46946z18, nx46946z15, 
          nx46946z12, nx46946z9, nx46946z6, nx46946z4;
@@ -4629,14 +5607,14 @@ module add_10_1 ( cin, a, b, d, cout, p_p21_4n0r4_10_, p_rtlcn1061 ) ;
                          ) ;
                          
                          defparam ix46946z37210.lut_mask = 64'h000000ff0000ff00;
-    stratixii_lcell_comb ix46946z37201 (.sumout (d[9]), .dataa (p_p21_4n0r4_10_)
-                         , .datab (p_rtlcn1061), .datac (1'b1), .datad (1'b1), .datae (
+    stratixii_lcell_comb ix46946z37201 (.sumout (d[9]), .dataa (p_p21_3n0r4_10_)
+                         , .datab (p_rtlcn1062), .datac (1'b1), .datad (1'b1), .datae (
                          1'b1), .dataf (b[9]), .datag (1'b1), .cin (nx46946z4)
                          ) ;
                          
                          defparam ix46946z37201.lut_mask = 64'h000000ff00001111;
     stratixii_lcell_comb ix46946z37202 (.sumout (d[8]), .cout (nx46946z4), .dataa (
-                         p_p21_4n0r4_10_), .datab (p_rtlcn1061), .datac (1'b1), 
+                         p_p21_3n0r4_10_), .datab (p_rtlcn1062), .datac (1'b1), 
                          .datad (1'b1), .datae (1'b1), .dataf (b[8]), .datag (
                          1'b1), .cin (nx46946z6)) ;
                          
@@ -4956,7 +5934,8 @@ endmodule
 module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_mode, o_column, 
                 o_row, o_image0_0_, o_image0_1_, o_image0_2_, o_image1_0_, 
                 o_image1_1_, o_image1_2_, o_image2_0_, o_image2_1_, o_image2_2_, 
-                GND, p_ix183_ix179_nx7_repl0, p_ix183_ix180_nx7_repl0 ) ;
+                p_debug_led_red_dup0_17_, p_rtlc13n197, p_f_i_mode_next_1__repl0, 
+                p_f_i_mode_next_0__repl0 ) ;
 
     input i_valid ;
     input i_reset ;
@@ -4975,9 +5954,10 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_mode, o_column,
     output [7:0]o_image2_0_ ;
     output [7:0]o_image2_1_ ;
     output [7:0]o_image2_2_ ;
-    input GND ;
-    output p_ix183_ix179_nx7_repl0 ;
-    output p_ix183_ix180_nx7_repl0 ;
+    input p_debug_led_red_dup0_17_ ;
+    input p_rtlc13n197 ;
+    output p_f_i_mode_next_1__repl0 ;
+    output p_f_i_mode_next_0__repl0 ;
 
     wire [2:0]mem_wrn;
     wire [2:0]mem_wrn_current;
@@ -4988,7 +5968,6 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_mode, o_column,
     wire [7:0]mem_q_0_;
     wire [7:0]mem_q_1_;
     wire [7:0]mem_q_2_;
-    wire [1:0]o_mode_rename1369;
     wire mem_wrn_current_3n4ss1_2_, mem_wrn_current_3n4ss1_1_, nx47386z4, 
          nx47386z2, nx47386z1;
     wire [7:0]buffer2_4n2ss1;
@@ -4998,7 +5977,7 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_mode, o_column,
          nx36z1, nx1033z1, nx2030z1, nx3027z1, nx4024z1, nx5021z1, nx39109z1, 
          nx47386z5, nx60567z2, nx60567z4, nx47386z3, first_bubble_repl, nx8852z1, 
          nx47386z6;
-    wire [841:0] xmplr_dummy ;
+    wire [839:0] xmplr_dummy ;
 
 
 
@@ -5035,7 +6014,7 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_mode, o_column,
     latch lat_ix36864z18 (.q (rtlc0n0[2]), .d (i_pixel[2]), .ena (i_valid)) ;
     latch lat_ix36864z19 (.q (rtlc0n0[1]), .d (i_pixel[1]), .ena (i_valid)) ;
     latch lat_ix36864z20 (.q (rtlc0n0[0]), .d (i_pixel[0]), .ena (i_valid)) ;
-    assign o_mode_rename1369[1] = ~i_reset ;
+    assign o_mode[1] = ~i_reset ;
     stratixii_lcell_ff reg_o_valid (.regout (o_valid), .datain (nx60567z1), .adatasdata (
                        1'b0), .clk (i_clock), .ena (1'b1), .aclr (1'b0), .sclr (
                        1'b0), .sload (1'b0)) ;
@@ -5089,6 +6068,14 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_mode, o_column,
     stratixii_lcell_ff reg_first_bubble (.regout (first_bubble), .datain (
                        i_valid), .adatasdata (1'b0), .clk (i_clock), .ena (1'b1)
                        , .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
+    stratixii_lcell_ff reg_f_i_mode_next_1_ (.regout (p_f_i_mode_next_1__repl0)
+                       , .datain (o_mode[1]), .adatasdata (1'b0), .clk (i_clock)
+                       , .ena (p_rtlc13n197), .aclr (1'b0), .sclr (1'b0), .sload (
+                       1'b0)) ;
+    stratixii_lcell_ff reg_f_i_mode_next_0_ (.regout (p_f_i_mode_next_0__repl0)
+                       , .datain (o_mode[0]), .adatasdata (1'b0), .clk (i_clock)
+                       , .ena (p_rtlc13n197), .aclr (1'b0), .sclr (1'b0), .sload (
+                       1'b0)) ;
     stratixii_lcell_ff reg_busySignalDelayed (.regout (busySignalDelayed), .datain (
                        busySignal), .adatasdata (1'b0), .clk (i_clock), .ena (
                        1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
@@ -5644,20 +6631,12 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_mode, o_column,
                          1'b0)) ;
                          
                          defparam ix41103z37201.lut_mask = 64'h00000000ffff0000;
-    stratixii_lcell_comb ix13701z37201 (.combout (o_mode_rename1369[0]), .dataa (
-                         1'b1), .datab (1'b1), .datac (busySignalDelayed), .datad (
-                         busySignal), .datae (i_reset), .dataf (i_valid), .datag (
-                         1'b1), .cin (1'b0)) ;
+    stratixii_lcell_comb ix15976z37201 (.combout (o_mode[0]), .dataa (1'b1), .datab (
+                         1'b1), .datac (busySignalDelayed), .datad (busySignal)
+                         , .datae (i_reset), .dataf (i_valid), .datag (1'b1), .cin (
+                         1'b0)) ;
                          
-                         defparam ix13701z37201.lut_mask = 64'hfffffffffffffff0;
-    stratixii_lcell_ff ix183_reg_p2m_1_ (.regout (p_ix183_ix179_nx7_repl0), .datain (
-                       o_mode_rename1369[1]), .adatasdata (1'b0), .clk (i_clock)
-                       , .ena (1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)
-                       ) ;
-    stratixii_lcell_ff ix183_reg_p2m_0_ (.regout (p_ix183_ix180_nx7_repl0), .datain (
-                       o_mode_rename1369[0]), .adatasdata (1'b0), .clk (i_clock)
-                       , .ena (1'b1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)
-                       ) ;
+                         defparam ix15976z37201.lut_mask = 64'hfffffffffffffff0;
 endmodule
 
 
@@ -5675,7 +6654,7 @@ module ram_dq_8_2 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
     input rst1 ;
     input regce1 ;
 
-    wire ena1_rename1257;
+    wire ena1_rename1380;
 
 
 
@@ -5683,7 +6662,7 @@ module ram_dq_8_2 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                wr_data1[4],wr_data1[3],wr_data1[2],wr_data1[1],wr_data1[0]}), .address_a (
                {addr1[7],addr1[6],addr1[5],addr1[4],addr1[3],addr1[2],addr1[1],
                addr1[0]}), .wren_a (wr_ena1), .clock0 (wr_clk1), .clocken0 (
-               ena1_rename1257), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
+               ena1_rename1380), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
                rd_data1[4],rd_data1[3],rd_data1[2],rd_data1[1],rd_data1[0]})) ;
                
                defparam ix64056z29483.width_a = 8;
@@ -5757,7 +6736,7 @@ module ram_dq_8_2 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                defparam ix64056z29483.lpm_hint = "UNUSED";
                
                defparam ix64056z29483.lpm_type = "altsyncram";
-    assign ena1_rename1257 = 1 ;
+    assign ena1_rename1380 = 1 ;
 endmodule
 
 
@@ -5775,7 +6754,7 @@ module ram_dq_8_1 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
     input rst1 ;
     input regce1 ;
 
-    wire ena1_rename1227;
+    wire ena1_rename1350;
 
 
 
@@ -5783,7 +6762,7 @@ module ram_dq_8_1 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                wr_data1[4],wr_data1[3],wr_data1[2],wr_data1[1],wr_data1[0]}), .address_a (
                {addr1[7],addr1[6],addr1[5],addr1[4],addr1[3],addr1[2],addr1[1],
                addr1[0]}), .wren_a (wr_ena1), .clock0 (wr_clk1), .clocken0 (
-               ena1_rename1227), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
+               ena1_rename1350), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
                rd_data1[4],rd_data1[3],rd_data1[2],rd_data1[1],rd_data1[0]})) ;
                
                defparam ix64056z29482.width_a = 8;
@@ -5857,7 +6836,7 @@ module ram_dq_8_1 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                defparam ix64056z29482.lpm_hint = "UNUSED";
                
                defparam ix64056z29482.lpm_type = "altsyncram";
-    assign ena1_rename1227 = 1 ;
+    assign ena1_rename1350 = 1 ;
 endmodule
 
 
@@ -5875,7 +6854,7 @@ module ram_dq_8_0 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
     input rst1 ;
     input regce1 ;
 
-    wire ena1_rename1197;
+    wire ena1_rename1320;
 
 
 
@@ -5883,7 +6862,7 @@ module ram_dq_8_0 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                wr_data1[4],wr_data1[3],wr_data1[2],wr_data1[1],wr_data1[0]}), .address_a (
                {addr1[7],addr1[6],addr1[5],addr1[4],addr1[3],addr1[2],addr1[1],
                addr1[0]}), .wren_a (wr_ena1), .clock0 (wr_clk1), .clocken0 (
-               ena1_rename1197), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
+               ena1_rename1320), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
                rd_data1[4],rd_data1[3],rd_data1[2],rd_data1[1],rd_data1[0]})) ;
                
                defparam ix64056z29481.width_a = 8;
@@ -5957,7 +6936,7 @@ module ram_dq_8_0 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                defparam ix64056z29481.lpm_hint = "UNUSED";
                
                defparam ix64056z29481.lpm_type = "altsyncram";
-    assign ena1_rename1197 = 1 ;
+    assign ena1_rename1320 = 1 ;
 endmodule
 
 

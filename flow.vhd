@@ -165,7 +165,6 @@ begin
     o_edge <= prev_edge;
     o_dir <= max_dir;
     o_mode <= "01" when i_reset = '1' else p5m;
-    o_valid <= p50 when i_reset = '0' and state(3) = '1' else '0';
     o_row <= p5r;
 
     ------------------------------------
@@ -175,14 +174,14 @@ begin
         if (i_reset = '1') then 
             state <= "0001";
         elsif (p40 = '1') then
-            state <= "rol"(state, 1);
+            state <= "rol" (state, 1);
         end if;
 
---        if (state(3) = '1' and i_reset = '0') then
---            o_valid <= '1';
---        else
---            o_valid <= '0';
---        end if;
+        if (state(3) = '1' and i_reset = '0') then
+            o_valid <= '1';
+        else
+            o_valid <= '0';
+        end if;
     end process;
 
 end architecture main;
