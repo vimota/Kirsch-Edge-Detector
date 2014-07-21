@@ -165,7 +165,7 @@ begin
             elsif (state(3) = '1') then
                 max_dir(2 downto 1) <= "11";
             end if;
-            max_dir(0) <= p45;
+            max_dir(0) <= not p45;
         else 
             max_dir <= max_dir;
         end if;

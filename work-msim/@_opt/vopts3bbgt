@@ -4,9 +4,9 @@ K3
 cModel Technology
 Z0 d/home/gm2kerr/ece327/project/Kirsch-Edge-Detector
 T_opt
-VPVoEAhnETmX?_3]:WlH3R1
+VcXXD<GDM>iK:YzD^l>ZnP1
 04 9 4 work kirsch_tb main 1
-=1-74d02b26ff76-53cc9abb-947b8-450c
+=1-74d02b26ff76-53cc9d9c-7390a-4757
 o-quiet -auto_acc_if_foreign -work work-msim
 n@_opt
 OL;O;10.1;51
@@ -24,7 +24,7 @@ VgOUVm0_N_ATfV]2=@Fkaj2
 Z8 OL;C;10.1;51
 31
 b1
-Z9 !s108 1405917874.251249
+Z9 !s108 1405918611.155888
 Z10 !s90 -93|+acc|-work|work-msim|mem.vhd|kirsch_synth_pkg.vhd|kirsch.vhd|kirsch_utility_pkg.vhd|memory.vhd|flow.vhd|string_pkg.vhd|kirsch_synth_pkg.vhd|kirsch_unsynth_pkg.vhd|kirsch_tb.vhd|
 Z11 !s107 kirsch_tb.vhd|kirsch_unsynth_pkg.vhd|string_pkg.vhd|flow.vhd|memory.vhd|kirsch_utility_pkg.vhd|kirsch.vhd|kirsch_synth_pkg.vhd|mem.vhd|
 Z12 o-93 +acc -work work-msim
@@ -50,7 +50,7 @@ nbody
 !s100 g:lfbMCK>>nPJKkD:3RF52
 !i10b 1
 Eflow
-Z15 w1405917819
+Z15 w1405918596
 R1
 R2
 R3
