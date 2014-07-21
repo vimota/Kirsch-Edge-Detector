@@ -7,7 +7,7 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-# vsim -do uw_tmp/uw-sim.tcl -lib work-msim -t 1ns -wlf uw_tmp/vsim.wlf -Gtest_num=1 kirsch_tb(main) 
+# vsim -do uw_tmp/uw-sim.tcl -lib work-msim -t 1ns -wlf uw_tmp/vsim.wlf -Gtest_num=2 kirsch_tb(main) 
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading std.standard
 # Loading std.textio(body)
@@ -24,7 +24,7 @@
 # Loading work.mem(main)#1
 # Loading work.flow(main)#1
 # do uw_tmp/uw-sim.tcl 
-# ** Note: XXXXXXXXXXXX reading image from tests/test1.txt
+# ** Note: XXXXXXXXXXXX reading image from tests/test2.txt
 #    Time: 0 ns  Iteration: 0  Instance: /kirsch_tb
 # ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE
 #    Time: 0 ns  Iteration: 0  Instance: /kirsch_tb/uut/u_flow

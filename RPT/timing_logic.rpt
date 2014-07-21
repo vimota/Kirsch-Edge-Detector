@@ -2,21 +2,21 @@
 
 	Domain                  Clock Name                            Min Period (Freq)
 	------                  ----------                            -----------------
-	ClockDomain0            i_clock                               6.745 (148.258 MHz)  
+	ClockDomain0            clk                                   4.453 (224.568 MHz)  
 
 Setup Slack Path Summary
 
-               Data                                                                             Data
-       Setup   Path   Source    Dest.                                                           End 
-Index  Slack   Delay   Clock    Clock         Data Start Pin               Data End Pin         Edge
------  ------  -----  -------  -------  --------------------------  --------------------------  ----
-  1    -4.745  6.538  i_clock  i_clock  reg_f_state(0)/clk          u_flow/reg_p21(11)/datain   Rise
-  2    -4.745  6.538  i_clock  i_clock  reg_f_state(1)/clk          u_flow/reg_p21(11)/datain   Rise
-  3    -4.617  5.617  i_clock  i_clock  u_flow/reg_prev_max(0)/clk  u_flow/reg_prev_max(9)/ena  Rise
-  4    -4.588  5.588  i_clock  i_clock  u_flow/reg_prev_max(1)/clk  u_flow/reg_prev_max(9)/ena  Rise
-  5    -4.587  6.380  i_clock  i_clock  reg_f_state(2)/clk          u_flow/reg_p21(11)/datain   Rise
+               Data                                                                                     Data
+       Setup   Path   Source  Dest.                                                                     End 
+Index  Slack   Delay  Clock   Clock         Data Start Pin                     Data End Pin             Edge
+-----  ------  -----  ------  -----  -----------------------------  ----------------------------------  ----
+  1    -0.453  3.070  clk     clk    reg_out_txflex_obuf/clk        txflex                              Rise
+  2    -0.418  4.322  clk     clk    u_kirsch/reg_f_b1_next(0)/clk  u_kirsch/u_flow/reg_p22(11)/datain  Rise
+  3    -0.418  4.322  clk     clk    u_kirsch/reg_f_t1_next(0)/clk  u_kirsch/u_flow/reg_p21(11)/datain  Rise
+  4    -0.395  4.299  clk     clk    u_kirsch/reg_f_t2_next(0)/clk  u_kirsch/u_flow/reg_p21(11)/datain  Rise
+  5    -0.395  4.299  clk     clk    u_kirsch/reg_f_b2_next(0)/clk  u_kirsch/u_flow/reg_p22(11)/datain  Rise
 
--- Device: Altera - Stratix II : EP2S15F484C : 5
+-- Device: Altera - Cyclone II : EP2C35F672C : 7
 -- CTE report summary..
                   CTE Report Summary
 

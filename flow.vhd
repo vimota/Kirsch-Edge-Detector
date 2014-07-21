@@ -68,12 +68,12 @@ signal state                : std_logic_vector(3 downto 0);
 
 
 begin
-    -- P1 ---------------------------
+-- P1 ---------------------------
     --process begin
         --wait until rising_edge(i_clock);
-        p11 <= resize(resize(t1, 9) + resize(t2, 9), 10) + resize(t3, 10);
-        p12 <= resize(resize(b1, 9) + resize(b2, 9), 10) + resize(b3, 10);
-        p13 <= resize(resize(i1, 9) + resize(i2, 9), 11) + (resize(resize(i1, 9) + resize(i2, 9), 11) sll 2);
+        p11 <= resize(t1, 10) + resize(t2, 10) + resize(t3, 10);
+        p12 <= resize(b1, 10) + resize(b2, 10) + resize(b3, 10);
+        p13 <= (resize(i1, 11) + resize(i2, 11)) + ((resize(i1, 11) + resize(i2, 11)) sll 1);
         p10 <= i_valid;
         p1m <= i_mode;
         p1r <= i_row;
@@ -82,8 +82,8 @@ begin
     -- P2 ---------------------------
     process begin
         wait until rising_edge(i_clock);
-        p21 <= signed(resize(p11, 12) + (resize(p11, 12) sll 2)) - resize(signed(resize(p12, 11) + (resize(p12, 11) sll 1)), 12);
-        p22 <= signed(resize(p12, 12) + (resize(p12, 12) sll 2)) - resize(signed(resize(p11, 11) + (resize(p11, 11) sll 1)), 12);
+        p21 <= signed(resize(p11, 12) + (resize(p11, 12) sll 2)) - signed(resize(p12, 12) + (resize(p12, 12) sll 1));
+        p22 <= signed(resize(p12, 12) + (resize(p12, 12) sll 2)) - signed(resize(p11, 12) + (resize(p11, 12) sll 1));
         p23 <= p13;
         p20 <= p10;
         p2m <= p1m;
@@ -110,7 +110,7 @@ begin
     end process;
 
     -- P4 ---------------------------
-    p4s <= p31 - signed(p32);
+    p4s <= p31 - signed(resize(p32, 12));
 
     process begin
         wait until rising_edge(i_clock);
@@ -166,7 +166,12 @@ begin
             elsif (state(3) = '1') then
                 max_dir(2 downto 1) <= "11";
             end if;
-            max_dir(0) <= not p45;
+
+            if (state(0) = '1') then
+                max_dir(0) <= p45;
+            else
+                max_dir(0) <= not p45;
+            end if;
         else 
             max_dir <= max_dir;
         end if;

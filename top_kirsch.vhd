@@ -25,12 +25,12 @@ entity top_kirsch is
     debug_switch        : in  std_logic_vector(17 downto 0) ; 
     debug_led_red       : out std_logic_vector(16 downto 0) ; 
     debug_led_grn       : out std_logic_vector(5  downto 0) ; 
-    debug_sevenseg_0    : out std_logic_vector(7 downto 0) ; 
-    debug_sevenseg_1    : out std_logic_vector(7 downto 0) ; 
-    debug_sevenseg_2    : out std_logic_vector(7 downto 0) ; 
-    debug_sevenseg_3    : out std_logic_vector(7 downto 0) ; 
-    debug_sevenseg_4    : out std_logic_vector(7 downto 0) ;
-    debug_sevenseg_5    : out std_logic_vector(7 downto 0) 
+    debug_sevenseg_0    : out std_logic_vector(3 downto 0) ; 
+    debug_sevenseg_1    : out std_logic_vector(3 downto 0) ; 
+    debug_sevenseg_2    : out std_logic_vector(3 downto 0) ; 
+    debug_sevenseg_3    : out std_logic_vector(3 downto 0) ; 
+    debug_sevenseg_4    : out std_logic_vector(3 downto 0) ;
+    debug_sevenseg_5    : out std_logic_vector(3 downto 0) 
     ------------------------------------------
   );
 end entity;
@@ -45,7 +45,7 @@ architecture main of top_kirsch is
   signal kirschout      : std_logic;
   signal dir            : std_logic_vector(2 downto 0);
   signal mode           : std_logic_vector(1 downto 0);
-  signal rowcount       : std_logic_vector(7 downto 0);
+  signal rowcount       : std_logic_vector(3 downto 0);
 
   signal debug_num_0
        , debug_num_1
@@ -53,6 +53,9 @@ architecture main of top_kirsch is
        , debug_num_3
        , debug_num_4
        , debug_num_5
+	, debug_num_6
+	, debug_num_7
+	, debug_num_8
        : std_logic_vector(3 downto 0);
 
   signal NC : std_logic;
@@ -91,12 +94,15 @@ begin
       debug_led_red(16 downto 0) => debug_led_red,
       debug_led_red(17) => NC,
       debug_led_grn => debug_led_grn, 
-      debug_num_0   => debug_num_0,
-      debug_num_1   => debug_num_1,
-      debug_num_2   => debug_num_2,
-      debug_num_3   => debug_num_3,
-      debug_num_4   => debug_num_4,
-      debug_num_5   => debug_num_5
+      debug_num_0(3 downto 0)   => debug_num_0,
+      debug_num_1(3 downto 0)   => debug_num_1,
+      debug_num_2(3 downto 0)   => debug_num_2,
+      debug_num_3(3 downto 0)   => debug_num_3,
+      debug_num_4(3 downto 0)   => debug_num_4,
+      debug_num_5(3 downto 0)   => debug_num_5,
+      debug_num_6(3 downto 0)   => debug_num_6,
+      debug_num_7(3 downto 0)   => debug_num_7,
+      debug_num_8(3 downto 0)   => debug_num_8
     );
 
   o_sevenseg <=
@@ -109,7 +115,7 @@ begin
       when rising_edge( clk );
     
   debug_sevenseg_1 <=
-      to_sevenseg( unsigned(debug_num_1), '0' )
+      to_sevenseg(debug_num_1, '0' )
       when rising_edge( clk );
     
   debug_sevenseg_2 <=

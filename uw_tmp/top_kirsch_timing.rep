@@ -1,0 +1,107 @@
+                   Clock Frequency Report
+
+	Domain                  Clock Name                            Min Period (Freq)
+	------                  ----------                            -----------------
+	ClockDomain0            clk                                   4.418 (226.347 MHz)  
+-- Device: Altera - Cyclone II : EP2C35F672C : 7
+-- CTE report summary..
+                  CTE Report Summary
+
+End CTE Report Summary ..... CPU Time Used: 0 sec.
+
+Setup Slack Path Summary
+
+               Data                                                                                     Data
+       Setup   Path   Source  Dest.                                                                     End 
+Index  Slack   Delay  Clock   Clock         Data Start Pin                     Data End Pin             Edge
+-----  ------  -----  ------  -----  -----------------------------  ----------------------------------  ----
+  1    -0.418  4.322  clk     clk    u_kirsch/reg_f_b1_next(0)/clk  u_kirsch/u_flow/reg_p22(11)/datain  Rise
+  2    -0.418  4.322  clk     clk    u_kirsch/reg_f_t1_next(0)/clk  u_kirsch/u_flow/reg_p21(11)/datain  Rise
+  3    -0.395  4.299  clk     clk    u_kirsch/reg_f_t2_next(0)/clk  u_kirsch/u_flow/reg_p21(11)/datain  Rise
+  4    -0.395  4.299  clk     clk    u_kirsch/reg_f_b2_next(0)/clk  u_kirsch/u_flow/reg_p22(11)/datain  Rise
+  5    -0.375  4.279  clk     clk    u_kirsch/reg_f_t2_next(1)/clk  u_kirsch/u_flow/reg_p22(11)/datain  Rise
+  6    -0.375  4.279  clk     clk    u_kirsch/reg_f_b2_next(1)/clk  u_kirsch/u_flow/reg_p21(11)/datain  Rise
+  7    -0.352  4.256  clk     clk    u_kirsch/reg_f_t1_next(1)/clk  u_kirsch/u_flow/reg_p22(11)/datain  Rise
+  8    -0.352  4.256  clk     clk    u_kirsch/reg_f_b1_next(1)/clk  u_kirsch/u_flow/reg_p21(11)/datain  Rise
+  9    -0.273  4.177  clk     clk    u_kirsch/reg_f_t2_next(2)/clk  u_kirsch/u_flow/reg_p22(11)/datain  Rise
+ 10    -0.273  4.177  clk     clk    u_kirsch/reg_f_b2_next(2)/clk  u_kirsch/u_flow/reg_p21(11)/datain  Rise
+
+-- Device: Altera - Cyclone II : EP2C35F672C : 7
+-- CTE report summary..
+                  CTE Report Summary
+
+Analyzing setup constraint violations 
+End CTE Report Summary ..... CPU Time Used: 0 sec.
+-- Device: Altera - Cyclone II : EP2C35F672C : 7
+-- CTE report timing..
+                  CTE Path Report
+
+
+Critical path #1, (path slack = -0.418):
+
+SOURCE CLOCK: name: clk period: 4.000000
+     Times are relative to the 1st rising edge
+  DEST CLOCK: name: clk period: 4.000000
+     Times are relative to the 2nd rising edge
+
+NAME                                                   GATE                     DELAY    ARRIVAL DIR  FANOUT
+u_kirsch/reg_f_b1_next(0)/clk                       cycloneii_lcell_ff                   0.000   up
+u_kirsch/reg_f_b1_next(0)/regout                    cycloneii_lcell_ff         0.000     0.000   up
+u_kirsch/f_b1_next(0)                               (net)                      0.290                   2
+u_kirsch/u_flow/p12_add8_0i2/ix44952z52931/dataa    cycloneii_lcell_comb                 0.290   up
+u_kirsch/u_flow/p12_add8_0i2/ix44952z52931/combout  cycloneii_lcell_comb       0.545     0.835   up
+u_kirsch/u_flow/p12_add8_0i2/nx37973z1              (net)                      0.270                   1
+u_kirsch/u_flow/p12_add9_2/ix45949z52932/dataa      cycloneii_lcell_comb                 1.105   up
+u_kirsch/u_flow/p12_add9_2/ix45949z52932/combout    cycloneii_lcell_comb       0.545     1.650   up
+u_kirsch/u_flow/p12_add9_2/nx37973z1                (net)                      0.350                   5
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52934/dataa   cycloneii_lcell_comb                 2.000   up
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52934/cout    cycloneii_lcell_comb       0.517     2.517   up
+u_kirsch/u_flow/p22_sub11_3i2/nx46946z29            (net)                *     0.000                   1
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52933/cin     cycloneii_lcell_comb                 2.517   up
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52933/cout    cycloneii_lcell_comb       0.080     2.597   up
+u_kirsch/u_flow/p22_sub11_3i2/nx46946z27            (net)                *     0.000                   1
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52932/cin     cycloneii_lcell_comb                 2.597   up
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52932/cout    cycloneii_lcell_comb       0.080     2.677   up
+u_kirsch/u_flow/p22_sub11_3i2/nx46946z24            (net)                *     0.000                   1
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52931/cin     cycloneii_lcell_comb                 2.677   up
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52931/cout    cycloneii_lcell_comb       0.080     2.757   up
+u_kirsch/u_flow/p22_sub11_3i2/nx46946z21            (net)                *     0.000                   1
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52930/cin     cycloneii_lcell_comb                 2.757   up
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52930/cout    cycloneii_lcell_comb       0.080     2.837   up
+u_kirsch/u_flow/p22_sub11_3i2/nx46946z18            (net)                *     0.000                   1
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52929/cin     cycloneii_lcell_comb                 2.837   up
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52929/cout    cycloneii_lcell_comb       0.080     2.917   up
+u_kirsch/u_flow/p22_sub11_3i2/nx46946z15            (net)                *     0.000                   1
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52928/cin     cycloneii_lcell_comb                 2.917   up
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52928/cout    cycloneii_lcell_comb       0.080     2.997   up
+u_kirsch/u_flow/p22_sub11_3i2/nx46946z12            (net)                *     0.000                   1
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52927/cin     cycloneii_lcell_comb                 2.997   up
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52927/cout    cycloneii_lcell_comb       0.080     3.077   up
+u_kirsch/u_flow/p22_sub11_3i2/nx46946z9             (net)                *     0.000                   1
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52926/cin     cycloneii_lcell_comb                 3.077   up
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52926/cout    cycloneii_lcell_comb       0.080     3.157   up
+u_kirsch/u_flow/p22_sub11_3i2/nx46946z6             (net)                *     0.000                   1
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52925/cin     cycloneii_lcell_comb                 3.157   up
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52925/cout    cycloneii_lcell_comb       0.080     3.237   up
+u_kirsch/u_flow/p22_sub11_3i2/nx46946z3             (net)                *     0.000                   1
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52923/cin     cycloneii_lcell_comb                 3.237   up
+u_kirsch/u_flow/p22_sub11_3i2/ix46946z52923/combout cycloneii_lcell_comb       0.000     3.237   up
+u_kirsch/u_flow/p22_sub11_3i2/nx46946z1             (net)                *     0.270                   1
+u_kirsch/u_flow/ix47840z52631/ix62798z52923/dataa   cycloneii_lcell_comb                 3.507   up
+u_kirsch/u_flow/ix47840z52631/ix62798z52923/combout cycloneii_lcell_comb       0.545     4.052   up
+u_kirsch/u_flow/ix47840z52631/nx62798z1             (net)                *     0.270                   1
+u_kirsch/u_flow/reg_p22(11)/datain                  cycloneii_lcell_ff                   4.322   up
+
+		Initial edge separation:      4.000
+		Source clock delay:      -    1.383
+		Dest clock delay:        +    1.383
+		                        -----------
+		Edge separation:              4.000
+		Setup constraint:        -    0.096
+		                        -----------
+		Data required time:           3.904
+		Data arrival time:       -    4.322   ( 66.45% cell delay, 33.55% net delay )
+		                        -----------
+		Slack (VIOLATED):            -0.418
+
+End CTE Analysis ..... CPU Time Used: 0 sec.
