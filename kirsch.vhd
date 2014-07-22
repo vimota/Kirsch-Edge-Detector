@@ -22,18 +22,19 @@ entity kirsch is
 		-- debugging inputs and outputs
 		debug_key      : in  std_logic_vector( 3 downto 1) ;
 		debug_switch   : in  std_logic_vector(17 downto 0) ;
+		debug_column   : out std_logic_vector(7 downto 0) ;
 		debug_led_red  : out std_logic_vector(17 downto 0) ;
 		debug_led_grn  : out std_logic_vector(5  downto 0) ;
 		debug_valid    : out std_logic;
-		debug_num_0    : out unsigned(7 downto 0) ;
-		debug_num_1    : out unsigned(7 downto 0) ;
-		debug_num_2    : out unsigned(7 downto 0) ;
-		debug_num_3    : out unsigned(7 downto 0) ;
-		debug_num_4    : out unsigned(7 downto 0) ;
-		debug_num_5    : out unsigned(7 downto 0);
-		debug_num_6    : out unsigned(7 downto 0); 
-		debug_num_7    : out unsigned(7 downto 0);
-		debug_num_8    : out unsigned(7 downto 0)
+		debug_num_0    : out signed(12 downto 0) ;
+		debug_num_1    : out signed(12 downto 0) ;
+		debug_num_2    : out signed(12 downto 0) ;
+		debug_num_3    : out signed(12 downto 0) ;
+		debug_num_4    : out signed(12 downto 0) ;
+		debug_num_5    : out signed(13 downto 0);
+		debug_num_6    : out std_logic;
+		debug_num_7    : out std_logic;
+		debug_num_8    : out std_logic
 		------------------------------------------
 	);
 end entity;
@@ -54,7 +55,7 @@ signal f_state 				: std_logic_vector(3 downto 0);
 -- memory output --
 signal m_o_image0, m_o_image1, m_o_image2   : image_type;
 signal m_o_mode				: std_logic_vector(1 downto 0);
-signal m_o_row				: std_logic_vector(7 downto 0);
+signal m_o_row, m_o_column	: std_logic_vector(7 downto 0);
 signal m_o_valid			: std_logic;
 
 -- flow inputs --
@@ -71,18 +72,19 @@ begin
 		-- instantiate memory
 	
 
-	debug_num_0    <= f_t1;
-	debug_num_1    <= f_t2;
-	debug_num_2    <= f_t3;
-	debug_num_3    <= f_b1;
-	debug_num_4    <= f_b2;
-	debug_num_5    <= f_b3;
-	debug_num_6    <= f_i1;
-	debug_num_7    <= f_i2;
+	-- debug_num_0    <= f_t1;
+	-- debug_num_1    <= f_t2;
+	-- debug_num_2    <= f_t3;
+	-- debug_num_3    <= f_b1;
+	-- debug_num_4    <= f_b2;
+	-- debug_num_5    <= f_b3;
+	-- debug_num_6    <= f_i1;
+	-- debug_num_7    <= f_i2;
 
 	debug_led_red <= (others => '0');
 	debug_led_grn <= (others => '0');
-	debug_valid <= f_i_valid;
+	debug_column <= m_o_column;
+	-- debug_valid <= f_i_valid;
 
 
 	-- PROCESSES?!??!?!? --
@@ -155,11 +157,24 @@ begin
 		o_image0 => m_o_image0,
 		o_image1 => m_o_image1,
 		o_image2 => m_o_image2,
-		o_row    => m_o_row
+		o_row    => m_o_row,
+		o_column => m_o_column
 	);
 
 	u_flow : entity work.flow(main) port map
 	(
+		-- debug
+		debug_valid    => debug_valid,
+		debug_num_0    => debug_num_0,
+		debug_num_1    => debug_num_1,
+		debug_num_2    => debug_num_2,
+		debug_num_3    => debug_num_3,
+		debug_num_4    => debug_num_4,
+		debug_num_5    => debug_num_5,
+		debug_num_6    => debug_num_6,
+		debug_num_7    => debug_num_7,
+		debug_num_8    => debug_num_8,
+		--
 		t1			=> f_t1,
 		t2			=> f_t2,
 		t3			=> f_t3,

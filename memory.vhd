@@ -102,7 +102,7 @@ begin
 
 				if (i_valid = '1') then
 					-- initialize mem_wrn_current
-					if ((mem_wrn_current(0) or mem_wrn_current(1) or mem_wrn_current(2)) /= '1') then
+					if (mem_wrn_current = "000") then
 						mem_wrn_current <= "001";
 						mem_wrn <= "001";
 					else
@@ -186,7 +186,7 @@ begin
 	delayProc : process (i_clock)
 	begin
 		if rising_edge(i_clock) then
-			o_column <= mem_addr;
+			-- o_column <= mem_addr;
 			o_row    <= std_logic_vector(row);
 
 			busySignalDelayed <= busySignal;
@@ -213,8 +213,8 @@ begin
 		end if;
 	end process;
 
-	-- mem_data <= i_pixel when i_valid = '1';-- else (others => 'X');
 	mem_addr <= std_logic_vector(column);
+	o_column <= std_logic_vector(unsigned(mem_addr) - 2);
 	o_image0 <= buffer0;
 	o_image1 <= buffer1;
 	o_image2 <= buffer2;

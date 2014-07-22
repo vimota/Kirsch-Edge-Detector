@@ -12,7 +12,7 @@ entity modgen_counter_8_0 is
         sclear          : in     vl_logic;
         updn            : in     vl_logic;
         cnt_en          : in     vl_logic;
-        p_rtlc6n55      : in     vl_logic;
-        p_i_reset_int   : in     vl_logic
+        p_i_reset       : in     vl_logic;
+        p_rtlc5n55      : in     vl_logic
     );
 end modgen_counter_8_0;

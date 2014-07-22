@@ -25,6 +25,5 @@ set_attribute -name ignore_ram_rw_collision -value "true" -instance -type defaul
 ##################
 # Clocks
 ##################
-create_clock { i_valid } -domain ClockDomain1 -name i_valid -period 4.000000 -waveform { 0.000000 2.000000 } -design rtl 
 create_clock { i_clock } -domain ClockDomain0 -name i_clock -period 4.000000 -waveform { 0.000000 2.000000 } -design rtl 
 

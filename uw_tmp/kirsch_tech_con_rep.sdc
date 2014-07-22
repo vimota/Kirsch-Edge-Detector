@@ -117,10 +117,8 @@ set_attribute -name width_a -value "8" -instance -type INTEGER u_memory/u_mem3_m
 
 
 
-
 ##################
 # Clocks
 ##################
-create_clock { i_valid } -domain ClockDomain1 -name i_valid -period 4.000000 -waveform { 0.000000 2.000000 } -design gatelevel 
 create_clock { i_clock } -domain ClockDomain0 -name i_clock -period 4.000000 -waveform { 0.000000 2.000000 } -design gatelevel 
 
