@@ -24,5 +24,5 @@ xsys( "uw-msim-com  kirsch_utility_pkg.vhd mem.vhd flow.vhd memory.vhd kirsch_sy
 #------------------------------------------------------------------------
 # run simulation
 
-xsys( "vsim -lib work-msim   -Gtest_num=1   -wlf uw_tmp/vsim.wlf -t 1ns -do uw_tmp/uw-sim.tcl kirsch_tb(main)")
+xsys( "vsim -lib work-msim   -Gtest_num=4   -wlf uw_tmp/vsim.wlf -t 1ns -do uw_tmp/uw-sim.tcl kirsch_tb(main)")
 

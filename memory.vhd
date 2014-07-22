@@ -172,7 +172,7 @@ begin
 					when "010" =>
 						if (row > 1) then
 							buffer2(0) <= mem_q(2);
-							buffer2(1) <= mem_q(1);
+							buffer2(1) <= mem_q(0);
 							buffer2(2) <= mem_data;
 						else
 							buffer2(0) <= mem_q(0);
