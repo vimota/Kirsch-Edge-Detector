@@ -17,7 +17,7 @@ entity kirsch is
 		o_dir      : out std_logic_vector(2 downto 0);
 		o_mode     : out std_logic_vector(1 downto 0);
 		o_row      : out std_logic_vector(7 downto 0);
-		o_image0, o_image1, o_image2   : out image_type;
+		-- o_image0, o_image1, o_image2   : out image_type;
 		------------------------------------------
 		-- debugging inputs and outputs
 		debug_key      : in  std_logic_vector( 3 downto 1) ;
@@ -101,9 +101,9 @@ begin
 	f_i_row <= m_o_row when f_state = "0001" else f_i_row_next;
 	f_i_valid <= '1' when (f_state = "0001" and m_o_valid = '1') or f_state /= "0001" else '0';
 
-	o_image0 <= m_o_image0;
-	o_image1 <= m_o_image1;
-	o_image2 <= m_o_image2;
+	-- o_image0 <= m_o_image0;
+	-- o_image1 <= m_o_image1;
+	-- o_image2 <= m_o_image2;
 
 	o_mode <= "01" when i_reset = '1' else
 			 "11" when f_o_mode = "11" or m_o_mode = "11" else

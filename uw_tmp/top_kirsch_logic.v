@@ -1,6 +1,6 @@
 //
 // Verilog description for cell top_kirsch, 
-// Tue Jul 22 01:38:15 2014
+// Tue Jul 22 01:53:49 2014
 //
 // Precision RTL Synthesis, 2008a.47//
 
@@ -42,7 +42,7 @@ module top_kirsch ( nrst, clk, rxflex, txflex, o_sevenseg, o_mode, o_nrst,
          NOT_rtlcn2_dup_5, nx41851z1, nx42848z1, nx43845z1, nx44842z1, nx45839z1, 
          nx46836z1, nx47833z1, nx49827z1, nx50824z1, nx62540z1, nx63537z1, 
          nx64534z1, nx65531z1, nx992z1, nx21351z1, nx21351z2;
-    wire [1363:0] xmplr_dummy ;
+    wire [1291:0] xmplr_dummy ;
 
 
 
@@ -1282,9 +1282,7 @@ endmodule
 
 
 module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir, 
-                o_mode, o_row, o_image0_0_, o_image0_1_, o_image0_2_, 
-                o_image1_0_, o_image1_1_, o_image1_2_, o_image2_0_, o_image2_1_, 
-                o_image2_2_, debug_key, debug_switch, debug_column, 
+                o_mode, o_row, debug_key, debug_switch, debug_column, 
                 debug_led_red, debug_led_grn, debug_num_0, debug_num_1, 
                 debug_num_2, debug_num_3, debug_num_4, debug_num_5, debug_num_6, 
                 debug_num_7, debug_num_8, px304, p_m_o_mode_0_, p_nrst_int ) ;
@@ -1298,15 +1296,6 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
     output [2:0]o_dir ;
     output [1:0]o_mode ;
     output [7:0]o_row ;
-    output [7:0]o_image0_0_ ;
-    output [7:0]o_image0_1_ ;
-    output [7:0]o_image0_2_ ;
-    output [7:0]o_image1_0_ ;
-    output [7:0]o_image1_1_ ;
-    output [7:0]o_image1_2_ ;
-    output [7:0]o_image2_0_ ;
-    output [7:0]o_image2_1_ ;
-    output [7:0]o_image2_2_ ;
     input [3:1]debug_key ;
     input [17:0]debug_switch ;
     output [7:0]debug_column ;
@@ -1339,38 +1328,14 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
     wire [7:0]f_i2_next;
     wire [7:0]f_i_row_next;
     wire [1:0]f_i_mode_next;
-    wire o_image0_0__7__rename1642, o_image0_0__6__rename1643, 
-         o_image0_0__5__rename1644, o_image0_0__4__rename1645, 
-         o_image0_0__3__rename1646, o_image0_0__2__rename1647, 
-         o_image0_0__1__rename1648, o_image0_0__0__rename1649, 
-         o_image0_1__7__rename1650, o_image0_1__6__rename1651, 
-         o_image0_1__5__rename1652, o_image0_1__4__rename1653, 
-         o_image0_1__3__rename1654, o_image0_1__2__rename1655, 
-         o_image0_1__1__rename1656, o_image0_1__0__rename1657, 
-         o_image0_2__7__rename1658, o_image0_2__6__rename1659, 
-         o_image0_2__5__rename1660, o_image0_2__4__rename1661, 
-         o_image0_2__3__rename1662, o_image0_2__2__rename1663, 
-         o_image0_2__1__rename1664, o_image0_2__0__rename1665, 
-         o_image1_0__7__rename1666, o_image1_0__6__rename1667, 
-         o_image1_0__5__rename1668, o_image1_0__4__rename1669, 
-         o_image1_0__3__rename1670, o_image1_0__2__rename1671, 
-         o_image1_0__1__rename1672, o_image1_0__0__rename1673, 
-         o_image1_2__7__rename1674, o_image1_2__6__rename1675, 
-         o_image1_2__5__rename1676, o_image1_2__4__rename1677, 
-         o_image1_2__3__rename1678, o_image1_2__2__rename1679, 
-         o_image1_2__1__rename1680, o_image1_2__0__rename1681, 
-         o_image2_0__7__rename1682, o_image2_0__6__rename1683, 
-         o_image2_0__5__rename1684, o_image2_0__4__rename1685, 
-         o_image2_0__3__rename1686, o_image2_0__2__rename1687, 
-         o_image2_0__1__rename1688, o_image2_0__0__rename1689, 
-         o_image2_1__7__rename1690, o_image2_1__6__rename1691, 
-         o_image2_1__5__rename1692, o_image2_1__4__rename1693, 
-         o_image2_1__3__rename1694, o_image2_1__2__rename1695, 
-         o_image2_1__1__rename1696, o_image2_1__0__rename1697, 
-         o_image2_2__7__rename1698, o_image2_2__6__rename1699, 
-         o_image2_2__5__rename1700, o_image2_2__4__rename1701, 
-         o_image2_2__3__rename1702, o_image2_2__2__rename1703, 
-         o_image2_2__1__rename1704, o_image2_2__0__rename1705;
+    wire [7:0]m_o_image0_0_;
+    wire [7:0]m_o_image0_1_;
+    wire [7:0]m_o_image0_2_;
+    wire [7:0]m_o_image1_0_;
+    wire [7:0]m_o_image1_2_;
+    wire [7:0]m_o_image2_0_;
+    wire [7:0]m_o_image2_1_;
+    wire [7:0]m_o_image2_2_;
     wire [7:0]f_t1;
     wire [7:0]f_t2;
     wire [7:0]f_t3;
@@ -1394,38 +1359,24 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
            .i_clock (i_clock), .o_valid (m_o_valid), .o_mode ({m_o_mode[1],
            m_o_mode[0]}), .o_row ({m_o_row[7],m_o_row[6],m_o_row[5],m_o_row[4],
            m_o_row[3],m_o_row[2],m_o_row[1],m_o_row[0]}), .o_image0_0_ ({
-           o_image0_0__7__rename1642,o_image0_0__6__rename1643,
-           o_image0_0__5__rename1644,o_image0_0__4__rename1645,
-           o_image0_0__3__rename1646,o_image0_0__2__rename1647,
-           o_image0_0__1__rename1648,o_image0_0__0__rename1649}), .o_image0_1_ (
-           {o_image0_1__7__rename1650,o_image0_1__6__rename1651,
-           o_image0_1__5__rename1652,o_image0_1__4__rename1653,
-           o_image0_1__3__rename1654,o_image0_1__2__rename1655,
-           o_image0_1__1__rename1656,o_image0_1__0__rename1657}), .o_image0_2_ (
-           {o_image0_2__7__rename1658,o_image0_2__6__rename1659,
-           o_image0_2__5__rename1660,o_image0_2__4__rename1661,
-           o_image0_2__3__rename1662,o_image0_2__2__rename1663,
-           o_image0_2__1__rename1664,o_image0_2__0__rename1665}), .o_image1_0_ (
-           {o_image1_0__7__rename1666,o_image1_0__6__rename1667,
-           o_image1_0__5__rename1668,o_image1_0__4__rename1669,
-           o_image1_0__3__rename1670,o_image1_0__2__rename1671,
-           o_image1_0__1__rename1672,o_image1_0__0__rename1673}), .o_image1_2_ (
-           {o_image1_2__7__rename1674,o_image1_2__6__rename1675,
-           o_image1_2__5__rename1676,o_image1_2__4__rename1677,
-           o_image1_2__3__rename1678,o_image1_2__2__rename1679,
-           o_image1_2__1__rename1680,o_image1_2__0__rename1681}), .o_image2_0_ (
-           {o_image2_0__7__rename1682,o_image2_0__6__rename1683,
-           o_image2_0__5__rename1684,o_image2_0__4__rename1685,
-           o_image2_0__3__rename1686,o_image2_0__2__rename1687,
-           o_image2_0__1__rename1688,o_image2_0__0__rename1689}), .o_image2_1_ (
-           {o_image2_1__7__rename1690,o_image2_1__6__rename1691,
-           o_image2_1__5__rename1692,o_image2_1__4__rename1693,
-           o_image2_1__3__rename1694,o_image2_1__2__rename1695,
-           o_image2_1__1__rename1696,o_image2_1__0__rename1697}), .o_image2_2_ (
-           {o_image2_2__7__rename1698,o_image2_2__6__rename1699,
-           o_image2_2__5__rename1700,o_image2_2__4__rename1701,
-           o_image2_2__3__rename1702,o_image2_2__2__rename1703,
-           o_image2_2__1__rename1704,o_image2_2__0__rename1705}), .p_nrst_int_dup_22 (
+           m_o_image0_0_[7],m_o_image0_0_[6],m_o_image0_0_[5],m_o_image0_0_[4],
+           m_o_image0_0_[3],m_o_image0_0_[2],m_o_image0_0_[1],m_o_image0_0_[0]})
+           , .o_image0_1_ ({m_o_image0_1_[7],m_o_image0_1_[6],m_o_image0_1_[5],
+           m_o_image0_1_[4],m_o_image0_1_[3],m_o_image0_1_[2],m_o_image0_1_[1],
+           m_o_image0_1_[0]}), .o_image0_2_ ({m_o_image0_2_[7],m_o_image0_2_[6],
+           m_o_image0_2_[5],m_o_image0_2_[4],m_o_image0_2_[3],m_o_image0_2_[2],
+           m_o_image0_2_[1],m_o_image0_2_[0]}), .o_image1_0_ ({m_o_image1_0_[7],
+           m_o_image1_0_[6],m_o_image1_0_[5],m_o_image1_0_[4],m_o_image1_0_[3],
+           m_o_image1_0_[2],m_o_image1_0_[1],m_o_image1_0_[0]}), .o_image1_2_ ({
+           m_o_image1_2_[7],m_o_image1_2_[6],m_o_image1_2_[5],m_o_image1_2_[4],
+           m_o_image1_2_[3],m_o_image1_2_[2],m_o_image1_2_[1],m_o_image1_2_[0]})
+           , .o_image2_0_ ({m_o_image2_0_[7],m_o_image2_0_[6],m_o_image2_0_[5],
+           m_o_image2_0_[4],m_o_image2_0_[3],m_o_image2_0_[2],m_o_image2_0_[1],
+           m_o_image2_0_[0]}), .o_image2_1_ ({m_o_image2_1_[7],m_o_image2_1_[6],
+           m_o_image2_1_[5],m_o_image2_1_[4],m_o_image2_1_[3],m_o_image2_1_[2],
+           m_o_image2_1_[1],m_o_image2_1_[0]}), .o_image2_2_ ({m_o_image2_2_[7],
+           m_o_image2_2_[6],m_o_image2_2_[5],m_o_image2_2_[4],m_o_image2_2_[3],
+           m_o_image2_2_[2],m_o_image2_2_[1],m_o_image2_2_[0]}), .p_nrst_int_dup_22 (
            p_nrst_int)) ;
     flow u_flow (.t1 ({f_t1[7],f_t1[6],f_t1[5],f_t1[4],f_t1[3],f_t1[2],f_t1[1],
          f_t1[0]}), .t2 ({f_t2[7],f_t2[6],f_t2[5],f_t2[4],f_t2[3],f_t2[2],
@@ -1446,100 +1397,100 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
     assign f_state[0] = ~nx63959z1 ;
     assign NOT_f_state_3_ = ~f_state[3] ;
     cycloneii_lcell_ff reg_f_t3_next_7_ (.regout (f_t3_next[7]), .datain (
-                       f_i1_next[7]), .sdata (o_image1_0__7__rename1666), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_i1_next[7]), .sdata (m_o_image1_0_[7]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t3_next_6_ (.regout (f_t3_next[6]), .datain (
-                       f_i1_next[6]), .sdata (o_image1_0__6__rename1667), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_i1_next[6]), .sdata (m_o_image1_0_[6]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t3_next_5_ (.regout (f_t3_next[5]), .datain (
-                       f_i1_next[5]), .sdata (o_image1_0__5__rename1668), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_i1_next[5]), .sdata (m_o_image1_0_[5]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t3_next_4_ (.regout (f_t3_next[4]), .datain (
-                       f_i1_next[4]), .sdata (o_image1_0__4__rename1669), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_i1_next[4]), .sdata (m_o_image1_0_[4]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t3_next_3_ (.regout (f_t3_next[3]), .datain (
-                       f_i1_next[3]), .sdata (o_image1_0__3__rename1670), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_i1_next[3]), .sdata (m_o_image1_0_[3]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t3_next_2_ (.regout (f_t3_next[2]), .datain (
-                       f_i1_next[2]), .sdata (o_image1_0__2__rename1671), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_i1_next[2]), .sdata (m_o_image1_0_[2]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t3_next_1_ (.regout (f_t3_next[1]), .datain (
-                       f_i1_next[1]), .sdata (o_image1_0__1__rename1672), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_i1_next[1]), .sdata (m_o_image1_0_[1]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t3_next_0_ (.regout (f_t3_next[0]), .datain (
-                       f_i1_next[0]), .sdata (o_image1_0__0__rename1673), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_i1_next[0]), .sdata (m_o_image1_0_[0]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t2_next_7_ (.regout (f_t2_next[7]), .datain (
-                       f_t3_next[7]), .sdata (o_image0_0__7__rename1642), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t3_next[7]), .sdata (m_o_image0_0_[7]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t2_next_6_ (.regout (f_t2_next[6]), .datain (
-                       f_t3_next[6]), .sdata (o_image0_0__6__rename1643), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t3_next[6]), .sdata (m_o_image0_0_[6]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t2_next_5_ (.regout (f_t2_next[5]), .datain (
-                       f_t3_next[5]), .sdata (o_image0_0__5__rename1644), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t3_next[5]), .sdata (m_o_image0_0_[5]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t2_next_4_ (.regout (f_t2_next[4]), .datain (
-                       f_t3_next[4]), .sdata (o_image0_0__4__rename1645), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t3_next[4]), .sdata (m_o_image0_0_[4]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t2_next_3_ (.regout (f_t2_next[3]), .datain (
-                       f_t3_next[3]), .sdata (o_image0_0__3__rename1646), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t3_next[3]), .sdata (m_o_image0_0_[3]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t2_next_2_ (.regout (f_t2_next[2]), .datain (
-                       f_t3_next[2]), .sdata (o_image0_0__2__rename1647), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t3_next[2]), .sdata (m_o_image0_0_[2]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t2_next_1_ (.regout (f_t2_next[1]), .datain (
-                       f_t3_next[1]), .sdata (o_image0_0__1__rename1648), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t3_next[1]), .sdata (m_o_image0_0_[1]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t2_next_0_ (.regout (f_t2_next[0]), .datain (
-                       f_t3_next[0]), .sdata (o_image0_0__0__rename1649), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t3_next[0]), .sdata (m_o_image0_0_[0]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t1_next_7_ (.regout (f_t1_next[7]), .datain (
-                       f_t2_next[7]), .sdata (o_image0_1__7__rename1650), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t2_next[7]), .sdata (m_o_image0_1_[7]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t1_next_6_ (.regout (f_t1_next[6]), .datain (
-                       f_t2_next[6]), .sdata (o_image0_1__6__rename1651), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t2_next[6]), .sdata (m_o_image0_1_[6]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t1_next_5_ (.regout (f_t1_next[5]), .datain (
-                       f_t2_next[5]), .sdata (o_image0_1__5__rename1652), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t2_next[5]), .sdata (m_o_image0_1_[5]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t1_next_4_ (.regout (f_t1_next[4]), .datain (
-                       f_t2_next[4]), .sdata (o_image0_1__4__rename1653), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t2_next[4]), .sdata (m_o_image0_1_[4]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t1_next_3_ (.regout (f_t1_next[3]), .datain (
-                       f_t2_next[3]), .sdata (o_image0_1__3__rename1654), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t2_next[3]), .sdata (m_o_image0_1_[3]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t1_next_2_ (.regout (f_t1_next[2]), .datain (
-                       f_t2_next[2]), .sdata (o_image0_1__2__rename1655), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t2_next[2]), .sdata (m_o_image0_1_[2]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t1_next_1_ (.regout (f_t1_next[1]), .datain (
-                       f_t2_next[1]), .sdata (o_image0_1__1__rename1656), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t2_next[1]), .sdata (m_o_image0_1_[1]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_t1_next_0_ (.regout (f_t1_next[0]), .datain (
-                       f_t2_next[0]), .sdata (o_image0_1__0__rename1657), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t2_next[0]), .sdata (m_o_image0_1_[0]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_state_3_ (.regout (f_state[3]), .datain (f_state[2]
                        ), .sdata (1'b0), .clk (i_clock), .ena (nx64956z1), .aclr (
@@ -1585,164 +1536,164 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                        m_o_mode[0]), .sdata (1'b0), .clk (i_clock), .ena (
                        nx35105z1), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)) ;
     cycloneii_lcell_ff reg_f_i2_next_7_ (.regout (f_i2_next[7]), .datain (
-                       f_t1_next[7]), .sdata (o_image0_2__7__rename1658), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t1_next[7]), .sdata (m_o_image0_2_[7]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_i2_next_6_ (.regout (f_i2_next[6]), .datain (
-                       f_t1_next[6]), .sdata (o_image0_2__6__rename1659), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t1_next[6]), .sdata (m_o_image0_2_[6]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_i2_next_5_ (.regout (f_i2_next[5]), .datain (
-                       f_t1_next[5]), .sdata (o_image0_2__5__rename1660), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t1_next[5]), .sdata (m_o_image0_2_[5]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_i2_next_4_ (.regout (f_i2_next[4]), .datain (
-                       f_t1_next[4]), .sdata (o_image0_2__4__rename1661), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t1_next[4]), .sdata (m_o_image0_2_[4]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_i2_next_3_ (.regout (f_i2_next[3]), .datain (
-                       f_t1_next[3]), .sdata (o_image0_2__3__rename1662), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t1_next[3]), .sdata (m_o_image0_2_[3]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_i2_next_2_ (.regout (f_i2_next[2]), .datain (
-                       f_t1_next[2]), .sdata (o_image0_2__2__rename1663), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t1_next[2]), .sdata (m_o_image0_2_[2]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_i2_next_1_ (.regout (f_i2_next[1]), .datain (
-                       f_t1_next[1]), .sdata (o_image0_2__1__rename1664), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t1_next[1]), .sdata (m_o_image0_2_[1]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_i2_next_0_ (.regout (f_i2_next[0]), .datain (
-                       f_t1_next[0]), .sdata (o_image0_2__0__rename1665), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_t1_next[0]), .sdata (m_o_image0_2_[0]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_i1_next_7_ (.regout (f_i1_next[7]), .datain (
-                       f_b1_next[7]), .sdata (o_image2_0__7__rename1682), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b1_next[7]), .sdata (m_o_image2_0_[7]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_i1_next_6_ (.regout (f_i1_next[6]), .datain (
-                       f_b1_next[6]), .sdata (o_image2_0__6__rename1683), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b1_next[6]), .sdata (m_o_image2_0_[6]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_i1_next_5_ (.regout (f_i1_next[5]), .datain (
-                       f_b1_next[5]), .sdata (o_image2_0__5__rename1684), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b1_next[5]), .sdata (m_o_image2_0_[5]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_i1_next_4_ (.regout (f_i1_next[4]), .datain (
-                       f_b1_next[4]), .sdata (o_image2_0__4__rename1685), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b1_next[4]), .sdata (m_o_image2_0_[4]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_i1_next_3_ (.regout (f_i1_next[3]), .datain (
-                       f_b1_next[3]), .sdata (o_image2_0__3__rename1686), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b1_next[3]), .sdata (m_o_image2_0_[3]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_i1_next_2_ (.regout (f_i1_next[2]), .datain (
-                       f_b1_next[2]), .sdata (o_image2_0__2__rename1687), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b1_next[2]), .sdata (m_o_image2_0_[2]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_i1_next_1_ (.regout (f_i1_next[1]), .datain (
-                       f_b1_next[1]), .sdata (o_image2_0__1__rename1688), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b1_next[1]), .sdata (m_o_image2_0_[1]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_i1_next_0_ (.regout (f_i1_next[0]), .datain (
-                       f_b1_next[0]), .sdata (o_image2_0__0__rename1689), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b1_next[0]), .sdata (m_o_image2_0_[0]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b3_next_7_ (.regout (f_b3_next[7]), .datain (
-                       f_i2_next[7]), .sdata (o_image1_2__7__rename1674), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_i2_next[7]), .sdata (m_o_image1_2_[7]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b3_next_6_ (.regout (f_b3_next[6]), .datain (
-                       f_i2_next[6]), .sdata (o_image1_2__6__rename1675), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_i2_next[6]), .sdata (m_o_image1_2_[6]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b3_next_5_ (.regout (f_b3_next[5]), .datain (
-                       f_i2_next[5]), .sdata (o_image1_2__5__rename1676), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_i2_next[5]), .sdata (m_o_image1_2_[5]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b3_next_4_ (.regout (f_b3_next[4]), .datain (
-                       f_i2_next[4]), .sdata (o_image1_2__4__rename1677), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_i2_next[4]), .sdata (m_o_image1_2_[4]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b3_next_3_ (.regout (f_b3_next[3]), .datain (
-                       f_i2_next[3]), .sdata (o_image1_2__3__rename1678), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_i2_next[3]), .sdata (m_o_image1_2_[3]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b3_next_2_ (.regout (f_b3_next[2]), .datain (
-                       f_i2_next[2]), .sdata (o_image1_2__2__rename1679), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_i2_next[2]), .sdata (m_o_image1_2_[2]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b3_next_1_ (.regout (f_b3_next[1]), .datain (
-                       f_i2_next[1]), .sdata (o_image1_2__1__rename1680), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_i2_next[1]), .sdata (m_o_image1_2_[1]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b3_next_0_ (.regout (f_b3_next[0]), .datain (
-                       f_i2_next[0]), .sdata (o_image1_2__0__rename1681), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_i2_next[0]), .sdata (m_o_image1_2_[0]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b2_next_7_ (.regout (f_b2_next[7]), .datain (
-                       f_b3_next[7]), .sdata (o_image2_2__7__rename1698), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b3_next[7]), .sdata (m_o_image2_2_[7]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b2_next_6_ (.regout (f_b2_next[6]), .datain (
-                       f_b3_next[6]), .sdata (o_image2_2__6__rename1699), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b3_next[6]), .sdata (m_o_image2_2_[6]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b2_next_5_ (.regout (f_b2_next[5]), .datain (
-                       f_b3_next[5]), .sdata (o_image2_2__5__rename1700), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b3_next[5]), .sdata (m_o_image2_2_[5]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b2_next_4_ (.regout (f_b2_next[4]), .datain (
-                       f_b3_next[4]), .sdata (o_image2_2__4__rename1701), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b3_next[4]), .sdata (m_o_image2_2_[4]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b2_next_3_ (.regout (f_b2_next[3]), .datain (
-                       f_b3_next[3]), .sdata (o_image2_2__3__rename1702), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b3_next[3]), .sdata (m_o_image2_2_[3]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b2_next_2_ (.regout (f_b2_next[2]), .datain (
-                       f_b3_next[2]), .sdata (o_image2_2__2__rename1703), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b3_next[2]), .sdata (m_o_image2_2_[2]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b2_next_1_ (.regout (f_b2_next[1]), .datain (
-                       f_b3_next[1]), .sdata (o_image2_2__1__rename1704), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b3_next[1]), .sdata (m_o_image2_2_[1]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b2_next_0_ (.regout (f_b2_next[0]), .datain (
-                       f_b3_next[0]), .sdata (o_image2_2__0__rename1705), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b3_next[0]), .sdata (m_o_image2_2_[0]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b1_next_7_ (.regout (f_b1_next[7]), .datain (
-                       f_b2_next[7]), .sdata (o_image2_1__7__rename1690), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b2_next[7]), .sdata (m_o_image2_1_[7]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b1_next_6_ (.regout (f_b1_next[6]), .datain (
-                       f_b2_next[6]), .sdata (o_image2_1__6__rename1691), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b2_next[6]), .sdata (m_o_image2_1_[6]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b1_next_5_ (.regout (f_b1_next[5]), .datain (
-                       f_b2_next[5]), .sdata (o_image2_1__5__rename1692), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b2_next[5]), .sdata (m_o_image2_1_[5]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b1_next_4_ (.regout (f_b1_next[4]), .datain (
-                       f_b2_next[4]), .sdata (o_image2_1__4__rename1693), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b2_next[4]), .sdata (m_o_image2_1_[4]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b1_next_3_ (.regout (f_b1_next[3]), .datain (
-                       f_b2_next[3]), .sdata (o_image2_1__3__rename1694), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b2_next[3]), .sdata (m_o_image2_1_[3]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b1_next_2_ (.regout (f_b1_next[2]), .datain (
-                       f_b2_next[2]), .sdata (o_image2_1__2__rename1695), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b2_next[2]), .sdata (m_o_image2_1_[2]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b1_next_1_ (.regout (f_b1_next[1]), .datain (
-                       f_b2_next[1]), .sdata (o_image2_1__1__rename1696), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b2_next[1]), .sdata (m_o_image2_1_[1]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_ff reg_f_b1_next_0_ (.regout (f_b1_next[0]), .datain (
-                       f_b2_next[0]), .sdata (o_image2_1__0__rename1697), .clk (
-                       i_clock), .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
+                       f_b2_next[0]), .sdata (m_o_image2_1_[0]), .clk (i_clock)
+                       , .ena (nx57127z1), .aclr (1'b0), .sclr (1'b0), .sload (
                        nx57127z2)) ;
     cycloneii_lcell_comb ix20836z52988 (.combout (f_i_mode[1]), .dataa (
                          f_i_mode_next[1]), .datab (nx57127z2), .datac (
@@ -1814,114 +1765,114 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                          
                          defparam ix20836z52990.lut_mask = 16'hacac;
     cycloneii_lcell_comb ix20836z52986 (.combout (f_i2[0]), .dataa (f_i2_next[0]
-                         ), .datab (nx57127z2), .datac (
-                         o_image1_2__0__rename1681), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image1_2_[0]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52986.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52985 (.combout (f_i2[1]), .dataa (f_i2_next[1]
-                         ), .datab (nx57127z2), .datac (
-                         o_image1_2__1__rename1680), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image1_2_[1]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52985.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52984 (.combout (f_i2[2]), .dataa (f_i2_next[2]
-                         ), .datab (nx57127z2), .datac (
-                         o_image1_2__2__rename1679), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image1_2_[2]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52984.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52983 (.combout (f_i2[3]), .dataa (f_i2_next[3]
-                         ), .datab (nx57127z2), .datac (
-                         o_image1_2__3__rename1678), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image1_2_[3]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52983.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52982 (.combout (f_i2[4]), .dataa (f_i2_next[4]
-                         ), .datab (nx57127z2), .datac (
-                         o_image1_2__4__rename1677), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image1_2_[4]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52982.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52981 (.combout (f_i2[5]), .dataa (f_i2_next[5]
-                         ), .datab (nx57127z2), .datac (
-                         o_image1_2__5__rename1676), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image1_2_[5]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52981.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52980 (.combout (f_i2[6]), .dataa (f_i2_next[6]
-                         ), .datab (nx57127z2), .datac (
-                         o_image1_2__6__rename1675), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image1_2_[6]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52980.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52979 (.combout (f_i2[7]), .dataa (f_i2_next[7]
-                         ), .datab (nx57127z2), .datac (
-                         o_image1_2__7__rename1674), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image1_2_[7]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52979.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52978 (.combout (f_i1[0]), .dataa (f_i1_next[0]
-                         ), .datab (nx57127z2), .datac (
-                         o_image1_0__0__rename1673), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image1_0_[0]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52978.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52977 (.combout (f_i1[1]), .dataa (f_i1_next[1]
-                         ), .datab (nx57127z2), .datac (
-                         o_image1_0__1__rename1672), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image1_0_[1]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52977.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52976 (.combout (f_i1[2]), .dataa (f_i1_next[2]
-                         ), .datab (nx57127z2), .datac (
-                         o_image1_0__2__rename1671), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image1_0_[2]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52976.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52975 (.combout (f_i1[3]), .dataa (f_i1_next[3]
-                         ), .datab (nx57127z2), .datac (
-                         o_image1_0__3__rename1670), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image1_0_[3]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52975.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52974 (.combout (f_i1[4]), .dataa (f_i1_next[4]
-                         ), .datab (nx57127z2), .datac (
-                         o_image1_0__4__rename1669), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image1_0_[4]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52974.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52973 (.combout (f_i1[5]), .dataa (f_i1_next[5]
-                         ), .datab (nx57127z2), .datac (
-                         o_image1_0__5__rename1668), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image1_0_[5]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52973.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52972 (.combout (f_i1[6]), .dataa (f_i1_next[6]
-                         ), .datab (nx57127z2), .datac (
-                         o_image1_0__6__rename1667), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image1_0_[6]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52972.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52971 (.combout (f_i1[7]), .dataa (f_i1_next[7]
-                         ), .datab (nx57127z2), .datac (
-                         o_image1_0__7__rename1666), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image1_0_[7]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52971.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52970 (.combout (f_b3[0]), .dataa (f_b3_next[0]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_2__0__rename1705), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_2_[0]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52970.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52969 (.combout (f_b3[1]), .dataa (f_b3_next[1]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_2__1__rename1704), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_2_[1]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52969.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52968 (.combout (f_b3[2]), .dataa (f_b3_next[2]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_2__2__rename1703), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_2_[2]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52968.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52967 (.combout (f_b3[3]), .dataa (f_b3_next[3]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_2__3__rename1702), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_2_[3]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52967.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52966 (.combout (f_b3[4]), .dataa (f_b3_next[4]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_2__4__rename1701), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_2_[4]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52966.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52965 (.combout (f_b3[5]), .dataa (f_b3_next[5]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_2__5__rename1700), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_2_[5]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52965.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix57127z52923 (.combout (nx57127z1), .dataa (nx57127z2)
                          , .datab (m_o_valid), .datac (p_nrst_int), .datad (1'b1
@@ -1929,214 +1880,214 @@ module kirsch ( i_clock, i_reset, i_valid, i_pixel, o_valid, o_edge, o_dir,
                          
                          defparam ix57127z52923.lut_mask = 16'hd0d0;
     cycloneii_lcell_comb ix20836z52964 (.combout (f_b3[6]), .dataa (f_b3_next[6]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_2__6__rename1699), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_2_[6]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52964.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52963 (.combout (f_b3[7]), .dataa (f_b3_next[7]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_2__7__rename1698), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_2_[7]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52963.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52962 (.combout (f_b2[0]), .dataa (f_b2_next[0]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_1__0__rename1697), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_1_[0]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52962.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52961 (.combout (f_b2[1]), .dataa (f_b2_next[1]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_1__1__rename1696), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_1_[1]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52961.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52960 (.combout (f_b2[2]), .dataa (f_b2_next[2]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_1__2__rename1695), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_1_[2]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52960.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52959 (.combout (f_b2[3]), .dataa (f_b2_next[3]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_1__3__rename1694), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_1_[3]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52959.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52958 (.combout (f_b2[4]), .dataa (f_b2_next[4]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_1__4__rename1693), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_1_[4]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52958.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52957 (.combout (f_b2[5]), .dataa (f_b2_next[5]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_1__5__rename1692), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_1_[5]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52957.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52956 (.combout (f_b2[6]), .dataa (f_b2_next[6]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_1__6__rename1691), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_1_[6]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52956.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52955 (.combout (f_b2[7]), .dataa (f_b2_next[7]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_1__7__rename1690), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_1_[7]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52955.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52954 (.combout (f_b1[0]), .dataa (f_b1_next[0]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_0__0__rename1689), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_0_[0]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52954.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52953 (.combout (f_b1[1]), .dataa (f_b1_next[1]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_0__1__rename1688), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_0_[1]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52953.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52952 (.combout (f_b1[2]), .dataa (f_b1_next[2]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_0__2__rename1687), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_0_[2]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52952.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52951 (.combout (f_b1[3]), .dataa (f_b1_next[3]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_0__3__rename1686), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_0_[3]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52951.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52950 (.combout (f_b1[4]), .dataa (f_b1_next[4]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_0__4__rename1685), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_0_[4]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52950.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52949 (.combout (f_b1[5]), .dataa (f_b1_next[5]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_0__5__rename1684), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_0_[5]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52949.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52948 (.combout (f_b1[6]), .dataa (f_b1_next[6]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_0__6__rename1683), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_0_[6]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52948.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52947 (.combout (f_b1[7]), .dataa (f_b1_next[7]
-                         ), .datab (nx57127z2), .datac (
-                         o_image2_0__7__rename1682), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image2_0_[7]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52947.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52946 (.combout (f_t3[0]), .dataa (f_t3_next[0]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_0__0__rename1649), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_0_[0]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52946.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52945 (.combout (f_t3[1]), .dataa (f_t3_next[1]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_0__1__rename1648), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_0_[1]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52945.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52944 (.combout (f_t3[2]), .dataa (f_t3_next[2]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_0__2__rename1647), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_0_[2]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52944.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52943 (.combout (f_t3[3]), .dataa (f_t3_next[3]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_0__3__rename1646), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_0_[3]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52943.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52942 (.combout (f_t3[4]), .dataa (f_t3_next[4]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_0__4__rename1645), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_0_[4]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52942.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52941 (.combout (f_t3[5]), .dataa (f_t3_next[5]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_0__5__rename1644), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_0_[5]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52941.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52940 (.combout (f_t3[6]), .dataa (f_t3_next[6]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_0__6__rename1643), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_0_[6]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52940.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52939 (.combout (f_t3[7]), .dataa (f_t3_next[7]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_0__7__rename1642), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_0_[7]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52939.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52938 (.combout (f_t2[0]), .dataa (f_t2_next[0]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_1__0__rename1657), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_1_[0]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52938.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52937 (.combout (f_t2[1]), .dataa (f_t2_next[1]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_1__1__rename1656), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_1_[1]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52937.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52936 (.combout (f_t2[2]), .dataa (f_t2_next[2]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_1__2__rename1655), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_1_[2]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52936.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52935 (.combout (f_t2[3]), .dataa (f_t2_next[3]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_1__3__rename1654), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_1_[3]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52935.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52934 (.combout (f_t2[4]), .dataa (f_t2_next[4]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_1__4__rename1653), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_1_[4]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52934.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52933 (.combout (f_t2[5]), .dataa (f_t2_next[5]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_1__5__rename1652), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_1_[5]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52933.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52932 (.combout (f_t2[6]), .dataa (f_t2_next[6]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_1__6__rename1651), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_1_[6]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52932.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52931 (.combout (f_t2[7]), .dataa (f_t2_next[7]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_1__7__rename1650), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_1_[7]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52931.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52930 (.combout (f_t1[0]), .dataa (f_t1_next[0]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_2__0__rename1665), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_2_[0]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52930.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52929 (.combout (f_t1[1]), .dataa (f_t1_next[1]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_2__1__rename1664), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_2_[1]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52929.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52928 (.combout (f_t1[2]), .dataa (f_t1_next[2]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_2__2__rename1663), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_2_[2]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52928.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52927 (.combout (f_t1[3]), .dataa (f_t1_next[3]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_2__3__rename1662), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_2_[3]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52927.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52926 (.combout (f_t1[4]), .dataa (f_t1_next[4]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_2__4__rename1661), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_2_[4]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52926.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52925 (.combout (f_t1[5]), .dataa (f_t1_next[5]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_2__5__rename1660), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_2_[5]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52925.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52924 (.combout (f_t1[6]), .dataa (f_t1_next[6]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_2__6__rename1659), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_2_[6]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52924.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix20836z52923 (.combout (f_t1[7]), .dataa (f_t1_next[7]
-                         ), .datab (nx57127z2), .datac (
-                         o_image0_2__7__rename1658), .datad (1'b1), .cin (1'b0)
-                         ) ;
+                         ), .datab (nx57127z2), .datac (m_o_image0_2_[7]), .datad (
+                         1'b1), .cin (1'b0)) ;
+                         
                          defparam ix20836z52923.lut_mask = 16'he2e2;
     cycloneii_lcell_comb ix15976z52923 (.combout (o_mode[0]), .dataa (
                          p5m_1__dup_10), .datab (p5m_0__dup_14), .datac (
@@ -4303,17 +4254,17 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_mode, o_column,
     output [7:0]o_image2_2_ ;
     input p_nrst_int_dup_22 ;
 
-    wire o_column_0__rename1423;
+    wire o_column_0__rename1287;
     wire [7:0]mem_data;
     wire [2:0]mem_wrn;
     wire [2:0]mem_wrn_current;
     wire first_bubble, busySignal, busySignalDelayed;
     wire [7:1]column;
     wire [7:0]row;
-    wire o_image1_1__7__rename1464, o_image1_1__6__rename1465, 
-         o_image1_1__5__rename1466, o_image1_1__4__rename1467, 
-         o_image1_1__3__rename1468, o_image1_1__2__rename1469, 
-         o_image1_1__1__rename1470, o_image1_1__dup0_0_;
+    wire o_image1_1__7__rename1328, o_image1_1__6__rename1329, 
+         o_image1_1__5__rename1330, o_image1_1__4__rename1331, 
+         o_image1_1__3__rename1332, o_image1_1__2__rename1333, 
+         o_image1_1__1__rename1334, o_image1_1__dup0_0_;
     wire [7:0]mem_q_0_;
     wire [7:0]mem_q_1_;
     wire [7:0]mem_q_2_;
@@ -4340,28 +4291,28 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_mode, o_column,
                        nx8852z2), .p_nrst_int_dup_22 (p_nrst_int_dup_22)) ;
     modgen_counter_8_1 modgen_counter_column (.clock (i_clock), .q ({column[7],
                        column[6],column[5],column[4],column[3],column[2],
-                       column[1],o_column_0__rename1423}), .clk_en (nx47386z1), 
+                       column[1],o_column_0__rename1287}), .clk_en (nx47386z1), 
                        .sclear (nx47386z2), .cnt_en (first_bubble)) ;
     ram_dq_8_0 u_mem1_mem (.wr_data1 ({mem_data[7],mem_data[6],mem_data[5],
                mem_data[4],mem_data[3],mem_data[2],mem_data[1],mem_data[0]}), .rd_data1 (
                {mem_q_0_[7],mem_q_0_[6],mem_q_0_[5],mem_q_0_[4],mem_q_0_[3],
                mem_q_0_[2],mem_q_0_[1],mem_q_0_[0]}), .addr1 ({column[7],
                column[6],column[5],column[4],column[3],column[2],column[1],
-               o_column_0__rename1423}), .wr_clk1 (i_clock), .wr_ena1 (
+               o_column_0__rename1287}), .wr_clk1 (i_clock), .wr_ena1 (
                mem_wrn[0])) ;
     ram_dq_8_1 u_mem2_mem (.wr_data1 ({mem_data[7],mem_data[6],mem_data[5],
                mem_data[4],mem_data[3],mem_data[2],mem_data[1],mem_data[0]}), .rd_data1 (
                {mem_q_1_[7],mem_q_1_[6],mem_q_1_[5],mem_q_1_[4],mem_q_1_[3],
                mem_q_1_[2],mem_q_1_[1],mem_q_1_[0]}), .addr1 ({column[7],
                column[6],column[5],column[4],column[3],column[2],column[1],
-               o_column_0__rename1423}), .wr_clk1 (i_clock), .wr_ena1 (
+               o_column_0__rename1287}), .wr_clk1 (i_clock), .wr_ena1 (
                mem_wrn[1])) ;
     ram_dq_8_2 u_mem3_mem (.wr_data1 ({mem_data[7],mem_data[6],mem_data[5],
                mem_data[4],mem_data[3],mem_data[2],mem_data[1],mem_data[0]}), .rd_data1 (
                {mem_q_2_[7],mem_q_2_[6],mem_q_2_[5],mem_q_2_[4],mem_q_2_[3],
                mem_q_2_[2],mem_q_2_[1],mem_q_2_[0]}), .addr1 ({column[7],
                column[6],column[5],column[4],column[3],column[2],column[1],
-               o_column_0__rename1423}), .wr_clk1 (i_clock), .wr_ena1 (
+               o_column_0__rename1287}), .wr_clk1 (i_clock), .wr_ena1 (
                mem_wrn[2])) ;
     assign not_first_bubble = ~first_bubble ;
     cycloneii_lcell_ff reg_o_valid (.regout (o_valid), .datain (nx60567z1), .sdata (
@@ -4576,31 +4527,31 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_mode, o_column,
                        o_image2_2_[0]), .sdata (1'b0), .clk (i_clock), .ena (
                        first_bubble), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)
                        ) ;
-    cycloneii_lcell_ff reg_buffer1_1__7_ (.regout (o_image1_1__7__rename1464), .datain (
+    cycloneii_lcell_ff reg_buffer1_1__7_ (.regout (o_image1_1__7__rename1328), .datain (
                        o_image2_1_[7]), .sdata (1'b0), .clk (i_clock), .ena (
                        first_bubble), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)
                        ) ;
-    cycloneii_lcell_ff reg_buffer1_1__6_ (.regout (o_image1_1__6__rename1465), .datain (
+    cycloneii_lcell_ff reg_buffer1_1__6_ (.regout (o_image1_1__6__rename1329), .datain (
                        o_image2_1_[6]), .sdata (1'b0), .clk (i_clock), .ena (
                        first_bubble), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)
                        ) ;
-    cycloneii_lcell_ff reg_buffer1_1__5_ (.regout (o_image1_1__5__rename1466), .datain (
+    cycloneii_lcell_ff reg_buffer1_1__5_ (.regout (o_image1_1__5__rename1330), .datain (
                        o_image2_1_[5]), .sdata (1'b0), .clk (i_clock), .ena (
                        first_bubble), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)
                        ) ;
-    cycloneii_lcell_ff reg_buffer1_1__4_ (.regout (o_image1_1__4__rename1467), .datain (
+    cycloneii_lcell_ff reg_buffer1_1__4_ (.regout (o_image1_1__4__rename1331), .datain (
                        o_image2_1_[4]), .sdata (1'b0), .clk (i_clock), .ena (
                        first_bubble), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)
                        ) ;
-    cycloneii_lcell_ff reg_buffer1_1__3_ (.regout (o_image1_1__3__rename1468), .datain (
+    cycloneii_lcell_ff reg_buffer1_1__3_ (.regout (o_image1_1__3__rename1332), .datain (
                        o_image2_1_[3]), .sdata (1'b0), .clk (i_clock), .ena (
                        first_bubble), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)
                        ) ;
-    cycloneii_lcell_ff reg_buffer1_1__2_ (.regout (o_image1_1__2__rename1469), .datain (
+    cycloneii_lcell_ff reg_buffer1_1__2_ (.regout (o_image1_1__2__rename1333), .datain (
                        o_image2_1_[2]), .sdata (1'b0), .clk (i_clock), .ena (
                        first_bubble), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)
                        ) ;
-    cycloneii_lcell_ff reg_buffer1_1__1_ (.regout (o_image1_1__1__rename1470), .datain (
+    cycloneii_lcell_ff reg_buffer1_1__1_ (.regout (o_image1_1__1__rename1334), .datain (
                        o_image2_1_[1]), .sdata (1'b0), .clk (i_clock), .ena (
                        first_bubble), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)
                        ) ;
@@ -4673,31 +4624,31 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_mode, o_column,
                        first_bubble), .aclr (1'b0), .sclr (1'b0), .sload (1'b0)
                        ) ;
     cycloneii_lcell_ff reg_buffer0_1__7_ (.regout (o_image0_1_[7]), .datain (
-                       o_image1_1__7__rename1464), .sdata (1'b0), .clk (i_clock)
+                       o_image1_1__7__rename1328), .sdata (1'b0), .clk (i_clock)
                        , .ena (first_bubble), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
     cycloneii_lcell_ff reg_buffer0_1__6_ (.regout (o_image0_1_[6]), .datain (
-                       o_image1_1__6__rename1465), .sdata (1'b0), .clk (i_clock)
+                       o_image1_1__6__rename1329), .sdata (1'b0), .clk (i_clock)
                        , .ena (first_bubble), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
     cycloneii_lcell_ff reg_buffer0_1__5_ (.regout (o_image0_1_[5]), .datain (
-                       o_image1_1__5__rename1466), .sdata (1'b0), .clk (i_clock)
+                       o_image1_1__5__rename1330), .sdata (1'b0), .clk (i_clock)
                        , .ena (first_bubble), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
     cycloneii_lcell_ff reg_buffer0_1__4_ (.regout (o_image0_1_[4]), .datain (
-                       o_image1_1__4__rename1467), .sdata (1'b0), .clk (i_clock)
+                       o_image1_1__4__rename1331), .sdata (1'b0), .clk (i_clock)
                        , .ena (first_bubble), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
     cycloneii_lcell_ff reg_buffer0_1__3_ (.regout (o_image0_1_[3]), .datain (
-                       o_image1_1__3__rename1468), .sdata (1'b0), .clk (i_clock)
+                       o_image1_1__3__rename1332), .sdata (1'b0), .clk (i_clock)
                        , .ena (first_bubble), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
     cycloneii_lcell_ff reg_buffer0_1__2_ (.regout (o_image0_1_[2]), .datain (
-                       o_image1_1__2__rename1469), .sdata (1'b0), .clk (i_clock)
+                       o_image1_1__2__rename1333), .sdata (1'b0), .clk (i_clock)
                        , .ena (first_bubble), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
     cycloneii_lcell_ff reg_buffer0_1__1_ (.regout (o_image0_1_[1]), .datain (
-                       o_image1_1__1__rename1470), .sdata (1'b0), .clk (i_clock)
+                       o_image1_1__1__rename1334), .sdata (1'b0), .clk (i_clock)
                        , .ena (first_bubble), .aclr (1'b0), .sclr (1'b0), .sload (
                        1'b0)) ;
     cycloneii_lcell_ff reg_buffer0_1__0_ (.regout (o_image0_1_[0]), .datain (
@@ -4857,7 +4808,7 @@ module memory ( i_valid, i_reset, i_pixel, i_clock, o_valid, o_mode, o_column,
                          ) ;
                          defparam ix8852z52928.lut_mask = 16'h8000;
     cycloneii_lcell_comb ix8852z52926 (.combout (nx8852z4), .dataa (
-                         o_column_0__rename1423), .datab (column[7]), .datac (
+                         o_column_0__rename1287), .datab (column[7]), .datac (
                          column[6]), .datad (column[5]), .cin (1'b0)) ;
                          
                          defparam ix8852z52926.lut_mask = 16'h8000;
@@ -5054,7 +5005,7 @@ module ram_dq_8_2 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
     input rst1 ;
     input regce1 ;
 
-    wire ena1_rename1408;
+    wire ena1_rename1272;
 
 
 
@@ -5062,7 +5013,7 @@ module ram_dq_8_2 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                wr_data1[4],wr_data1[3],wr_data1[2],wr_data1[1],wr_data1[0]}), .address_a (
                {addr1[7],addr1[6],addr1[5],addr1[4],addr1[3],addr1[2],addr1[1],
                addr1[0]}), .wren_a (wr_ena1), .clock0 (wr_clk1), .clocken0 (
-               ena1_rename1408), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
+               ena1_rename1272), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
                rd_data1[4],rd_data1[3],rd_data1[2],rd_data1[1],rd_data1[0]})) ;
                
                defparam ix64056z29483.width_a = 8;
@@ -5136,7 +5087,7 @@ module ram_dq_8_2 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                defparam ix64056z29483.lpm_hint = "UNUSED";
                
                defparam ix64056z29483.lpm_type = "altsyncram";
-    assign ena1_rename1408 = 1 ;
+    assign ena1_rename1272 = 1 ;
 endmodule
 
 
@@ -5154,7 +5105,7 @@ module ram_dq_8_1 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
     input rst1 ;
     input regce1 ;
 
-    wire ena1_rename1378;
+    wire ena1_rename1242;
 
 
 
@@ -5162,7 +5113,7 @@ module ram_dq_8_1 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                wr_data1[4],wr_data1[3],wr_data1[2],wr_data1[1],wr_data1[0]}), .address_a (
                {addr1[7],addr1[6],addr1[5],addr1[4],addr1[3],addr1[2],addr1[1],
                addr1[0]}), .wren_a (wr_ena1), .clock0 (wr_clk1), .clocken0 (
-               ena1_rename1378), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
+               ena1_rename1242), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
                rd_data1[4],rd_data1[3],rd_data1[2],rd_data1[1],rd_data1[0]})) ;
                
                defparam ix64056z29482.width_a = 8;
@@ -5236,7 +5187,7 @@ module ram_dq_8_1 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                defparam ix64056z29482.lpm_hint = "UNUSED";
                
                defparam ix64056z29482.lpm_type = "altsyncram";
-    assign ena1_rename1378 = 1 ;
+    assign ena1_rename1242 = 1 ;
 endmodule
 
 
@@ -5254,7 +5205,7 @@ module ram_dq_8_0 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
     input rst1 ;
     input regce1 ;
 
-    wire ena1_rename1348;
+    wire ena1_rename1212;
 
 
 
@@ -5262,7 +5213,7 @@ module ram_dq_8_0 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                wr_data1[4],wr_data1[3],wr_data1[2],wr_data1[1],wr_data1[0]}), .address_a (
                {addr1[7],addr1[6],addr1[5],addr1[4],addr1[3],addr1[2],addr1[1],
                addr1[0]}), .wren_a (wr_ena1), .clock0 (wr_clk1), .clocken0 (
-               ena1_rename1348), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
+               ena1_rename1212), .q_a ({rd_data1[7],rd_data1[6],rd_data1[5],
                rd_data1[4],rd_data1[3],rd_data1[2],rd_data1[1],rd_data1[0]})) ;
                
                defparam ix64056z29481.width_a = 8;
@@ -5336,7 +5287,7 @@ module ram_dq_8_0 ( wr_data1, rd_data1, addr1, wr_clk1, rd_clk1, wr_ena1,
                defparam ix64056z29481.lpm_hint = "UNUSED";
                
                defparam ix64056z29481.lpm_type = "altsyncram";
-    assign ena1_rename1348 = 1 ;
+    assign ena1_rename1212 = 1 ;
 endmodule
 
 

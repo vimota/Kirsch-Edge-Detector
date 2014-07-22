@@ -4,25 +4,25 @@ add wave -radix unsigned sim:/kirsch_tb/in_pixel
 add wave sim:/kirsch_tb/reset
 add wave sim:/kirsch_tb/out_mode
 add wave -radix unsigned sim:/kirsch_tb/out_row
-add wave -radix unsigned sim:/kirsch_tb/image00
-add wave -radix unsigned sim:/kirsch_tb/image01
-add wave -radix unsigned sim:/kirsch_tb/image02
-add wave -radix unsigned sim:/kirsch_tb/image10
-add wave -radix unsigned sim:/kirsch_tb/image11
-add wave -radix unsigned sim:/kirsch_tb/image12
-add wave -radix unsigned sim:/kirsch_tb/image20
-add wave -radix unsigned sim:/kirsch_tb/image21
-add wave -radix unsigned sim:/kirsch_tb/image22
+#add wave -radix unsigned sim:/kirsch_tb/image00
+#add wave -radix unsigned sim:/kirsch_tb/image01
+#add wave -radix unsigned sim:/kirsch_tb/image02
+#add wave -radix unsigned sim:/kirsch_tb/image10
+#add wave -radix unsigned sim:/kirsch_tb/image11
+#add wave -radix unsigned sim:/kirsch_tb/image12
+#add wave -radix unsigned sim:/kirsch_tb/image20
+#add wave -radix unsigned sim:/kirsch_tb/image21
+#add wave -radix unsigned sim:/kirsch_tb/image22
 add wave sim:/kirsch_tb/out_valid
 add wave sim:/kirsch_tb/out_edge
 add wave sim:/kirsch_tb/out_dir
 
-add wave -radix unsigned sim:/kirsch_tb/debug_column
+#add wave -radix unsigned sim:/kirsch_tb/debug_column
 
-add wave -radix unsigned sim:/kirsch_tb/debug_valid
-add wave sim:/kirsch_tb/debug_num_0
-add wave sim:/kirsch_tb/debug_num_1
-add wave -radix unsigned sim:/kirsch_tb/debug_num_2
+#add wave -radix unsigned sim:/kirsch_tb/debug_valid
+#add wave sim:/kirsch_tb/debug_num_0
+#add wave sim:/kirsch_tb/debug_num_1
+#add wave -radix unsigned sim:/kirsch_tb/debug_num_2
 
 #add wave -radix signed sim:/kirsch_tb/debug_num_2
 #add wave -radix unsigned sim:/kirsch_tb/debug_num_1

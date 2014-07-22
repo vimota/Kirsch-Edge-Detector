@@ -1,5 +1,5 @@
 EDA Netlist Writer report for kirsch
-Tue Jul 22 01:29:51 2014
+Tue Jul 22 01:55:09 2014
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Tue Jul 22 01:29:51 2014 ;
+; EDA Netlist Writer Status ; Successful - Tue Jul 22 01:55:09 2014 ;
 ; Revision Name             ; kirsch                                ;
 ; Top-level Entity Name     ; kirsch                                ;
 ; Family                    ; Cyclone II                            ;
@@ -95,13 +95,13 @@ Info: Running Quartus II EDA Netlist Writer
     Info: programming logic devices manufactured by Altera and sold by 
     Info: Altera or its authorized distributors.  Please refer to the 
     Info: applicable agreement for further details.
-    Info: Processing started: Tue Jul 22 01:29:50 2014
+    Info: Processing started: Tue Jul 22 01:55:09 2014
 Info: Command: quartus_eda kirsch --simulation=on --tool=modelsim --format=verilog
 Info: Generated files "kirsch.vo" and "kirsch_v.sdo" in directory "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 169 megabytes
-    Info: Processing ended: Tue Jul 22 01:29:51 2014
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 168 megabytes
+    Info: Processing ended: Tue Jul 22 01:55:09 2014
+    Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:01
 
 

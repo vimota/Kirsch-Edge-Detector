@@ -17,10 +17,12 @@ Model Technology ModelSim SE-64 vcom 10.1 Compiler 2011.12 Dec  5 2011
 -- Loading package NUMERIC_STD
 -- Loading package kirsch_utility_pkg
 -- Loading package kirsch_utility_pkg
--- Compiling entity memory
--- Compiling entity memory
--- Compiling architecture main of memory
--- Compiling architecture main of memory
--- Loading entity mem
--- Loading entity mem
+-- Compiling entity kirsch
+-- Compiling entity kirsch
+-- Compiling architecture main of kirsch
+-- Compiling architecture main of kirsch
+-- Loading entity memory
+-- Loading entity memory
+-- Loading entity flow
+-- Loading entity flow
  

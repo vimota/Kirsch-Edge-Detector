@@ -20,8 +20,15 @@ entity flow is
         o_valid         : out    vl_logic;
         o_mode          : out    vl_logic_vector(1 downto 0);
         o_row           : out    vl_logic_vector(7 downto 0);
+        p_ix258_ix248_nx13: out    vl_logic;
+        p_ix258_ix249_nx13: out    vl_logic;
+        p_ix258_ix250_nx13: out    vl_logic;
+        p_ix258_ix251_nx13: out    vl_logic;
+        p_ix258_ix252_nx13: out    vl_logic;
+        p_ix258_ix253_nx13: out    vl_logic;
+        p_ix258_ix254_nx13: out    vl_logic;
+        p_ix258_ix255_nx13: out    vl_logic;
         \p_p5m_1_\      : out    vl_logic;
-        \p_p5m_0_\      : out    vl_logic;
-        p_nrst_int_dup_22: in     vl_logic
+        \p_p5m_0_\      : out    vl_logic
     );
 end flow;

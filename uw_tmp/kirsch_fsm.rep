@@ -15,12 +15,6 @@ Module : work.flow(main)
 Number of FSMs Extracted : zero
 
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Module : work.memory(main)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Number of FSMs Extracted : zero
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Module : work.top_kirsch(main)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -30,12 +24,6 @@ Number of FSMs Extracted : zero
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Module : work.uw_uart(main)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Number of FSMs Extracted : zero
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~
-Module : work.flow(main)
-~~~~~~~~~~~~~~~~~~~~~~~~~
 Number of FSMs Extracted : zero
 
 

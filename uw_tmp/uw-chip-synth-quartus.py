@@ -8,39 +8,39 @@ my_chdir("./uw_tmp")
 # 
 # my_mv( "../LOG",  "LOG" )
 
-xsys("quartus_sh -t uw-chip-synth-quartus.tcl top_kirsch")
+xsys("quartus_sh -t uw-chip-synth-quartus.tcl kirsch")
 
-xsys("quartus_sh -t /home/ece327/lib/pins-DE2.tcl top_kirsch")
+xsys("quartus_sh -t /home/ece327/lib/pins-NULL.tcl kirsch")
 
 # not using mif files (memory initialization)
 # my_cp_nofail( "../*.mif", "." )
 
 my_print("map... ")
-xsys( "quartus_map top_kirsch --source top_kirsch_logic.edf --family=CycloneII")
+xsys( "quartus_map kirsch --source kirsch_logic.edf --family=CycloneII")
 
 my_print("fit... ")
-xsys( "quartus_fit top_kirsch --effort=fast --part=EP2C35F672C7")
+xsys( "quartus_fit kirsch --effort=fast --part=EP2C35F672C7")
 
 my_print("tan... ")
-# xsys( "quartus_tan top_kirsch" )
-xsys( "quartus_sta -t uw-chip-synth-quartus-timing.tcl top_kirsch" )
+# xsys( "quartus_tan kirsch" )
+xsys( "quartus_sta -t uw-chip-synth-quartus-timing.tcl kirsch" )
 
 my_print( "asm... ")
-xsys( "quartus_asm top_kirsch" )
+xsys( "quartus_asm kirsch" )
 
 my_println( "eda..." )
-xsys( "quartus_eda top_kirsch --simulation --tool=modelsim --format=vhdl")
-xsys( "quartus_eda top_kirsch --simulation --tool=modelsim --format=verilog")
+xsys( "quartus_eda kirsch --simulation --tool=modelsim --format=vhdl")
+xsys( "quartus_eda kirsch --simulation --tool=modelsim --format=verilog")
 
 # my_mv( "LOG", "../LOG" )
 my_chdir( ".." )
 
-my_mv( "uw_tmp/simulation/modelsim/top_kirsch.vo"       , "uw_tmp/top_kirsch_chip.v" )
-my_mv( "uw_tmp/simulation/modelsim/top_kirsch.vho"       , "uw_tmp/top_kirsch_chip.vhd" )
-my_mv( "uw_tmp/simulation/modelsim/top_kirsch_vhd.sdo" , "uw_tmp/top_kirsch_chip.sdf" )
-my_mv( "uw_tmp/top_kirsch.sof" , "top_kirsch.sof" )
+my_mv( "uw_tmp/simulation/modelsim/kirsch.vo"       , "uw_tmp/kirsch_chip.v" )
+my_mv( "uw_tmp/simulation/modelsim/kirsch.vho"       , "uw_tmp/kirsch_chip.vhd" )
+my_mv( "uw_tmp/simulation/modelsim/kirsch_vhd.sdo" , "uw_tmp/kirsch_chip.sdf" )
+my_mv( "uw_tmp/kirsch.sof" , "kirsch.sof" )
 
-my_cp( "uw_tmp/top_kirsch.map.rpt", "RPT/area_chip.rpt", error_level=1 )
+my_cp( "uw_tmp/kirsch.map.rpt", "RPT/area_chip.rpt", error_level=1 )
 my_cp( "uw_tmp/timing_chip.rpt", "RPT/timing_chip.rpt", error_level=1 )
 my_cp( "uw_tmp/timing_chip_path.rpt", "RPT/timing_chip_path.rpt", error_level=1 )
 
@@ -69,7 +69,7 @@ xsys( "vmap cycloneii /home/ece327/altera/vhdl_libs/cycloneii")
 #
 
 # get synthesized entity (std_logic vector and no generics)
-xsys( "vlog -novopt -work work-msim uw_tmp/top_kirsch_logic.v")
+xsys( "vlog -novopt -work work-msim uw_tmp/kirsch_logic.v")
 
 # fix up _chip.vhd file
-vgencomp_to_arch( "top_kirsch", "chip", [] + [ "kirsch_utility_pkg.vhd", "mem.vhd", "memory.vhd", "flow.vhd", "kirsch_synth_pkg.vhd", "kirsch.vhd", "lib_kirsch.vhd", "top_kirsch.vhd" ] )
+vgencomp_to_arch( "kirsch", "chip", [] + [ "kirsch_utility_pkg.vhd", "mem.vhd", "flow.vhd", "memory.vhd", "kirsch_synth_pkg.vhd", "kirsch.vhd" ] )

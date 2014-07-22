@@ -1,5 +1,5 @@
 Fitter report for top_kirsch
-Tue Jul 22 01:38:28 2014
+Tue Jul 22 01:54:02 2014
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -62,7 +62,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +------------------------------------+------------------------------------------+
-; Fitter Status                      ; Successful - Tue Jul 22 01:38:28 2014    ;
+; Fitter Status                      ; Successful - Tue Jul 22 01:54:02 2014    ;
 ; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name                      ; top_kirsch                               ;
 ; Top-level Entity Name              ; top_kirsch                               ;
@@ -1736,7 +1736,7 @@ Info: Running Quartus II Fitter
     Info: programming logic devices manufactured by Altera and sold by 
     Info: Altera or its authorized distributors.  Please refer to the 
     Info: applicable agreement for further details.
-    Info: Processing started: Tue Jul 22 01:38:20 2014
+    Info: Processing started: Tue Jul 22 01:53:54 2014
 Info: Command: quartus_fit top_kirsch --effort=fast --part=EP2C35F672C7
 Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info: Selected device EP2C35F672C7 for design "top_kirsch"
@@ -1994,7 +1994,7 @@ Warning: Following 49 pins have nothing, GND, or VCC driving datain port -- chan
     Info: Pin debug_sevenseg_5[3] has GND driving its datain port
 Info: Quartus II Fitter was successful. 0 errors, 23 warnings
     Info: Peak virtual memory: 316 megabytes
-    Info: Processing ended: Tue Jul 22 01:38:28 2014
+    Info: Processing ended: Tue Jul 22 01:54:02 2014
     Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:08
 

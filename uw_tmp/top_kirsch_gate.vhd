@@ -2,7 +2,7 @@
 -- 
 -- Definition of  top_kirsch
 -- 
---      Tue Jul 22 01:38:06 2014
+--      Tue Jul 22 01:54:23 2014
 --      
 --      Precision RTL Synthesis, 2008a.47
 -- 
@@ -3406,15 +3406,6 @@ entity kirsch is
       o_dir : OUT std_logic_vector (2 DOWNTO 0) ;
       o_mode : OUT std_logic_vector (1 DOWNTO 0) ;
       o_row : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image0_0 : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image0_1 : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image0_2 : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image1_0 : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image1_1 : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image1_2 : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image2_0 : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image2_1 : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image2_2 : OUT std_logic_vector (7 DOWNTO 0) ;
       debug_key : IN std_logic_vector (3 DOWNTO 1) ;
       debug_switch : IN std_logic_vector (17 DOWNTO 0) ;
       debug_column : OUT std_logic_vector (7 DOWNTO 0) ;
@@ -3577,173 +3568,101 @@ architecture main_unfold_1777 of kirsch is
    
    signal f_i_mode_next: std_logic_vector (1 DOWNTO 0) ;
    
-   signal debug_led_red_EXMPLR673: std_logic_vector (17 DOWNTO 17) ;
+   signal debug_led_red_EXMPLR609: std_logic_vector (17 DOWNTO 17) ;
    
    signal not_rtlcs0, rtlc11n27, rtlc12n25, rtlc13n187, rtlc13n197, rtlcs0, 
       rtlcs1, rtlcs2, not_f_state_3, not_f_state_2, not_f_state_1: std_logic
     ;
    
-   signal o_image0_0_EXMPLR674: std_logic_vector (7 DOWNTO 0) ;
+   signal m_o_image0_0: std_logic_vector (7 DOWNTO 0) ;
    
-   signal o_image0_1_EXMPLR675: std_logic_vector (7 DOWNTO 0) ;
+   signal m_o_image0_1: std_logic_vector (7 DOWNTO 0) ;
    
-   signal o_image0_2_EXMPLR676: std_logic_vector (7 DOWNTO 0) ;
+   signal m_o_image0_2: std_logic_vector (7 DOWNTO 0) ;
    
-   signal o_image1_0_EXMPLR677: std_logic_vector (7 DOWNTO 0) ;
+   signal m_o_image1_0: std_logic_vector (7 DOWNTO 0) ;
    
-   signal o_image1_2_EXMPLR678: std_logic_vector (7 DOWNTO 0) ;
+   signal m_o_image1_2: std_logic_vector (7 DOWNTO 0) ;
    
-   signal o_image2_0_EXMPLR679: std_logic_vector (7 DOWNTO 0) ;
+   signal m_o_image2_0: std_logic_vector (7 DOWNTO 0) ;
    
-   signal o_image2_1_EXMPLR680: std_logic_vector (7 DOWNTO 0) ;
+   signal m_o_image2_1: std_logic_vector (7 DOWNTO 0) ;
    
-   signal o_image2_2_EXMPLR681: std_logic_vector (7 DOWNTO 0) ;
+   signal m_o_image2_2: std_logic_vector (7 DOWNTO 0) ;
    
    signal DANGLING : std_logic_vector (15 downto 0 );
 
 begin
    o_mode(1) <= o_mode_1_EXMPLR594 ;
-   o_image0_0(7) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_0(6) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_0(5) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_0(4) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_0(3) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_0(2) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_0(1) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_0(0) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_1(7) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_1(6) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_1(5) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_1(4) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_1(3) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_1(2) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_1(1) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_1(0) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_2(7) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_2(6) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_2(5) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_2(4) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_2(3) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_2(2) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_2(1) <= debug_led_red_EXMPLR673(17) ;
-   o_image0_2(0) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_0(7) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_0(6) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_0(5) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_0(4) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_0(3) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_0(2) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_0(1) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_0(0) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_1(7) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_1(6) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_1(5) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_1(4) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_1(3) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_1(2) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_1(1) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_1(0) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_2(7) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_2(6) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_2(5) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_2(4) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_2(3) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_2(2) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_2(1) <= debug_led_red_EXMPLR673(17) ;
-   o_image1_2(0) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_0(7) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_0(6) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_0(5) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_0(4) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_0(3) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_0(2) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_0(1) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_0(0) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_1(7) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_1(6) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_1(5) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_1(4) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_1(3) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_1(2) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_1(1) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_1(0) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_2(7) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_2(6) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_2(5) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_2(4) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_2(3) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_2(2) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_2(1) <= debug_led_red_EXMPLR673(17) ;
-   o_image2_2(0) <= debug_led_red_EXMPLR673(17) ;
-   debug_column(7) <= debug_led_red_EXMPLR673(17) ;
-   debug_column(6) <= debug_led_red_EXMPLR673(17) ;
-   debug_column(5) <= debug_led_red_EXMPLR673(17) ;
-   debug_column(4) <= debug_led_red_EXMPLR673(17) ;
-   debug_column(3) <= debug_led_red_EXMPLR673(17) ;
-   debug_column(2) <= debug_led_red_EXMPLR673(17) ;
-   debug_column(1) <= debug_led_red_EXMPLR673(17) ;
-   debug_column(0) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(17) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(16) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(15) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(14) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(13) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(12) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(11) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(10) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(9) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(8) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(7) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(6) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(5) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(4) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(3) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(2) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(1) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red(0) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_grn(5) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_grn(4) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_grn(3) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_grn(2) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_grn(1) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_grn(0) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_0(3) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_0(2) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_0(1) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_0(0) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_1(3) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_1(2) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_1(1) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_1(0) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_2(3) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_2(2) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_2(1) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_2(0) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_3(3) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_3(2) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_3(1) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_3(0) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_4(3) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_4(2) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_4(1) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_4(0) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_5(3) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_5(2) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_5(1) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_5(0) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_6(3) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_6(2) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_6(1) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_6(0) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_7(3) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_7(2) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_7(1) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_7(0) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_8(3) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_8(2) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_8(1) <= debug_led_red_EXMPLR673(17) ;
-   debug_num_8(0) <= debug_led_red_EXMPLR673(17) ;
-   debug_led_red_EXMPLR673(17) <= '0' ;
+   debug_column(7) <= debug_led_red_EXMPLR609(17) ;
+   debug_column(6) <= debug_led_red_EXMPLR609(17) ;
+   debug_column(5) <= debug_led_red_EXMPLR609(17) ;
+   debug_column(4) <= debug_led_red_EXMPLR609(17) ;
+   debug_column(3) <= debug_led_red_EXMPLR609(17) ;
+   debug_column(2) <= debug_led_red_EXMPLR609(17) ;
+   debug_column(1) <= debug_led_red_EXMPLR609(17) ;
+   debug_column(0) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(17) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(16) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(15) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(14) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(13) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(12) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(11) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(10) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(9) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(8) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(7) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(6) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(5) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(4) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(3) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(2) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(1) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red(0) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_grn(5) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_grn(4) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_grn(3) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_grn(2) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_grn(1) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_grn(0) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_0(3) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_0(2) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_0(1) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_0(0) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_1(3) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_1(2) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_1(1) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_1(0) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_2(3) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_2(2) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_2(1) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_2(0) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_3(3) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_3(2) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_3(1) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_3(0) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_4(3) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_4(2) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_4(1) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_4(0) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_5(3) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_5(2) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_5(1) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_5(0) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_6(3) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_6(2) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_6(1) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_6(0) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_7(3) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_7(2) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_7(1) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_7(0) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_8(3) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_8(2) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_8(1) <= debug_led_red_EXMPLR609(17) ;
+   debug_num_8(0) <= debug_led_red_EXMPLR609(17) ;
+   debug_led_red_EXMPLR609(17) <= '0' ;
    u_memory : memory port map ( i_valid=>i_valid, i_reset=>i_reset, 
       i_pixel(7)=>i_pixel(7), i_pixel(6)=>i_pixel(6), i_pixel(5)=>i_pixel(5), 
       i_pixel(4)=>i_pixel(4), i_pixel(3)=>i_pixel(3), i_pixel(2)=>i_pixel(2), 
@@ -3755,52 +3674,42 @@ begin
       DANGLING(7), o_row(7)=>m_o_row(7), o_row(6)=>m_o_row(6), o_row(5)=>
       m_o_row(5), o_row(4)=>m_o_row(4), o_row(3)=>m_o_row(3), o_row(2)=>
       m_o_row(2), o_row(1)=>m_o_row(1), o_row(0)=>m_o_row(0), o_image0_0(7)
-      =>o_image0_0_EXMPLR674(7), o_image0_0(6)=>o_image0_0_EXMPLR674(6), 
-      o_image0_0(5)=>o_image0_0_EXMPLR674(5), o_image0_0(4)=>
-      o_image0_0_EXMPLR674(4), o_image0_0(3)=>o_image0_0_EXMPLR674(3), 
-      o_image0_0(2)=>o_image0_0_EXMPLR674(2), o_image0_0(1)=>
-      o_image0_0_EXMPLR674(1), o_image0_0(0)=>o_image0_0_EXMPLR674(0), 
-      o_image0_1(7)=>o_image0_1_EXMPLR675(7), o_image0_1(6)=>
-      o_image0_1_EXMPLR675(6), o_image0_1(5)=>o_image0_1_EXMPLR675(5), 
-      o_image0_1(4)=>o_image0_1_EXMPLR675(4), o_image0_1(3)=>
-      o_image0_1_EXMPLR675(3), o_image0_1(2)=>o_image0_1_EXMPLR675(2), 
-      o_image0_1(1)=>o_image0_1_EXMPLR675(1), o_image0_1(0)=>
-      o_image0_1_EXMPLR675(0), o_image0_2(7)=>o_image0_2_EXMPLR676(7), 
-      o_image0_2(6)=>o_image0_2_EXMPLR676(6), o_image0_2(5)=>
-      o_image0_2_EXMPLR676(5), o_image0_2(4)=>o_image0_2_EXMPLR676(4), 
-      o_image0_2(3)=>o_image0_2_EXMPLR676(3), o_image0_2(2)=>
-      o_image0_2_EXMPLR676(2), o_image0_2(1)=>o_image0_2_EXMPLR676(1), 
-      o_image0_2(0)=>o_image0_2_EXMPLR676(0), o_image1_0(7)=>
-      o_image1_0_EXMPLR677(7), o_image1_0(6)=>o_image1_0_EXMPLR677(6), 
-      o_image1_0(5)=>o_image1_0_EXMPLR677(5), o_image1_0(4)=>
-      o_image1_0_EXMPLR677(4), o_image1_0(3)=>o_image1_0_EXMPLR677(3), 
-      o_image1_0(2)=>o_image1_0_EXMPLR677(2), o_image1_0(1)=>
-      o_image1_0_EXMPLR677(1), o_image1_0(0)=>o_image1_0_EXMPLR677(0), 
-      o_image1_1(7)=>DANGLING(8), o_image1_1(6)=>DANGLING(9), o_image1_1(5)
-      =>DANGLING(10), o_image1_1(4)=>DANGLING(11), o_image1_1(3)=>DANGLING(
-      12), o_image1_1(2)=>DANGLING(13), o_image1_1(1)=>DANGLING(14), 
-      o_image1_1(0)=>DANGLING(15), o_image1_2(7)=>o_image1_2_EXMPLR678(7), 
-      o_image1_2(6)=>o_image1_2_EXMPLR678(6), o_image1_2(5)=>
-      o_image1_2_EXMPLR678(5), o_image1_2(4)=>o_image1_2_EXMPLR678(4), 
-      o_image1_2(3)=>o_image1_2_EXMPLR678(3), o_image1_2(2)=>
-      o_image1_2_EXMPLR678(2), o_image1_2(1)=>o_image1_2_EXMPLR678(1), 
-      o_image1_2(0)=>o_image1_2_EXMPLR678(0), o_image2_0(7)=>
-      o_image2_0_EXMPLR679(7), o_image2_0(6)=>o_image2_0_EXMPLR679(6), 
-      o_image2_0(5)=>o_image2_0_EXMPLR679(5), o_image2_0(4)=>
-      o_image2_0_EXMPLR679(4), o_image2_0(3)=>o_image2_0_EXMPLR679(3), 
-      o_image2_0(2)=>o_image2_0_EXMPLR679(2), o_image2_0(1)=>
-      o_image2_0_EXMPLR679(1), o_image2_0(0)=>o_image2_0_EXMPLR679(0), 
-      o_image2_1(7)=>o_image2_1_EXMPLR680(7), o_image2_1(6)=>
-      o_image2_1_EXMPLR680(6), o_image2_1(5)=>o_image2_1_EXMPLR680(5), 
-      o_image2_1(4)=>o_image2_1_EXMPLR680(4), o_image2_1(3)=>
-      o_image2_1_EXMPLR680(3), o_image2_1(2)=>o_image2_1_EXMPLR680(2), 
-      o_image2_1(1)=>o_image2_1_EXMPLR680(1), o_image2_1(0)=>
-      o_image2_1_EXMPLR680(0), o_image2_2(7)=>o_image2_2_EXMPLR681(7), 
-      o_image2_2(6)=>o_image2_2_EXMPLR681(6), o_image2_2(5)=>
-      o_image2_2_EXMPLR681(5), o_image2_2(4)=>o_image2_2_EXMPLR681(4), 
-      o_image2_2(3)=>o_image2_2_EXMPLR681(3), o_image2_2(2)=>
-      o_image2_2_EXMPLR681(2), o_image2_2(1)=>o_image2_2_EXMPLR681(1), 
-      o_image2_2(0)=>o_image2_2_EXMPLR681(0));
+      =>m_o_image0_0(7), o_image0_0(6)=>m_o_image0_0(6), o_image0_0(5)=>
+      m_o_image0_0(5), o_image0_0(4)=>m_o_image0_0(4), o_image0_0(3)=>
+      m_o_image0_0(3), o_image0_0(2)=>m_o_image0_0(2), o_image0_0(1)=>
+      m_o_image0_0(1), o_image0_0(0)=>m_o_image0_0(0), o_image0_1(7)=>
+      m_o_image0_1(7), o_image0_1(6)=>m_o_image0_1(6), o_image0_1(5)=>
+      m_o_image0_1(5), o_image0_1(4)=>m_o_image0_1(4), o_image0_1(3)=>
+      m_o_image0_1(3), o_image0_1(2)=>m_o_image0_1(2), o_image0_1(1)=>
+      m_o_image0_1(1), o_image0_1(0)=>m_o_image0_1(0), o_image0_2(7)=>
+      m_o_image0_2(7), o_image0_2(6)=>m_o_image0_2(6), o_image0_2(5)=>
+      m_o_image0_2(5), o_image0_2(4)=>m_o_image0_2(4), o_image0_2(3)=>
+      m_o_image0_2(3), o_image0_2(2)=>m_o_image0_2(2), o_image0_2(1)=>
+      m_o_image0_2(1), o_image0_2(0)=>m_o_image0_2(0), o_image1_0(7)=>
+      m_o_image1_0(7), o_image1_0(6)=>m_o_image1_0(6), o_image1_0(5)=>
+      m_o_image1_0(5), o_image1_0(4)=>m_o_image1_0(4), o_image1_0(3)=>
+      m_o_image1_0(3), o_image1_0(2)=>m_o_image1_0(2), o_image1_0(1)=>
+      m_o_image1_0(1), o_image1_0(0)=>m_o_image1_0(0), o_image1_1(7)=>
+      DANGLING(8), o_image1_1(6)=>DANGLING(9), o_image1_1(5)=>DANGLING(10), 
+      o_image1_1(4)=>DANGLING(11), o_image1_1(3)=>DANGLING(12), 
+      o_image1_1(2)=>DANGLING(13), o_image1_1(1)=>DANGLING(14), 
+      o_image1_1(0)=>DANGLING(15), o_image1_2(7)=>m_o_image1_2(7), 
+      o_image1_2(6)=>m_o_image1_2(6), o_image1_2(5)=>m_o_image1_2(5), 
+      o_image1_2(4)=>m_o_image1_2(4), o_image1_2(3)=>m_o_image1_2(3), 
+      o_image1_2(2)=>m_o_image1_2(2), o_image1_2(1)=>m_o_image1_2(1), 
+      o_image1_2(0)=>m_o_image1_2(0), o_image2_0(7)=>m_o_image2_0(7), 
+      o_image2_0(6)=>m_o_image2_0(6), o_image2_0(5)=>m_o_image2_0(5), 
+      o_image2_0(4)=>m_o_image2_0(4), o_image2_0(3)=>m_o_image2_0(3), 
+      o_image2_0(2)=>m_o_image2_0(2), o_image2_0(1)=>m_o_image2_0(1), 
+      o_image2_0(0)=>m_o_image2_0(0), o_image2_1(7)=>m_o_image2_1(7), 
+      o_image2_1(6)=>m_o_image2_1(6), o_image2_1(5)=>m_o_image2_1(5), 
+      o_image2_1(4)=>m_o_image2_1(4), o_image2_1(3)=>m_o_image2_1(3), 
+      o_image2_1(2)=>m_o_image2_1(2), o_image2_1(1)=>m_o_image2_1(1), 
+      o_image2_1(0)=>m_o_image2_1(0), o_image2_2(7)=>m_o_image2_2(7), 
+      o_image2_2(6)=>m_o_image2_2(6), o_image2_2(5)=>m_o_image2_2(5), 
+      o_image2_2(4)=>m_o_image2_2(4), o_image2_2(3)=>m_o_image2_2(3), 
+      o_image2_2(2)=>m_o_image2_2(2), o_image2_2(1)=>m_o_image2_2(1), 
+      o_image2_2(0)=>m_o_image2_2(0));
    u_flow : flow port map ( t1(7)=>f_t1(7), t1(6)=>f_t1(6), t1(5)=>f_t1(5), 
       t1(4)=>f_t1(4), t1(3)=>f_t1(3), t1(2)=>f_t1(2), t1(1)=>f_t1(1), t1(0)
       =>f_t1(0), t2(7)=>f_t2(7), t2(6)=>f_t2(6), t2(5)=>f_t2(5), t2(4)=>
@@ -3830,70 +3739,70 @@ begin
    o_mode(0) <= i_reset OR rtlc12n25 ;
    rtlc12n25 <= rtlcs2 OR rtlcs1 ;
    o_mode_1_EXMPLR594 <= NOT i_reset ;
-   f_t1(0) <= o_image0_2_EXMPLR676(0) when rtlcs0 = '1' else f_t1_next(0) ;
-   f_t1(1) <= o_image0_2_EXMPLR676(1) when rtlcs0 = '1' else f_t1_next(1) ;
-   f_t1(2) <= o_image0_2_EXMPLR676(2) when rtlcs0 = '1' else f_t1_next(2) ;
-   f_t1(3) <= o_image0_2_EXMPLR676(3) when rtlcs0 = '1' else f_t1_next(3) ;
-   f_t1(4) <= o_image0_2_EXMPLR676(4) when rtlcs0 = '1' else f_t1_next(4) ;
-   f_t1(5) <= o_image0_2_EXMPLR676(5) when rtlcs0 = '1' else f_t1_next(5) ;
-   f_t1(6) <= o_image0_2_EXMPLR676(6) when rtlcs0 = '1' else f_t1_next(6) ;
-   f_t1(7) <= o_image0_2_EXMPLR676(7) when rtlcs0 = '1' else f_t1_next(7) ;
-   f_t2(0) <= o_image0_1_EXMPLR675(0) when rtlcs0 = '1' else f_t2_next(0) ;
-   f_t2(1) <= o_image0_1_EXMPLR675(1) when rtlcs0 = '1' else f_t2_next(1) ;
-   f_t2(2) <= o_image0_1_EXMPLR675(2) when rtlcs0 = '1' else f_t2_next(2) ;
-   f_t2(3) <= o_image0_1_EXMPLR675(3) when rtlcs0 = '1' else f_t2_next(3) ;
-   f_t2(4) <= o_image0_1_EXMPLR675(4) when rtlcs0 = '1' else f_t2_next(4) ;
-   f_t2(5) <= o_image0_1_EXMPLR675(5) when rtlcs0 = '1' else f_t2_next(5) ;
-   f_t2(6) <= o_image0_1_EXMPLR675(6) when rtlcs0 = '1' else f_t2_next(6) ;
-   f_t2(7) <= o_image0_1_EXMPLR675(7) when rtlcs0 = '1' else f_t2_next(7) ;
-   f_t3(0) <= o_image0_0_EXMPLR674(0) when rtlcs0 = '1' else f_t3_next(0) ;
-   f_t3(1) <= o_image0_0_EXMPLR674(1) when rtlcs0 = '1' else f_t3_next(1) ;
-   f_t3(2) <= o_image0_0_EXMPLR674(2) when rtlcs0 = '1' else f_t3_next(2) ;
-   f_t3(3) <= o_image0_0_EXMPLR674(3) when rtlcs0 = '1' else f_t3_next(3) ;
-   f_t3(4) <= o_image0_0_EXMPLR674(4) when rtlcs0 = '1' else f_t3_next(4) ;
-   f_t3(5) <= o_image0_0_EXMPLR674(5) when rtlcs0 = '1' else f_t3_next(5) ;
-   f_t3(6) <= o_image0_0_EXMPLR674(6) when rtlcs0 = '1' else f_t3_next(6) ;
-   f_t3(7) <= o_image0_0_EXMPLR674(7) when rtlcs0 = '1' else f_t3_next(7) ;
-   f_b1(0) <= o_image2_0_EXMPLR679(0) when rtlcs0 = '1' else f_b1_next(0) ;
-   f_b1(1) <= o_image2_0_EXMPLR679(1) when rtlcs0 = '1' else f_b1_next(1) ;
-   f_b1(2) <= o_image2_0_EXMPLR679(2) when rtlcs0 = '1' else f_b1_next(2) ;
-   f_b1(3) <= o_image2_0_EXMPLR679(3) when rtlcs0 = '1' else f_b1_next(3) ;
-   f_b1(4) <= o_image2_0_EXMPLR679(4) when rtlcs0 = '1' else f_b1_next(4) ;
-   f_b1(5) <= o_image2_0_EXMPLR679(5) when rtlcs0 = '1' else f_b1_next(5) ;
-   f_b1(6) <= o_image2_0_EXMPLR679(6) when rtlcs0 = '1' else f_b1_next(6) ;
-   f_b1(7) <= o_image2_0_EXMPLR679(7) when rtlcs0 = '1' else f_b1_next(7) ;
-   f_b2(0) <= o_image2_1_EXMPLR680(0) when rtlcs0 = '1' else f_b2_next(0) ;
-   f_b2(1) <= o_image2_1_EXMPLR680(1) when rtlcs0 = '1' else f_b2_next(1) ;
-   f_b2(2) <= o_image2_1_EXMPLR680(2) when rtlcs0 = '1' else f_b2_next(2) ;
-   f_b2(3) <= o_image2_1_EXMPLR680(3) when rtlcs0 = '1' else f_b2_next(3) ;
-   f_b2(4) <= o_image2_1_EXMPLR680(4) when rtlcs0 = '1' else f_b2_next(4) ;
-   f_b2(5) <= o_image2_1_EXMPLR680(5) when rtlcs0 = '1' else f_b2_next(5) ;
-   f_b2(6) <= o_image2_1_EXMPLR680(6) when rtlcs0 = '1' else f_b2_next(6) ;
-   f_b2(7) <= o_image2_1_EXMPLR680(7) when rtlcs0 = '1' else f_b2_next(7) ;
-   f_b3(0) <= o_image2_2_EXMPLR681(0) when rtlcs0 = '1' else f_b3_next(0) ;
-   f_b3(1) <= o_image2_2_EXMPLR681(1) when rtlcs0 = '1' else f_b3_next(1) ;
-   f_b3(2) <= o_image2_2_EXMPLR681(2) when rtlcs0 = '1' else f_b3_next(2) ;
-   f_b3(3) <= o_image2_2_EXMPLR681(3) when rtlcs0 = '1' else f_b3_next(3) ;
-   f_b3(4) <= o_image2_2_EXMPLR681(4) when rtlcs0 = '1' else f_b3_next(4) ;
-   f_b3(5) <= o_image2_2_EXMPLR681(5) when rtlcs0 = '1' else f_b3_next(5) ;
-   f_b3(6) <= o_image2_2_EXMPLR681(6) when rtlcs0 = '1' else f_b3_next(6) ;
-   f_b3(7) <= o_image2_2_EXMPLR681(7) when rtlcs0 = '1' else f_b3_next(7) ;
-   f_i1(0) <= o_image1_0_EXMPLR677(0) when rtlcs0 = '1' else f_i1_next(0) ;
-   f_i1(1) <= o_image1_0_EXMPLR677(1) when rtlcs0 = '1' else f_i1_next(1) ;
-   f_i1(2) <= o_image1_0_EXMPLR677(2) when rtlcs0 = '1' else f_i1_next(2) ;
-   f_i1(3) <= o_image1_0_EXMPLR677(3) when rtlcs0 = '1' else f_i1_next(3) ;
-   f_i1(4) <= o_image1_0_EXMPLR677(4) when rtlcs0 = '1' else f_i1_next(4) ;
-   f_i1(5) <= o_image1_0_EXMPLR677(5) when rtlcs0 = '1' else f_i1_next(5) ;
-   f_i1(6) <= o_image1_0_EXMPLR677(6) when rtlcs0 = '1' else f_i1_next(6) ;
-   f_i1(7) <= o_image1_0_EXMPLR677(7) when rtlcs0 = '1' else f_i1_next(7) ;
-   f_i2(0) <= o_image1_2_EXMPLR678(0) when rtlcs0 = '1' else f_i2_next(0) ;
-   f_i2(1) <= o_image1_2_EXMPLR678(1) when rtlcs0 = '1' else f_i2_next(1) ;
-   f_i2(2) <= o_image1_2_EXMPLR678(2) when rtlcs0 = '1' else f_i2_next(2) ;
-   f_i2(3) <= o_image1_2_EXMPLR678(3) when rtlcs0 = '1' else f_i2_next(3) ;
-   f_i2(4) <= o_image1_2_EXMPLR678(4) when rtlcs0 = '1' else f_i2_next(4) ;
-   f_i2(5) <= o_image1_2_EXMPLR678(5) when rtlcs0 = '1' else f_i2_next(5) ;
-   f_i2(6) <= o_image1_2_EXMPLR678(6) when rtlcs0 = '1' else f_i2_next(6) ;
-   f_i2(7) <= o_image1_2_EXMPLR678(7) when rtlcs0 = '1' else f_i2_next(7) ;
+   f_t1(0) <= m_o_image0_2(0) when rtlcs0 = '1' else f_t1_next(0) ;
+   f_t1(1) <= m_o_image0_2(1) when rtlcs0 = '1' else f_t1_next(1) ;
+   f_t1(2) <= m_o_image0_2(2) when rtlcs0 = '1' else f_t1_next(2) ;
+   f_t1(3) <= m_o_image0_2(3) when rtlcs0 = '1' else f_t1_next(3) ;
+   f_t1(4) <= m_o_image0_2(4) when rtlcs0 = '1' else f_t1_next(4) ;
+   f_t1(5) <= m_o_image0_2(5) when rtlcs0 = '1' else f_t1_next(5) ;
+   f_t1(6) <= m_o_image0_2(6) when rtlcs0 = '1' else f_t1_next(6) ;
+   f_t1(7) <= m_o_image0_2(7) when rtlcs0 = '1' else f_t1_next(7) ;
+   f_t2(0) <= m_o_image0_1(0) when rtlcs0 = '1' else f_t2_next(0) ;
+   f_t2(1) <= m_o_image0_1(1) when rtlcs0 = '1' else f_t2_next(1) ;
+   f_t2(2) <= m_o_image0_1(2) when rtlcs0 = '1' else f_t2_next(2) ;
+   f_t2(3) <= m_o_image0_1(3) when rtlcs0 = '1' else f_t2_next(3) ;
+   f_t2(4) <= m_o_image0_1(4) when rtlcs0 = '1' else f_t2_next(4) ;
+   f_t2(5) <= m_o_image0_1(5) when rtlcs0 = '1' else f_t2_next(5) ;
+   f_t2(6) <= m_o_image0_1(6) when rtlcs0 = '1' else f_t2_next(6) ;
+   f_t2(7) <= m_o_image0_1(7) when rtlcs0 = '1' else f_t2_next(7) ;
+   f_t3(0) <= m_o_image0_0(0) when rtlcs0 = '1' else f_t3_next(0) ;
+   f_t3(1) <= m_o_image0_0(1) when rtlcs0 = '1' else f_t3_next(1) ;
+   f_t3(2) <= m_o_image0_0(2) when rtlcs0 = '1' else f_t3_next(2) ;
+   f_t3(3) <= m_o_image0_0(3) when rtlcs0 = '1' else f_t3_next(3) ;
+   f_t3(4) <= m_o_image0_0(4) when rtlcs0 = '1' else f_t3_next(4) ;
+   f_t3(5) <= m_o_image0_0(5) when rtlcs0 = '1' else f_t3_next(5) ;
+   f_t3(6) <= m_o_image0_0(6) when rtlcs0 = '1' else f_t3_next(6) ;
+   f_t3(7) <= m_o_image0_0(7) when rtlcs0 = '1' else f_t3_next(7) ;
+   f_b1(0) <= m_o_image2_0(0) when rtlcs0 = '1' else f_b1_next(0) ;
+   f_b1(1) <= m_o_image2_0(1) when rtlcs0 = '1' else f_b1_next(1) ;
+   f_b1(2) <= m_o_image2_0(2) when rtlcs0 = '1' else f_b1_next(2) ;
+   f_b1(3) <= m_o_image2_0(3) when rtlcs0 = '1' else f_b1_next(3) ;
+   f_b1(4) <= m_o_image2_0(4) when rtlcs0 = '1' else f_b1_next(4) ;
+   f_b1(5) <= m_o_image2_0(5) when rtlcs0 = '1' else f_b1_next(5) ;
+   f_b1(6) <= m_o_image2_0(6) when rtlcs0 = '1' else f_b1_next(6) ;
+   f_b1(7) <= m_o_image2_0(7) when rtlcs0 = '1' else f_b1_next(7) ;
+   f_b2(0) <= m_o_image2_1(0) when rtlcs0 = '1' else f_b2_next(0) ;
+   f_b2(1) <= m_o_image2_1(1) when rtlcs0 = '1' else f_b2_next(1) ;
+   f_b2(2) <= m_o_image2_1(2) when rtlcs0 = '1' else f_b2_next(2) ;
+   f_b2(3) <= m_o_image2_1(3) when rtlcs0 = '1' else f_b2_next(3) ;
+   f_b2(4) <= m_o_image2_1(4) when rtlcs0 = '1' else f_b2_next(4) ;
+   f_b2(5) <= m_o_image2_1(5) when rtlcs0 = '1' else f_b2_next(5) ;
+   f_b2(6) <= m_o_image2_1(6) when rtlcs0 = '1' else f_b2_next(6) ;
+   f_b2(7) <= m_o_image2_1(7) when rtlcs0 = '1' else f_b2_next(7) ;
+   f_b3(0) <= m_o_image2_2(0) when rtlcs0 = '1' else f_b3_next(0) ;
+   f_b3(1) <= m_o_image2_2(1) when rtlcs0 = '1' else f_b3_next(1) ;
+   f_b3(2) <= m_o_image2_2(2) when rtlcs0 = '1' else f_b3_next(2) ;
+   f_b3(3) <= m_o_image2_2(3) when rtlcs0 = '1' else f_b3_next(3) ;
+   f_b3(4) <= m_o_image2_2(4) when rtlcs0 = '1' else f_b3_next(4) ;
+   f_b3(5) <= m_o_image2_2(5) when rtlcs0 = '1' else f_b3_next(5) ;
+   f_b3(6) <= m_o_image2_2(6) when rtlcs0 = '1' else f_b3_next(6) ;
+   f_b3(7) <= m_o_image2_2(7) when rtlcs0 = '1' else f_b3_next(7) ;
+   f_i1(0) <= m_o_image1_0(0) when rtlcs0 = '1' else f_i1_next(0) ;
+   f_i1(1) <= m_o_image1_0(1) when rtlcs0 = '1' else f_i1_next(1) ;
+   f_i1(2) <= m_o_image1_0(2) when rtlcs0 = '1' else f_i1_next(2) ;
+   f_i1(3) <= m_o_image1_0(3) when rtlcs0 = '1' else f_i1_next(3) ;
+   f_i1(4) <= m_o_image1_0(4) when rtlcs0 = '1' else f_i1_next(4) ;
+   f_i1(5) <= m_o_image1_0(5) when rtlcs0 = '1' else f_i1_next(5) ;
+   f_i1(6) <= m_o_image1_0(6) when rtlcs0 = '1' else f_i1_next(6) ;
+   f_i1(7) <= m_o_image1_0(7) when rtlcs0 = '1' else f_i1_next(7) ;
+   f_i2(0) <= m_o_image1_2(0) when rtlcs0 = '1' else f_i2_next(0) ;
+   f_i2(1) <= m_o_image1_2(1) when rtlcs0 = '1' else f_i2_next(1) ;
+   f_i2(2) <= m_o_image1_2(2) when rtlcs0 = '1' else f_i2_next(2) ;
+   f_i2(3) <= m_o_image1_2(3) when rtlcs0 = '1' else f_i2_next(3) ;
+   f_i2(4) <= m_o_image1_2(4) when rtlcs0 = '1' else f_i2_next(4) ;
+   f_i2(5) <= m_o_image1_2(5) when rtlcs0 = '1' else f_i2_next(5) ;
+   f_i2(6) <= m_o_image1_2(6) when rtlcs0 = '1' else f_i2_next(6) ;
+   f_i2(7) <= m_o_image1_2(7) when rtlcs0 = '1' else f_i2_next(7) ;
    f_i_mode(0) <= m_o_mode(0) when rtlcs0 = '1' else f_i_mode_next(0) ;
    f_i_mode(1) <= m_o_mode(1) when rtlcs0 = '1' else f_i_mode_next(1) ;
    f_i_row(0) <= m_o_row(0) when rtlcs0 = '1' else f_i_row_next(0) ;
@@ -3915,161 +3824,161 @@ begin
       not_f_state_2, a(1)=>not_f_state_1, a(0)=>f_state(0), d=>rtlcs0);
    rtlcs2 <= f_o_mode(1) AND f_o_mode(0) ;
    rtlcs1 <= m_o_mode(1) AND m_o_mode(0) ;
-   DFFPCE (m_o_row(7),debug_led_red_EXMPLR673(17),
-   debug_led_red_EXMPLR673(17),rtlc13n197,i_clock,f_i_row_next(7)) ;
-   DFFPCE (m_o_row(6),debug_led_red_EXMPLR673(17),
-   debug_led_red_EXMPLR673(17),rtlc13n197,i_clock,f_i_row_next(6)) ;
-   DFFPCE (m_o_row(5),debug_led_red_EXMPLR673(17),
-   debug_led_red_EXMPLR673(17),rtlc13n197,i_clock,f_i_row_next(5)) ;
-   DFFPCE (m_o_row(4),debug_led_red_EXMPLR673(17),
-   debug_led_red_EXMPLR673(17),rtlc13n197,i_clock,f_i_row_next(4)) ;
-   DFFPCE (m_o_row(3),debug_led_red_EXMPLR673(17),
-   debug_led_red_EXMPLR673(17),rtlc13n197,i_clock,f_i_row_next(3)) ;
-   DFFPCE (m_o_row(2),debug_led_red_EXMPLR673(17),
-   debug_led_red_EXMPLR673(17),rtlc13n197,i_clock,f_i_row_next(2)) ;
-   DFFPCE (m_o_row(1),debug_led_red_EXMPLR673(17),
-   debug_led_red_EXMPLR673(17),rtlc13n197,i_clock,f_i_row_next(1)) ;
-   DFFPCE (m_o_row(0),debug_led_red_EXMPLR673(17),
-   debug_led_red_EXMPLR673(17),rtlc13n197,i_clock,f_i_row_next(0)) ;
-   DFFPCE (m_o_mode(1),debug_led_red_EXMPLR673(17),
-   debug_led_red_EXMPLR673(17),rtlc13n197,i_clock,f_i_mode_next(1)) ;
-   DFFPCE (m_o_mode(0),debug_led_red_EXMPLR673(17),
-   debug_led_red_EXMPLR673(17),rtlc13n197,i_clock,f_i_mode_next(0)) ;
-   DFFPCE (f_t1(7),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (m_o_row(7),debug_led_red_EXMPLR609(17),
+   debug_led_red_EXMPLR609(17),rtlc13n197,i_clock,f_i_row_next(7)) ;
+   DFFPCE (m_o_row(6),debug_led_red_EXMPLR609(17),
+   debug_led_red_EXMPLR609(17),rtlc13n197,i_clock,f_i_row_next(6)) ;
+   DFFPCE (m_o_row(5),debug_led_red_EXMPLR609(17),
+   debug_led_red_EXMPLR609(17),rtlc13n197,i_clock,f_i_row_next(5)) ;
+   DFFPCE (m_o_row(4),debug_led_red_EXMPLR609(17),
+   debug_led_red_EXMPLR609(17),rtlc13n197,i_clock,f_i_row_next(4)) ;
+   DFFPCE (m_o_row(3),debug_led_red_EXMPLR609(17),
+   debug_led_red_EXMPLR609(17),rtlc13n197,i_clock,f_i_row_next(3)) ;
+   DFFPCE (m_o_row(2),debug_led_red_EXMPLR609(17),
+   debug_led_red_EXMPLR609(17),rtlc13n197,i_clock,f_i_row_next(2)) ;
+   DFFPCE (m_o_row(1),debug_led_red_EXMPLR609(17),
+   debug_led_red_EXMPLR609(17),rtlc13n197,i_clock,f_i_row_next(1)) ;
+   DFFPCE (m_o_row(0),debug_led_red_EXMPLR609(17),
+   debug_led_red_EXMPLR609(17),rtlc13n197,i_clock,f_i_row_next(0)) ;
+   DFFPCE (m_o_mode(1),debug_led_red_EXMPLR609(17),
+   debug_led_red_EXMPLR609(17),rtlc13n197,i_clock,f_i_mode_next(1)) ;
+   DFFPCE (m_o_mode(0),debug_led_red_EXMPLR609(17),
+   debug_led_red_EXMPLR609(17),rtlc13n197,i_clock,f_i_mode_next(0)) ;
+   DFFPCE (f_t1(7),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_i2_next(7)) ;
-   DFFPCE (f_t1(6),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t1(6),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_i2_next(6)) ;
-   DFFPCE (f_t1(5),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t1(5),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_i2_next(5)) ;
-   DFFPCE (f_t1(4),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t1(4),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_i2_next(4)) ;
-   DFFPCE (f_t1(3),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t1(3),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_i2_next(3)) ;
-   DFFPCE (f_t1(2),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t1(2),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_i2_next(2)) ;
-   DFFPCE (f_t1(1),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t1(1),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_i2_next(1)) ;
-   DFFPCE (f_t1(0),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t1(0),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_i2_next(0)) ;
-   DFFPCE (f_b1(7),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b1(7),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_i1_next(7)) ;
-   DFFPCE (f_b1(6),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b1(6),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_i1_next(6)) ;
-   DFFPCE (f_b1(5),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b1(5),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_i1_next(5)) ;
-   DFFPCE (f_b1(4),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b1(4),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_i1_next(4)) ;
-   DFFPCE (f_b1(3),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b1(3),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_i1_next(3)) ;
-   DFFPCE (f_b1(2),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b1(2),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_i1_next(2)) ;
-   DFFPCE (f_b1(1),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b1(1),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_i1_next(1)) ;
-   DFFPCE (f_b1(0),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b1(0),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_i1_next(0)) ;
-   DFFPCE (f_i2(7),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_i2(7),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b3_next(7)) ;
-   DFFPCE (f_i2(6),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_i2(6),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b3_next(6)) ;
-   DFFPCE (f_i2(5),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_i2(5),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b3_next(5)) ;
-   DFFPCE (f_i2(4),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_i2(4),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b3_next(4)) ;
-   DFFPCE (f_i2(3),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_i2(3),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b3_next(3)) ;
-   DFFPCE (f_i2(2),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_i2(2),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b3_next(2)) ;
-   DFFPCE (f_i2(1),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_i2(1),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b3_next(1)) ;
-   DFFPCE (f_i2(0),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_i2(0),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b3_next(0)) ;
-   DFFPCE (f_b3(7),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b3(7),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b2_next(7)) ;
-   DFFPCE (f_b3(6),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b3(6),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b2_next(6)) ;
-   DFFPCE (f_b3(5),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b3(5),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b2_next(5)) ;
-   DFFPCE (f_b3(4),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b3(4),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b2_next(4)) ;
-   DFFPCE (f_b3(3),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b3(3),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b2_next(3)) ;
-   DFFPCE (f_b3(2),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b3(2),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b2_next(2)) ;
-   DFFPCE (f_b3(1),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b3(1),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b2_next(1)) ;
-   DFFPCE (f_b3(0),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b3(0),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b2_next(0)) ;
-   DFFPCE (f_b2(7),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b2(7),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b1_next(7)) ;
-   DFFPCE (f_b2(6),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b2(6),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b1_next(6)) ;
-   DFFPCE (f_b2(5),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b2(5),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b1_next(5)) ;
-   DFFPCE (f_b2(4),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b2(4),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b1_next(4)) ;
-   DFFPCE (f_b2(3),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b2(3),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b1_next(3)) ;
-   DFFPCE (f_b2(2),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b2(2),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b1_next(2)) ;
-   DFFPCE (f_b2(1),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b2(1),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b1_next(1)) ;
-   DFFPCE (f_b2(0),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_b2(0),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_b1_next(0)) ;
-   DFFPCE (f_i1(7),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_i1(7),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t3_next(7)) ;
-   DFFPCE (f_i1(6),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_i1(6),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t3_next(6)) ;
-   DFFPCE (f_i1(5),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_i1(5),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t3_next(5)) ;
-   DFFPCE (f_i1(4),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_i1(4),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t3_next(4)) ;
-   DFFPCE (f_i1(3),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_i1(3),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t3_next(3)) ;
-   DFFPCE (f_i1(2),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_i1(2),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t3_next(2)) ;
-   DFFPCE (f_i1(1),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_i1(1),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t3_next(1)) ;
-   DFFPCE (f_i1(0),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_i1(0),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t3_next(0)) ;
-   DFFPCE (f_t3(7),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t3(7),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t2_next(7)) ;
-   DFFPCE (f_t3(6),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t3(6),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t2_next(6)) ;
-   DFFPCE (f_t3(5),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t3(5),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t2_next(5)) ;
-   DFFPCE (f_t3(4),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t3(4),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t2_next(4)) ;
-   DFFPCE (f_t3(3),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t3(3),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t2_next(3)) ;
-   DFFPCE (f_t3(2),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t3(2),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t2_next(2)) ;
-   DFFPCE (f_t3(1),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t3(1),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t2_next(1)) ;
-   DFFPCE (f_t3(0),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t3(0),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t2_next(0)) ;
-   DFFPCE (f_t2(7),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t2(7),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t1_next(7)) ;
-   DFFPCE (f_t2(6),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t2(6),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t1_next(6)) ;
-   DFFPCE (f_t2(5),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t2(5),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t1_next(5)) ;
-   DFFPCE (f_t2(4),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t2(4),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t1_next(4)) ;
-   DFFPCE (f_t2(3),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t2(3),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t1_next(3)) ;
-   DFFPCE (f_t2(2),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t2(2),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t1_next(2)) ;
-   DFFPCE (f_t2(1),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t2(1),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t1_next(1)) ;
-   DFFPCE (f_t2(0),debug_led_red_EXMPLR673(17),debug_led_red_EXMPLR673(17),
+   DFFPCE (f_t2(0),debug_led_red_EXMPLR609(17),debug_led_red_EXMPLR609(17),
    rtlc13n187,i_clock,f_t1_next(0)) ;
-   DFFRSE (f_state(2),debug_led_red_EXMPLR673(17),i_reset,rtlc11n27,i_clock,
+   DFFRSE (f_state(2),debug_led_red_EXMPLR609(17),i_reset,rtlc11n27,i_clock,
    f_state(3)) ;
-   DFFRSE (f_state(1),debug_led_red_EXMPLR673(17),i_reset,rtlc11n27,i_clock,
+   DFFRSE (f_state(1),debug_led_red_EXMPLR609(17),i_reset,rtlc11n27,i_clock,
    f_state(2)) ;
-   DFFRSE (f_state(0),debug_led_red_EXMPLR673(17),i_reset,rtlc11n27,i_clock,
+   DFFRSE (f_state(0),debug_led_red_EXMPLR609(17),i_reset,rtlc11n27,i_clock,
    f_state(1)) ;
-   DFFRSE (f_state(3),i_reset,debug_led_red_EXMPLR673(17),rtlc11n27,i_clock,
+   DFFRSE (f_state(3),i_reset,debug_led_red_EXMPLR609(17),rtlc11n27,i_clock,
    f_state(0)) ;
 end main_unfold_1777 ;
 
@@ -4123,15 +4032,6 @@ architecture main of top_kirsch is
          o_dir : OUT std_logic_vector (2 DOWNTO 0) ;
          o_mode : OUT std_logic_vector (1 DOWNTO 0) ;
          o_row : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image0_0 : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image0_1 : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image0_2 : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image1_0 : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image1_1 : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image1_2 : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image2_0 : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image2_1 : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image2_2 : OUT std_logic_vector (7 DOWNTO 0) ;
          debug_key : IN std_logic_vector (3 DOWNTO 1) ;
          debug_switch : IN std_logic_vector (17 DOWNTO 0) ;
          debug_column : OUT std_logic_vector (7 DOWNTO 0) ;
@@ -4185,9 +4085,9 @@ architecture main of top_kirsch is
            q <= 'X' ;
        end if ;
    end DFFPC ;
-   signal o_mode_EXMPLR730: std_logic_vector (1 DOWNTO 0) ;
+   signal o_mode_EXMPLR658: std_logic_vector (1 DOWNTO 0) ;
    
-   signal o_nrst_EXMPLR702, pixavail: std_logic ;
+   signal o_nrst_EXMPLR630, pixavail: std_logic ;
    
    signal pixel: std_logic_vector (7 DOWNTO 0) ;
    
@@ -4197,7 +4097,7 @@ architecture main of top_kirsch is
    
    signal rowcount: std_logic_vector (7 DOWNTO 0) ;
    
-   signal debug_led_red_0_EXMPLR727, o_sevenseg_7_EXMPLR728, rtlc1n224, 
+   signal debug_led_red_0_EXMPLR655, o_sevenseg_7_EXMPLR656, rtlc1n224, 
       rtlc1n225, rtlc1n228, rtlc1n230, rtlc1n232, rtlc1n233, rtlc1n236, 
       rtlc1n144, rtlc1n145, rtlc1n148, rtlc1n150, rtlc1n152, rtlc1n153, 
       rtlc1n156, not_rtlc1n224, not_rtlc1n225, not_rtlc1n233, not_rtlc1n144, 
@@ -4211,139 +4111,104 @@ architecture main of top_kirsch is
       not_rowcount_0, not_rowcount_3, not_rowcount_1, not_rowcount_6, 
       not_rowcount_4, not_rowcount_7, not_rowcount_5: std_logic ;
    
-   signal DANGLING : std_logic_vector (139 downto 0 );
+   signal DANGLING : std_logic_vector (67 downto 0 );
 
 begin
-   o_sevenseg(15) <= o_sevenseg_7_EXMPLR728 ;
-   o_sevenseg(7) <= o_sevenseg_7_EXMPLR728 ;
-   o_mode(1) <= o_mode_EXMPLR730(1) ;
-   o_mode(0) <= o_mode_EXMPLR730(0) ;
-   o_nrst <= o_nrst_EXMPLR702 ;
-   debug_led_red(16) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_red(15) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_red(14) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_red(13) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_red(12) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_red(11) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_red(10) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_red(9) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_red(8) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_red(7) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_red(6) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_red(5) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_red(4) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_red(3) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_red(2) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_red(1) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_red(0) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_grn(5) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_grn(4) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_grn(3) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_grn(2) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_grn(1) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_grn(0) <= debug_led_red_0_EXMPLR727 ;
-   debug_led_red_0_EXMPLR727 <= '0' ;
-   o_sevenseg_7_EXMPLR728 <= '1' ;
-   u_uw_uart : uw_uart port map ( clk=>clk, rst=>o_nrst_EXMPLR702, kirschout
+   o_sevenseg(15) <= o_sevenseg_7_EXMPLR656 ;
+   o_sevenseg(7) <= o_sevenseg_7_EXMPLR656 ;
+   o_mode(1) <= o_mode_EXMPLR658(1) ;
+   o_mode(0) <= o_mode_EXMPLR658(0) ;
+   o_nrst <= o_nrst_EXMPLR630 ;
+   debug_led_red(16) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_red(15) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_red(14) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_red(13) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_red(12) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_red(11) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_red(10) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_red(9) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_red(8) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_red(7) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_red(6) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_red(5) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_red(4) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_red(3) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_red(2) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_red(1) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_red(0) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_grn(5) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_grn(4) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_grn(3) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_grn(2) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_grn(1) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_grn(0) <= debug_led_red_0_EXMPLR655 ;
+   debug_led_red_0_EXMPLR655 <= '0' ;
+   o_sevenseg_7_EXMPLR656 <= '1' ;
+   u_uw_uart : uw_uart port map ( clk=>clk, rst=>o_nrst_EXMPLR630, kirschout
       =>kirschout, kirschdir(2)=>dir(2), kirschdir(1)=>dir(1), kirschdir(0)
-      =>dir(0), o_valid=>o_valid, i_mode(1)=>o_mode_EXMPLR730(1), i_mode(0)
-      =>o_mode_EXMPLR730(0), datain(7)=>pixel(7), datain(6)=>pixel(6), 
+      =>dir(0), o_valid=>o_valid, i_mode(1)=>o_mode_EXMPLR658(1), i_mode(0)
+      =>o_mode_EXMPLR658(0), datain(7)=>pixel(7), datain(6)=>pixel(6), 
       datain(5)=>pixel(5), datain(4)=>pixel(4), datain(3)=>pixel(3), 
       datain(2)=>pixel(2), datain(1)=>pixel(1), datain(0)=>pixel(0), 
       o_pixavail=>pixavail, rxflex=>rxflex, txflex=>txflex);
-   u_kirsch : kirsch port map ( i_clock=>clk, i_reset=>o_nrst_EXMPLR702, 
+   u_kirsch : kirsch port map ( i_clock=>clk, i_reset=>o_nrst_EXMPLR630, 
       i_valid=>pixavail, i_pixel(7)=>pixel(7), i_pixel(6)=>pixel(6), 
       i_pixel(5)=>pixel(5), i_pixel(4)=>pixel(4), i_pixel(3)=>pixel(3), 
       i_pixel(2)=>pixel(2), i_pixel(1)=>pixel(1), i_pixel(0)=>pixel(0), 
       o_valid=>o_valid, o_edge=>kirschout, o_dir(2)=>dir(2), o_dir(1)=>
-      dir(1), o_dir(0)=>dir(0), o_mode(1)=>o_mode_EXMPLR730(1), o_mode(0)=>
-      o_mode_EXMPLR730(0), o_row(7)=>rowcount(7), o_row(6)=>rowcount(6), 
+      dir(1), o_dir(0)=>dir(0), o_mode(1)=>o_mode_EXMPLR658(1), o_mode(0)=>
+      o_mode_EXMPLR658(0), o_row(7)=>rowcount(7), o_row(6)=>rowcount(6), 
       o_row(5)=>rowcount(5), o_row(4)=>rowcount(4), o_row(3)=>rowcount(3), 
       o_row(2)=>rowcount(2), o_row(1)=>rowcount(1), o_row(0)=>rowcount(0), 
-      o_image0_0(7)=>DANGLING(0), o_image0_0(6)=>DANGLING(1), o_image0_0(5)
-      =>DANGLING(2), o_image0_0(4)=>DANGLING(3), o_image0_0(3)=>DANGLING(4), 
-      o_image0_0(2)=>DANGLING(5), o_image0_0(1)=>DANGLING(6), o_image0_0(0)
-      =>DANGLING(7), o_image0_1(7)=>DANGLING(8), o_image0_1(6)=>DANGLING(9), 
-      o_image0_1(5)=>DANGLING(10), o_image0_1(4)=>DANGLING(11), 
-      o_image0_1(3)=>DANGLING(12), o_image0_1(2)=>DANGLING(13), 
-      o_image0_1(1)=>DANGLING(14), o_image0_1(0)=>DANGLING(15), 
-      o_image0_2(7)=>DANGLING(16), o_image0_2(6)=>DANGLING(17), 
-      o_image0_2(5)=>DANGLING(18), o_image0_2(4)=>DANGLING(19), 
-      o_image0_2(3)=>DANGLING(20), o_image0_2(2)=>DANGLING(21), 
-      o_image0_2(1)=>DANGLING(22), o_image0_2(0)=>DANGLING(23), 
-      o_image1_0(7)=>DANGLING(24), o_image1_0(6)=>DANGLING(25), 
-      o_image1_0(5)=>DANGLING(26), o_image1_0(4)=>DANGLING(27), 
-      o_image1_0(3)=>DANGLING(28), o_image1_0(2)=>DANGLING(29), 
-      o_image1_0(1)=>DANGLING(30), o_image1_0(0)=>DANGLING(31), 
-      o_image1_1(7)=>DANGLING(32), o_image1_1(6)=>DANGLING(33), 
-      o_image1_1(5)=>DANGLING(34), o_image1_1(4)=>DANGLING(35), 
-      o_image1_1(3)=>DANGLING(36), o_image1_1(2)=>DANGLING(37), 
-      o_image1_1(1)=>DANGLING(38), o_image1_1(0)=>DANGLING(39), 
-      o_image1_2(7)=>DANGLING(40), o_image1_2(6)=>DANGLING(41), 
-      o_image1_2(5)=>DANGLING(42), o_image1_2(4)=>DANGLING(43), 
-      o_image1_2(3)=>DANGLING(44), o_image1_2(2)=>DANGLING(45), 
-      o_image1_2(1)=>DANGLING(46), o_image1_2(0)=>DANGLING(47), 
-      o_image2_0(7)=>DANGLING(48), o_image2_0(6)=>DANGLING(49), 
-      o_image2_0(5)=>DANGLING(50), o_image2_0(4)=>DANGLING(51), 
-      o_image2_0(3)=>DANGLING(52), o_image2_0(2)=>DANGLING(53), 
-      o_image2_0(1)=>DANGLING(54), o_image2_0(0)=>DANGLING(55), 
-      o_image2_1(7)=>DANGLING(56), o_image2_1(6)=>DANGLING(57), 
-      o_image2_1(5)=>DANGLING(58), o_image2_1(4)=>DANGLING(59), 
-      o_image2_1(3)=>DANGLING(60), o_image2_1(2)=>DANGLING(61), 
-      o_image2_1(1)=>DANGLING(62), o_image2_1(0)=>DANGLING(63), 
-      o_image2_2(7)=>DANGLING(64), o_image2_2(6)=>DANGLING(65), 
-      o_image2_2(5)=>DANGLING(66), o_image2_2(4)=>DANGLING(67), 
-      o_image2_2(3)=>DANGLING(68), o_image2_2(2)=>DANGLING(69), 
-      o_image2_2(1)=>DANGLING(70), o_image2_2(0)=>DANGLING(71), debug_key(3)
-      =>debug_led_red_0_EXMPLR727, debug_key(2)=>debug_led_red_0_EXMPLR727, 
-      debug_key(1)=>debug_led_red_0_EXMPLR727, debug_switch(17)=>
-      debug_led_red_0_EXMPLR727, debug_switch(16)=>debug_led_red_0_EXMPLR727, 
-      debug_switch(15)=>debug_led_red_0_EXMPLR727, debug_switch(14)=>
-      debug_led_red_0_EXMPLR727, debug_switch(13)=>debug_led_red_0_EXMPLR727, 
-      debug_switch(12)=>debug_led_red_0_EXMPLR727, debug_switch(11)=>
-      debug_led_red_0_EXMPLR727, debug_switch(10)=>debug_led_red_0_EXMPLR727, 
-      debug_switch(9)=>debug_led_red_0_EXMPLR727, debug_switch(8)=>
-      debug_led_red_0_EXMPLR727, debug_switch(7)=>debug_led_red_0_EXMPLR727, 
-      debug_switch(6)=>debug_led_red_0_EXMPLR727, debug_switch(5)=>
-      debug_led_red_0_EXMPLR727, debug_switch(4)=>debug_led_red_0_EXMPLR727, 
-      debug_switch(3)=>debug_led_red_0_EXMPLR727, debug_switch(2)=>
-      debug_led_red_0_EXMPLR727, debug_switch(1)=>debug_led_red_0_EXMPLR727, 
-      debug_switch(0)=>debug_led_red_0_EXMPLR727, debug_column(7)=>DANGLING(
-      72), debug_column(6)=>DANGLING(73), debug_column(5)=>DANGLING(74), 
-      debug_column(4)=>DANGLING(75), debug_column(3)=>DANGLING(76), 
-      debug_column(2)=>DANGLING(77), debug_column(1)=>DANGLING(78), 
-      debug_column(0)=>DANGLING(79), debug_led_red(17)=>DANGLING(80), 
-      debug_led_red(16)=>DANGLING(81), debug_led_red(15)=>DANGLING(82), 
-      debug_led_red(14)=>DANGLING(83), debug_led_red(13)=>DANGLING(84), 
-      debug_led_red(12)=>DANGLING(85), debug_led_red(11)=>DANGLING(86), 
-      debug_led_red(10)=>DANGLING(87), debug_led_red(9)=>DANGLING(88), 
-      debug_led_red(8)=>DANGLING(89), debug_led_red(7)=>DANGLING(90), 
-      debug_led_red(6)=>DANGLING(91), debug_led_red(5)=>DANGLING(92), 
-      debug_led_red(4)=>DANGLING(93), debug_led_red(3)=>DANGLING(94), 
-      debug_led_red(2)=>DANGLING(95), debug_led_red(1)=>DANGLING(96), 
-      debug_led_red(0)=>DANGLING(97), debug_led_grn(5)=>DANGLING(98), 
-      debug_led_grn(4)=>DANGLING(99), debug_led_grn(3)=>DANGLING(100), 
-      debug_led_grn(2)=>DANGLING(101), debug_led_grn(1)=>DANGLING(102), 
-      debug_led_grn(0)=>DANGLING(103), debug_num_0(3)=>DANGLING(104), 
-      debug_num_0(2)=>DANGLING(105), debug_num_0(1)=>DANGLING(106), 
-      debug_num_0(0)=>DANGLING(107), debug_num_1(3)=>DANGLING(108), 
-      debug_num_1(2)=>DANGLING(109), debug_num_1(1)=>DANGLING(110), 
-      debug_num_1(0)=>DANGLING(111), debug_num_2(3)=>DANGLING(112), 
-      debug_num_2(2)=>DANGLING(113), debug_num_2(1)=>DANGLING(114), 
-      debug_num_2(0)=>DANGLING(115), debug_num_3(3)=>DANGLING(116), 
-      debug_num_3(2)=>DANGLING(117), debug_num_3(1)=>DANGLING(118), 
-      debug_num_3(0)=>DANGLING(119), debug_num_4(3)=>DANGLING(120), 
-      debug_num_4(2)=>DANGLING(121), debug_num_4(1)=>DANGLING(122), 
-      debug_num_4(0)=>DANGLING(123), debug_num_5(3)=>DANGLING(124), 
-      debug_num_5(2)=>DANGLING(125), debug_num_5(1)=>DANGLING(126), 
-      debug_num_5(0)=>DANGLING(127), debug_num_6(3)=>DANGLING(128), 
-      debug_num_6(2)=>DANGLING(129), debug_num_6(1)=>DANGLING(130), 
-      debug_num_6(0)=>DANGLING(131), debug_num_7(3)=>DANGLING(132), 
-      debug_num_7(2)=>DANGLING(133), debug_num_7(1)=>DANGLING(134), 
-      debug_num_7(0)=>DANGLING(135), debug_num_8(3)=>DANGLING(136), 
-      debug_num_8(2)=>DANGLING(137), debug_num_8(1)=>DANGLING(138), 
-      debug_num_8(0)=>DANGLING(139));
-   o_nrst_EXMPLR702 <= NOT nrst ;
+      debug_key(3)=>debug_led_red_0_EXMPLR655, debug_key(2)=>
+      debug_led_red_0_EXMPLR655, debug_key(1)=>debug_led_red_0_EXMPLR655, 
+      debug_switch(17)=>debug_led_red_0_EXMPLR655, debug_switch(16)=>
+      debug_led_red_0_EXMPLR655, debug_switch(15)=>debug_led_red_0_EXMPLR655, 
+      debug_switch(14)=>debug_led_red_0_EXMPLR655, debug_switch(13)=>
+      debug_led_red_0_EXMPLR655, debug_switch(12)=>debug_led_red_0_EXMPLR655, 
+      debug_switch(11)=>debug_led_red_0_EXMPLR655, debug_switch(10)=>
+      debug_led_red_0_EXMPLR655, debug_switch(9)=>debug_led_red_0_EXMPLR655, 
+      debug_switch(8)=>debug_led_red_0_EXMPLR655, debug_switch(7)=>
+      debug_led_red_0_EXMPLR655, debug_switch(6)=>debug_led_red_0_EXMPLR655, 
+      debug_switch(5)=>debug_led_red_0_EXMPLR655, debug_switch(4)=>
+      debug_led_red_0_EXMPLR655, debug_switch(3)=>debug_led_red_0_EXMPLR655, 
+      debug_switch(2)=>debug_led_red_0_EXMPLR655, debug_switch(1)=>
+      debug_led_red_0_EXMPLR655, debug_switch(0)=>debug_led_red_0_EXMPLR655, 
+      debug_column(7)=>DANGLING(0), debug_column(6)=>DANGLING(1), 
+      debug_column(5)=>DANGLING(2), debug_column(4)=>DANGLING(3), 
+      debug_column(3)=>DANGLING(4), debug_column(2)=>DANGLING(5), 
+      debug_column(1)=>DANGLING(6), debug_column(0)=>DANGLING(7), 
+      debug_led_red(17)=>DANGLING(8), debug_led_red(16)=>DANGLING(9), 
+      debug_led_red(15)=>DANGLING(10), debug_led_red(14)=>DANGLING(11), 
+      debug_led_red(13)=>DANGLING(12), debug_led_red(12)=>DANGLING(13), 
+      debug_led_red(11)=>DANGLING(14), debug_led_red(10)=>DANGLING(15), 
+      debug_led_red(9)=>DANGLING(16), debug_led_red(8)=>DANGLING(17), 
+      debug_led_red(7)=>DANGLING(18), debug_led_red(6)=>DANGLING(19), 
+      debug_led_red(5)=>DANGLING(20), debug_led_red(4)=>DANGLING(21), 
+      debug_led_red(3)=>DANGLING(22), debug_led_red(2)=>DANGLING(23), 
+      debug_led_red(1)=>DANGLING(24), debug_led_red(0)=>DANGLING(25), 
+      debug_led_grn(5)=>DANGLING(26), debug_led_grn(4)=>DANGLING(27), 
+      debug_led_grn(3)=>DANGLING(28), debug_led_grn(2)=>DANGLING(29), 
+      debug_led_grn(1)=>DANGLING(30), debug_led_grn(0)=>DANGLING(31), 
+      debug_num_0(3)=>DANGLING(32), debug_num_0(2)=>DANGLING(33), 
+      debug_num_0(1)=>DANGLING(34), debug_num_0(0)=>DANGLING(35), 
+      debug_num_1(3)=>DANGLING(36), debug_num_1(2)=>DANGLING(37), 
+      debug_num_1(1)=>DANGLING(38), debug_num_1(0)=>DANGLING(39), 
+      debug_num_2(3)=>DANGLING(40), debug_num_2(2)=>DANGLING(41), 
+      debug_num_2(1)=>DANGLING(42), debug_num_2(0)=>DANGLING(43), 
+      debug_num_3(3)=>DANGLING(44), debug_num_3(2)=>DANGLING(45), 
+      debug_num_3(1)=>DANGLING(46), debug_num_3(0)=>DANGLING(47), 
+      debug_num_4(3)=>DANGLING(48), debug_num_4(2)=>DANGLING(49), 
+      debug_num_4(1)=>DANGLING(50), debug_num_4(0)=>DANGLING(51), 
+      debug_num_5(3)=>DANGLING(52), debug_num_5(2)=>DANGLING(53), 
+      debug_num_5(1)=>DANGLING(54), debug_num_5(0)=>DANGLING(55), 
+      debug_num_6(3)=>DANGLING(56), debug_num_6(2)=>DANGLING(57), 
+      debug_num_6(1)=>DANGLING(58), debug_num_6(0)=>DANGLING(59), 
+      debug_num_7(3)=>DANGLING(60), debug_num_7(2)=>DANGLING(61), 
+      debug_num_7(1)=>DANGLING(62), debug_num_7(0)=>DANGLING(63), 
+      debug_num_8(3)=>DANGLING(64), debug_num_8(2)=>DANGLING(65), 
+      debug_num_8(1)=>DANGLING(66), debug_num_8(0)=>DANGLING(67));
+   o_nrst_EXMPLR630 <= NOT nrst ;
    rtlc1_100_or_61 : or_4u_4u port map ( a(3)=>rtlcs2, a(2)=>rtlcs5, a(1)=>
       rtlcs17, a(0)=>rtlcs24, d=>rtlc1n236);
    rtlc1_20_or_62 : or_4u_4u port map ( a(3)=>rtlcs34, a(2)=>rtlcs37, a(1)=>
@@ -4440,81 +4305,81 @@ begin
    rtlcs54 <= not_rowcount_6 AND not_rowcount_5 ;
    rtlcs57 <= not_rowcount_7 AND rowcount(4) ;
    rtlcs42 <= not_rowcount_6 AND not_rowcount_4 ;
-   debug_sevenseg_0(0) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_0(1) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_0(2) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_0(3) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_1(0) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_1(1) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_1(2) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_1(3) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_2(0) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_2(1) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_2(2) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_2(3) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_3(0) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_3(1) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_3(2) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_3(3) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_4(0) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_4(1) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_4(2) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_4(3) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_5(0) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_5(1) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_5(2) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   debug_sevenseg_5(3) <= debug_led_red_0_EXMPLR727 when 
-   debug_led_red_0_EXMPLR727 = '1' else 'Z' ;
-   DFFPC (rtlc1n156,debug_led_red_0_EXMPLR727,debug_led_red_0_EXMPLR727,clk,
+   debug_sevenseg_0(0) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_0(1) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_0(2) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_0(3) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_1(0) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_1(1) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_1(2) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_1(3) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_2(0) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_2(1) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_2(2) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_2(3) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_3(0) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_3(1) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_3(2) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_3(3) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_4(0) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_4(1) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_4(2) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_4(3) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_5(0) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_5(1) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_5(2) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   debug_sevenseg_5(3) <= debug_led_red_0_EXMPLR655 when 
+   debug_led_red_0_EXMPLR655 = '1' else 'Z' ;
+   DFFPC (rtlc1n156,debug_led_red_0_EXMPLR655,debug_led_red_0_EXMPLR655,clk,
    o_sevenseg(14)) ;
-   DFFPC (not_rtlc1n153,debug_led_red_0_EXMPLR727,debug_led_red_0_EXMPLR727,
+   DFFPC (not_rtlc1n153,debug_led_red_0_EXMPLR655,debug_led_red_0_EXMPLR655,
    clk,o_sevenseg(13)) ;
-   DFFPC (rtlc1n152,debug_led_red_0_EXMPLR727,debug_led_red_0_EXMPLR727,clk,
+   DFFPC (rtlc1n152,debug_led_red_0_EXMPLR655,debug_led_red_0_EXMPLR655,clk,
    o_sevenseg(12)) ;
-   DFFPC (rtlc1n150,debug_led_red_0_EXMPLR727,debug_led_red_0_EXMPLR727,clk,
+   DFFPC (rtlc1n150,debug_led_red_0_EXMPLR655,debug_led_red_0_EXMPLR655,clk,
    o_sevenseg(11)) ;
-   DFFPC (rtlc1n148,debug_led_red_0_EXMPLR727,debug_led_red_0_EXMPLR727,clk,
+   DFFPC (rtlc1n148,debug_led_red_0_EXMPLR655,debug_led_red_0_EXMPLR655,clk,
    o_sevenseg(10)) ;
-   DFFPC (not_rtlc1n145,debug_led_red_0_EXMPLR727,debug_led_red_0_EXMPLR727,
+   DFFPC (not_rtlc1n145,debug_led_red_0_EXMPLR655,debug_led_red_0_EXMPLR655,
    clk,o_sevenseg(9)) ;
-   DFFPC (not_rtlc1n144,debug_led_red_0_EXMPLR727,debug_led_red_0_EXMPLR727,
+   DFFPC (not_rtlc1n144,debug_led_red_0_EXMPLR655,debug_led_red_0_EXMPLR655,
    clk,o_sevenseg(8)) ;
-   DFFPC (rtlc1n236,debug_led_red_0_EXMPLR727,debug_led_red_0_EXMPLR727,clk,
+   DFFPC (rtlc1n236,debug_led_red_0_EXMPLR655,debug_led_red_0_EXMPLR655,clk,
    o_sevenseg(6)) ;
-   DFFPC (not_rtlc1n233,debug_led_red_0_EXMPLR727,debug_led_red_0_EXMPLR727,
+   DFFPC (not_rtlc1n233,debug_led_red_0_EXMPLR655,debug_led_red_0_EXMPLR655,
    clk,o_sevenseg(5)) ;
-   DFFPC (rtlc1n232,debug_led_red_0_EXMPLR727,debug_led_red_0_EXMPLR727,clk,
+   DFFPC (rtlc1n232,debug_led_red_0_EXMPLR655,debug_led_red_0_EXMPLR655,clk,
    o_sevenseg(4)) ;
-   DFFPC (rtlc1n230,debug_led_red_0_EXMPLR727,debug_led_red_0_EXMPLR727,clk,
+   DFFPC (rtlc1n230,debug_led_red_0_EXMPLR655,debug_led_red_0_EXMPLR655,clk,
    o_sevenseg(3)) ;
-   DFFPC (rtlc1n228,debug_led_red_0_EXMPLR727,debug_led_red_0_EXMPLR727,clk,
+   DFFPC (rtlc1n228,debug_led_red_0_EXMPLR655,debug_led_red_0_EXMPLR655,clk,
    o_sevenseg(2)) ;
-   DFFPC (not_rtlc1n225,debug_led_red_0_EXMPLR727,debug_led_red_0_EXMPLR727,
+   DFFPC (not_rtlc1n225,debug_led_red_0_EXMPLR655,debug_led_red_0_EXMPLR655,
    clk,o_sevenseg(1)) ;
-   DFFPC (not_rtlc1n224,debug_led_red_0_EXMPLR727,debug_led_red_0_EXMPLR727,
+   DFFPC (not_rtlc1n224,debug_led_red_0_EXMPLR655,debug_led_red_0_EXMPLR655,
    clk,o_sevenseg(0)) ;
 end main ;
 

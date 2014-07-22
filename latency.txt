@@ -1,1 +1,1 @@
-latency is 9
+latency is 5

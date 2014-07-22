@@ -1,8 +1,0 @@
-<?xml version="1.0" ?>
-<LOG_ROOT>
-	<PROJECT NAME="memory">
-		<CBX_INST_ENTRY INSTANCE_NAME="|memory|ram_dq_8_0:u_mem1_mem|altsyncram:ix64056z29481" CBX_FILE_NAME="altsyncram_jpg2.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|memory|ram_dq_8_1:u_mem2_mem|altsyncram:ix64056z29482" CBX_FILE_NAME="altsyncram_jpg2.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|memory|ram_dq_8_2:u_mem3_mem|altsyncram:ix64056z29483" CBX_FILE_NAME="altsyncram_jpg2.tdf"/>
-	</PROJECT>
-</LOG_ROOT>

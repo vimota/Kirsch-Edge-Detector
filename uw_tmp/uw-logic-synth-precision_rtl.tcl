@@ -5,7 +5,7 @@ setup_design \
   -part EP2C35F672C \
   -speed 7 
 setup_design -frequency 250
-setup_design -design top_kirsch
+setup_design -design kirsch
 if { {main} != {} } {
   setup_design -architecture main
   echo "USING DESIGN ARCH"
@@ -16,14 +16,14 @@ setup_design -generics {  }
 
 
 # add_input_file -search_path $VHDL_PATH
-# add_input_file [list [concat {  } { kirsch_utility_pkg.vhd mem.vhd memory.vhd flow.vhd kirsch_synth_pkg.vhd kirsch.vhd lib_kirsch.vhd top_kirsch.vhd }] ]
-foreach file [concat {  } { kirsch_utility_pkg.vhd mem.vhd memory.vhd flow.vhd kirsch_synth_pkg.vhd kirsch.vhd lib_kirsch.vhd top_kirsch.vhd }] {
+# add_input_file [list [concat {  } { kirsch_utility_pkg.vhd mem.vhd flow.vhd memory.vhd kirsch_synth_pkg.vhd kirsch.vhd }] ]
+foreach file [concat {  } { kirsch_utility_pkg.vhd mem.vhd flow.vhd memory.vhd kirsch_synth_pkg.vhd kirsch.vhd }] {
   add_input_file $file
 }  
 
 compile
 
-auto_write uw_tmp/top_kirsch_gate.vhd
+auto_write uw_tmp/kirsch_gate.vhd
 
 report_area \
    -hierarchy \
@@ -37,7 +37,7 @@ synthesize
 
 #----------------------------------------------------------------------
 
-auto_write uw_tmp/top_kirsch_logic.vhd
+auto_write uw_tmp/kirsch_logic.vhd
 
 report_area \
   -hierarchy \
@@ -60,7 +60,7 @@ if { [ llength $clocks ] != 0 } {
 #----------------------------------------------------------------------
 # needed for vgencomp_to_arch:
 
-auto_write uw_tmp/top_kirsch_logic.v
+auto_write uw_tmp/kirsch_logic.v
 
 #----------------------------------------------------------------------
 # the end

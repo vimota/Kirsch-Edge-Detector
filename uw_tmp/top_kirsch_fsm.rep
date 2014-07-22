@@ -3,21 +3,9 @@
                                 =======================                         
 
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Module : work.kirsch(main)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Number of FSMs Extracted : zero
-
-
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 Module : work.flow(main)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-Number of FSMs Extracted : zero
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Module : work.memory(main)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Number of FSMs Extracted : zero
 
 
@@ -30,12 +18,6 @@ Number of FSMs Extracted : zero
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Module : work.uw_uart(main)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Number of FSMs Extracted : zero
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~
-Module : work.flow(main)
-~~~~~~~~~~~~~~~~~~~~~~~~~
 Number of FSMs Extracted : zero
 
 

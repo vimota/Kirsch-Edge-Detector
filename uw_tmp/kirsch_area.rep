@@ -1,13 +1,13 @@
 ***********************************************
-Device Utilization for EP2S15F484C
+Device Utilization for EP2C35F672C
 ***********************************************
 Resource                Used    Avail   Utilization
 -----------------------------------------------
-IOs                     209     343      60.93%
-LUTs                    310     12480     2.48%
-Registers               339     14410     2.35%
-Memory Bits             6144    419328    1.47%
-DSP block 9-bit elems   0       96        0.00%
+IOs                     115     475      24.21%
+LUTs                    363     33216     1.09%
+Registers               339     33216     1.02%
+Memory Bits             6144    483340    1.27%
+DSP block 9-bit elems   0       70        0.00%
 
 -----------------------------------------------
 
@@ -19,28 +19,28 @@ Library: work    Cell: kirsch    View: main
 
   Cell                   Library  References     Total Area
 
- GND                     stratixii     1 x
- NOT                     stratixii     1 x
- flow                    work          1 x    135    135 Registers
+ GND                     cycloneii     1 x
+ NOT                     cycloneii     3 x
+ cycloneii_io            cycloneii    94 x      1     94 IOs
+ cycloneii_lcell_comb    cycloneii    80 x      1     80 LUTs
+ cycloneii_lcell_ff      cycloneii    96 x      1     96 Registers
+ flow                    work          1 x    138    138 Registers
                                                 0      0 LCs
-                                              171    171 LUTs
- memory_notri            work          1 x      0      0 LCs
+                                              196    196 LUTs
+ memory                  work          1 x      0      0 LCs
                                              6144   6144 Memory Bits
-                                              117    117 Registers
-                                               67     67 LUTs
- stratixii_io            stratixii   188 x      1    188 IOs
- stratixii_lcell_comb    stratixii    72 x      1     72 LUTs
- stratixii_lcell_ff      stratixii    87 x      1     87 Registers
+                                              105    105 Registers
+                                               87     87 LUTs
 
- Number of ports :                     209
- Number of nets :                      482
- Number of instances :                 351
+ Number of ports :                     115
+ Number of nets :                      385
+ Number of instances :                 276
  Number of references to this view :     0
 
 Total accumulated area : 
- Number of IOs :                       209
+ Number of IOs :                       115
  Number of LCs :                         0
- Number of LUTs :                      310
+ Number of LUTs :                      363
  Number of Memory Bits :              6144
  Number of Registers :                 339
- Number of accumulated instances :     881
+ Number of accumulated instances :     832

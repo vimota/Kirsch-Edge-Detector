@@ -69,14 +69,14 @@ architecture main of kirsch_tb is
 	signal out_edge       : std_logic;
 	signal out_dir        : direction_ty;
 
-	signal out_image0, out_image1, out_image2   : image_type;
-	signal image00, image01, image02, image10, image11, image12, image20, image21, image22 : unsigned(7 downto 0);
-	signal debug_num_3,		debug_num_4 : signed(12 downto 0);
-	signal debug_num_5 : signed(13 downto 0);
-	signal debug_column: std_logic_vector(7 downto 0);
-	signal debug_num_0, debug_num_1 : std_logic_vector(2 downto 0);
-	signal debug_num_2 : unsigned(7 downto 0);
-	signal debug_valid , debug_num_6, debug_num_7, debug_num_8      : std_logic;
+	-- signal out_image0, out_image1, out_image2   : image_type;
+	-- signal image00, image01, image02, image10, image11, image12, image20, image21, image22 : unsigned(7 downto 0);
+	-- signal debug_num_3,		debug_num_4 : signed(12 downto 0);
+	-- signal debug_num_5 : signed(13 downto 0);
+	-- signal debug_column: std_logic_vector(7 downto 0);
+	-- signal debug_num_0, debug_num_1 : std_logic_vector(2 downto 0);
+	-- signal debug_num_2 : unsigned(7 downto 0);
+	-- signal debug_num_6, debug_num_7, debug_num_8      : std_logic;
 
 	--------------------------------------------------------------
 	-- 2-d arrays for images
@@ -99,20 +99,20 @@ begin
 				i_reset              => reset,
 				o_valid              => out_valid,
 				o_edge               => out_edge,
-				debug_valid					 => debug_valid,
-				debug_column				 => debug_column,
-				debug_num_0					 => debug_num_0,
-				debug_num_1					 => debug_num_1,
-				debug_num_2					 => debug_num_2,
-				debug_num_3					 => debug_num_3,
-				debug_num_4					 => debug_num_4,
-				debug_num_5					 => debug_num_5,
-				debug_num_6					 => debug_num_6,
-				debug_num_7					 => debug_num_7,
-				debug_num_8					 => debug_num_8,
-				o_image0 						 => out_image0,
-				o_image1 						 => out_image1,
-				o_image2 						 => out_image2,
+				-- debug_valid					 => debug_valid,
+				-- debug_column				 => debug_column,
+				-- debug_num_0					 => debug_num_0,
+				-- debug_num_1					 => debug_num_1,
+				-- debug_num_2					 => debug_num_2,
+				-- debug_num_3					 => debug_num_3,
+				-- debug_num_4					 => debug_num_4,
+				-- debug_num_5					 => debug_num_5,
+				-- debug_num_6					 => debug_num_6,
+				-- debug_num_7					 => debug_num_7,
+				-- debug_num_8					 => debug_num_8,
+				-- o_image0 						 => out_image0,
+				-- o_image1 						 => out_image1,
+				-- o_image2 						 => out_image2,
 				direction_ty(o_dir)  => out_dir,
 				mode_ty(o_mode)      => out_mode,
 				unsigned(o_row)      => out_row,
@@ -120,15 +120,15 @@ begin
 				debug_switch         => (others => '0')
 			);
 
-		image00 <= unsigned(out_image0(0));
-		image01 <= unsigned(out_image0(1));
-		image02 <= unsigned(out_image0(2));
-		image10 <= unsigned(out_image1(0));
-		image11 <= unsigned(out_image1(1));
-		image12 <= unsigned(out_image1(2));
-		image20 <= unsigned(out_image2(0));
-		image21 <= unsigned(out_image2(1));
-		image22 <= unsigned(out_image2(2));
+		-- image00 <= unsigned(out_image0(0));
+		-- image01 <= unsigned(out_image0(1));
+		-- image02 <= unsigned(out_image0(2));
+		-- image10 <= unsigned(out_image1(0));
+		-- image11 <= unsigned(out_image1(1));
+		-- image12 <= unsigned(out_image1(2));
+		-- image20 <= unsigned(out_image2(0));
+		-- image21 <= unsigned(out_image2(1));
+		-- image22 <= unsigned(out_image2(2));
 
 		----------------------------------------------------
 		-- clock

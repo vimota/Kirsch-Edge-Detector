@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_kirsch
-Tue Jul 22 01:38:19 2014
+Tue Jul 22 01:53:53 2014
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -47,7 +47,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jul 22 01:38:19 2014    ;
+; Analysis & Synthesis Status        ; Successful - Tue Jul 22 01:53:53 2014    ;
 ; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name                      ; top_kirsch                               ;
 ; Top-level Entity Name              ; top_kirsch                               ;
@@ -522,7 +522,7 @@ Info: Running Quartus II Analysis & Synthesis
     Info: programming logic devices manufactured by Altera and sold by 
     Info: Altera or its authorized distributors.  Please refer to the 
     Info: applicable agreement for further details.
-    Info: Processing started: Tue Jul 22 01:38:17 2014
+    Info: Processing started: Tue Jul 22 01:53:51 2014
 Info: Command: quartus_map top_kirsch --source=top_kirsch_logic.edf --family=CycloneII
 Info: Found 29 design units, including 29 entities, in source file top_kirsch_logic.edf
     Info: Found entity 1: add_12_0
@@ -681,8 +681,8 @@ Info: Implemented 888 device resources after synthesis - the final resource coun
     Info: Implemented 24 RAM segments
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 52 warnings
     Info: Peak virtual memory: 188 megabytes
-    Info: Processing ended: Tue Jul 22 01:38:19 2014
-    Info: Elapsed time: 00:00:02
+    Info: Processing ended: Tue Jul 22 01:53:54 2014
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:02
 
 

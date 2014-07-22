@@ -4,7 +4,7 @@
  (keywordMap (keywordLevel 0))
  (status 
   (written 
-   (timestamp 2014 07 22 05 38 13)
+   (timestamp 2014 07 22 05 53 48)
    (program "Precision RTL Synthesis" (version "2008a.47"))
    (author "Mentor Graphics Corporation")))
  (external cycloneii 
@@ -11415,15 +11415,6 @@
      (port (array (rename o_dir "o_dir(2:0)") 3 )(direction OUTPUT))
      (port (array (rename o_mode "o_mode(1:0)") 2 )(direction OUTPUT))
      (port (array (rename o_row "o_row(7:0)") 8 )(direction OUTPUT))
-     (port (array (rename o_image0_0_ "o_image0_0_(7:0)") 8 )(direction OUTPUT))
-     (port (array (rename o_image0_1_ "o_image0_1_(7:0)") 8 )(direction OUTPUT))
-     (port (array (rename o_image0_2_ "o_image0_2_(7:0)") 8 )(direction OUTPUT))
-     (port (array (rename o_image1_0_ "o_image1_0_(7:0)") 8 )(direction OUTPUT))
-     (port (array (rename o_image1_1_ "o_image1_1_(7:0)") 8 )(direction OUTPUT))
-     (port (array (rename o_image1_2_ "o_image1_2_(7:0)") 8 )(direction OUTPUT))
-     (port (array (rename o_image2_0_ "o_image2_0_(7:0)") 8 )(direction OUTPUT))
-     (port (array (rename o_image2_1_ "o_image2_1_(7:0)") 8 )(direction OUTPUT))
-     (port (array (rename o_image2_2_ "o_image2_2_(7:0)") 8 )(direction OUTPUT))
      (port (array (rename debug_key "debug_key(3:1)") 3 )(direction INPUT))
      (port (array (rename debug_switch "debug_switch(17:0)") 18 )(direction INPUT))
      (port (array (rename debug_column "debug_column(7:0)") 8 )(direction OUTPUT))
@@ -12383,322 +12374,322 @@
       (joined 
        (portRef regout (instanceRef reg_f_i_mode_next_0_ ))
        (portRef datab (instanceRef ix20836z52989 ))))
-     (net o_image0_0__7_ 
+     (net m_o_image0_0__7_ 
       (joined 
        (portRef (member o_image0_0_ 0)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t2_next_7_ ))
        (portRef datac (instanceRef ix20836z52939 ))))
-     (net o_image0_0__6_ 
+     (net m_o_image0_0__6_ 
       (joined 
        (portRef (member o_image0_0_ 1)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t2_next_6_ ))
        (portRef datac (instanceRef ix20836z52940 ))))
-     (net o_image0_0__5_ 
+     (net m_o_image0_0__5_ 
       (joined 
        (portRef (member o_image0_0_ 2)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t2_next_5_ ))
        (portRef datac (instanceRef ix20836z52941 ))))
-     (net o_image0_0__4_ 
+     (net m_o_image0_0__4_ 
       (joined 
        (portRef (member o_image0_0_ 3)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t2_next_4_ ))
        (portRef datac (instanceRef ix20836z52942 ))))
-     (net o_image0_0__3_ 
+     (net m_o_image0_0__3_ 
       (joined 
        (portRef (member o_image0_0_ 4)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t2_next_3_ ))
        (portRef datac (instanceRef ix20836z52943 ))))
-     (net o_image0_0__2_ 
+     (net m_o_image0_0__2_ 
       (joined 
        (portRef (member o_image0_0_ 5)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t2_next_2_ ))
        (portRef datac (instanceRef ix20836z52944 ))))
-     (net o_image0_0__1_ 
+     (net m_o_image0_0__1_ 
       (joined 
        (portRef (member o_image0_0_ 6)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t2_next_1_ ))
        (portRef datac (instanceRef ix20836z52945 ))))
-     (net o_image0_0__0_ 
+     (net m_o_image0_0__0_ 
       (joined 
        (portRef (member o_image0_0_ 7)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t2_next_0_ ))
        (portRef datac (instanceRef ix20836z52946 ))))
-     (net o_image0_1__7_ 
+     (net m_o_image0_1__7_ 
       (joined 
        (portRef (member o_image0_1_ 0)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t1_next_7_ ))
        (portRef datac (instanceRef ix20836z52931 ))))
-     (net o_image0_1__6_ 
+     (net m_o_image0_1__6_ 
       (joined 
        (portRef (member o_image0_1_ 1)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t1_next_6_ ))
        (portRef datac (instanceRef ix20836z52932 ))))
-     (net o_image0_1__5_ 
+     (net m_o_image0_1__5_ 
       (joined 
        (portRef (member o_image0_1_ 2)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t1_next_5_ ))
        (portRef datac (instanceRef ix20836z52933 ))))
-     (net o_image0_1__4_ 
+     (net m_o_image0_1__4_ 
       (joined 
        (portRef (member o_image0_1_ 3)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t1_next_4_ ))
        (portRef datac (instanceRef ix20836z52934 ))))
-     (net o_image0_1__3_ 
+     (net m_o_image0_1__3_ 
       (joined 
        (portRef (member o_image0_1_ 4)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t1_next_3_ ))
        (portRef datac (instanceRef ix20836z52935 ))))
-     (net o_image0_1__2_ 
+     (net m_o_image0_1__2_ 
       (joined 
        (portRef (member o_image0_1_ 5)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t1_next_2_ ))
        (portRef datac (instanceRef ix20836z52936 ))))
-     (net o_image0_1__1_ 
+     (net m_o_image0_1__1_ 
       (joined 
        (portRef (member o_image0_1_ 6)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t1_next_1_ ))
        (portRef datac (instanceRef ix20836z52937 ))))
-     (net o_image0_1__0_ 
+     (net m_o_image0_1__0_ 
       (joined 
        (portRef (member o_image0_1_ 7)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t1_next_0_ ))
        (portRef datac (instanceRef ix20836z52938 ))))
-     (net o_image0_2__7_ 
+     (net m_o_image0_2__7_ 
       (joined 
        (portRef (member o_image0_2_ 0)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_i2_next_7_ ))
        (portRef datac (instanceRef ix20836z52923 ))))
-     (net o_image0_2__6_ 
+     (net m_o_image0_2__6_ 
       (joined 
        (portRef (member o_image0_2_ 1)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_i2_next_6_ ))
        (portRef datac (instanceRef ix20836z52924 ))))
-     (net o_image0_2__5_ 
+     (net m_o_image0_2__5_ 
       (joined 
        (portRef (member o_image0_2_ 2)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_i2_next_5_ ))
        (portRef datac (instanceRef ix20836z52925 ))))
-     (net o_image0_2__4_ 
+     (net m_o_image0_2__4_ 
       (joined 
        (portRef (member o_image0_2_ 3)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_i2_next_4_ ))
        (portRef datac (instanceRef ix20836z52926 ))))
-     (net o_image0_2__3_ 
+     (net m_o_image0_2__3_ 
       (joined 
        (portRef (member o_image0_2_ 4)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_i2_next_3_ ))
        (portRef datac (instanceRef ix20836z52927 ))))
-     (net o_image0_2__2_ 
+     (net m_o_image0_2__2_ 
       (joined 
        (portRef (member o_image0_2_ 5)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_i2_next_2_ ))
        (portRef datac (instanceRef ix20836z52928 ))))
-     (net o_image0_2__1_ 
+     (net m_o_image0_2__1_ 
       (joined 
        (portRef (member o_image0_2_ 6)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_i2_next_1_ ))
        (portRef datac (instanceRef ix20836z52929 ))))
-     (net o_image0_2__0_ 
+     (net m_o_image0_2__0_ 
       (joined 
        (portRef (member o_image0_2_ 7)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_i2_next_0_ ))
        (portRef datac (instanceRef ix20836z52930 ))))
-     (net o_image1_0__7_ 
+     (net m_o_image1_0__7_ 
       (joined 
        (portRef (member o_image1_0_ 0)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t3_next_7_ ))
        (portRef datac (instanceRef ix20836z52971 ))))
-     (net o_image1_0__6_ 
+     (net m_o_image1_0__6_ 
       (joined 
        (portRef (member o_image1_0_ 1)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t3_next_6_ ))
        (portRef datac (instanceRef ix20836z52972 ))))
-     (net o_image1_0__5_ 
+     (net m_o_image1_0__5_ 
       (joined 
        (portRef (member o_image1_0_ 2)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t3_next_5_ ))
        (portRef datac (instanceRef ix20836z52973 ))))
-     (net o_image1_0__4_ 
+     (net m_o_image1_0__4_ 
       (joined 
        (portRef (member o_image1_0_ 3)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t3_next_4_ ))
        (portRef datac (instanceRef ix20836z52974 ))))
-     (net o_image1_0__3_ 
+     (net m_o_image1_0__3_ 
       (joined 
        (portRef (member o_image1_0_ 4)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t3_next_3_ ))
        (portRef datac (instanceRef ix20836z52975 ))))
-     (net o_image1_0__2_ 
+     (net m_o_image1_0__2_ 
       (joined 
        (portRef (member o_image1_0_ 5)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t3_next_2_ ))
        (portRef datac (instanceRef ix20836z52976 ))))
-     (net o_image1_0__1_ 
+     (net m_o_image1_0__1_ 
       (joined 
        (portRef (member o_image1_0_ 6)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t3_next_1_ ))
        (portRef datac (instanceRef ix20836z52977 ))))
-     (net o_image1_0__0_ 
+     (net m_o_image1_0__0_ 
       (joined 
        (portRef (member o_image1_0_ 7)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_t3_next_0_ ))
        (portRef datac (instanceRef ix20836z52978 ))))
-     (net o_image1_2__7_ 
+     (net m_o_image1_2__7_ 
       (joined 
        (portRef (member o_image1_2_ 0)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b3_next_7_ ))
        (portRef datac (instanceRef ix20836z52979 ))))
-     (net o_image1_2__6_ 
+     (net m_o_image1_2__6_ 
       (joined 
        (portRef (member o_image1_2_ 1)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b3_next_6_ ))
        (portRef datac (instanceRef ix20836z52980 ))))
-     (net o_image1_2__5_ 
+     (net m_o_image1_2__5_ 
       (joined 
        (portRef (member o_image1_2_ 2)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b3_next_5_ ))
        (portRef datac (instanceRef ix20836z52981 ))))
-     (net o_image1_2__4_ 
+     (net m_o_image1_2__4_ 
       (joined 
        (portRef (member o_image1_2_ 3)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b3_next_4_ ))
        (portRef datac (instanceRef ix20836z52982 ))))
-     (net o_image1_2__3_ 
+     (net m_o_image1_2__3_ 
       (joined 
        (portRef (member o_image1_2_ 4)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b3_next_3_ ))
        (portRef datac (instanceRef ix20836z52983 ))))
-     (net o_image1_2__2_ 
+     (net m_o_image1_2__2_ 
       (joined 
        (portRef (member o_image1_2_ 5)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b3_next_2_ ))
        (portRef datac (instanceRef ix20836z52984 ))))
-     (net o_image1_2__1_ 
+     (net m_o_image1_2__1_ 
       (joined 
        (portRef (member o_image1_2_ 6)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b3_next_1_ ))
        (portRef datac (instanceRef ix20836z52985 ))))
-     (net o_image1_2__0_ 
+     (net m_o_image1_2__0_ 
       (joined 
        (portRef (member o_image1_2_ 7)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b3_next_0_ ))
        (portRef datac (instanceRef ix20836z52986 ))))
-     (net o_image2_0__7_ 
+     (net m_o_image2_0__7_ 
       (joined 
        (portRef (member o_image2_0_ 0)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_i1_next_7_ ))
        (portRef datac (instanceRef ix20836z52947 ))))
-     (net o_image2_0__6_ 
+     (net m_o_image2_0__6_ 
       (joined 
        (portRef (member o_image2_0_ 1)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_i1_next_6_ ))
        (portRef datac (instanceRef ix20836z52948 ))))
-     (net o_image2_0__5_ 
+     (net m_o_image2_0__5_ 
       (joined 
        (portRef (member o_image2_0_ 2)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_i1_next_5_ ))
        (portRef datac (instanceRef ix20836z52949 ))))
-     (net o_image2_0__4_ 
+     (net m_o_image2_0__4_ 
       (joined 
        (portRef (member o_image2_0_ 3)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_i1_next_4_ ))
        (portRef datac (instanceRef ix20836z52950 ))))
-     (net o_image2_0__3_ 
+     (net m_o_image2_0__3_ 
       (joined 
        (portRef (member o_image2_0_ 4)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_i1_next_3_ ))
        (portRef datac (instanceRef ix20836z52951 ))))
-     (net o_image2_0__2_ 
+     (net m_o_image2_0__2_ 
       (joined 
        (portRef (member o_image2_0_ 5)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_i1_next_2_ ))
        (portRef datac (instanceRef ix20836z52952 ))))
-     (net o_image2_0__1_ 
+     (net m_o_image2_0__1_ 
       (joined 
        (portRef (member o_image2_0_ 6)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_i1_next_1_ ))
        (portRef datac (instanceRef ix20836z52953 ))))
-     (net o_image2_0__0_ 
+     (net m_o_image2_0__0_ 
       (joined 
        (portRef (member o_image2_0_ 7)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_i1_next_0_ ))
        (portRef datac (instanceRef ix20836z52954 ))))
-     (net o_image2_1__7_ 
+     (net m_o_image2_1__7_ 
       (joined 
        (portRef (member o_image2_1_ 0)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b1_next_7_ ))
        (portRef datac (instanceRef ix20836z52955 ))))
-     (net o_image2_1__6_ 
+     (net m_o_image2_1__6_ 
       (joined 
        (portRef (member o_image2_1_ 1)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b1_next_6_ ))
        (portRef datac (instanceRef ix20836z52956 ))))
-     (net o_image2_1__5_ 
+     (net m_o_image2_1__5_ 
       (joined 
        (portRef (member o_image2_1_ 2)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b1_next_5_ ))
        (portRef datac (instanceRef ix20836z52957 ))))
-     (net o_image2_1__4_ 
+     (net m_o_image2_1__4_ 
       (joined 
        (portRef (member o_image2_1_ 3)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b1_next_4_ ))
        (portRef datac (instanceRef ix20836z52958 ))))
-     (net o_image2_1__3_ 
+     (net m_o_image2_1__3_ 
       (joined 
        (portRef (member o_image2_1_ 4)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b1_next_3_ ))
        (portRef datac (instanceRef ix20836z52959 ))))
-     (net o_image2_1__2_ 
+     (net m_o_image2_1__2_ 
       (joined 
        (portRef (member o_image2_1_ 5)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b1_next_2_ ))
        (portRef datac (instanceRef ix20836z52960 ))))
-     (net o_image2_1__1_ 
+     (net m_o_image2_1__1_ 
       (joined 
        (portRef (member o_image2_1_ 6)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b1_next_1_ ))
        (portRef datac (instanceRef ix20836z52961 ))))
-     (net o_image2_1__0_ 
+     (net m_o_image2_1__0_ 
       (joined 
        (portRef (member o_image2_1_ 7)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b1_next_0_ ))
        (portRef datac (instanceRef ix20836z52962 ))))
-     (net o_image2_2__7_ 
+     (net m_o_image2_2__7_ 
       (joined 
        (portRef (member o_image2_2_ 0)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b2_next_7_ ))
        (portRef datac (instanceRef ix20836z52963 ))))
-     (net o_image2_2__6_ 
+     (net m_o_image2_2__6_ 
       (joined 
        (portRef (member o_image2_2_ 1)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b2_next_6_ ))
        (portRef datac (instanceRef ix20836z52964 ))))
-     (net o_image2_2__5_ 
+     (net m_o_image2_2__5_ 
       (joined 
        (portRef (member o_image2_2_ 2)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b2_next_5_ ))
        (portRef datac (instanceRef ix20836z52965 ))))
-     (net o_image2_2__4_ 
+     (net m_o_image2_2__4_ 
       (joined 
        (portRef (member o_image2_2_ 3)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b2_next_4_ ))
        (portRef datac (instanceRef ix20836z52966 ))))
-     (net o_image2_2__3_ 
+     (net m_o_image2_2__3_ 
       (joined 
        (portRef (member o_image2_2_ 4)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b2_next_3_ ))
        (portRef datac (instanceRef ix20836z52967 ))))
-     (net o_image2_2__2_ 
+     (net m_o_image2_2__2_ 
       (joined 
        (portRef (member o_image2_2_ 5)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b2_next_2_ ))
        (portRef datac (instanceRef ix20836z52968 ))))
-     (net o_image2_2__1_ 
+     (net m_o_image2_2__1_ 
       (joined 
        (portRef (member o_image2_2_ 6)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b2_next_1_ ))
        (portRef datac (instanceRef ix20836z52969 ))))
-     (net o_image2_2__0_ 
+     (net m_o_image2_2__0_ 
       (joined 
        (portRef (member o_image2_2_ 7)(instanceRef u_memory ))
        (portRef sdata (instanceRef reg_f_b2_next_0_ ))

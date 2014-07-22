@@ -2,7 +2,7 @@
 -- 
 -- Definition of  top_kirsch
 -- 
---      Tue Jul 22 01:38:14 2014
+--      Tue Jul 22 01:53:48 2014
 --      
 --      Precision RTL Synthesis, 2008a.47
 -- 
@@ -309,7 +309,7 @@ architecture RTL_unfold_1358 of UARTS is
          updn : IN std_logic ;
          cnt_en : IN std_logic) ;
    end component ;
-   signal RxErr_EXMPLR763, RxRDY_EXMPLR764: std_logic ;
+   signal RxErr_EXMPLR691, RxRDY_EXMPLR692: std_logic ;
    
    signal Rx_Reg: std_logic_vector (7 DOWNTO 0) ;
    
@@ -348,8 +348,8 @@ architecture RTL_unfold_1358 of UARTS is
    signal DANGLING : std_logic_vector (32 downto 0 );
 
 begin
-   RxErr <= RxErr_EXMPLR763 ;
-   RxRDY <= RxRDY_EXMPLR764 ;
+   RxErr <= RxErr_EXMPLR691 ;
+   RxRDY <= RxRDY_EXMPLR692 ;
    modgen_counter_RxDiv : modgen_counter_11_0 port map ( clock=>CLK, q(10)=>
       RxDiv(10), q(9)=>RxDiv(9), q(8)=>RxDiv(8), q(7)=>RxDiv(7), q(6)=>
       RxDiv(6), q(5)=>RxDiv(5), q(4)=>RxDiv(4), q(3)=>RxDiv(3), q(2)=>
@@ -417,7 +417,7 @@ begin
       Rx_Reg(2), clk=>CLK, ena=>nx54636z1, aclr=>RST);
    reg_Rx_Reg_0 : cycloneii_lcell_ff port map ( regout=>Rx_Reg(0), datain=>
       Rx_Reg(1), clk=>CLK, ena=>nx54636z1, aclr=>RST);
-   reg_RxRDYi : cycloneii_lcell_ff port map ( regout=>RxRDY_EXMPLR764, 
+   reg_RxRDYi : cycloneii_lcell_ff port map ( regout=>RxRDY_EXMPLR692, 
       datain=>nx30017z1, clk=>CLK, aclr=>RST);
    reg_RxFSM_6 : cycloneii_lcell_ff port map ( regout=>RxFSM_6, datain=>
       RxFSM_1, sdata=>RxFSM_5, clk=>CLK, ena=>nx15541z1, aclr=>RST, sload=>
@@ -432,7 +432,7 @@ begin
       RxFSM_0, clk=>CLK, ena=>nx15541z1, aclr=>RST);
    reg_RxFSM_0 : cycloneii_lcell_ff port map ( regout=>nx34394z2, datain=>
       nx16538z1, clk=>CLK, ena=>nx15541z1, aclr=>RST);
-   reg_RxErr : cycloneii_lcell_ff port map ( regout=>RxErr_EXMPLR763, datain
+   reg_RxErr : cycloneii_lcell_ff port map ( regout=>RxErr_EXMPLR691, datain
       =>nx15376z1, clk=>CLK, aclr=>RST);
    reg_Dout_7 : cycloneii_lcell_ff port map ( regout=>Dout(7), datain=>
       Rx_Reg(7), clk=>CLK, ena=>nx30017z1, aclr=>RST);
@@ -593,8 +593,8 @@ begin
       datac=>RxDiv(9), datad=>RxDiv(8));
    ix15376z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"f2f2") 
-       port map ( combout=>nx15376z1, dataa=>RxErr_EXMPLR763, datab=>
-      RxRDY_EXMPLR764, datac=>RxFSM_6);
+       port map ( combout=>nx15376z1, dataa=>RxErr_EXMPLR691, datab=>
+      RxRDY_EXMPLR692, datac=>RxFSM_6);
    ix11364z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"6c40") 
        port map ( combout=>nx11364z1, dataa=>TopRx, datab=>RxBitCnt(0), 
@@ -930,7 +930,7 @@ architecture main of uw_uart is
          updn : IN std_logic ;
          cnt_en : IN std_logic) ;
    end component ;
-   signal o_pixavail_EXMPLR776: std_logic_vector (7 DOWNTO 7) ;
+   signal o_pixavail_EXMPLR704: std_logic_vector (7 DOWNTO 7) ;
    
    signal sdin: std_logic_vector (7 DOWNTO 0) ;
    
@@ -953,7 +953,7 @@ architecture main of uw_uart is
    signal DANGLING : std_logic_vector (25 downto 0 );
 
 begin
-   o_pixavail <= o_pixavail_EXMPLR776(7) ;
+   o_pixavail <= o_pixavail_EXMPLR704(7) ;
    i_uarts : UARTS port map ( CLK=>clk, RST=>rst, Din(7)=>sdout_7, Din(6)=>
       DANGLING(0), Din(5)=>sdout_5, Din(4)=>DANGLING(1), Din(3)=>sdout_3, 
       Din(2)=>sdout_2, Din(1)=>sdout_1, Din(0)=>sdout_0, LD=>ld_sdout, Rx=>
@@ -1033,7 +1033,7 @@ begin
    reg_dsend : cycloneii_lcell_ff port map ( regout=>dsend, datain=>
       nx46385z1, clk=>clk, sclr=>rst);
    reg_charavail : cycloneii_lcell_ff port map ( regout=>
-      o_pixavail_EXMPLR776(7), datain=>nx58116z1, clk=>clk, aclr=>rst);
+      o_pixavail_EXMPLR704(7), datain=>nx58116z1, clk=>clk, aclr=>rst);
    reg_ack : cycloneii_lcell_ff port map ( regout=>ack, datain=>nx39480z1, 
       clk=>clk, sclr=>rst);
    ix46385z52923 : cycloneii_lcell_comb
@@ -1043,14 +1043,14 @@ begin
    ix38742z52924 : cycloneii_lcell_comb
       generic map (lut_mask => X"03ab") 
        port map ( combout=>nx38742z1, dataa=>i_mode(0), datab=>
-      o_pixavail_EXMPLR776(7), datac=>ack, datad=>p_nrst_int);
+      o_pixavail_EXMPLR704(7), datac=>ack, datad=>p_nrst_int);
    ix40736z52925 : cycloneii_lcell_comb
       generic map (lut_mask => X"8888") 
        port map ( combout=>nx40736z2, dataa=>nx40736z3, datab=>p_nrst_int);
    ix33354z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"efef") 
        port map ( combout=>nx33354z1, dataa=>ack, datab=>
-      o_pixavail_EXMPLR776(7), datac=>p_nrst_int);
+      o_pixavail_EXMPLR704(7), datac=>p_nrst_int);
    ix33354z52924 : cycloneii_lcell_comb
       generic map (lut_mask => X"bbbb") 
        port map ( combout=>nx33354z2, dataa=>nx39480z2, datab=>p_nrst_int);
@@ -1067,7 +1067,7 @@ begin
       waitcount(8), datac=>nx39480z6, datad=>nx39480z7);
    ix40736z52926 : cycloneii_lcell_comb
       generic map (lut_mask => X"fe04") 
-       port map ( combout=>nx40736z3, dataa=>o_pixavail_EXMPLR776(7), datab
+       port map ( combout=>nx40736z3, dataa=>o_pixavail_EXMPLR704(7), datab
       =>rxerr, datac=>ack, datad=>nx39480z2);
    ix39480z52926 : cycloneii_lcell_comb
       generic map (lut_mask => X"0004") 
@@ -1091,18 +1091,18 @@ begin
       ld_sdout);
    ix58116z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"4444") 
-       port map ( combout=>nx58116z1, dataa=>o_pixavail_EXMPLR776(7), datab
+       port map ( combout=>nx58116z1, dataa=>o_pixavail_EXMPLR704(7), datab
       =>rxrdy);
    ix39480z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"0e0e") 
-       port map ( combout=>nx39480z1, dataa=>o_pixavail_EXMPLR776(7), datab
+       port map ( combout=>nx39480z1, dataa=>o_pixavail_EXMPLR704(7), datab
       =>ack, datac=>nx39480z2);
    ix38868z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"4444") 
        port map ( combout=>nx38868z1, dataa=>state, datab=>dsend);
    ix40736z52924 : cycloneii_lcell_comb
       generic map (lut_mask => X"eeee") 
-       port map ( combout=>nx40736z1, dataa=>o_pixavail_EXMPLR776(7), datab
+       port map ( combout=>nx40736z1, dataa=>o_pixavail_EXMPLR704(7), datab
       =>ack);
    ix38742z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"dddd") 
@@ -1110,35 +1110,35 @@ begin
    );
    ix40426z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"8888") 
-       port map ( combout=>datain(0), dataa=>o_pixavail_EXMPLR776(7), datab
+       port map ( combout=>datain(0), dataa=>o_pixavail_EXMPLR704(7), datab
       =>rdata(0));
    ix41423z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"8888") 
-       port map ( combout=>datain(1), dataa=>o_pixavail_EXMPLR776(7), datab
+       port map ( combout=>datain(1), dataa=>o_pixavail_EXMPLR704(7), datab
       =>rdata(1));
    ix42420z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"8888") 
-       port map ( combout=>datain(2), dataa=>o_pixavail_EXMPLR776(7), datab
+       port map ( combout=>datain(2), dataa=>o_pixavail_EXMPLR704(7), datab
       =>rdata(2));
    ix43417z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"8888") 
-       port map ( combout=>datain(3), dataa=>o_pixavail_EXMPLR776(7), datab
+       port map ( combout=>datain(3), dataa=>o_pixavail_EXMPLR704(7), datab
       =>rdata(3));
    ix44414z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"8888") 
-       port map ( combout=>datain(4), dataa=>o_pixavail_EXMPLR776(7), datab
+       port map ( combout=>datain(4), dataa=>o_pixavail_EXMPLR704(7), datab
       =>rdata(4));
    ix45411z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"8888") 
-       port map ( combout=>datain(5), dataa=>o_pixavail_EXMPLR776(7), datab
+       port map ( combout=>datain(5), dataa=>o_pixavail_EXMPLR704(7), datab
       =>rdata(5));
    ix46408z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"8888") 
-       port map ( combout=>datain(6), dataa=>o_pixavail_EXMPLR776(7), datab
+       port map ( combout=>datain(6), dataa=>o_pixavail_EXMPLR704(7), datab
       =>rdata(6));
    ix47405z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"8888") 
-       port map ( combout=>datain(7), dataa=>o_pixavail_EXMPLR776(7), datab
+       port map ( combout=>datain(7), dataa=>o_pixavail_EXMPLR704(7), datab
       =>rdata(7));
    ix40736z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"5f13") 
@@ -1369,7 +1369,7 @@ entity ram_dq_8_0 is
 end ram_dq_8_0 ;
 
 architecture IMPLEMENTATION of ram_dq_8_0 is 
-   signal ena1_EXMPLR815: std_logic ;
+   signal ena1_EXMPLR743: std_logic ;
 
 begin
    ix64056z29481 : altsyncram
@@ -1416,11 +1416,11 @@ begin
       address_a(7)=>addr1(7), address_a(6)=>addr1(6), address_a(5)=>addr1(5), 
       address_a(4)=>addr1(4), address_a(3)=>addr1(3), address_a(2)=>addr1(2), 
       address_a(1)=>addr1(1), address_a(0)=>addr1(0), wren_a=>wr_ena1, 
-      clock0=>wr_clk1, clocken0=>ena1_EXMPLR815, q_a(7)=>rd_data1(7), q_a(6)
+      clock0=>wr_clk1, clocken0=>ena1_EXMPLR743, q_a(7)=>rd_data1(7), q_a(6)
       =>rd_data1(6), q_a(5)=>rd_data1(5), q_a(4)=>rd_data1(4), q_a(3)=>
       rd_data1(3), q_a(2)=>rd_data1(2), q_a(1)=>rd_data1(1), q_a(0)=>
       rd_data1(0));
-   ena1_EXMPLR815 <= '1';
+   ena1_EXMPLR743 <= '1';
 end IMPLEMENTATION ;
 
 library IEEE;library altera_mf;library lpm;library altera; 
@@ -1445,7 +1445,7 @@ entity ram_dq_8_1 is
 end ram_dq_8_1 ;
 
 architecture IMPLEMENTATION of ram_dq_8_1 is 
-   signal ena1_EXMPLR845: std_logic ;
+   signal ena1_EXMPLR773: std_logic ;
 
 begin
    ix64056z29482 : altsyncram
@@ -1492,11 +1492,11 @@ begin
       address_a(7)=>addr1(7), address_a(6)=>addr1(6), address_a(5)=>addr1(5), 
       address_a(4)=>addr1(4), address_a(3)=>addr1(3), address_a(2)=>addr1(2), 
       address_a(1)=>addr1(1), address_a(0)=>addr1(0), wren_a=>wr_ena1, 
-      clock0=>wr_clk1, clocken0=>ena1_EXMPLR845, q_a(7)=>rd_data1(7), q_a(6)
+      clock0=>wr_clk1, clocken0=>ena1_EXMPLR773, q_a(7)=>rd_data1(7), q_a(6)
       =>rd_data1(6), q_a(5)=>rd_data1(5), q_a(4)=>rd_data1(4), q_a(3)=>
       rd_data1(3), q_a(2)=>rd_data1(2), q_a(1)=>rd_data1(1), q_a(0)=>
       rd_data1(0));
-   ena1_EXMPLR845 <= '1';
+   ena1_EXMPLR773 <= '1';
 end IMPLEMENTATION ;
 
 library IEEE;library altera_mf;library lpm;library altera; 
@@ -1521,7 +1521,7 @@ entity ram_dq_8_2 is
 end ram_dq_8_2 ;
 
 architecture IMPLEMENTATION of ram_dq_8_2 is 
-   signal ena1_EXMPLR875: std_logic ;
+   signal ena1_EXMPLR803: std_logic ;
 
 begin
    ix64056z29483 : altsyncram
@@ -1568,11 +1568,11 @@ begin
       address_a(7)=>addr1(7), address_a(6)=>addr1(6), address_a(5)=>addr1(5), 
       address_a(4)=>addr1(4), address_a(3)=>addr1(3), address_a(2)=>addr1(2), 
       address_a(1)=>addr1(1), address_a(0)=>addr1(0), wren_a=>wr_ena1, 
-      clock0=>wr_clk1, clocken0=>ena1_EXMPLR875, q_a(7)=>rd_data1(7), q_a(6)
+      clock0=>wr_clk1, clocken0=>ena1_EXMPLR803, q_a(7)=>rd_data1(7), q_a(6)
       =>rd_data1(6), q_a(5)=>rd_data1(5), q_a(4)=>rd_data1(4), q_a(3)=>
       rd_data1(3), q_a(2)=>rd_data1(2), q_a(1)=>rd_data1(1), q_a(0)=>
       rd_data1(0));
-   ena1_EXMPLR875 <= '1';
+   ena1_EXMPLR803 <= '1';
 end IMPLEMENTATION ;
 
 library IEEE;library altera_mf;library lpm;library altera; 
@@ -1673,7 +1673,7 @@ architecture main_unfold_1492 of memory is
          rst1 : IN std_logic ;
          regce1 : IN std_logic) ;
    end component ;
-   signal o_valid_EXMPLR889, o_column_0_EXMPLR890: std_logic ;
+   signal o_valid_EXMPLR817, o_column_0_EXMPLR818: std_logic ;
    
    signal mem_data: std_logic_vector (7 DOWNTO 0) ;
    
@@ -1687,20 +1687,20 @@ architecture main_unfold_1492 of memory is
    
    signal row: std_logic_vector (7 DOWNTO 0) ;
    
-   signal o_image1_0_EXMPLR976: std_logic_vector (7 DOWNTO 0) ;
+   signal o_image1_0_EXMPLR904: std_logic_vector (7 DOWNTO 0) ;
    
-   signal o_image1_1_7_EXMPLR931, o_image1_1_6_EXMPLR932, 
-      o_image1_1_5_EXMPLR933, o_image1_1_4_EXMPLR934, o_image1_1_3_EXMPLR935, 
-      o_image1_1_2_EXMPLR936, o_image1_1_1_EXMPLR937, o_image1_1_dup0_0: 
+   signal o_image1_1_7_EXMPLR859, o_image1_1_6_EXMPLR860, 
+      o_image1_1_5_EXMPLR861, o_image1_1_4_EXMPLR862, o_image1_1_3_EXMPLR863, 
+      o_image1_1_2_EXMPLR864, o_image1_1_1_EXMPLR865, o_image1_1_dup0_0: 
    std_logic ;
    
-   signal o_image1_2_EXMPLR977: std_logic_vector (7 DOWNTO 0) ;
+   signal o_image1_2_EXMPLR905: std_logic_vector (7 DOWNTO 0) ;
    
-   signal o_image2_0_EXMPLR978: std_logic_vector (7 DOWNTO 0) ;
+   signal o_image2_0_EXMPLR906: std_logic_vector (7 DOWNTO 0) ;
    
-   signal o_image2_1_EXMPLR979: std_logic_vector (7 DOWNTO 0) ;
+   signal o_image2_1_EXMPLR907: std_logic_vector (7 DOWNTO 0) ;
    
-   signal o_image2_2_EXMPLR980: std_logic_vector (7 DOWNTO 0) ;
+   signal o_image2_2_EXMPLR908: std_logic_vector (7 DOWNTO 0) ;
    
    signal mem_q_0: std_logic_vector (7 DOWNTO 0) ;
    
@@ -1723,48 +1723,48 @@ architecture main_unfold_1492 of memory is
    signal DANGLING : std_logic_vector (40 downto 0 );
 
 begin
-   o_valid <= o_valid_EXMPLR889 ;
+   o_valid <= o_valid_EXMPLR817 ;
    o_mode(1) <= p_nrst_int_dup_22 ;
-   o_image1_0(7) <= o_image1_0_EXMPLR976(7) ;
-   o_image1_0(6) <= o_image1_0_EXMPLR976(6) ;
-   o_image1_0(5) <= o_image1_0_EXMPLR976(5) ;
-   o_image1_0(4) <= o_image1_0_EXMPLR976(4) ;
-   o_image1_0(3) <= o_image1_0_EXMPLR976(3) ;
-   o_image1_0(2) <= o_image1_0_EXMPLR976(2) ;
-   o_image1_0(1) <= o_image1_0_EXMPLR976(1) ;
-   o_image1_0(0) <= o_image1_0_EXMPLR976(0) ;
-   o_image1_2(7) <= o_image1_2_EXMPLR977(7) ;
-   o_image1_2(6) <= o_image1_2_EXMPLR977(6) ;
-   o_image1_2(5) <= o_image1_2_EXMPLR977(5) ;
-   o_image1_2(4) <= o_image1_2_EXMPLR977(4) ;
-   o_image1_2(3) <= o_image1_2_EXMPLR977(3) ;
-   o_image1_2(2) <= o_image1_2_EXMPLR977(2) ;
-   o_image1_2(1) <= o_image1_2_EXMPLR977(1) ;
-   o_image1_2(0) <= o_image1_2_EXMPLR977(0) ;
-   o_image2_0(7) <= o_image2_0_EXMPLR978(7) ;
-   o_image2_0(6) <= o_image2_0_EXMPLR978(6) ;
-   o_image2_0(5) <= o_image2_0_EXMPLR978(5) ;
-   o_image2_0(4) <= o_image2_0_EXMPLR978(4) ;
-   o_image2_0(3) <= o_image2_0_EXMPLR978(3) ;
-   o_image2_0(2) <= o_image2_0_EXMPLR978(2) ;
-   o_image2_0(1) <= o_image2_0_EXMPLR978(1) ;
-   o_image2_0(0) <= o_image2_0_EXMPLR978(0) ;
-   o_image2_1(7) <= o_image2_1_EXMPLR979(7) ;
-   o_image2_1(6) <= o_image2_1_EXMPLR979(6) ;
-   o_image2_1(5) <= o_image2_1_EXMPLR979(5) ;
-   o_image2_1(4) <= o_image2_1_EXMPLR979(4) ;
-   o_image2_1(3) <= o_image2_1_EXMPLR979(3) ;
-   o_image2_1(2) <= o_image2_1_EXMPLR979(2) ;
-   o_image2_1(1) <= o_image2_1_EXMPLR979(1) ;
-   o_image2_1(0) <= o_image2_1_EXMPLR979(0) ;
-   o_image2_2(7) <= o_image2_2_EXMPLR980(7) ;
-   o_image2_2(6) <= o_image2_2_EXMPLR980(6) ;
-   o_image2_2(5) <= o_image2_2_EXMPLR980(5) ;
-   o_image2_2(4) <= o_image2_2_EXMPLR980(4) ;
-   o_image2_2(3) <= o_image2_2_EXMPLR980(3) ;
-   o_image2_2(2) <= o_image2_2_EXMPLR980(2) ;
-   o_image2_2(1) <= o_image2_2_EXMPLR980(1) ;
-   o_image2_2(0) <= o_image2_2_EXMPLR980(0) ;
+   o_image1_0(7) <= o_image1_0_EXMPLR904(7) ;
+   o_image1_0(6) <= o_image1_0_EXMPLR904(6) ;
+   o_image1_0(5) <= o_image1_0_EXMPLR904(5) ;
+   o_image1_0(4) <= o_image1_0_EXMPLR904(4) ;
+   o_image1_0(3) <= o_image1_0_EXMPLR904(3) ;
+   o_image1_0(2) <= o_image1_0_EXMPLR904(2) ;
+   o_image1_0(1) <= o_image1_0_EXMPLR904(1) ;
+   o_image1_0(0) <= o_image1_0_EXMPLR904(0) ;
+   o_image1_2(7) <= o_image1_2_EXMPLR905(7) ;
+   o_image1_2(6) <= o_image1_2_EXMPLR905(6) ;
+   o_image1_2(5) <= o_image1_2_EXMPLR905(5) ;
+   o_image1_2(4) <= o_image1_2_EXMPLR905(4) ;
+   o_image1_2(3) <= o_image1_2_EXMPLR905(3) ;
+   o_image1_2(2) <= o_image1_2_EXMPLR905(2) ;
+   o_image1_2(1) <= o_image1_2_EXMPLR905(1) ;
+   o_image1_2(0) <= o_image1_2_EXMPLR905(0) ;
+   o_image2_0(7) <= o_image2_0_EXMPLR906(7) ;
+   o_image2_0(6) <= o_image2_0_EXMPLR906(6) ;
+   o_image2_0(5) <= o_image2_0_EXMPLR906(5) ;
+   o_image2_0(4) <= o_image2_0_EXMPLR906(4) ;
+   o_image2_0(3) <= o_image2_0_EXMPLR906(3) ;
+   o_image2_0(2) <= o_image2_0_EXMPLR906(2) ;
+   o_image2_0(1) <= o_image2_0_EXMPLR906(1) ;
+   o_image2_0(0) <= o_image2_0_EXMPLR906(0) ;
+   o_image2_1(7) <= o_image2_1_EXMPLR907(7) ;
+   o_image2_1(6) <= o_image2_1_EXMPLR907(6) ;
+   o_image2_1(5) <= o_image2_1_EXMPLR907(5) ;
+   o_image2_1(4) <= o_image2_1_EXMPLR907(4) ;
+   o_image2_1(3) <= o_image2_1_EXMPLR907(3) ;
+   o_image2_1(2) <= o_image2_1_EXMPLR907(2) ;
+   o_image2_1(1) <= o_image2_1_EXMPLR907(1) ;
+   o_image2_1(0) <= o_image2_1_EXMPLR907(0) ;
+   o_image2_2(7) <= o_image2_2_EXMPLR908(7) ;
+   o_image2_2(6) <= o_image2_2_EXMPLR908(6) ;
+   o_image2_2(5) <= o_image2_2_EXMPLR908(5) ;
+   o_image2_2(4) <= o_image2_2_EXMPLR908(4) ;
+   o_image2_2(3) <= o_image2_2_EXMPLR908(3) ;
+   o_image2_2(2) <= o_image2_2_EXMPLR908(2) ;
+   o_image2_2(1) <= o_image2_2_EXMPLR908(1) ;
+   o_image2_2(0) <= o_image2_2_EXMPLR908(0) ;
    modgen_counter_row : modgen_counter_8_0 port map ( clock=>i_clock, q(7)=>
       row(7), q(6)=>row(6), q(5)=>row(5), q(4)=>row(4), q(3)=>row(3), q(2)=>
       row(2), q(1)=>row(1), q(0)=>row(0), clk_en=>DANGLING(0), aclear=>
@@ -1777,7 +1777,7 @@ begin
    modgen_counter_column : modgen_counter_8_1 port map ( clock=>i_clock, 
       q(7)=>column(7), q(6)=>column(6), q(5)=>column(5), q(4)=>column(4), 
       q(3)=>column(3), q(2)=>column(2), q(1)=>column(1), q(0)=>
-      o_column_0_EXMPLR890, clk_en=>nx47386z1, aclear=>DANGLING(14), sload=>
+      o_column_0_EXMPLR818, clk_en=>nx47386z1, aclear=>DANGLING(14), sload=>
       DANGLING(15), data(7)=>DANGLING(16), data(6)=>DANGLING(17), data(5)=>
       DANGLING(18), data(4)=>DANGLING(19), data(3)=>DANGLING(20), data(2)=>
       DANGLING(21), data(1)=>DANGLING(22), data(0)=>DANGLING(23), aset=>
@@ -1792,7 +1792,7 @@ begin
       rd_data1(1)=>mem_q_0(1), rd_data1(0)=>mem_q_0(0), addr1(7)=>column(7), 
       addr1(6)=>column(6), addr1(5)=>column(5), addr1(4)=>column(4), 
       addr1(3)=>column(3), addr1(2)=>column(2), addr1(1)=>column(1), 
-      addr1(0)=>o_column_0_EXMPLR890, wr_clk1=>i_clock, rd_clk1=>DANGLING(26
+      addr1(0)=>o_column_0_EXMPLR818, wr_clk1=>i_clock, rd_clk1=>DANGLING(26
       ), wr_ena1=>mem_wrn(0), rd_ena1=>DANGLING(27), ena1=>DANGLING(28), 
       rst1=>DANGLING(29), regce1=>DANGLING(30));
    u_mem2_mem : ram_dq_8_1 port map ( wr_data1(7)=>mem_data(7), wr_data1(6)
@@ -1804,7 +1804,7 @@ begin
       rd_data1(1)=>mem_q_1(1), rd_data1(0)=>mem_q_1(0), addr1(7)=>column(7), 
       addr1(6)=>column(6), addr1(5)=>column(5), addr1(4)=>column(4), 
       addr1(3)=>column(3), addr1(2)=>column(2), addr1(1)=>column(1), 
-      addr1(0)=>o_column_0_EXMPLR890, wr_clk1=>i_clock, rd_clk1=>DANGLING(31
+      addr1(0)=>o_column_0_EXMPLR818, wr_clk1=>i_clock, rd_clk1=>DANGLING(31
       ), wr_ena1=>mem_wrn(1), rd_ena1=>DANGLING(32), ena1=>DANGLING(33), 
       rst1=>DANGLING(34), regce1=>DANGLING(35));
    u_mem3_mem : ram_dq_8_2 port map ( wr_data1(7)=>mem_data(7), wr_data1(6)
@@ -1816,11 +1816,11 @@ begin
       rd_data1(1)=>mem_q_2(1), rd_data1(0)=>mem_q_2(0), addr1(7)=>column(7), 
       addr1(6)=>column(6), addr1(5)=>column(5), addr1(4)=>column(4), 
       addr1(3)=>column(3), addr1(2)=>column(2), addr1(1)=>column(1), 
-      addr1(0)=>o_column_0_EXMPLR890, wr_clk1=>i_clock, rd_clk1=>DANGLING(36
+      addr1(0)=>o_column_0_EXMPLR818, wr_clk1=>i_clock, rd_clk1=>DANGLING(36
       ), wr_ena1=>mem_wrn(2), rd_ena1=>DANGLING(37), ena1=>DANGLING(38), 
       rst1=>DANGLING(39), regce1=>DANGLING(40));
    not_first_bubble <= NOT first_bubble;
-   reg_o_valid : cycloneii_lcell_ff port map ( regout=>o_valid_EXMPLR889, 
+   reg_o_valid : cycloneii_lcell_ff port map ( regout=>o_valid_EXMPLR817, 
       datain=>nx60567z1, clk=>i_clock, sclr=>not_first_bubble);
    reg_o_row_7 : cycloneii_lcell_ff port map ( regout=>o_row(7), datain=>
       row(7), clk=>i_clock);
@@ -1879,196 +1879,196 @@ begin
    reg_busySignal : cycloneii_lcell_ff port map ( regout=>busySignal, datain
       =>nx33254z1, clk=>i_clock, sclr=>nx8852z2);
    reg_buffer2_2_7 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_2_EXMPLR980(7), datain=>mem_q_2(7), sdata=>mem_data(7), clk=>
+      o_image2_2_EXMPLR908(7), datain=>mem_q_2(7), sdata=>mem_data(7), clk=>
       i_clock, ena=>first_bubble, sload=>nx57224z1);
    reg_buffer2_2_6 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_2_EXMPLR980(6), datain=>mem_q_2(6), sdata=>mem_data(6), clk=>
+      o_image2_2_EXMPLR908(6), datain=>mem_q_2(6), sdata=>mem_data(6), clk=>
       i_clock, ena=>first_bubble, sload=>nx57224z1);
    reg_buffer2_2_5 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_2_EXMPLR980(5), datain=>mem_q_2(5), sdata=>mem_data(5), clk=>
+      o_image2_2_EXMPLR908(5), datain=>mem_q_2(5), sdata=>mem_data(5), clk=>
       i_clock, ena=>first_bubble, sload=>nx57224z1);
    reg_buffer2_2_4 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_2_EXMPLR980(4), datain=>mem_q_2(4), sdata=>mem_data(4), clk=>
+      o_image2_2_EXMPLR908(4), datain=>mem_q_2(4), sdata=>mem_data(4), clk=>
       i_clock, ena=>first_bubble, sload=>nx57224z1);
    reg_buffer2_2_3 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_2_EXMPLR980(3), datain=>mem_q_2(3), sdata=>mem_data(3), clk=>
+      o_image2_2_EXMPLR908(3), datain=>mem_q_2(3), sdata=>mem_data(3), clk=>
       i_clock, ena=>first_bubble, sload=>nx57224z1);
    reg_buffer2_2_2 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_2_EXMPLR980(2), datain=>mem_q_2(2), sdata=>mem_data(2), clk=>
+      o_image2_2_EXMPLR908(2), datain=>mem_q_2(2), sdata=>mem_data(2), clk=>
       i_clock, ena=>first_bubble, sload=>nx57224z1);
    reg_buffer2_2_1 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_2_EXMPLR980(1), datain=>mem_q_2(1), sdata=>mem_data(1), clk=>
+      o_image2_2_EXMPLR908(1), datain=>mem_q_2(1), sdata=>mem_data(1), clk=>
       i_clock, ena=>first_bubble, sload=>nx57224z1);
    reg_buffer2_2_0 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_2_EXMPLR980(0), datain=>mem_q_2(0), sdata=>mem_data(0), clk=>
+      o_image2_2_EXMPLR908(0), datain=>mem_q_2(0), sdata=>mem_data(0), clk=>
       i_clock, ena=>first_bubble, sload=>nx57224z1);
    reg_buffer2_1_7 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_1_EXMPLR979(7), datain=>nx62359z1, sdata=>mem_q_1(7), clk=>
+      o_image2_1_EXMPLR907(7), datain=>nx62359z1, sdata=>mem_q_1(7), clk=>
       i_clock, ena=>first_bubble, sload=>b_1_dup_352);
    reg_buffer2_1_6 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_1_EXMPLR979(6), datain=>nx61362z1, sdata=>mem_q_1(6), clk=>
+      o_image2_1_EXMPLR907(6), datain=>nx61362z1, sdata=>mem_q_1(6), clk=>
       i_clock, ena=>first_bubble, sload=>b_1_dup_352);
    reg_buffer2_1_5 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_1_EXMPLR979(5), datain=>nx60365z1, sdata=>mem_q_1(5), clk=>
+      o_image2_1_EXMPLR907(5), datain=>nx60365z1, sdata=>mem_q_1(5), clk=>
       i_clock, ena=>first_bubble, sload=>b_1_dup_352);
    reg_buffer2_1_4 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_1_EXMPLR979(4), datain=>nx59368z1, sdata=>mem_q_1(4), clk=>
+      o_image2_1_EXMPLR907(4), datain=>nx59368z1, sdata=>mem_q_1(4), clk=>
       i_clock, ena=>first_bubble, sload=>b_1_dup_352);
    reg_buffer2_1_3 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_1_EXMPLR979(3), datain=>nx58371z1, sdata=>mem_q_1(3), clk=>
+      o_image2_1_EXMPLR907(3), datain=>nx58371z1, sdata=>mem_q_1(3), clk=>
       i_clock, ena=>first_bubble, sload=>b_1_dup_352);
    reg_buffer2_1_2 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_1_EXMPLR979(2), datain=>nx57374z1, sdata=>mem_q_1(2), clk=>
+      o_image2_1_EXMPLR907(2), datain=>nx57374z1, sdata=>mem_q_1(2), clk=>
       i_clock, ena=>first_bubble, sload=>b_1_dup_352);
    reg_buffer2_1_1 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_1_EXMPLR979(1), datain=>nx56377z1, sdata=>mem_q_1(1), clk=>
+      o_image2_1_EXMPLR907(1), datain=>nx56377z1, sdata=>mem_q_1(1), clk=>
       i_clock, ena=>first_bubble, sload=>b_1_dup_352);
    reg_buffer2_1_0 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_1_EXMPLR979(0), datain=>nx55380z1, sdata=>mem_q_1(0), clk=>
+      o_image2_1_EXMPLR907(0), datain=>nx55380z1, sdata=>mem_q_1(0), clk=>
       i_clock, ena=>first_bubble, sload=>b_1_dup_352);
    reg_buffer2_0_7 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_0_EXMPLR978(7), datain=>nx63578z1, sdata=>mem_q_0(7), clk=>
+      o_image2_0_EXMPLR906(7), datain=>nx63578z1, sdata=>mem_q_0(7), clk=>
       i_clock, ena=>first_bubble, sload=>b_1);
    reg_buffer2_0_6 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_0_EXMPLR978(6), datain=>nx64575z1, sdata=>mem_q_0(6), clk=>
+      o_image2_0_EXMPLR906(6), datain=>nx64575z1, sdata=>mem_q_0(6), clk=>
       i_clock, ena=>first_bubble, sload=>b_1);
    reg_buffer2_0_5 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_0_EXMPLR978(5), datain=>nx36z1, sdata=>mem_q_0(5), clk=>
+      o_image2_0_EXMPLR906(5), datain=>nx36z1, sdata=>mem_q_0(5), clk=>
       i_clock, ena=>first_bubble, sload=>b_1);
    reg_buffer2_0_4 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_0_EXMPLR978(4), datain=>nx1033z1, sdata=>mem_q_0(4), clk=>
+      o_image2_0_EXMPLR906(4), datain=>nx1033z1, sdata=>mem_q_0(4), clk=>
       i_clock, ena=>first_bubble, sload=>b_1);
    reg_buffer2_0_3 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_0_EXMPLR978(3), datain=>nx2030z1, sdata=>mem_q_0(3), clk=>
+      o_image2_0_EXMPLR906(3), datain=>nx2030z1, sdata=>mem_q_0(3), clk=>
       i_clock, ena=>first_bubble, sload=>b_1);
    reg_buffer2_0_2 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_0_EXMPLR978(2), datain=>nx3027z1, sdata=>mem_q_0(2), clk=>
+      o_image2_0_EXMPLR906(2), datain=>nx3027z1, sdata=>mem_q_0(2), clk=>
       i_clock, ena=>first_bubble, sload=>b_1);
    reg_buffer2_0_1 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_0_EXMPLR978(1), datain=>nx4024z1, sdata=>mem_q_0(1), clk=>
+      o_image2_0_EXMPLR906(1), datain=>nx4024z1, sdata=>mem_q_0(1), clk=>
       i_clock, ena=>first_bubble, sload=>b_1);
    reg_buffer2_0_0 : cycloneii_lcell_ff port map ( regout=>
-      o_image2_0_EXMPLR978(0), datain=>nx5021z1, sdata=>mem_q_0(0), clk=>
+      o_image2_0_EXMPLR906(0), datain=>nx5021z1, sdata=>mem_q_0(0), clk=>
       i_clock, ena=>first_bubble, sload=>b_1);
    reg_buffer1_2_7 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_2_EXMPLR977(7), datain=>o_image2_2_EXMPLR980(7), clk=>i_clock, 
+      o_image1_2_EXMPLR905(7), datain=>o_image2_2_EXMPLR908(7), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_2_6 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_2_EXMPLR977(6), datain=>o_image2_2_EXMPLR980(6), clk=>i_clock, 
+      o_image1_2_EXMPLR905(6), datain=>o_image2_2_EXMPLR908(6), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_2_5 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_2_EXMPLR977(5), datain=>o_image2_2_EXMPLR980(5), clk=>i_clock, 
+      o_image1_2_EXMPLR905(5), datain=>o_image2_2_EXMPLR908(5), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_2_4 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_2_EXMPLR977(4), datain=>o_image2_2_EXMPLR980(4), clk=>i_clock, 
+      o_image1_2_EXMPLR905(4), datain=>o_image2_2_EXMPLR908(4), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_2_3 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_2_EXMPLR977(3), datain=>o_image2_2_EXMPLR980(3), clk=>i_clock, 
+      o_image1_2_EXMPLR905(3), datain=>o_image2_2_EXMPLR908(3), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_2_2 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_2_EXMPLR977(2), datain=>o_image2_2_EXMPLR980(2), clk=>i_clock, 
+      o_image1_2_EXMPLR905(2), datain=>o_image2_2_EXMPLR908(2), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_2_1 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_2_EXMPLR977(1), datain=>o_image2_2_EXMPLR980(1), clk=>i_clock, 
+      o_image1_2_EXMPLR905(1), datain=>o_image2_2_EXMPLR908(1), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_2_0 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_2_EXMPLR977(0), datain=>o_image2_2_EXMPLR980(0), clk=>i_clock, 
+      o_image1_2_EXMPLR905(0), datain=>o_image2_2_EXMPLR908(0), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_1_7 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_1_7_EXMPLR931, datain=>o_image2_1_EXMPLR979(7), clk=>i_clock, 
+      o_image1_1_7_EXMPLR859, datain=>o_image2_1_EXMPLR907(7), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_1_6 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_1_6_EXMPLR932, datain=>o_image2_1_EXMPLR979(6), clk=>i_clock, 
+      o_image1_1_6_EXMPLR860, datain=>o_image2_1_EXMPLR907(6), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_1_5 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_1_5_EXMPLR933, datain=>o_image2_1_EXMPLR979(5), clk=>i_clock, 
+      o_image1_1_5_EXMPLR861, datain=>o_image2_1_EXMPLR907(5), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_1_4 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_1_4_EXMPLR934, datain=>o_image2_1_EXMPLR979(4), clk=>i_clock, 
+      o_image1_1_4_EXMPLR862, datain=>o_image2_1_EXMPLR907(4), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_1_3 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_1_3_EXMPLR935, datain=>o_image2_1_EXMPLR979(3), clk=>i_clock, 
+      o_image1_1_3_EXMPLR863, datain=>o_image2_1_EXMPLR907(3), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_1_2 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_1_2_EXMPLR936, datain=>o_image2_1_EXMPLR979(2), clk=>i_clock, 
+      o_image1_1_2_EXMPLR864, datain=>o_image2_1_EXMPLR907(2), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_1_1 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_1_1_EXMPLR937, datain=>o_image2_1_EXMPLR979(1), clk=>i_clock, 
+      o_image1_1_1_EXMPLR865, datain=>o_image2_1_EXMPLR907(1), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_1_0 : cycloneii_lcell_ff port map ( regout=>o_image1_1_dup0_0, 
-      datain=>o_image2_1_EXMPLR979(0), clk=>i_clock, ena=>first_bubble);
+      datain=>o_image2_1_EXMPLR907(0), clk=>i_clock, ena=>first_bubble);
    reg_buffer1_0_7 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_0_EXMPLR976(7), datain=>o_image2_0_EXMPLR978(7), clk=>i_clock, 
+      o_image1_0_EXMPLR904(7), datain=>o_image2_0_EXMPLR906(7), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_0_6 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_0_EXMPLR976(6), datain=>o_image2_0_EXMPLR978(6), clk=>i_clock, 
+      o_image1_0_EXMPLR904(6), datain=>o_image2_0_EXMPLR906(6), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_0_5 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_0_EXMPLR976(5), datain=>o_image2_0_EXMPLR978(5), clk=>i_clock, 
+      o_image1_0_EXMPLR904(5), datain=>o_image2_0_EXMPLR906(5), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_0_4 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_0_EXMPLR976(4), datain=>o_image2_0_EXMPLR978(4), clk=>i_clock, 
+      o_image1_0_EXMPLR904(4), datain=>o_image2_0_EXMPLR906(4), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_0_3 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_0_EXMPLR976(3), datain=>o_image2_0_EXMPLR978(3), clk=>i_clock, 
+      o_image1_0_EXMPLR904(3), datain=>o_image2_0_EXMPLR906(3), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_0_2 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_0_EXMPLR976(2), datain=>o_image2_0_EXMPLR978(2), clk=>i_clock, 
+      o_image1_0_EXMPLR904(2), datain=>o_image2_0_EXMPLR906(2), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_0_1 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_0_EXMPLR976(1), datain=>o_image2_0_EXMPLR978(1), clk=>i_clock, 
+      o_image1_0_EXMPLR904(1), datain=>o_image2_0_EXMPLR906(1), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer1_0_0 : cycloneii_lcell_ff port map ( regout=>
-      o_image1_0_EXMPLR976(0), datain=>o_image2_0_EXMPLR978(0), clk=>i_clock, 
+      o_image1_0_EXMPLR904(0), datain=>o_image2_0_EXMPLR906(0), clk=>i_clock, 
       ena=>first_bubble);
    reg_buffer0_2_7 : cycloneii_lcell_ff port map ( regout=>o_image0_2(7), 
-      datain=>o_image1_2_EXMPLR977(7), clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_2_EXMPLR905(7), clk=>i_clock, ena=>first_bubble);
    reg_buffer0_2_6 : cycloneii_lcell_ff port map ( regout=>o_image0_2(6), 
-      datain=>o_image1_2_EXMPLR977(6), clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_2_EXMPLR905(6), clk=>i_clock, ena=>first_bubble);
    reg_buffer0_2_5 : cycloneii_lcell_ff port map ( regout=>o_image0_2(5), 
-      datain=>o_image1_2_EXMPLR977(5), clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_2_EXMPLR905(5), clk=>i_clock, ena=>first_bubble);
    reg_buffer0_2_4 : cycloneii_lcell_ff port map ( regout=>o_image0_2(4), 
-      datain=>o_image1_2_EXMPLR977(4), clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_2_EXMPLR905(4), clk=>i_clock, ena=>first_bubble);
    reg_buffer0_2_3 : cycloneii_lcell_ff port map ( regout=>o_image0_2(3), 
-      datain=>o_image1_2_EXMPLR977(3), clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_2_EXMPLR905(3), clk=>i_clock, ena=>first_bubble);
    reg_buffer0_2_2 : cycloneii_lcell_ff port map ( regout=>o_image0_2(2), 
-      datain=>o_image1_2_EXMPLR977(2), clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_2_EXMPLR905(2), clk=>i_clock, ena=>first_bubble);
    reg_buffer0_2_1 : cycloneii_lcell_ff port map ( regout=>o_image0_2(1), 
-      datain=>o_image1_2_EXMPLR977(1), clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_2_EXMPLR905(1), clk=>i_clock, ena=>first_bubble);
    reg_buffer0_2_0 : cycloneii_lcell_ff port map ( regout=>o_image0_2(0), 
-      datain=>o_image1_2_EXMPLR977(0), clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_2_EXMPLR905(0), clk=>i_clock, ena=>first_bubble);
    reg_buffer0_1_7 : cycloneii_lcell_ff port map ( regout=>o_image0_1(7), 
-      datain=>o_image1_1_7_EXMPLR931, clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_1_7_EXMPLR859, clk=>i_clock, ena=>first_bubble);
    reg_buffer0_1_6 : cycloneii_lcell_ff port map ( regout=>o_image0_1(6), 
-      datain=>o_image1_1_6_EXMPLR932, clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_1_6_EXMPLR860, clk=>i_clock, ena=>first_bubble);
    reg_buffer0_1_5 : cycloneii_lcell_ff port map ( regout=>o_image0_1(5), 
-      datain=>o_image1_1_5_EXMPLR933, clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_1_5_EXMPLR861, clk=>i_clock, ena=>first_bubble);
    reg_buffer0_1_4 : cycloneii_lcell_ff port map ( regout=>o_image0_1(4), 
-      datain=>o_image1_1_4_EXMPLR934, clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_1_4_EXMPLR862, clk=>i_clock, ena=>first_bubble);
    reg_buffer0_1_3 : cycloneii_lcell_ff port map ( regout=>o_image0_1(3), 
-      datain=>o_image1_1_3_EXMPLR935, clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_1_3_EXMPLR863, clk=>i_clock, ena=>first_bubble);
    reg_buffer0_1_2 : cycloneii_lcell_ff port map ( regout=>o_image0_1(2), 
-      datain=>o_image1_1_2_EXMPLR936, clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_1_2_EXMPLR864, clk=>i_clock, ena=>first_bubble);
    reg_buffer0_1_1 : cycloneii_lcell_ff port map ( regout=>o_image0_1(1), 
-      datain=>o_image1_1_1_EXMPLR937, clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_1_1_EXMPLR865, clk=>i_clock, ena=>first_bubble);
    reg_buffer0_1_0 : cycloneii_lcell_ff port map ( regout=>o_image0_1(0), 
       datain=>o_image1_1_dup0_0, clk=>i_clock, ena=>first_bubble);
    reg_buffer0_0_7 : cycloneii_lcell_ff port map ( regout=>o_image0_0(7), 
-      datain=>o_image1_0_EXMPLR976(7), clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_0_EXMPLR904(7), clk=>i_clock, ena=>first_bubble);
    reg_buffer0_0_6 : cycloneii_lcell_ff port map ( regout=>o_image0_0(6), 
-      datain=>o_image1_0_EXMPLR976(6), clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_0_EXMPLR904(6), clk=>i_clock, ena=>first_bubble);
    reg_buffer0_0_5 : cycloneii_lcell_ff port map ( regout=>o_image0_0(5), 
-      datain=>o_image1_0_EXMPLR976(5), clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_0_EXMPLR904(5), clk=>i_clock, ena=>first_bubble);
    reg_buffer0_0_4 : cycloneii_lcell_ff port map ( regout=>o_image0_0(4), 
-      datain=>o_image1_0_EXMPLR976(4), clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_0_EXMPLR904(4), clk=>i_clock, ena=>first_bubble);
    reg_buffer0_0_3 : cycloneii_lcell_ff port map ( regout=>o_image0_0(3), 
-      datain=>o_image1_0_EXMPLR976(3), clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_0_EXMPLR904(3), clk=>i_clock, ena=>first_bubble);
    reg_buffer0_0_2 : cycloneii_lcell_ff port map ( regout=>o_image0_0(2), 
-      datain=>o_image1_0_EXMPLR976(2), clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_0_EXMPLR904(2), clk=>i_clock, ena=>first_bubble);
    reg_buffer0_0_1 : cycloneii_lcell_ff port map ( regout=>o_image0_0(1), 
-      datain=>o_image1_0_EXMPLR976(1), clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_0_EXMPLR904(1), clk=>i_clock, ena=>first_bubble);
    reg_buffer0_0_0 : cycloneii_lcell_ff port map ( regout=>o_image0_0(0), 
-      datain=>o_image1_0_EXMPLR976(0), clk=>i_clock, ena=>first_bubble);
+      datain=>o_image1_0_EXMPLR904(0), clk=>i_clock, ena=>first_bubble);
    ix39109z52926 : cycloneii_lcell_comb
       generic map (lut_mask => X"5557") 
        port map ( combout=>nx39109z4, dataa=>i_valid, datab=>
@@ -2155,7 +2155,7 @@ begin
       datac=>column(4), datad=>nx60567z2);
    ix60567z52926 : cycloneii_lcell_comb
       generic map (lut_mask => X"eaea") 
-       port map ( combout=>nx60567z4, dataa=>o_valid_EXMPLR889, datab=>
+       port map ( combout=>nx60567z4, dataa=>o_valid_EXMPLR817, datab=>
       column(7), datac=>nx60567z2);
    ix60567z52925 : cycloneii_lcell_comb
       generic map (lut_mask => X"fffe") 
@@ -2171,7 +2171,7 @@ begin
       row(5), datad=>row(4));
    ix8852z52926 : cycloneii_lcell_comb
       generic map (lut_mask => X"8000") 
-       port map ( combout=>nx8852z4, dataa=>o_column_0_EXMPLR890, datab=>
+       port map ( combout=>nx8852z4, dataa=>o_column_0_EXMPLR818, datab=>
       column(7), datac=>column(6), datad=>column(5));
    ix62359z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
@@ -3665,7 +3665,7 @@ architecture main of flow is
          cout : OUT std_logic ;
          p_p11_0 : IN std_logic) ;
    end component ;
-   signal o_edge_EXMPLR1059: std_logic_vector (2 DOWNTO 2) ;
+   signal o_edge_EXMPLR987: std_logic_vector (2 DOWNTO 2) ;
    
    signal p11: std_logic_vector (9 DOWNTO 0) ;
    
@@ -3736,7 +3736,7 @@ architecture main of flow is
    signal DANGLING : std_logic_vector (36 downto 0 );
 
 begin
-   o_edge <= o_edge_EXMPLR1059(2) ;
+   o_edge <= o_edge_EXMPLR987(2) ;
    p4s_sub12_0 : sub_12_0 port map ( cin=>DANGLING(0), a(11)=>p31(11), a(10)
       =>p31(10), a(9)=>p31(9), a(8)=>p31(8), a(7)=>p31(7), a(6)=>p31(6), 
       a(5)=>p31(5), a(4)=>p31(4), a(3)=>p31(3), a(2)=>p31(2), a(1)=>p31(1), 
@@ -3872,7 +3872,7 @@ begin
    state(0) <= NOT nx28524z1;
    NOT_state_3 <= NOT state(3);
    reg_tmp_o_edge : cycloneii_lcell_ff port map ( regout=>
-      o_edge_EXMPLR1059(2), datain=>prev_edge, sdata=>p41, clk=>i_clock, ena
+      o_edge_EXMPLR987(2), datain=>prev_edge, sdata=>p41, clk=>i_clock, ena
       =>PWR, sload=>nx30752z1);
    reg_state_3 : cycloneii_lcell_ff port map ( regout=>state(3), datain=>
       state(2), clk=>i_clock, ena=>nx29521z1, sclr=>i_reset);
@@ -4260,15 +4260,15 @@ begin
        port map ( combout=>p4s(13), dataa=>p31(12), datab=>nx26026z3);
    ix63886z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"8888") 
-       port map ( combout=>o_dir(0), dataa=>o_edge_EXMPLR1059(2), datab=>
+       port map ( combout=>o_dir(0), dataa=>o_edge_EXMPLR987(2), datab=>
       max_dir(0));
    ix62889z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"8888") 
-       port map ( combout=>o_dir(1), dataa=>o_edge_EXMPLR1059(2), datab=>
+       port map ( combout=>o_dir(1), dataa=>o_edge_EXMPLR987(2), datab=>
       max_dir(1));
    ix61892z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"8888") 
-       port map ( combout=>o_dir(2), dataa=>o_edge_EXMPLR1059(2), datab=>
+       port map ( combout=>o_dir(2), dataa=>o_edge_EXMPLR987(2), datab=>
       max_dir(2));
    ix29521z52924 : cycloneii_lcell_comb
       generic map (lut_mask => X"bbbb") 
@@ -4294,15 +4294,6 @@ entity kirsch is
       o_dir : OUT std_logic_vector (2 DOWNTO 0) ;
       o_mode : OUT std_logic_vector (1 DOWNTO 0) ;
       o_row : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image0_0 : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image0_1 : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image0_2 : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image1_0 : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image1_1 : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image1_2 : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image2_0 : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image2_1 : OUT std_logic_vector (7 DOWNTO 0) ;
-      o_image2_2 : OUT std_logic_vector (7 DOWNTO 0) ;
       debug_key : IN std_logic_vector (3 DOWNTO 1) ;
       debug_switch : IN std_logic_vector (17 DOWNTO 0) ;
       debug_column : OUT std_logic_vector (7 DOWNTO 0) ;
@@ -4396,38 +4387,21 @@ architecture main_unfold_1777 of kirsch is
    
    signal f_i_mode_next: std_logic_vector (1 DOWNTO 0) ;
    
-   signal o_image0_0_7_EXMPLR1109, o_image0_0_6_EXMPLR1110, 
-      o_image0_0_5_EXMPLR1111, o_image0_0_4_EXMPLR1112, 
-      o_image0_0_3_EXMPLR1113, o_image0_0_2_EXMPLR1114, 
-      o_image0_0_1_EXMPLR1115, o_image0_0_0_EXMPLR1116, 
-      o_image0_1_7_EXMPLR1117, o_image0_1_6_EXMPLR1118, 
-      o_image0_1_5_EXMPLR1119, o_image0_1_4_EXMPLR1120, 
-      o_image0_1_3_EXMPLR1121, o_image0_1_2_EXMPLR1122, 
-      o_image0_1_1_EXMPLR1123, o_image0_1_0_EXMPLR1124, 
-      o_image0_2_7_EXMPLR1125, o_image0_2_6_EXMPLR1126, 
-      o_image0_2_5_EXMPLR1127, o_image0_2_4_EXMPLR1128, 
-      o_image0_2_3_EXMPLR1129, o_image0_2_2_EXMPLR1130, 
-      o_image0_2_1_EXMPLR1131, o_image0_2_0_EXMPLR1132, 
-      o_image1_0_7_EXMPLR1133, o_image1_0_6_EXMPLR1134, 
-      o_image1_0_5_EXMPLR1135, o_image1_0_4_EXMPLR1136, 
-      o_image1_0_3_EXMPLR1137, o_image1_0_2_EXMPLR1138, 
-      o_image1_0_1_EXMPLR1139, o_image1_0_0_EXMPLR1140, 
-      o_image1_2_7_EXMPLR1141, o_image1_2_6_EXMPLR1142, 
-      o_image1_2_5_EXMPLR1143, o_image1_2_4_EXMPLR1144, 
-      o_image1_2_3_EXMPLR1145, o_image1_2_2_EXMPLR1146, 
-      o_image1_2_1_EXMPLR1147, o_image1_2_0_EXMPLR1148, 
-      o_image2_0_7_EXMPLR1149, o_image2_0_6_EXMPLR1150, 
-      o_image2_0_5_EXMPLR1151, o_image2_0_4_EXMPLR1152, 
-      o_image2_0_3_EXMPLR1153, o_image2_0_2_EXMPLR1154, 
-      o_image2_0_1_EXMPLR1155, o_image2_0_0_EXMPLR1156, 
-      o_image2_1_7_EXMPLR1157, o_image2_1_6_EXMPLR1158, 
-      o_image2_1_5_EXMPLR1159, o_image2_1_4_EXMPLR1160, 
-      o_image2_1_3_EXMPLR1161, o_image2_1_2_EXMPLR1162, 
-      o_image2_1_1_EXMPLR1163, o_image2_1_0_EXMPLR1164, 
-      o_image2_2_7_EXMPLR1165, o_image2_2_6_EXMPLR1166, 
-      o_image2_2_5_EXMPLR1167, o_image2_2_4_EXMPLR1168, 
-      o_image2_2_3_EXMPLR1169, o_image2_2_2_EXMPLR1170, 
-      o_image2_2_1_EXMPLR1171, o_image2_2_0_EXMPLR1172: std_logic ;
+   signal m_o_image0_0: std_logic_vector (7 DOWNTO 0) ;
+   
+   signal m_o_image0_1: std_logic_vector (7 DOWNTO 0) ;
+   
+   signal m_o_image0_2: std_logic_vector (7 DOWNTO 0) ;
+   
+   signal m_o_image1_0: std_logic_vector (7 DOWNTO 0) ;
+   
+   signal m_o_image1_2: std_logic_vector (7 DOWNTO 0) ;
+   
+   signal m_o_image2_0: std_logic_vector (7 DOWNTO 0) ;
+   
+   signal m_o_image2_1: std_logic_vector (7 DOWNTO 0) ;
+   
+   signal m_o_image2_2: std_logic_vector (7 DOWNTO 0) ;
    
    signal f_t1: std_logic_vector (7 DOWNTO 0) ;
    
@@ -4467,53 +4441,42 @@ begin
       DANGLING(8), o_row(7)=>m_o_row(7), o_row(6)=>m_o_row(6), o_row(5)=>
       m_o_row(5), o_row(4)=>m_o_row(4), o_row(3)=>m_o_row(3), o_row(2)=>
       m_o_row(2), o_row(1)=>m_o_row(1), o_row(0)=>m_o_row(0), o_image0_0(7)
-      =>o_image0_0_7_EXMPLR1109, o_image0_0(6)=>o_image0_0_6_EXMPLR1110, 
-      o_image0_0(5)=>o_image0_0_5_EXMPLR1111, o_image0_0(4)=>
-      o_image0_0_4_EXMPLR1112, o_image0_0(3)=>o_image0_0_3_EXMPLR1113, 
-      o_image0_0(2)=>o_image0_0_2_EXMPLR1114, o_image0_0(1)=>
-      o_image0_0_1_EXMPLR1115, o_image0_0(0)=>o_image0_0_0_EXMPLR1116, 
-      o_image0_1(7)=>o_image0_1_7_EXMPLR1117, o_image0_1(6)=>
-      o_image0_1_6_EXMPLR1118, o_image0_1(5)=>o_image0_1_5_EXMPLR1119, 
-      o_image0_1(4)=>o_image0_1_4_EXMPLR1120, o_image0_1(3)=>
-      o_image0_1_3_EXMPLR1121, o_image0_1(2)=>o_image0_1_2_EXMPLR1122, 
-      o_image0_1(1)=>o_image0_1_1_EXMPLR1123, o_image0_1(0)=>
-      o_image0_1_0_EXMPLR1124, o_image0_2(7)=>o_image0_2_7_EXMPLR1125, 
-      o_image0_2(6)=>o_image0_2_6_EXMPLR1126, o_image0_2(5)=>
-      o_image0_2_5_EXMPLR1127, o_image0_2(4)=>o_image0_2_4_EXMPLR1128, 
-      o_image0_2(3)=>o_image0_2_3_EXMPLR1129, o_image0_2(2)=>
-      o_image0_2_2_EXMPLR1130, o_image0_2(1)=>o_image0_2_1_EXMPLR1131, 
-      o_image0_2(0)=>o_image0_2_0_EXMPLR1132, o_image1_0(7)=>
-      o_image1_0_7_EXMPLR1133, o_image1_0(6)=>o_image1_0_6_EXMPLR1134, 
-      o_image1_0(5)=>o_image1_0_5_EXMPLR1135, o_image1_0(4)=>
-      o_image1_0_4_EXMPLR1136, o_image1_0(3)=>o_image1_0_3_EXMPLR1137, 
-      o_image1_0(2)=>o_image1_0_2_EXMPLR1138, o_image1_0(1)=>
-      o_image1_0_1_EXMPLR1139, o_image1_0(0)=>o_image1_0_0_EXMPLR1140, 
-      o_image1_1(7)=>DANGLING(9), o_image1_1(6)=>DANGLING(10), o_image1_1(5)
-      =>DANGLING(11), o_image1_1(4)=>DANGLING(12), o_image1_1(3)=>DANGLING(
-      13), o_image1_1(2)=>DANGLING(14), o_image1_1(1)=>DANGLING(15), 
-      o_image1_1(0)=>DANGLING(16), o_image1_2(7)=>o_image1_2_7_EXMPLR1141, 
-      o_image1_2(6)=>o_image1_2_6_EXMPLR1142, o_image1_2(5)=>
-      o_image1_2_5_EXMPLR1143, o_image1_2(4)=>o_image1_2_4_EXMPLR1144, 
-      o_image1_2(3)=>o_image1_2_3_EXMPLR1145, o_image1_2(2)=>
-      o_image1_2_2_EXMPLR1146, o_image1_2(1)=>o_image1_2_1_EXMPLR1147, 
-      o_image1_2(0)=>o_image1_2_0_EXMPLR1148, o_image2_0(7)=>
-      o_image2_0_7_EXMPLR1149, o_image2_0(6)=>o_image2_0_6_EXMPLR1150, 
-      o_image2_0(5)=>o_image2_0_5_EXMPLR1151, o_image2_0(4)=>
-      o_image2_0_4_EXMPLR1152, o_image2_0(3)=>o_image2_0_3_EXMPLR1153, 
-      o_image2_0(2)=>o_image2_0_2_EXMPLR1154, o_image2_0(1)=>
-      o_image2_0_1_EXMPLR1155, o_image2_0(0)=>o_image2_0_0_EXMPLR1156, 
-      o_image2_1(7)=>o_image2_1_7_EXMPLR1157, o_image2_1(6)=>
-      o_image2_1_6_EXMPLR1158, o_image2_1(5)=>o_image2_1_5_EXMPLR1159, 
-      o_image2_1(4)=>o_image2_1_4_EXMPLR1160, o_image2_1(3)=>
-      o_image2_1_3_EXMPLR1161, o_image2_1(2)=>o_image2_1_2_EXMPLR1162, 
-      o_image2_1(1)=>o_image2_1_1_EXMPLR1163, o_image2_1(0)=>
-      o_image2_1_0_EXMPLR1164, o_image2_2(7)=>o_image2_2_7_EXMPLR1165, 
-      o_image2_2(6)=>o_image2_2_6_EXMPLR1166, o_image2_2(5)=>
-      o_image2_2_5_EXMPLR1167, o_image2_2(4)=>o_image2_2_4_EXMPLR1168, 
-      o_image2_2(3)=>o_image2_2_3_EXMPLR1169, o_image2_2(2)=>
-      o_image2_2_2_EXMPLR1170, o_image2_2(1)=>o_image2_2_1_EXMPLR1171, 
-      o_image2_2(0)=>o_image2_2_0_EXMPLR1172, p_nrst_int_dup_22=>p_nrst_int
-   );
+      =>m_o_image0_0(7), o_image0_0(6)=>m_o_image0_0(6), o_image0_0(5)=>
+      m_o_image0_0(5), o_image0_0(4)=>m_o_image0_0(4), o_image0_0(3)=>
+      m_o_image0_0(3), o_image0_0(2)=>m_o_image0_0(2), o_image0_0(1)=>
+      m_o_image0_0(1), o_image0_0(0)=>m_o_image0_0(0), o_image0_1(7)=>
+      m_o_image0_1(7), o_image0_1(6)=>m_o_image0_1(6), o_image0_1(5)=>
+      m_o_image0_1(5), o_image0_1(4)=>m_o_image0_1(4), o_image0_1(3)=>
+      m_o_image0_1(3), o_image0_1(2)=>m_o_image0_1(2), o_image0_1(1)=>
+      m_o_image0_1(1), o_image0_1(0)=>m_o_image0_1(0), o_image0_2(7)=>
+      m_o_image0_2(7), o_image0_2(6)=>m_o_image0_2(6), o_image0_2(5)=>
+      m_o_image0_2(5), o_image0_2(4)=>m_o_image0_2(4), o_image0_2(3)=>
+      m_o_image0_2(3), o_image0_2(2)=>m_o_image0_2(2), o_image0_2(1)=>
+      m_o_image0_2(1), o_image0_2(0)=>m_o_image0_2(0), o_image1_0(7)=>
+      m_o_image1_0(7), o_image1_0(6)=>m_o_image1_0(6), o_image1_0(5)=>
+      m_o_image1_0(5), o_image1_0(4)=>m_o_image1_0(4), o_image1_0(3)=>
+      m_o_image1_0(3), o_image1_0(2)=>m_o_image1_0(2), o_image1_0(1)=>
+      m_o_image1_0(1), o_image1_0(0)=>m_o_image1_0(0), o_image1_1(7)=>
+      DANGLING(9), o_image1_1(6)=>DANGLING(10), o_image1_1(5)=>DANGLING(11), 
+      o_image1_1(4)=>DANGLING(12), o_image1_1(3)=>DANGLING(13), 
+      o_image1_1(2)=>DANGLING(14), o_image1_1(1)=>DANGLING(15), 
+      o_image1_1(0)=>DANGLING(16), o_image1_2(7)=>m_o_image1_2(7), 
+      o_image1_2(6)=>m_o_image1_2(6), o_image1_2(5)=>m_o_image1_2(5), 
+      o_image1_2(4)=>m_o_image1_2(4), o_image1_2(3)=>m_o_image1_2(3), 
+      o_image1_2(2)=>m_o_image1_2(2), o_image1_2(1)=>m_o_image1_2(1), 
+      o_image1_2(0)=>m_o_image1_2(0), o_image2_0(7)=>m_o_image2_0(7), 
+      o_image2_0(6)=>m_o_image2_0(6), o_image2_0(5)=>m_o_image2_0(5), 
+      o_image2_0(4)=>m_o_image2_0(4), o_image2_0(3)=>m_o_image2_0(3), 
+      o_image2_0(2)=>m_o_image2_0(2), o_image2_0(1)=>m_o_image2_0(1), 
+      o_image2_0(0)=>m_o_image2_0(0), o_image2_1(7)=>m_o_image2_1(7), 
+      o_image2_1(6)=>m_o_image2_1(6), o_image2_1(5)=>m_o_image2_1(5), 
+      o_image2_1(4)=>m_o_image2_1(4), o_image2_1(3)=>m_o_image2_1(3), 
+      o_image2_1(2)=>m_o_image2_1(2), o_image2_1(1)=>m_o_image2_1(1), 
+      o_image2_1(0)=>m_o_image2_1(0), o_image2_2(7)=>m_o_image2_2(7), 
+      o_image2_2(6)=>m_o_image2_2(6), o_image2_2(5)=>m_o_image2_2(5), 
+      o_image2_2(4)=>m_o_image2_2(4), o_image2_2(3)=>m_o_image2_2(3), 
+      o_image2_2(2)=>m_o_image2_2(2), o_image2_2(1)=>m_o_image2_2(1), 
+      o_image2_2(0)=>m_o_image2_2(0), p_nrst_int_dup_22=>p_nrst_int);
    u_flow : flow port map ( t1(7)=>f_t1(7), t1(6)=>f_t1(6), t1(5)=>f_t1(5), 
       t1(4)=>f_t1(4), t1(3)=>f_t1(3), t1(2)=>f_t1(2), t1(1)=>f_t1(1), t1(0)
       =>f_t1(0), t2(7)=>f_t2(7), t2(6)=>f_t2(6), t2(5)=>f_t2(5), t2(4)=>
@@ -4543,77 +4506,77 @@ begin
    f_state(0) <= NOT nx63959z1;
    NOT_f_state_3 <= NOT f_state(3);
    reg_f_t3_next_7 : cycloneii_lcell_ff port map ( regout=>f_t3_next(7), 
-      datain=>f_i1_next(7), sdata=>o_image1_0_7_EXMPLR1133, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_i1_next(7), sdata=>m_o_image1_0(7), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t3_next_6 : cycloneii_lcell_ff port map ( regout=>f_t3_next(6), 
-      datain=>f_i1_next(6), sdata=>o_image1_0_6_EXMPLR1134, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_i1_next(6), sdata=>m_o_image1_0(6), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t3_next_5 : cycloneii_lcell_ff port map ( regout=>f_t3_next(5), 
-      datain=>f_i1_next(5), sdata=>o_image1_0_5_EXMPLR1135, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_i1_next(5), sdata=>m_o_image1_0(5), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t3_next_4 : cycloneii_lcell_ff port map ( regout=>f_t3_next(4), 
-      datain=>f_i1_next(4), sdata=>o_image1_0_4_EXMPLR1136, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_i1_next(4), sdata=>m_o_image1_0(4), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t3_next_3 : cycloneii_lcell_ff port map ( regout=>f_t3_next(3), 
-      datain=>f_i1_next(3), sdata=>o_image1_0_3_EXMPLR1137, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_i1_next(3), sdata=>m_o_image1_0(3), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t3_next_2 : cycloneii_lcell_ff port map ( regout=>f_t3_next(2), 
-      datain=>f_i1_next(2), sdata=>o_image1_0_2_EXMPLR1138, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_i1_next(2), sdata=>m_o_image1_0(2), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t3_next_1 : cycloneii_lcell_ff port map ( regout=>f_t3_next(1), 
-      datain=>f_i1_next(1), sdata=>o_image1_0_1_EXMPLR1139, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_i1_next(1), sdata=>m_o_image1_0(1), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t3_next_0 : cycloneii_lcell_ff port map ( regout=>f_t3_next(0), 
-      datain=>f_i1_next(0), sdata=>o_image1_0_0_EXMPLR1140, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_i1_next(0), sdata=>m_o_image1_0(0), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t2_next_7 : cycloneii_lcell_ff port map ( regout=>f_t2_next(7), 
-      datain=>f_t3_next(7), sdata=>o_image0_0_7_EXMPLR1109, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t3_next(7), sdata=>m_o_image0_0(7), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t2_next_6 : cycloneii_lcell_ff port map ( regout=>f_t2_next(6), 
-      datain=>f_t3_next(6), sdata=>o_image0_0_6_EXMPLR1110, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t3_next(6), sdata=>m_o_image0_0(6), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t2_next_5 : cycloneii_lcell_ff port map ( regout=>f_t2_next(5), 
-      datain=>f_t3_next(5), sdata=>o_image0_0_5_EXMPLR1111, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t3_next(5), sdata=>m_o_image0_0(5), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t2_next_4 : cycloneii_lcell_ff port map ( regout=>f_t2_next(4), 
-      datain=>f_t3_next(4), sdata=>o_image0_0_4_EXMPLR1112, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t3_next(4), sdata=>m_o_image0_0(4), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t2_next_3 : cycloneii_lcell_ff port map ( regout=>f_t2_next(3), 
-      datain=>f_t3_next(3), sdata=>o_image0_0_3_EXMPLR1113, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t3_next(3), sdata=>m_o_image0_0(3), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t2_next_2 : cycloneii_lcell_ff port map ( regout=>f_t2_next(2), 
-      datain=>f_t3_next(2), sdata=>o_image0_0_2_EXMPLR1114, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t3_next(2), sdata=>m_o_image0_0(2), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t2_next_1 : cycloneii_lcell_ff port map ( regout=>f_t2_next(1), 
-      datain=>f_t3_next(1), sdata=>o_image0_0_1_EXMPLR1115, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t3_next(1), sdata=>m_o_image0_0(1), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t2_next_0 : cycloneii_lcell_ff port map ( regout=>f_t2_next(0), 
-      datain=>f_t3_next(0), sdata=>o_image0_0_0_EXMPLR1116, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t3_next(0), sdata=>m_o_image0_0(0), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t1_next_7 : cycloneii_lcell_ff port map ( regout=>f_t1_next(7), 
-      datain=>f_t2_next(7), sdata=>o_image0_1_7_EXMPLR1117, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t2_next(7), sdata=>m_o_image0_1(7), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t1_next_6 : cycloneii_lcell_ff port map ( regout=>f_t1_next(6), 
-      datain=>f_t2_next(6), sdata=>o_image0_1_6_EXMPLR1118, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t2_next(6), sdata=>m_o_image0_1(6), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t1_next_5 : cycloneii_lcell_ff port map ( regout=>f_t1_next(5), 
-      datain=>f_t2_next(5), sdata=>o_image0_1_5_EXMPLR1119, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t2_next(5), sdata=>m_o_image0_1(5), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t1_next_4 : cycloneii_lcell_ff port map ( regout=>f_t1_next(4), 
-      datain=>f_t2_next(4), sdata=>o_image0_1_4_EXMPLR1120, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t2_next(4), sdata=>m_o_image0_1(4), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t1_next_3 : cycloneii_lcell_ff port map ( regout=>f_t1_next(3), 
-      datain=>f_t2_next(3), sdata=>o_image0_1_3_EXMPLR1121, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t2_next(3), sdata=>m_o_image0_1(3), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t1_next_2 : cycloneii_lcell_ff port map ( regout=>f_t1_next(2), 
-      datain=>f_t2_next(2), sdata=>o_image0_1_2_EXMPLR1122, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t2_next(2), sdata=>m_o_image0_1(2), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t1_next_1 : cycloneii_lcell_ff port map ( regout=>f_t1_next(1), 
-      datain=>f_t2_next(1), sdata=>o_image0_1_1_EXMPLR1123, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t2_next(1), sdata=>m_o_image0_1(1), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_t1_next_0 : cycloneii_lcell_ff port map ( regout=>f_t1_next(0), 
-      datain=>f_t2_next(0), sdata=>o_image0_1_0_EXMPLR1124, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t2_next(0), sdata=>m_o_image0_1(0), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_state_3 : cycloneii_lcell_ff port map ( regout=>f_state(3), datain
       =>f_state(2), clk=>i_clock, ena=>nx64956z1, sclr=>i_reset);
    reg_f_state_2 : cycloneii_lcell_ff port map ( regout=>f_state(2), datain
@@ -4643,125 +4606,125 @@ begin
    reg_f_i_mode_next_0 : cycloneii_lcell_ff port map ( regout=>
       f_i_mode_next(0), datain=>m_o_mode(0), clk=>i_clock, ena=>nx35105z1);
    reg_f_i2_next_7 : cycloneii_lcell_ff port map ( regout=>f_i2_next(7), 
-      datain=>f_t1_next(7), sdata=>o_image0_2_7_EXMPLR1125, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t1_next(7), sdata=>m_o_image0_2(7), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_i2_next_6 : cycloneii_lcell_ff port map ( regout=>f_i2_next(6), 
-      datain=>f_t1_next(6), sdata=>o_image0_2_6_EXMPLR1126, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t1_next(6), sdata=>m_o_image0_2(6), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_i2_next_5 : cycloneii_lcell_ff port map ( regout=>f_i2_next(5), 
-      datain=>f_t1_next(5), sdata=>o_image0_2_5_EXMPLR1127, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t1_next(5), sdata=>m_o_image0_2(5), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_i2_next_4 : cycloneii_lcell_ff port map ( regout=>f_i2_next(4), 
-      datain=>f_t1_next(4), sdata=>o_image0_2_4_EXMPLR1128, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t1_next(4), sdata=>m_o_image0_2(4), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_i2_next_3 : cycloneii_lcell_ff port map ( regout=>f_i2_next(3), 
-      datain=>f_t1_next(3), sdata=>o_image0_2_3_EXMPLR1129, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t1_next(3), sdata=>m_o_image0_2(3), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_i2_next_2 : cycloneii_lcell_ff port map ( regout=>f_i2_next(2), 
-      datain=>f_t1_next(2), sdata=>o_image0_2_2_EXMPLR1130, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t1_next(2), sdata=>m_o_image0_2(2), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_i2_next_1 : cycloneii_lcell_ff port map ( regout=>f_i2_next(1), 
-      datain=>f_t1_next(1), sdata=>o_image0_2_1_EXMPLR1131, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t1_next(1), sdata=>m_o_image0_2(1), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_i2_next_0 : cycloneii_lcell_ff port map ( regout=>f_i2_next(0), 
-      datain=>f_t1_next(0), sdata=>o_image0_2_0_EXMPLR1132, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_t1_next(0), sdata=>m_o_image0_2(0), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_i1_next_7 : cycloneii_lcell_ff port map ( regout=>f_i1_next(7), 
-      datain=>f_b1_next(7), sdata=>o_image2_0_7_EXMPLR1149, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b1_next(7), sdata=>m_o_image2_0(7), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_i1_next_6 : cycloneii_lcell_ff port map ( regout=>f_i1_next(6), 
-      datain=>f_b1_next(6), sdata=>o_image2_0_6_EXMPLR1150, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b1_next(6), sdata=>m_o_image2_0(6), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_i1_next_5 : cycloneii_lcell_ff port map ( regout=>f_i1_next(5), 
-      datain=>f_b1_next(5), sdata=>o_image2_0_5_EXMPLR1151, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b1_next(5), sdata=>m_o_image2_0(5), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_i1_next_4 : cycloneii_lcell_ff port map ( regout=>f_i1_next(4), 
-      datain=>f_b1_next(4), sdata=>o_image2_0_4_EXMPLR1152, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b1_next(4), sdata=>m_o_image2_0(4), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_i1_next_3 : cycloneii_lcell_ff port map ( regout=>f_i1_next(3), 
-      datain=>f_b1_next(3), sdata=>o_image2_0_3_EXMPLR1153, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b1_next(3), sdata=>m_o_image2_0(3), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_i1_next_2 : cycloneii_lcell_ff port map ( regout=>f_i1_next(2), 
-      datain=>f_b1_next(2), sdata=>o_image2_0_2_EXMPLR1154, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b1_next(2), sdata=>m_o_image2_0(2), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_i1_next_1 : cycloneii_lcell_ff port map ( regout=>f_i1_next(1), 
-      datain=>f_b1_next(1), sdata=>o_image2_0_1_EXMPLR1155, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b1_next(1), sdata=>m_o_image2_0(1), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_i1_next_0 : cycloneii_lcell_ff port map ( regout=>f_i1_next(0), 
-      datain=>f_b1_next(0), sdata=>o_image2_0_0_EXMPLR1156, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b1_next(0), sdata=>m_o_image2_0(0), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b3_next_7 : cycloneii_lcell_ff port map ( regout=>f_b3_next(7), 
-      datain=>f_i2_next(7), sdata=>o_image1_2_7_EXMPLR1141, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_i2_next(7), sdata=>m_o_image1_2(7), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b3_next_6 : cycloneii_lcell_ff port map ( regout=>f_b3_next(6), 
-      datain=>f_i2_next(6), sdata=>o_image1_2_6_EXMPLR1142, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_i2_next(6), sdata=>m_o_image1_2(6), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b3_next_5 : cycloneii_lcell_ff port map ( regout=>f_b3_next(5), 
-      datain=>f_i2_next(5), sdata=>o_image1_2_5_EXMPLR1143, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_i2_next(5), sdata=>m_o_image1_2(5), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b3_next_4 : cycloneii_lcell_ff port map ( regout=>f_b3_next(4), 
-      datain=>f_i2_next(4), sdata=>o_image1_2_4_EXMPLR1144, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_i2_next(4), sdata=>m_o_image1_2(4), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b3_next_3 : cycloneii_lcell_ff port map ( regout=>f_b3_next(3), 
-      datain=>f_i2_next(3), sdata=>o_image1_2_3_EXMPLR1145, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_i2_next(3), sdata=>m_o_image1_2(3), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b3_next_2 : cycloneii_lcell_ff port map ( regout=>f_b3_next(2), 
-      datain=>f_i2_next(2), sdata=>o_image1_2_2_EXMPLR1146, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_i2_next(2), sdata=>m_o_image1_2(2), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b3_next_1 : cycloneii_lcell_ff port map ( regout=>f_b3_next(1), 
-      datain=>f_i2_next(1), sdata=>o_image1_2_1_EXMPLR1147, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_i2_next(1), sdata=>m_o_image1_2(1), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b3_next_0 : cycloneii_lcell_ff port map ( regout=>f_b3_next(0), 
-      datain=>f_i2_next(0), sdata=>o_image1_2_0_EXMPLR1148, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_i2_next(0), sdata=>m_o_image1_2(0), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b2_next_7 : cycloneii_lcell_ff port map ( regout=>f_b2_next(7), 
-      datain=>f_b3_next(7), sdata=>o_image2_2_7_EXMPLR1165, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b3_next(7), sdata=>m_o_image2_2(7), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b2_next_6 : cycloneii_lcell_ff port map ( regout=>f_b2_next(6), 
-      datain=>f_b3_next(6), sdata=>o_image2_2_6_EXMPLR1166, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b3_next(6), sdata=>m_o_image2_2(6), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b2_next_5 : cycloneii_lcell_ff port map ( regout=>f_b2_next(5), 
-      datain=>f_b3_next(5), sdata=>o_image2_2_5_EXMPLR1167, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b3_next(5), sdata=>m_o_image2_2(5), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b2_next_4 : cycloneii_lcell_ff port map ( regout=>f_b2_next(4), 
-      datain=>f_b3_next(4), sdata=>o_image2_2_4_EXMPLR1168, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b3_next(4), sdata=>m_o_image2_2(4), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b2_next_3 : cycloneii_lcell_ff port map ( regout=>f_b2_next(3), 
-      datain=>f_b3_next(3), sdata=>o_image2_2_3_EXMPLR1169, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b3_next(3), sdata=>m_o_image2_2(3), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b2_next_2 : cycloneii_lcell_ff port map ( regout=>f_b2_next(2), 
-      datain=>f_b3_next(2), sdata=>o_image2_2_2_EXMPLR1170, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b3_next(2), sdata=>m_o_image2_2(2), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b2_next_1 : cycloneii_lcell_ff port map ( regout=>f_b2_next(1), 
-      datain=>f_b3_next(1), sdata=>o_image2_2_1_EXMPLR1171, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b3_next(1), sdata=>m_o_image2_2(1), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b2_next_0 : cycloneii_lcell_ff port map ( regout=>f_b2_next(0), 
-      datain=>f_b3_next(0), sdata=>o_image2_2_0_EXMPLR1172, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b3_next(0), sdata=>m_o_image2_2(0), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b1_next_7 : cycloneii_lcell_ff port map ( regout=>f_b1_next(7), 
-      datain=>f_b2_next(7), sdata=>o_image2_1_7_EXMPLR1157, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b2_next(7), sdata=>m_o_image2_1(7), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b1_next_6 : cycloneii_lcell_ff port map ( regout=>f_b1_next(6), 
-      datain=>f_b2_next(6), sdata=>o_image2_1_6_EXMPLR1158, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b2_next(6), sdata=>m_o_image2_1(6), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b1_next_5 : cycloneii_lcell_ff port map ( regout=>f_b1_next(5), 
-      datain=>f_b2_next(5), sdata=>o_image2_1_5_EXMPLR1159, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b2_next(5), sdata=>m_o_image2_1(5), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b1_next_4 : cycloneii_lcell_ff port map ( regout=>f_b1_next(4), 
-      datain=>f_b2_next(4), sdata=>o_image2_1_4_EXMPLR1160, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b2_next(4), sdata=>m_o_image2_1(4), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b1_next_3 : cycloneii_lcell_ff port map ( regout=>f_b1_next(3), 
-      datain=>f_b2_next(3), sdata=>o_image2_1_3_EXMPLR1161, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b2_next(3), sdata=>m_o_image2_1(3), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b1_next_2 : cycloneii_lcell_ff port map ( regout=>f_b1_next(2), 
-      datain=>f_b2_next(2), sdata=>o_image2_1_2_EXMPLR1162, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b2_next(2), sdata=>m_o_image2_1(2), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b1_next_1 : cycloneii_lcell_ff port map ( regout=>f_b1_next(1), 
-      datain=>f_b2_next(1), sdata=>o_image2_1_1_EXMPLR1163, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b2_next(1), sdata=>m_o_image2_1(1), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    reg_f_b1_next_0 : cycloneii_lcell_ff port map ( regout=>f_b1_next(0), 
-      datain=>f_b2_next(0), sdata=>o_image2_1_0_EXMPLR1164, clk=>i_clock, 
-      ena=>nx57127z1, sload=>nx57127z2);
+      datain=>f_b2_next(0), sdata=>m_o_image2_1(0), clk=>i_clock, ena=>
+      nx57127z1, sload=>nx57127z2);
    ix20836z52988 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_i_mode(1), dataa=>f_i_mode_next(1), datab=>
@@ -4820,91 +4783,91 @@ begin
    ix20836z52986 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_i2(0), dataa=>f_i2_next(0), datab=>nx57127z2, 
-      datac=>o_image1_2_0_EXMPLR1148);
+      datac=>m_o_image1_2(0));
    ix20836z52985 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_i2(1), dataa=>f_i2_next(1), datab=>nx57127z2, 
-      datac=>o_image1_2_1_EXMPLR1147);
+      datac=>m_o_image1_2(1));
    ix20836z52984 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_i2(2), dataa=>f_i2_next(2), datab=>nx57127z2, 
-      datac=>o_image1_2_2_EXMPLR1146);
+      datac=>m_o_image1_2(2));
    ix20836z52983 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_i2(3), dataa=>f_i2_next(3), datab=>nx57127z2, 
-      datac=>o_image1_2_3_EXMPLR1145);
+      datac=>m_o_image1_2(3));
    ix20836z52982 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_i2(4), dataa=>f_i2_next(4), datab=>nx57127z2, 
-      datac=>o_image1_2_4_EXMPLR1144);
+      datac=>m_o_image1_2(4));
    ix20836z52981 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_i2(5), dataa=>f_i2_next(5), datab=>nx57127z2, 
-      datac=>o_image1_2_5_EXMPLR1143);
+      datac=>m_o_image1_2(5));
    ix20836z52980 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_i2(6), dataa=>f_i2_next(6), datab=>nx57127z2, 
-      datac=>o_image1_2_6_EXMPLR1142);
+      datac=>m_o_image1_2(6));
    ix20836z52979 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_i2(7), dataa=>f_i2_next(7), datab=>nx57127z2, 
-      datac=>o_image1_2_7_EXMPLR1141);
+      datac=>m_o_image1_2(7));
    ix20836z52978 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_i1(0), dataa=>f_i1_next(0), datab=>nx57127z2, 
-      datac=>o_image1_0_0_EXMPLR1140);
+      datac=>m_o_image1_0(0));
    ix20836z52977 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_i1(1), dataa=>f_i1_next(1), datab=>nx57127z2, 
-      datac=>o_image1_0_1_EXMPLR1139);
+      datac=>m_o_image1_0(1));
    ix20836z52976 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_i1(2), dataa=>f_i1_next(2), datab=>nx57127z2, 
-      datac=>o_image1_0_2_EXMPLR1138);
+      datac=>m_o_image1_0(2));
    ix20836z52975 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_i1(3), dataa=>f_i1_next(3), datab=>nx57127z2, 
-      datac=>o_image1_0_3_EXMPLR1137);
+      datac=>m_o_image1_0(3));
    ix20836z52974 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_i1(4), dataa=>f_i1_next(4), datab=>nx57127z2, 
-      datac=>o_image1_0_4_EXMPLR1136);
+      datac=>m_o_image1_0(4));
    ix20836z52973 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_i1(5), dataa=>f_i1_next(5), datab=>nx57127z2, 
-      datac=>o_image1_0_5_EXMPLR1135);
+      datac=>m_o_image1_0(5));
    ix20836z52972 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_i1(6), dataa=>f_i1_next(6), datab=>nx57127z2, 
-      datac=>o_image1_0_6_EXMPLR1134);
+      datac=>m_o_image1_0(6));
    ix20836z52971 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_i1(7), dataa=>f_i1_next(7), datab=>nx57127z2, 
-      datac=>o_image1_0_7_EXMPLR1133);
+      datac=>m_o_image1_0(7));
    ix20836z52970 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b3(0), dataa=>f_b3_next(0), datab=>nx57127z2, 
-      datac=>o_image2_2_0_EXMPLR1172);
+      datac=>m_o_image2_2(0));
    ix20836z52969 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b3(1), dataa=>f_b3_next(1), datab=>nx57127z2, 
-      datac=>o_image2_2_1_EXMPLR1171);
+      datac=>m_o_image2_2(1));
    ix20836z52968 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b3(2), dataa=>f_b3_next(2), datab=>nx57127z2, 
-      datac=>o_image2_2_2_EXMPLR1170);
+      datac=>m_o_image2_2(2));
    ix20836z52967 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b3(3), dataa=>f_b3_next(3), datab=>nx57127z2, 
-      datac=>o_image2_2_3_EXMPLR1169);
+      datac=>m_o_image2_2(3));
    ix20836z52966 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b3(4), dataa=>f_b3_next(4), datab=>nx57127z2, 
-      datac=>o_image2_2_4_EXMPLR1168);
+      datac=>m_o_image2_2(4));
    ix20836z52965 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b3(5), dataa=>f_b3_next(5), datab=>nx57127z2, 
-      datac=>o_image2_2_5_EXMPLR1167);
+      datac=>m_o_image2_2(5));
    ix57127z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"d0d0") 
        port map ( combout=>nx57127z1, dataa=>nx57127z2, datab=>m_o_valid, 
@@ -4912,171 +4875,171 @@ begin
    ix20836z52964 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b3(6), dataa=>f_b3_next(6), datab=>nx57127z2, 
-      datac=>o_image2_2_6_EXMPLR1166);
+      datac=>m_o_image2_2(6));
    ix20836z52963 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b3(7), dataa=>f_b3_next(7), datab=>nx57127z2, 
-      datac=>o_image2_2_7_EXMPLR1165);
+      datac=>m_o_image2_2(7));
    ix20836z52962 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b2(0), dataa=>f_b2_next(0), datab=>nx57127z2, 
-      datac=>o_image2_1_0_EXMPLR1164);
+      datac=>m_o_image2_1(0));
    ix20836z52961 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b2(1), dataa=>f_b2_next(1), datab=>nx57127z2, 
-      datac=>o_image2_1_1_EXMPLR1163);
+      datac=>m_o_image2_1(1));
    ix20836z52960 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b2(2), dataa=>f_b2_next(2), datab=>nx57127z2, 
-      datac=>o_image2_1_2_EXMPLR1162);
+      datac=>m_o_image2_1(2));
    ix20836z52959 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b2(3), dataa=>f_b2_next(3), datab=>nx57127z2, 
-      datac=>o_image2_1_3_EXMPLR1161);
+      datac=>m_o_image2_1(3));
    ix20836z52958 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b2(4), dataa=>f_b2_next(4), datab=>nx57127z2, 
-      datac=>o_image2_1_4_EXMPLR1160);
+      datac=>m_o_image2_1(4));
    ix20836z52957 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b2(5), dataa=>f_b2_next(5), datab=>nx57127z2, 
-      datac=>o_image2_1_5_EXMPLR1159);
+      datac=>m_o_image2_1(5));
    ix20836z52956 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b2(6), dataa=>f_b2_next(6), datab=>nx57127z2, 
-      datac=>o_image2_1_6_EXMPLR1158);
+      datac=>m_o_image2_1(6));
    ix20836z52955 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b2(7), dataa=>f_b2_next(7), datab=>nx57127z2, 
-      datac=>o_image2_1_7_EXMPLR1157);
+      datac=>m_o_image2_1(7));
    ix20836z52954 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b1(0), dataa=>f_b1_next(0), datab=>nx57127z2, 
-      datac=>o_image2_0_0_EXMPLR1156);
+      datac=>m_o_image2_0(0));
    ix20836z52953 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b1(1), dataa=>f_b1_next(1), datab=>nx57127z2, 
-      datac=>o_image2_0_1_EXMPLR1155);
+      datac=>m_o_image2_0(1));
    ix20836z52952 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b1(2), dataa=>f_b1_next(2), datab=>nx57127z2, 
-      datac=>o_image2_0_2_EXMPLR1154);
+      datac=>m_o_image2_0(2));
    ix20836z52951 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b1(3), dataa=>f_b1_next(3), datab=>nx57127z2, 
-      datac=>o_image2_0_3_EXMPLR1153);
+      datac=>m_o_image2_0(3));
    ix20836z52950 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b1(4), dataa=>f_b1_next(4), datab=>nx57127z2, 
-      datac=>o_image2_0_4_EXMPLR1152);
+      datac=>m_o_image2_0(4));
    ix20836z52949 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b1(5), dataa=>f_b1_next(5), datab=>nx57127z2, 
-      datac=>o_image2_0_5_EXMPLR1151);
+      datac=>m_o_image2_0(5));
    ix20836z52948 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b1(6), dataa=>f_b1_next(6), datab=>nx57127z2, 
-      datac=>o_image2_0_6_EXMPLR1150);
+      datac=>m_o_image2_0(6));
    ix20836z52947 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_b1(7), dataa=>f_b1_next(7), datab=>nx57127z2, 
-      datac=>o_image2_0_7_EXMPLR1149);
+      datac=>m_o_image2_0(7));
    ix20836z52946 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t3(0), dataa=>f_t3_next(0), datab=>nx57127z2, 
-      datac=>o_image0_0_0_EXMPLR1116);
+      datac=>m_o_image0_0(0));
    ix20836z52945 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t3(1), dataa=>f_t3_next(1), datab=>nx57127z2, 
-      datac=>o_image0_0_1_EXMPLR1115);
+      datac=>m_o_image0_0(1));
    ix20836z52944 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t3(2), dataa=>f_t3_next(2), datab=>nx57127z2, 
-      datac=>o_image0_0_2_EXMPLR1114);
+      datac=>m_o_image0_0(2));
    ix20836z52943 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t3(3), dataa=>f_t3_next(3), datab=>nx57127z2, 
-      datac=>o_image0_0_3_EXMPLR1113);
+      datac=>m_o_image0_0(3));
    ix20836z52942 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t3(4), dataa=>f_t3_next(4), datab=>nx57127z2, 
-      datac=>o_image0_0_4_EXMPLR1112);
+      datac=>m_o_image0_0(4));
    ix20836z52941 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t3(5), dataa=>f_t3_next(5), datab=>nx57127z2, 
-      datac=>o_image0_0_5_EXMPLR1111);
+      datac=>m_o_image0_0(5));
    ix20836z52940 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t3(6), dataa=>f_t3_next(6), datab=>nx57127z2, 
-      datac=>o_image0_0_6_EXMPLR1110);
+      datac=>m_o_image0_0(6));
    ix20836z52939 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t3(7), dataa=>f_t3_next(7), datab=>nx57127z2, 
-      datac=>o_image0_0_7_EXMPLR1109);
+      datac=>m_o_image0_0(7));
    ix20836z52938 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t2(0), dataa=>f_t2_next(0), datab=>nx57127z2, 
-      datac=>o_image0_1_0_EXMPLR1124);
+      datac=>m_o_image0_1(0));
    ix20836z52937 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t2(1), dataa=>f_t2_next(1), datab=>nx57127z2, 
-      datac=>o_image0_1_1_EXMPLR1123);
+      datac=>m_o_image0_1(1));
    ix20836z52936 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t2(2), dataa=>f_t2_next(2), datab=>nx57127z2, 
-      datac=>o_image0_1_2_EXMPLR1122);
+      datac=>m_o_image0_1(2));
    ix20836z52935 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t2(3), dataa=>f_t2_next(3), datab=>nx57127z2, 
-      datac=>o_image0_1_3_EXMPLR1121);
+      datac=>m_o_image0_1(3));
    ix20836z52934 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t2(4), dataa=>f_t2_next(4), datab=>nx57127z2, 
-      datac=>o_image0_1_4_EXMPLR1120);
+      datac=>m_o_image0_1(4));
    ix20836z52933 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t2(5), dataa=>f_t2_next(5), datab=>nx57127z2, 
-      datac=>o_image0_1_5_EXMPLR1119);
+      datac=>m_o_image0_1(5));
    ix20836z52932 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t2(6), dataa=>f_t2_next(6), datab=>nx57127z2, 
-      datac=>o_image0_1_6_EXMPLR1118);
+      datac=>m_o_image0_1(6));
    ix20836z52931 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t2(7), dataa=>f_t2_next(7), datab=>nx57127z2, 
-      datac=>o_image0_1_7_EXMPLR1117);
+      datac=>m_o_image0_1(7));
    ix20836z52930 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t1(0), dataa=>f_t1_next(0), datab=>nx57127z2, 
-      datac=>o_image0_2_0_EXMPLR1132);
+      datac=>m_o_image0_2(0));
    ix20836z52929 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t1(1), dataa=>f_t1_next(1), datab=>nx57127z2, 
-      datac=>o_image0_2_1_EXMPLR1131);
+      datac=>m_o_image0_2(1));
    ix20836z52928 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t1(2), dataa=>f_t1_next(2), datab=>nx57127z2, 
-      datac=>o_image0_2_2_EXMPLR1130);
+      datac=>m_o_image0_2(2));
    ix20836z52927 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t1(3), dataa=>f_t1_next(3), datab=>nx57127z2, 
-      datac=>o_image0_2_3_EXMPLR1129);
+      datac=>m_o_image0_2(3));
    ix20836z52926 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t1(4), dataa=>f_t1_next(4), datab=>nx57127z2, 
-      datac=>o_image0_2_4_EXMPLR1128);
+      datac=>m_o_image0_2(4));
    ix20836z52925 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t1(5), dataa=>f_t1_next(5), datab=>nx57127z2, 
-      datac=>o_image0_2_5_EXMPLR1127);
+      datac=>m_o_image0_2(5));
    ix20836z52924 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t1(6), dataa=>f_t1_next(6), datab=>nx57127z2, 
-      datac=>o_image0_2_6_EXMPLR1126);
+      datac=>m_o_image0_2(6));
    ix20836z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"e2e2") 
        port map ( combout=>f_t1(7), dataa=>f_t1_next(7), datab=>nx57127z2, 
-      datac=>o_image0_2_7_EXMPLR1125);
+      datac=>m_o_image0_2(7));
    ix15976z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"f8ff") 
        port map ( combout=>o_mode(0), dataa=>p5m_1_dup_10, datab=>
@@ -5141,15 +5104,6 @@ architecture main of top_kirsch is
          o_dir : OUT std_logic_vector (2 DOWNTO 0) ;
          o_mode : OUT std_logic_vector (1 DOWNTO 0) ;
          o_row : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image0_0 : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image0_1 : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image0_2 : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image1_0 : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image1_1 : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image1_2 : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image2_0 : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image2_1 : OUT std_logic_vector (7 DOWNTO 0) ;
-         o_image2_2 : OUT std_logic_vector (7 DOWNTO 0) ;
          debug_key : IN std_logic_vector (3 DOWNTO 1) ;
          debug_switch : IN std_logic_vector (17 DOWNTO 0) ;
          debug_column : OUT std_logic_vector (7 DOWNTO 0) ;
@@ -5168,21 +5122,21 @@ architecture main of top_kirsch is
          p_m_o_mode_0 : OUT std_logic ;
          p_nrst_int : IN std_logic) ;
    end component ;
-   signal nrst_EXMPLR1191, clk_EXMPLR1192, rxflex_EXMPLR1193: std_logic ;
+   signal nrst_EXMPLR1055, clk_EXMPLR1056, rxflex_EXMPLR1057: std_logic ;
    
    signal o_mode_dup0: std_logic_vector (1 DOWNTO 0) ;
    
-   signal debug_sevenseg_0_EXMPLR1261: std_logic_vector (3 DOWNTO 0) ;
+   signal debug_sevenseg_0_EXMPLR1125: std_logic_vector (3 DOWNTO 0) ;
    
-   signal debug_sevenseg_1_EXMPLR1262: std_logic_vector (3 DOWNTO 0) ;
+   signal debug_sevenseg_1_EXMPLR1126: std_logic_vector (3 DOWNTO 0) ;
    
-   signal debug_sevenseg_2_EXMPLR1263: std_logic_vector (3 DOWNTO 0) ;
+   signal debug_sevenseg_2_EXMPLR1127: std_logic_vector (3 DOWNTO 0) ;
    
-   signal debug_sevenseg_3_EXMPLR1264: std_logic_vector (3 DOWNTO 0) ;
+   signal debug_sevenseg_3_EXMPLR1128: std_logic_vector (3 DOWNTO 0) ;
    
-   signal debug_sevenseg_4_EXMPLR1265: std_logic_vector (3 DOWNTO 0) ;
+   signal debug_sevenseg_4_EXMPLR1129: std_logic_vector (3 DOWNTO 0) ;
    
-   signal debug_sevenseg_5_EXMPLR1266: std_logic_vector (3 DOWNTO 0) ;
+   signal debug_sevenseg_5_EXMPLR1130: std_logic_vector (3 DOWNTO 0) ;
    
    signal pixavail: std_logic ;
    
@@ -5194,18 +5148,18 @@ architecture main of top_kirsch is
    
    signal rowcount: std_logic_vector (7 DOWNTO 0) ;
    
-   signal nrst_int, clk_int, rxflex_int, txflex_EXMPLR1218, 
-      o_sevenseg_15_EXMPLR1219: std_logic ;
+   signal nrst_int, clk_int, rxflex_int, txflex_EXMPLR1082, 
+      o_sevenseg_15_EXMPLR1083: std_logic ;
    
-   signal o_sevenseg_EXMPLR1267: std_logic_vector (14 DOWNTO 0) ;
+   signal o_sevenseg_EXMPLR1131: std_logic_vector (14 DOWNTO 0) ;
    
-   signal o_mode_EXMPLR1268: std_logic_vector (1 DOWNTO 0) ;
+   signal o_mode_EXMPLR1132: std_logic_vector (1 DOWNTO 0) ;
    
-   signal o_nrst_EXMPLR1237: std_logic ;
+   signal o_nrst_EXMPLR1101: std_logic ;
    
-   signal debug_led_red_EXMPLR1269: std_logic_vector (16 DOWNTO 0) ;
+   signal debug_led_red_EXMPLR1133: std_logic_vector (16 DOWNTO 0) ;
    
-   signal debug_led_grn_EXMPLR1270: std_logic_vector (5 DOWNTO 0) ;
+   signal debug_led_grn_EXMPLR1134: std_logic_vector (5 DOWNTO 0) ;
    
    signal o_nrst_dup0: std_logic ;
    
@@ -5219,79 +5173,79 @@ architecture main of top_kirsch is
       nx63537z1, nx64534z1, nx65531z1, nx992z1, nx21351z1, nx21351z2: 
    std_logic ;
    
-   signal DANGLING : std_logic_vector (166 downto 0 );
+   signal DANGLING : std_logic_vector (94 downto 0 );
 
 begin
-   nrst_EXMPLR1191 <= nrst ;
-   clk_EXMPLR1192 <= clk ;
-   rxflex_EXMPLR1193 <= rxflex ;
-   txflex <= txflex_EXMPLR1218 ;
-   o_sevenseg(15) <= o_sevenseg_15_EXMPLR1219 ;
-   o_sevenseg(14) <= o_sevenseg_EXMPLR1267(14) ;
-   o_sevenseg(13) <= o_sevenseg_EXMPLR1267(13) ;
-   o_sevenseg(12) <= o_sevenseg_EXMPLR1267(12) ;
-   o_sevenseg(11) <= o_sevenseg_EXMPLR1267(11) ;
-   o_sevenseg(10) <= o_sevenseg_EXMPLR1267(10) ;
-   o_sevenseg(9) <= o_sevenseg_EXMPLR1267(9) ;
-   o_sevenseg(8) <= o_sevenseg_EXMPLR1267(8) ;
-   o_sevenseg(7) <= o_sevenseg_EXMPLR1267(7) ;
-   o_sevenseg(6) <= o_sevenseg_EXMPLR1267(6) ;
-   o_sevenseg(5) <= o_sevenseg_EXMPLR1267(5) ;
-   o_sevenseg(4) <= o_sevenseg_EXMPLR1267(4) ;
-   o_sevenseg(3) <= o_sevenseg_EXMPLR1267(3) ;
-   o_sevenseg(2) <= o_sevenseg_EXMPLR1267(2) ;
-   o_sevenseg(1) <= o_sevenseg_EXMPLR1267(1) ;
-   o_sevenseg(0) <= o_sevenseg_EXMPLR1267(0) ;
-   o_mode(1) <= o_mode_EXMPLR1268(1) ;
-   o_mode(0) <= o_mode_EXMPLR1268(0) ;
-   o_nrst <= o_nrst_EXMPLR1237 ;
-   debug_led_red(16) <= debug_led_red_EXMPLR1269(16) ;
-   debug_led_red(15) <= debug_led_red_EXMPLR1269(15) ;
-   debug_led_red(14) <= debug_led_red_EXMPLR1269(14) ;
-   debug_led_red(13) <= debug_led_red_EXMPLR1269(13) ;
-   debug_led_red(12) <= debug_led_red_EXMPLR1269(12) ;
-   debug_led_red(11) <= debug_led_red_EXMPLR1269(11) ;
-   debug_led_red(10) <= debug_led_red_EXMPLR1269(10) ;
-   debug_led_red(9) <= debug_led_red_EXMPLR1269(9) ;
-   debug_led_red(8) <= debug_led_red_EXMPLR1269(8) ;
-   debug_led_red(7) <= debug_led_red_EXMPLR1269(7) ;
-   debug_led_red(6) <= debug_led_red_EXMPLR1269(6) ;
-   debug_led_red(5) <= debug_led_red_EXMPLR1269(5) ;
-   debug_led_red(4) <= debug_led_red_EXMPLR1269(4) ;
-   debug_led_red(3) <= debug_led_red_EXMPLR1269(3) ;
-   debug_led_red(2) <= debug_led_red_EXMPLR1269(2) ;
-   debug_led_red(1) <= debug_led_red_EXMPLR1269(1) ;
-   debug_led_red(0) <= debug_led_red_EXMPLR1269(0) ;
-   debug_led_grn(5) <= debug_led_grn_EXMPLR1270(5) ;
-   debug_led_grn(4) <= debug_led_grn_EXMPLR1270(4) ;
-   debug_led_grn(3) <= debug_led_grn_EXMPLR1270(3) ;
-   debug_led_grn(2) <= debug_led_grn_EXMPLR1270(2) ;
-   debug_led_grn(1) <= debug_led_grn_EXMPLR1270(1) ;
-   debug_led_grn(0) <= debug_led_grn_EXMPLR1270(0) ;
-   debug_sevenseg_0(3) <= debug_sevenseg_0_EXMPLR1261(3) ;
-   debug_sevenseg_0(2) <= debug_sevenseg_0_EXMPLR1261(2) ;
-   debug_sevenseg_0(1) <= debug_sevenseg_0_EXMPLR1261(1) ;
-   debug_sevenseg_0(0) <= debug_sevenseg_0_EXMPLR1261(0) ;
-   debug_sevenseg_1(3) <= debug_sevenseg_1_EXMPLR1262(3) ;
-   debug_sevenseg_1(2) <= debug_sevenseg_1_EXMPLR1262(2) ;
-   debug_sevenseg_1(1) <= debug_sevenseg_1_EXMPLR1262(1) ;
-   debug_sevenseg_1(0) <= debug_sevenseg_1_EXMPLR1262(0) ;
-   debug_sevenseg_2(3) <= debug_sevenseg_2_EXMPLR1263(3) ;
-   debug_sevenseg_2(2) <= debug_sevenseg_2_EXMPLR1263(2) ;
-   debug_sevenseg_2(1) <= debug_sevenseg_2_EXMPLR1263(1) ;
-   debug_sevenseg_2(0) <= debug_sevenseg_2_EXMPLR1263(0) ;
-   debug_sevenseg_3(3) <= debug_sevenseg_3_EXMPLR1264(3) ;
-   debug_sevenseg_3(2) <= debug_sevenseg_3_EXMPLR1264(2) ;
-   debug_sevenseg_3(1) <= debug_sevenseg_3_EXMPLR1264(1) ;
-   debug_sevenseg_3(0) <= debug_sevenseg_3_EXMPLR1264(0) ;
-   debug_sevenseg_4(3) <= debug_sevenseg_4_EXMPLR1265(3) ;
-   debug_sevenseg_4(2) <= debug_sevenseg_4_EXMPLR1265(2) ;
-   debug_sevenseg_4(1) <= debug_sevenseg_4_EXMPLR1265(1) ;
-   debug_sevenseg_4(0) <= debug_sevenseg_4_EXMPLR1265(0) ;
-   debug_sevenseg_5(3) <= debug_sevenseg_5_EXMPLR1266(3) ;
-   debug_sevenseg_5(2) <= debug_sevenseg_5_EXMPLR1266(2) ;
-   debug_sevenseg_5(1) <= debug_sevenseg_5_EXMPLR1266(1) ;
-   debug_sevenseg_5(0) <= debug_sevenseg_5_EXMPLR1266(0) ;
+   nrst_EXMPLR1055 <= nrst ;
+   clk_EXMPLR1056 <= clk ;
+   rxflex_EXMPLR1057 <= rxflex ;
+   txflex <= txflex_EXMPLR1082 ;
+   o_sevenseg(15) <= o_sevenseg_15_EXMPLR1083 ;
+   o_sevenseg(14) <= o_sevenseg_EXMPLR1131(14) ;
+   o_sevenseg(13) <= o_sevenseg_EXMPLR1131(13) ;
+   o_sevenseg(12) <= o_sevenseg_EXMPLR1131(12) ;
+   o_sevenseg(11) <= o_sevenseg_EXMPLR1131(11) ;
+   o_sevenseg(10) <= o_sevenseg_EXMPLR1131(10) ;
+   o_sevenseg(9) <= o_sevenseg_EXMPLR1131(9) ;
+   o_sevenseg(8) <= o_sevenseg_EXMPLR1131(8) ;
+   o_sevenseg(7) <= o_sevenseg_EXMPLR1131(7) ;
+   o_sevenseg(6) <= o_sevenseg_EXMPLR1131(6) ;
+   o_sevenseg(5) <= o_sevenseg_EXMPLR1131(5) ;
+   o_sevenseg(4) <= o_sevenseg_EXMPLR1131(4) ;
+   o_sevenseg(3) <= o_sevenseg_EXMPLR1131(3) ;
+   o_sevenseg(2) <= o_sevenseg_EXMPLR1131(2) ;
+   o_sevenseg(1) <= o_sevenseg_EXMPLR1131(1) ;
+   o_sevenseg(0) <= o_sevenseg_EXMPLR1131(0) ;
+   o_mode(1) <= o_mode_EXMPLR1132(1) ;
+   o_mode(0) <= o_mode_EXMPLR1132(0) ;
+   o_nrst <= o_nrst_EXMPLR1101 ;
+   debug_led_red(16) <= debug_led_red_EXMPLR1133(16) ;
+   debug_led_red(15) <= debug_led_red_EXMPLR1133(15) ;
+   debug_led_red(14) <= debug_led_red_EXMPLR1133(14) ;
+   debug_led_red(13) <= debug_led_red_EXMPLR1133(13) ;
+   debug_led_red(12) <= debug_led_red_EXMPLR1133(12) ;
+   debug_led_red(11) <= debug_led_red_EXMPLR1133(11) ;
+   debug_led_red(10) <= debug_led_red_EXMPLR1133(10) ;
+   debug_led_red(9) <= debug_led_red_EXMPLR1133(9) ;
+   debug_led_red(8) <= debug_led_red_EXMPLR1133(8) ;
+   debug_led_red(7) <= debug_led_red_EXMPLR1133(7) ;
+   debug_led_red(6) <= debug_led_red_EXMPLR1133(6) ;
+   debug_led_red(5) <= debug_led_red_EXMPLR1133(5) ;
+   debug_led_red(4) <= debug_led_red_EXMPLR1133(4) ;
+   debug_led_red(3) <= debug_led_red_EXMPLR1133(3) ;
+   debug_led_red(2) <= debug_led_red_EXMPLR1133(2) ;
+   debug_led_red(1) <= debug_led_red_EXMPLR1133(1) ;
+   debug_led_red(0) <= debug_led_red_EXMPLR1133(0) ;
+   debug_led_grn(5) <= debug_led_grn_EXMPLR1134(5) ;
+   debug_led_grn(4) <= debug_led_grn_EXMPLR1134(4) ;
+   debug_led_grn(3) <= debug_led_grn_EXMPLR1134(3) ;
+   debug_led_grn(2) <= debug_led_grn_EXMPLR1134(2) ;
+   debug_led_grn(1) <= debug_led_grn_EXMPLR1134(1) ;
+   debug_led_grn(0) <= debug_led_grn_EXMPLR1134(0) ;
+   debug_sevenseg_0(3) <= debug_sevenseg_0_EXMPLR1125(3) ;
+   debug_sevenseg_0(2) <= debug_sevenseg_0_EXMPLR1125(2) ;
+   debug_sevenseg_0(1) <= debug_sevenseg_0_EXMPLR1125(1) ;
+   debug_sevenseg_0(0) <= debug_sevenseg_0_EXMPLR1125(0) ;
+   debug_sevenseg_1(3) <= debug_sevenseg_1_EXMPLR1126(3) ;
+   debug_sevenseg_1(2) <= debug_sevenseg_1_EXMPLR1126(2) ;
+   debug_sevenseg_1(1) <= debug_sevenseg_1_EXMPLR1126(1) ;
+   debug_sevenseg_1(0) <= debug_sevenseg_1_EXMPLR1126(0) ;
+   debug_sevenseg_2(3) <= debug_sevenseg_2_EXMPLR1127(3) ;
+   debug_sevenseg_2(2) <= debug_sevenseg_2_EXMPLR1127(2) ;
+   debug_sevenseg_2(1) <= debug_sevenseg_2_EXMPLR1127(1) ;
+   debug_sevenseg_2(0) <= debug_sevenseg_2_EXMPLR1127(0) ;
+   debug_sevenseg_3(3) <= debug_sevenseg_3_EXMPLR1128(3) ;
+   debug_sevenseg_3(2) <= debug_sevenseg_3_EXMPLR1128(2) ;
+   debug_sevenseg_3(1) <= debug_sevenseg_3_EXMPLR1128(1) ;
+   debug_sevenseg_3(0) <= debug_sevenseg_3_EXMPLR1128(0) ;
+   debug_sevenseg_4(3) <= debug_sevenseg_4_EXMPLR1129(3) ;
+   debug_sevenseg_4(2) <= debug_sevenseg_4_EXMPLR1129(2) ;
+   debug_sevenseg_4(1) <= debug_sevenseg_4_EXMPLR1129(1) ;
+   debug_sevenseg_4(0) <= debug_sevenseg_4_EXMPLR1129(0) ;
+   debug_sevenseg_5(3) <= debug_sevenseg_5_EXMPLR1130(3) ;
+   debug_sevenseg_5(2) <= debug_sevenseg_5_EXMPLR1130(2) ;
+   debug_sevenseg_5(1) <= debug_sevenseg_5_EXMPLR1130(1) ;
+   debug_sevenseg_5(0) <= debug_sevenseg_5_EXMPLR1130(0) ;
    u_uw_uart : uw_uart port map ( clk=>clk_int, rst=>o_nrst_dup0, kirschout
       =>kirschout, kirschdir(2)=>dir(2), kirschdir(1)=>dir(1), kirschdir(0)
       =>dir(0), o_valid=>o_valid, i_mode(1)=>DANGLING(0), i_mode(0)=>
@@ -5310,86 +5264,51 @@ begin
       o_mode_dup0(0), o_row(7)=>rowcount(7), o_row(6)=>rowcount(6), o_row(5)
       =>rowcount(5), o_row(4)=>rowcount(4), o_row(3)=>rowcount(3), o_row(2)
       =>rowcount(2), o_row(1)=>rowcount(1), o_row(0)=>rowcount(0), 
-      o_image0_0(7)=>DANGLING(4), o_image0_0(6)=>DANGLING(5), o_image0_0(5)
-      =>DANGLING(6), o_image0_0(4)=>DANGLING(7), o_image0_0(3)=>DANGLING(8), 
-      o_image0_0(2)=>DANGLING(9), o_image0_0(1)=>DANGLING(10), o_image0_0(0)
-      =>DANGLING(11), o_image0_1(7)=>DANGLING(12), o_image0_1(6)=>DANGLING(
-      13), o_image0_1(5)=>DANGLING(14), o_image0_1(4)=>DANGLING(15), 
-      o_image0_1(3)=>DANGLING(16), o_image0_1(2)=>DANGLING(17), 
-      o_image0_1(1)=>DANGLING(18), o_image0_1(0)=>DANGLING(19), 
-      o_image0_2(7)=>DANGLING(20), o_image0_2(6)=>DANGLING(21), 
-      o_image0_2(5)=>DANGLING(22), o_image0_2(4)=>DANGLING(23), 
-      o_image0_2(3)=>DANGLING(24), o_image0_2(2)=>DANGLING(25), 
-      o_image0_2(1)=>DANGLING(26), o_image0_2(0)=>DANGLING(27), 
-      o_image1_0(7)=>DANGLING(28), o_image1_0(6)=>DANGLING(29), 
-      o_image1_0(5)=>DANGLING(30), o_image1_0(4)=>DANGLING(31), 
-      o_image1_0(3)=>DANGLING(32), o_image1_0(2)=>DANGLING(33), 
-      o_image1_0(1)=>DANGLING(34), o_image1_0(0)=>DANGLING(35), 
-      o_image1_1(7)=>DANGLING(36), o_image1_1(6)=>DANGLING(37), 
-      o_image1_1(5)=>DANGLING(38), o_image1_1(4)=>DANGLING(39), 
-      o_image1_1(3)=>DANGLING(40), o_image1_1(2)=>DANGLING(41), 
-      o_image1_1(1)=>DANGLING(42), o_image1_1(0)=>DANGLING(43), 
-      o_image1_2(7)=>DANGLING(44), o_image1_2(6)=>DANGLING(45), 
-      o_image1_2(5)=>DANGLING(46), o_image1_2(4)=>DANGLING(47), 
-      o_image1_2(3)=>DANGLING(48), o_image1_2(2)=>DANGLING(49), 
-      o_image1_2(1)=>DANGLING(50), o_image1_2(0)=>DANGLING(51), 
-      o_image2_0(7)=>DANGLING(52), o_image2_0(6)=>DANGLING(53), 
-      o_image2_0(5)=>DANGLING(54), o_image2_0(4)=>DANGLING(55), 
-      o_image2_0(3)=>DANGLING(56), o_image2_0(2)=>DANGLING(57), 
-      o_image2_0(1)=>DANGLING(58), o_image2_0(0)=>DANGLING(59), 
-      o_image2_1(7)=>DANGLING(60), o_image2_1(6)=>DANGLING(61), 
-      o_image2_1(5)=>DANGLING(62), o_image2_1(4)=>DANGLING(63), 
-      o_image2_1(3)=>DANGLING(64), o_image2_1(2)=>DANGLING(65), 
-      o_image2_1(1)=>DANGLING(66), o_image2_1(0)=>DANGLING(67), 
-      o_image2_2(7)=>DANGLING(68), o_image2_2(6)=>DANGLING(69), 
-      o_image2_2(5)=>DANGLING(70), o_image2_2(4)=>DANGLING(71), 
-      o_image2_2(3)=>DANGLING(72), o_image2_2(2)=>DANGLING(73), 
-      o_image2_2(1)=>DANGLING(74), o_image2_2(0)=>DANGLING(75), debug_key(3)
-      =>DANGLING(76), debug_key(2)=>DANGLING(77), debug_key(1)=>DANGLING(78), 
-      debug_switch(17)=>DANGLING(79), debug_switch(16)=>DANGLING(80), 
-      debug_switch(15)=>DANGLING(81), debug_switch(14)=>DANGLING(82), 
-      debug_switch(13)=>DANGLING(83), debug_switch(12)=>DANGLING(84), 
-      debug_switch(11)=>DANGLING(85), debug_switch(10)=>DANGLING(86), 
-      debug_switch(9)=>DANGLING(87), debug_switch(8)=>DANGLING(88), 
-      debug_switch(7)=>DANGLING(89), debug_switch(6)=>DANGLING(90), 
-      debug_switch(5)=>DANGLING(91), debug_switch(4)=>DANGLING(92), 
-      debug_switch(3)=>DANGLING(93), debug_switch(2)=>DANGLING(94), 
-      debug_switch(1)=>DANGLING(95), debug_switch(0)=>DANGLING(96), 
-      debug_column(7)=>DANGLING(97), debug_column(6)=>DANGLING(98), 
-      debug_column(5)=>DANGLING(99), debug_column(4)=>DANGLING(100), 
-      debug_column(3)=>DANGLING(101), debug_column(2)=>DANGLING(102), 
-      debug_column(1)=>DANGLING(103), debug_column(0)=>DANGLING(104), 
-      debug_led_red(17)=>DANGLING(105), debug_led_red(16)=>DANGLING(106), 
-      debug_led_red(15)=>DANGLING(107), debug_led_red(14)=>DANGLING(108), 
-      debug_led_red(13)=>DANGLING(109), debug_led_red(12)=>DANGLING(110), 
-      debug_led_red(11)=>DANGLING(111), debug_led_red(10)=>DANGLING(112), 
-      debug_led_red(9)=>DANGLING(113), debug_led_red(8)=>DANGLING(114), 
-      debug_led_red(7)=>DANGLING(115), debug_led_red(6)=>DANGLING(116), 
-      debug_led_red(5)=>DANGLING(117), debug_led_red(4)=>DANGLING(118), 
-      debug_led_red(3)=>DANGLING(119), debug_led_red(2)=>DANGLING(120), 
-      debug_led_red(1)=>DANGLING(121), debug_led_red(0)=>DANGLING(122), 
-      debug_led_grn(5)=>DANGLING(123), debug_led_grn(4)=>DANGLING(124), 
-      debug_led_grn(3)=>DANGLING(125), debug_led_grn(2)=>DANGLING(126), 
-      debug_led_grn(1)=>DANGLING(127), debug_led_grn(0)=>DANGLING(128), 
-      debug_num_0(3)=>DANGLING(129), debug_num_0(2)=>DANGLING(130), 
-      debug_num_0(1)=>DANGLING(131), debug_num_0(0)=>DANGLING(132), 
-      debug_num_1(3)=>DANGLING(133), debug_num_1(2)=>DANGLING(134), 
-      debug_num_1(1)=>DANGLING(135), debug_num_1(0)=>DANGLING(136), 
-      debug_num_2(3)=>DANGLING(137), debug_num_2(2)=>DANGLING(138), 
-      debug_num_2(1)=>DANGLING(139), debug_num_2(0)=>DANGLING(140), 
-      debug_num_3(3)=>DANGLING(141), debug_num_3(2)=>DANGLING(142), 
-      debug_num_3(1)=>DANGLING(143), debug_num_3(0)=>DANGLING(144), 
-      debug_num_4(3)=>DANGLING(145), debug_num_4(2)=>DANGLING(146), 
-      debug_num_4(1)=>DANGLING(147), debug_num_4(0)=>DANGLING(148), 
-      debug_num_5(3)=>DANGLING(149), debug_num_5(2)=>DANGLING(150), 
-      debug_num_5(1)=>DANGLING(151), debug_num_5(0)=>DANGLING(152), 
-      debug_num_6(3)=>DANGLING(153), debug_num_6(2)=>DANGLING(154), 
-      debug_num_6(1)=>DANGLING(155), debug_num_6(0)=>DANGLING(156), 
-      debug_num_7(3)=>DANGLING(157), debug_num_7(2)=>DANGLING(158), 
-      debug_num_7(1)=>DANGLING(159), debug_num_7(0)=>DANGLING(160), 
-      debug_num_8(3)=>DANGLING(161), debug_num_8(2)=>DANGLING(162), 
-      debug_num_8(1)=>DANGLING(163), debug_num_8(0)=>DANGLING(164), px304=>
-      DANGLING(165), p_m_o_mode_0=>DANGLING(166), p_nrst_int=>nrst_int);
+      debug_key(3)=>DANGLING(4), debug_key(2)=>DANGLING(5), debug_key(1)=>
+      DANGLING(6), debug_switch(17)=>DANGLING(7), debug_switch(16)=>DANGLING
+      (8), debug_switch(15)=>DANGLING(9), debug_switch(14)=>DANGLING(10), 
+      debug_switch(13)=>DANGLING(11), debug_switch(12)=>DANGLING(12), 
+      debug_switch(11)=>DANGLING(13), debug_switch(10)=>DANGLING(14), 
+      debug_switch(9)=>DANGLING(15), debug_switch(8)=>DANGLING(16), 
+      debug_switch(7)=>DANGLING(17), debug_switch(6)=>DANGLING(18), 
+      debug_switch(5)=>DANGLING(19), debug_switch(4)=>DANGLING(20), 
+      debug_switch(3)=>DANGLING(21), debug_switch(2)=>DANGLING(22), 
+      debug_switch(1)=>DANGLING(23), debug_switch(0)=>DANGLING(24), 
+      debug_column(7)=>DANGLING(25), debug_column(6)=>DANGLING(26), 
+      debug_column(5)=>DANGLING(27), debug_column(4)=>DANGLING(28), 
+      debug_column(3)=>DANGLING(29), debug_column(2)=>DANGLING(30), 
+      debug_column(1)=>DANGLING(31), debug_column(0)=>DANGLING(32), 
+      debug_led_red(17)=>DANGLING(33), debug_led_red(16)=>DANGLING(34), 
+      debug_led_red(15)=>DANGLING(35), debug_led_red(14)=>DANGLING(36), 
+      debug_led_red(13)=>DANGLING(37), debug_led_red(12)=>DANGLING(38), 
+      debug_led_red(11)=>DANGLING(39), debug_led_red(10)=>DANGLING(40), 
+      debug_led_red(9)=>DANGLING(41), debug_led_red(8)=>DANGLING(42), 
+      debug_led_red(7)=>DANGLING(43), debug_led_red(6)=>DANGLING(44), 
+      debug_led_red(5)=>DANGLING(45), debug_led_red(4)=>DANGLING(46), 
+      debug_led_red(3)=>DANGLING(47), debug_led_red(2)=>DANGLING(48), 
+      debug_led_red(1)=>DANGLING(49), debug_led_red(0)=>DANGLING(50), 
+      debug_led_grn(5)=>DANGLING(51), debug_led_grn(4)=>DANGLING(52), 
+      debug_led_grn(3)=>DANGLING(53), debug_led_grn(2)=>DANGLING(54), 
+      debug_led_grn(1)=>DANGLING(55), debug_led_grn(0)=>DANGLING(56), 
+      debug_num_0(3)=>DANGLING(57), debug_num_0(2)=>DANGLING(58), 
+      debug_num_0(1)=>DANGLING(59), debug_num_0(0)=>DANGLING(60), 
+      debug_num_1(3)=>DANGLING(61), debug_num_1(2)=>DANGLING(62), 
+      debug_num_1(1)=>DANGLING(63), debug_num_1(0)=>DANGLING(64), 
+      debug_num_2(3)=>DANGLING(65), debug_num_2(2)=>DANGLING(66), 
+      debug_num_2(1)=>DANGLING(67), debug_num_2(0)=>DANGLING(68), 
+      debug_num_3(3)=>DANGLING(69), debug_num_3(2)=>DANGLING(70), 
+      debug_num_3(1)=>DANGLING(71), debug_num_3(0)=>DANGLING(72), 
+      debug_num_4(3)=>DANGLING(73), debug_num_4(2)=>DANGLING(74), 
+      debug_num_4(1)=>DANGLING(75), debug_num_4(0)=>DANGLING(76), 
+      debug_num_5(3)=>DANGLING(77), debug_num_5(2)=>DANGLING(78), 
+      debug_num_5(1)=>DANGLING(79), debug_num_5(0)=>DANGLING(80), 
+      debug_num_6(3)=>DANGLING(81), debug_num_6(2)=>DANGLING(82), 
+      debug_num_6(1)=>DANGLING(83), debug_num_6(0)=>DANGLING(84), 
+      debug_num_7(3)=>DANGLING(85), debug_num_7(2)=>DANGLING(86), 
+      debug_num_7(1)=>DANGLING(87), debug_num_7(0)=>DANGLING(88), 
+      debug_num_8(3)=>DANGLING(89), debug_num_8(2)=>DANGLING(90), 
+      debug_num_8(1)=>DANGLING(91), debug_num_8(0)=>DANGLING(92), px304=>
+      DANGLING(93), p_m_o_mode_0=>DANGLING(94), p_nrst_int=>nrst_int);
    o_nrst_dup0 <= NOT nrst_int;
    debug_led_red_dup0(16) <= '0';
    o_sevenseg_dup0_7 <= '1';
@@ -5402,7 +5321,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( combout=>rxflex_int, padio=>rxflex_EXMPLR1193);
+       port map ( combout=>rxflex_int, padio=>rxflex_EXMPLR1057);
    reg_out_txflex_obuf : cycloneii_lcell_ff port map ( regout=>nx21351z2, 
       datain=>Tx_Reg_14n6ss1_0_dup_4, clk=>clk_int, ena=>NOT_rtlcn2_dup_5, 
       aclr=>o_nrst_dup0);
@@ -5443,7 +5362,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_sevenseg_EXMPLR1267(7), datain=>o_sevenseg_dup0_7
+       port map ( padio=>o_sevenseg_EXMPLR1131(7), datain=>o_sevenseg_dup0_7
    );
    o_sevenseg_obuf_15 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5454,7 +5373,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_sevenseg_15_EXMPLR1219, datain=>o_sevenseg_dup0_7
+       port map ( padio=>o_sevenseg_15_EXMPLR1083, datain=>o_sevenseg_dup0_7
    );
    o_nrst_obuf : cycloneii_io
       generic map (operation_mode => "output"
@@ -5465,7 +5384,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_nrst_EXMPLR1237, datain=>o_nrst_dup0);
+       port map ( padio=>o_nrst_EXMPLR1101, datain=>o_nrst_dup0);
    o_mode_obuf_1 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5475,7 +5394,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_mode_EXMPLR1268(1), datain=>o_mode_dup0(1));
+       port map ( padio=>o_mode_EXMPLR1132(1), datain=>o_mode_dup0(1));
    o_mode_obuf_0 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5485,7 +5404,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_mode_EXMPLR1268(0), datain=>o_mode_dup0(0));
+       port map ( padio=>o_mode_EXMPLR1132(0), datain=>o_mode_dup0(0));
    nrst_ibuf : cycloneii_io
       generic map (operation_mode => "input",
          output_register_mode => "none"
@@ -5494,7 +5413,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( combout=>nrst_int, padio=>nrst_EXMPLR1191);
+       port map ( combout=>nrst_int, padio=>nrst_EXMPLR1055);
    ix21351z43919 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5504,7 +5423,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>txflex_EXMPLR1218, datain=>nx21351z1);
+       port map ( padio=>txflex_EXMPLR1082, datain=>nx21351z1);
    ix992z43919 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5514,7 +5433,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_sevenseg_EXMPLR1267(14), datain=>nx992z1);
+       port map ( padio=>o_sevenseg_EXMPLR1131(14), datain=>nx992z1);
    ix65531z43919 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5524,7 +5443,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_sevenseg_EXMPLR1267(13), datain=>nx65531z1);
+       port map ( padio=>o_sevenseg_EXMPLR1131(13), datain=>nx65531z1);
    ix64534z43919 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5534,7 +5453,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_sevenseg_EXMPLR1267(12), datain=>nx64534z1);
+       port map ( padio=>o_sevenseg_EXMPLR1131(12), datain=>nx64534z1);
    ix63537z43919 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5544,7 +5463,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_sevenseg_EXMPLR1267(11), datain=>nx63537z1);
+       port map ( padio=>o_sevenseg_EXMPLR1131(11), datain=>nx63537z1);
    ix62540z43919 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5554,7 +5473,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_sevenseg_EXMPLR1267(10), datain=>nx62540z1);
+       port map ( padio=>o_sevenseg_EXMPLR1131(10), datain=>nx62540z1);
    ix50824z43919 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5564,7 +5483,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_sevenseg_EXMPLR1267(9), datain=>nx50824z1);
+       port map ( padio=>o_sevenseg_EXMPLR1131(9), datain=>nx50824z1);
    ix49827z43919 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5574,7 +5493,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_sevenseg_EXMPLR1267(8), datain=>nx49827z1);
+       port map ( padio=>o_sevenseg_EXMPLR1131(8), datain=>nx49827z1);
    ix47833z43919 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5584,7 +5503,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_sevenseg_EXMPLR1267(6), datain=>nx47833z1);
+       port map ( padio=>o_sevenseg_EXMPLR1131(6), datain=>nx47833z1);
    ix46836z43919 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5594,7 +5513,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_sevenseg_EXMPLR1267(5), datain=>nx46836z1);
+       port map ( padio=>o_sevenseg_EXMPLR1131(5), datain=>nx46836z1);
    ix45839z43919 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5604,7 +5523,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_sevenseg_EXMPLR1267(4), datain=>nx45839z1);
+       port map ( padio=>o_sevenseg_EXMPLR1131(4), datain=>nx45839z1);
    ix44842z43919 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5614,7 +5533,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_sevenseg_EXMPLR1267(3), datain=>nx44842z1);
+       port map ( padio=>o_sevenseg_EXMPLR1131(3), datain=>nx44842z1);
    ix43845z43919 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5624,7 +5543,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_sevenseg_EXMPLR1267(2), datain=>nx43845z1);
+       port map ( padio=>o_sevenseg_EXMPLR1131(2), datain=>nx43845z1);
    ix42848z43919 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5634,7 +5553,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_sevenseg_EXMPLR1267(1), datain=>nx42848z1);
+       port map ( padio=>o_sevenseg_EXMPLR1131(1), datain=>nx42848z1);
    ix41851z43919 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5644,7 +5563,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>o_sevenseg_EXMPLR1267(0), datain=>nx41851z1);
+       port map ( padio=>o_sevenseg_EXMPLR1131(0), datain=>nx41851z1);
    debug_sevenseg_5_triBus8_3 : cycloneii_io
       generic map (operation_mode => "output"
          ,
@@ -5654,7 +5573,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_5_EXMPLR1266(3), datain=>
+       port map ( padio=>debug_sevenseg_5_EXMPLR1130(3), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_5_triBus8_2 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5665,7 +5584,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_5_EXMPLR1266(2), datain=>
+       port map ( padio=>debug_sevenseg_5_EXMPLR1130(2), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_5_triBus8_1 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5676,7 +5595,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_5_EXMPLR1266(1), datain=>
+       port map ( padio=>debug_sevenseg_5_EXMPLR1130(1), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_5_triBus8_0 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5687,7 +5606,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_5_EXMPLR1266(0), datain=>
+       port map ( padio=>debug_sevenseg_5_EXMPLR1130(0), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_4_triBus7_3 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5698,7 +5617,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_4_EXMPLR1265(3), datain=>
+       port map ( padio=>debug_sevenseg_4_EXMPLR1129(3), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_4_triBus7_2 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5709,7 +5628,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_4_EXMPLR1265(2), datain=>
+       port map ( padio=>debug_sevenseg_4_EXMPLR1129(2), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_4_triBus7_1 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5720,7 +5639,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_4_EXMPLR1265(1), datain=>
+       port map ( padio=>debug_sevenseg_4_EXMPLR1129(1), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_4_triBus7_0 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5731,7 +5650,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_4_EXMPLR1265(0), datain=>
+       port map ( padio=>debug_sevenseg_4_EXMPLR1129(0), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_3_triBus6_3 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5742,7 +5661,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_3_EXMPLR1264(3), datain=>
+       port map ( padio=>debug_sevenseg_3_EXMPLR1128(3), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_3_triBus6_2 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5753,7 +5672,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_3_EXMPLR1264(2), datain=>
+       port map ( padio=>debug_sevenseg_3_EXMPLR1128(2), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_3_triBus6_1 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5764,7 +5683,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_3_EXMPLR1264(1), datain=>
+       port map ( padio=>debug_sevenseg_3_EXMPLR1128(1), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_3_triBus6_0 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5775,7 +5694,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_3_EXMPLR1264(0), datain=>
+       port map ( padio=>debug_sevenseg_3_EXMPLR1128(0), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_2_triBus5_3 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5786,7 +5705,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_2_EXMPLR1263(3), datain=>
+       port map ( padio=>debug_sevenseg_2_EXMPLR1127(3), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_2_triBus5_2 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5797,7 +5716,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_2_EXMPLR1263(2), datain=>
+       port map ( padio=>debug_sevenseg_2_EXMPLR1127(2), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_2_triBus5_1 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5808,7 +5727,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_2_EXMPLR1263(1), datain=>
+       port map ( padio=>debug_sevenseg_2_EXMPLR1127(1), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_2_triBus5_0 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5819,7 +5738,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_2_EXMPLR1263(0), datain=>
+       port map ( padio=>debug_sevenseg_2_EXMPLR1127(0), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_1_triBus4_3 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5830,7 +5749,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_1_EXMPLR1262(3), datain=>
+       port map ( padio=>debug_sevenseg_1_EXMPLR1126(3), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_1_triBus4_2 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5841,7 +5760,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_1_EXMPLR1262(2), datain=>
+       port map ( padio=>debug_sevenseg_1_EXMPLR1126(2), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_1_triBus4_1 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5852,7 +5771,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_1_EXMPLR1262(1), datain=>
+       port map ( padio=>debug_sevenseg_1_EXMPLR1126(1), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_1_triBus4_0 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5863,7 +5782,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_1_EXMPLR1262(0), datain=>
+       port map ( padio=>debug_sevenseg_1_EXMPLR1126(0), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_0_triBus3_3 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5874,7 +5793,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_0_EXMPLR1261(3), datain=>
+       port map ( padio=>debug_sevenseg_0_EXMPLR1125(3), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_0_triBus3_2 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5885,7 +5804,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_0_EXMPLR1261(2), datain=>
+       port map ( padio=>debug_sevenseg_0_EXMPLR1125(2), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_0_triBus3_1 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5896,7 +5815,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_0_EXMPLR1261(1), datain=>
+       port map ( padio=>debug_sevenseg_0_EXMPLR1125(1), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_sevenseg_0_triBus3_0 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5907,7 +5826,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_sevenseg_0_EXMPLR1261(0), datain=>
+       port map ( padio=>debug_sevenseg_0_EXMPLR1125(0), datain=>
       debug_led_red_dup0(16), oe=>debug_led_red_dup0(16));
    debug_led_red_obuf_9 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5918,7 +5837,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_red_EXMPLR1269(9), datain=>
+       port map ( padio=>debug_led_red_EXMPLR1133(9), datain=>
       debug_led_red_dup0(16));
    debug_led_red_obuf_8 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5929,7 +5848,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_red_EXMPLR1269(8), datain=>
+       port map ( padio=>debug_led_red_EXMPLR1133(8), datain=>
       debug_led_red_dup0(16));
    debug_led_red_obuf_7 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5940,7 +5859,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_red_EXMPLR1269(7), datain=>
+       port map ( padio=>debug_led_red_EXMPLR1133(7), datain=>
       debug_led_red_dup0(16));
    debug_led_red_obuf_6 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5951,7 +5870,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_red_EXMPLR1269(6), datain=>
+       port map ( padio=>debug_led_red_EXMPLR1133(6), datain=>
       debug_led_red_dup0(16));
    debug_led_red_obuf_5 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5962,7 +5881,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_red_EXMPLR1269(5), datain=>
+       port map ( padio=>debug_led_red_EXMPLR1133(5), datain=>
       debug_led_red_dup0(16));
    debug_led_red_obuf_4 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5973,7 +5892,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_red_EXMPLR1269(4), datain=>
+       port map ( padio=>debug_led_red_EXMPLR1133(4), datain=>
       debug_led_red_dup0(16));
    debug_led_red_obuf_3 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5984,7 +5903,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_red_EXMPLR1269(3), datain=>
+       port map ( padio=>debug_led_red_EXMPLR1133(3), datain=>
       debug_led_red_dup0(16));
    debug_led_red_obuf_2 : cycloneii_io
       generic map (operation_mode => "output"
@@ -5995,7 +5914,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_red_EXMPLR1269(2), datain=>
+       port map ( padio=>debug_led_red_EXMPLR1133(2), datain=>
       debug_led_red_dup0(16));
    debug_led_red_obuf_16 : cycloneii_io
       generic map (operation_mode => "output"
@@ -6006,7 +5925,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_red_EXMPLR1269(16), datain=>
+       port map ( padio=>debug_led_red_EXMPLR1133(16), datain=>
       debug_led_red_dup0(16));
    debug_led_red_obuf_15 : cycloneii_io
       generic map (operation_mode => "output"
@@ -6017,7 +5936,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_red_EXMPLR1269(15), datain=>
+       port map ( padio=>debug_led_red_EXMPLR1133(15), datain=>
       debug_led_red_dup0(16));
    debug_led_red_obuf_14 : cycloneii_io
       generic map (operation_mode => "output"
@@ -6028,7 +5947,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_red_EXMPLR1269(14), datain=>
+       port map ( padio=>debug_led_red_EXMPLR1133(14), datain=>
       debug_led_red_dup0(16));
    debug_led_red_obuf_13 : cycloneii_io
       generic map (operation_mode => "output"
@@ -6039,7 +5958,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_red_EXMPLR1269(13), datain=>
+       port map ( padio=>debug_led_red_EXMPLR1133(13), datain=>
       debug_led_red_dup0(16));
    debug_led_red_obuf_12 : cycloneii_io
       generic map (operation_mode => "output"
@@ -6050,7 +5969,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_red_EXMPLR1269(12), datain=>
+       port map ( padio=>debug_led_red_EXMPLR1133(12), datain=>
       debug_led_red_dup0(16));
    debug_led_red_obuf_11 : cycloneii_io
       generic map (operation_mode => "output"
@@ -6061,7 +5980,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_red_EXMPLR1269(11), datain=>
+       port map ( padio=>debug_led_red_EXMPLR1133(11), datain=>
       debug_led_red_dup0(16));
    debug_led_red_obuf_10 : cycloneii_io
       generic map (operation_mode => "output"
@@ -6072,7 +5991,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_red_EXMPLR1269(10), datain=>
+       port map ( padio=>debug_led_red_EXMPLR1133(10), datain=>
       debug_led_red_dup0(16));
    debug_led_red_obuf_1 : cycloneii_io
       generic map (operation_mode => "output"
@@ -6083,7 +6002,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_red_EXMPLR1269(1), datain=>
+       port map ( padio=>debug_led_red_EXMPLR1133(1), datain=>
       debug_led_red_dup0(16));
    debug_led_red_obuf_0 : cycloneii_io
       generic map (operation_mode => "output"
@@ -6094,7 +6013,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_red_EXMPLR1269(0), datain=>
+       port map ( padio=>debug_led_red_EXMPLR1133(0), datain=>
       debug_led_red_dup0(16));
    debug_led_grn_obuf_5 : cycloneii_io
       generic map (operation_mode => "output"
@@ -6105,7 +6024,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_grn_EXMPLR1270(5), datain=>
+       port map ( padio=>debug_led_grn_EXMPLR1134(5), datain=>
       debug_led_red_dup0(16));
    debug_led_grn_obuf_4 : cycloneii_io
       generic map (operation_mode => "output"
@@ -6116,7 +6035,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_grn_EXMPLR1270(4), datain=>
+       port map ( padio=>debug_led_grn_EXMPLR1134(4), datain=>
       debug_led_red_dup0(16));
    debug_led_grn_obuf_3 : cycloneii_io
       generic map (operation_mode => "output"
@@ -6127,7 +6046,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_grn_EXMPLR1270(3), datain=>
+       port map ( padio=>debug_led_grn_EXMPLR1134(3), datain=>
       debug_led_red_dup0(16));
    debug_led_grn_obuf_2 : cycloneii_io
       generic map (operation_mode => "output"
@@ -6138,7 +6057,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_grn_EXMPLR1270(2), datain=>
+       port map ( padio=>debug_led_grn_EXMPLR1134(2), datain=>
       debug_led_red_dup0(16));
    debug_led_grn_obuf_1 : cycloneii_io
       generic map (operation_mode => "output"
@@ -6149,7 +6068,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_grn_EXMPLR1270(1), datain=>
+       port map ( padio=>debug_led_grn_EXMPLR1134(1), datain=>
       debug_led_red_dup0(16));
    debug_led_grn_obuf_0 : cycloneii_io
       generic map (operation_mode => "output"
@@ -6160,7 +6079,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( padio=>debug_led_grn_EXMPLR1270(0), datain=>
+       port map ( padio=>debug_led_grn_EXMPLR1134(0), datain=>
       debug_led_red_dup0(16));
    clk_ibuf : cycloneii_io
       generic map (operation_mode => "input",
@@ -6170,7 +6089,7 @@ begin
          oe_register_mode => "none",
          tie_off_oe_clock_enable => "false",
          input_register_mode => "none") 
-       port map ( combout=>clk_int, padio=>clk_EXMPLR1192);
+       port map ( combout=>clk_int, padio=>clk_EXMPLR1056);
    ix28674z52923 : cycloneii_lcell_comb
       generic map (lut_mask => X"a4c8") 
        port map ( combout=>nx28674z1, dataa=>rowcount(7), datab=>rowcount(6), 

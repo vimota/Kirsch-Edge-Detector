@@ -1,5 +1,5 @@
 Assembler report for top_kirsch
-Tue Jul 22 01:38:37 2014
+Tue Jul 22 01:54:11 2014
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue Jul 22 01:38:37 2014 ;
+; Assembler Status      ; Successful - Tue Jul 22 01:54:11 2014 ;
 ; Revision Name         ; top_kirsch                            ;
 ; Top-level Entity Name ; top_kirsch                            ;
 ; Family                ; Cyclone II                            ;
@@ -128,13 +128,13 @@ Info: Running Quartus II Assembler
     Info: programming logic devices manufactured by Altera and sold by 
     Info: Altera or its authorized distributors.  Please refer to the 
     Info: applicable agreement for further details.
-    Info: Processing started: Tue Jul 22 01:38:31 2014
+    Info: Processing started: Tue Jul 22 01:54:05 2014
 Info: Command: quartus_asm top_kirsch
 Info: Writing out detailed assembly data for power analysis
 Info: Assembler is generating device programming files
 Info: Quartus II Assembler was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 234 megabytes
-    Info: Processing ended: Tue Jul 22 01:38:37 2014
+    Info: Processing ended: Tue Jul 22 01:54:11 2014
     Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:06
 

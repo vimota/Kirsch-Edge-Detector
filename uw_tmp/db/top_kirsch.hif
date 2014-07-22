@@ -26,7 +26,7 @@ db|top_kirsch.(0).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 |
@@ -42,7 +42,7 @@ db|top_kirsch.(1).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch
@@ -58,7 +58,7 @@ db|top_kirsch.(2).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|flow:u_flow
@@ -74,7 +74,7 @@ db|top_kirsch.(3).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|flow:u_flow|gt_13_0:ix45188z19900
@@ -90,7 +90,7 @@ db|top_kirsch.(4).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|flow:u_flow|gt_14_0:ix47310z8933
@@ -106,7 +106,7 @@ db|top_kirsch.(5).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|flow:u_flow|add_8_0:p11_add8_0i1
@@ -122,7 +122,7 @@ db|top_kirsch.(6).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|flow:u_flow|add_9_0:p11_add9_1
@@ -138,7 +138,7 @@ db|top_kirsch.(7).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|flow:u_flow|add_8_1:p12_add8_0i2
@@ -154,7 +154,7 @@ db|top_kirsch.(8).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|flow:u_flow|add_9_1:p12_add9_2
@@ -170,7 +170,7 @@ db|top_kirsch.(9).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|flow:u_flow|add_8_2:p13_add8_0i3
@@ -186,7 +186,7 @@ db|top_kirsch.(10).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|flow:u_flow|add_9_2:p13_add9_3
@@ -202,7 +202,7 @@ db|top_kirsch.(11).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|flow:u_flow|add_12_0:p21_add12_4i1
@@ -218,7 +218,7 @@ db|top_kirsch.(12).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|flow:u_flow|sub_10_0:p21_sub10_4i3
@@ -234,7 +234,7 @@ db|top_kirsch.(13).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|flow:u_flow|sub_10_2:p21_sub11_4i4
@@ -250,7 +250,7 @@ db|top_kirsch.(14).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|flow:u_flow|add_12_1:p22_add12_4i2
@@ -266,7 +266,7 @@ db|top_kirsch.(15).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|flow:u_flow|sub_10_1:p22_sub10_4i5
@@ -282,7 +282,7 @@ db|top_kirsch.(16).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|flow:u_flow|sub_10_3:p22_sub11_4i6
@@ -298,7 +298,7 @@ db|top_kirsch.(17).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|flow:u_flow|sub_12_0:p4s_sub12_0
@@ -314,7 +314,7 @@ db|top_kirsch.(18).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|memory:u_memory
@@ -330,7 +330,7 @@ db|top_kirsch.(19).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|memory:u_memory|modgen_counter_8_1:modgen_counter_column
@@ -346,7 +346,7 @@ db|top_kirsch.(20).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|memory:u_memory|modgen_counter_8_0:modgen_counter_row
@@ -362,7 +362,7 @@ db|top_kirsch.(21).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|memory:u_memory|ram_dq_8_0:u_mem1_mem
@@ -666,6 +666,8 @@ clocken0
 2
 }
 # include_file {
+|opt|altera9.0|quartus|libraries|megafunctions|lpm_mux.inc
+c22bfd353214c01495b560fc34e47d79
 |opt|altera9.0|quartus|libraries|megafunctions|aglobal90.inc
 99832fdf63412df51d7531202d74e75
 |opt|altera9.0|quartus|libraries|megafunctions|a_rdenreg.inc
@@ -682,8 +684,6 @@ d4e3a69a331d3a99d3281790d99a1ebd
 bd0e2f5e01c1bd360461dceb53d48
 |opt|altera9.0|quartus|libraries|megafunctions|altram.inc
 e66a83eccf6717bed97c99d891ad085
-|opt|altera9.0|quartus|libraries|megafunctions|lpm_mux.inc
-c22bfd353214c01495b560fc34e47d79
 }
 # hierarchies {
 kirsch:u_kirsch|memory:u_memory|ram_dq_8_0:u_mem1_mem|altsyncram:ix64056z29481
@@ -799,7 +799,7 @@ db|top_kirsch.(24).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|memory:u_memory|ram_dq_8_1:u_mem2_mem
@@ -815,7 +815,7 @@ db|top_kirsch.(25).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 kirsch:u_kirsch|memory:u_memory|ram_dq_8_2:u_mem3_mem
@@ -831,7 +831,7 @@ db|top_kirsch.(26).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 uw_uart:u_uw_uart
@@ -847,7 +847,7 @@ db|top_kirsch.(27).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 uw_uart:u_uw_uart|UARTS:i_uarts
@@ -863,7 +863,7 @@ db|top_kirsch.(28).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 uw_uart:u_uw_uart|UARTS:i_uarts|modgen_counter_11_0:modgen_counter_RxDiv
@@ -879,7 +879,7 @@ db|top_kirsch.(29).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 uw_uart:u_uw_uart|UARTS:i_uarts|modgen_counter_12_0:modgen_counter_TxDiv
@@ -895,7 +895,7 @@ db|top_kirsch.(30).cnf
 # case_insensitive
 # source_file
 top_kirsch_logic.edf
-338a60c41dcc55da325fdfbb3b8d3f2
+d6f85d56e185b20762353642ba7c7ad
 10
 # hierarchies {
 uw_uart:u_uw_uart|modgen_counter_16_0:modgen_counter_waitcount

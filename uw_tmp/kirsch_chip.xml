@@ -10,30 +10,20 @@
       <port name='o_dir' direction='output' type='[2:0]' kind='array' packedDimension='[2:0]'> </port>
       <port name='o_mode' direction='output' type='[1:0]' kind='array' packedDimension='[1:0]'> </port>
       <port name='o_row' direction='output' type='[7:0]' kind='array' packedDimension='[7:0]'> </port>
-      <port name='o_image0_0_' direction='output' type='[7:0]' kind='array' packedDimension='[7:0]'> </port>
-      <port name='o_image0_1_' direction='output' type='[7:0]' kind='array' packedDimension='[7:0]'> </port>
-      <port name='o_image0_2_' direction='output' type='[7:0]' kind='array' packedDimension='[7:0]'> </port>
-      <port name='o_image1_0_' direction='output' type='[7:0]' kind='array' packedDimension='[7:0]'> </port>
-      <port name='o_image1_1_' direction='output' type='[7:0]' kind='array' packedDimension='[7:0]'> </port>
-      <port name='o_image1_2_' direction='output' type='[7:0]' kind='array' packedDimension='[7:0]'> </port>
-      <port name='o_image2_0_' direction='output' type='[7:0]' kind='array' packedDimension='[7:0]'> </port>
-      <port name='o_image2_1_' direction='output' type='[7:0]' kind='array' packedDimension='[7:0]'> </port>
-      <port name='o_image2_2_' direction='output' type='[7:0]' kind='array' packedDimension='[7:0]'> </port>
       <port name='debug_key' direction='input' type='[3:1]' kind='array' packedDimension='[3:1]'> </port>
       <port name='debug_switch' direction='input' type='[17:0]' kind='array' packedDimension='[17:0]'> </port>
       <port name='debug_column' direction='output' type='[7:0]' kind='array' packedDimension='[7:0]'> </port>
       <port name='debug_led_red' direction='output' type='[17:0]' kind='array' packedDimension='[17:0]'> </port>
       <port name='debug_led_grn' direction='output' type='[5:0]' kind='array' packedDimension='[5:0]'> </port>
-      <port name='debug_valid' direction='output' type='' kind=''> </port>
-      <port name='debug_num_0' direction='output' type='[2:0]' kind='array' packedDimension='[2:0]'> </port>
-      <port name='debug_num_1' direction='output' type='[2:0]' kind='array' packedDimension='[2:0]'> </port>
-      <port name='debug_num_2' direction='output' type='[7:0]' kind='array' packedDimension='[7:0]'> </port>
-      <port name='debug_num_3' direction='output' type='[12:0]' kind='array' packedDimension='[12:0]'> </port>
-      <port name='debug_num_4' direction='output' type='[12:0]' kind='array' packedDimension='[12:0]'> </port>
-      <port name='debug_num_5' direction='output' type='[13:0]' kind='array' packedDimension='[13:0]'> </port>
-      <port name='debug_num_6' direction='output' type='' kind=''> </port>
-      <port name='debug_num_7' direction='output' type='' kind=''> </port>
-      <port name='debug_num_8' direction='output' type='' kind=''> </port>
+      <port name='debug_num_0' direction='output' type='[3:0]' kind='array' packedDimension='[3:0]'> </port>
+      <port name='debug_num_1' direction='output' type='[3:0]' kind='array' packedDimension='[3:0]'> </port>
+      <port name='debug_num_2' direction='output' type='[3:0]' kind='array' packedDimension='[3:0]'> </port>
+      <port name='debug_num_3' direction='output' type='[3:0]' kind='array' packedDimension='[3:0]'> </port>
+      <port name='debug_num_4' direction='output' type='[3:0]' kind='array' packedDimension='[3:0]'> </port>
+      <port name='debug_num_5' direction='output' type='[3:0]' kind='array' packedDimension='[3:0]'> </port>
+      <port name='debug_num_6' direction='output' type='[3:0]' kind='array' packedDimension='[3:0]'> </port>
+      <port name='debug_num_7' direction='output' type='[3:0]' kind='array' packedDimension='[3:0]'> </port>
+      <port name='debug_num_8' direction='output' type='[3:0]' kind='array' packedDimension='[3:0]'> </port>
 
     </portList>
 </interfaceDefinition>
