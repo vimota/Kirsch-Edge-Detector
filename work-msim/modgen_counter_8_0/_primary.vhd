@@ -13,6 +13,7 @@ entity modgen_counter_8_0 is
         updn            : in     vl_logic;
         cnt_en          : in     vl_logic;
         p_i_reset       : in     vl_logic;
-        p_rtlc5n55      : in     vl_logic
+        p_rtlc5n55      : in     vl_logic;
+        p_nrst_int_dup_22: in     vl_logic
     );
 end modgen_counter_8_0;

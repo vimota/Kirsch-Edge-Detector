@@ -25,15 +25,17 @@ entity kirsch is
         debug_column    : out    vl_logic_vector(7 downto 0);
         debug_led_red   : out    vl_logic_vector(17 downto 0);
         debug_led_grn   : out    vl_logic_vector(5 downto 0);
-        debug_valid     : out    vl_logic;
-        debug_num_0     : out    vl_logic_vector(12 downto 0);
-        debug_num_1     : out    vl_logic_vector(12 downto 0);
-        debug_num_2     : out    vl_logic_vector(12 downto 0);
-        debug_num_3     : out    vl_logic_vector(12 downto 0);
-        debug_num_4     : out    vl_logic_vector(12 downto 0);
-        debug_num_5     : out    vl_logic_vector(13 downto 0);
-        debug_num_6     : out    vl_logic;
-        debug_num_7     : out    vl_logic;
-        debug_num_8     : out    vl_logic
+        debug_num_0     : out    vl_logic_vector(3 downto 0);
+        debug_num_1     : out    vl_logic_vector(3 downto 0);
+        debug_num_2     : out    vl_logic_vector(3 downto 0);
+        debug_num_3     : out    vl_logic_vector(3 downto 0);
+        debug_num_4     : out    vl_logic_vector(3 downto 0);
+        debug_num_5     : out    vl_logic_vector(3 downto 0);
+        debug_num_6     : out    vl_logic_vector(3 downto 0);
+        debug_num_7     : out    vl_logic_vector(3 downto 0);
+        debug_num_8     : out    vl_logic_vector(3 downto 0);
+        px304           : out    vl_logic;
+        \p_m_o_mode_0_\ : out    vl_logic;
+        p_nrst_int      : in     vl_logic
     );
 end kirsch;

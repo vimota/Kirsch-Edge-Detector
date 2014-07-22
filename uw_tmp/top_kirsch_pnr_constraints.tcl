@@ -12,5 +12,4 @@
 # Clocks
 ##################
 create_base_clock -fmax 4.000ns -duty_cycle 50 {clk}
-create_base_clock -fmax 8.000ns -duty_cycle 50 {u_uw_uart|o_pixavail}
 

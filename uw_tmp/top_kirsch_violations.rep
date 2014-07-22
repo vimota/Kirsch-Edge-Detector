@@ -3,7 +3,7 @@
  Clock                  Constrained  
  Name                   Period       Slack 
  ---------------------- ------------ -------------
-                 clk        4        -0.42
+                 clk        4         -2.5
 
 
         Input Constraint Violations 

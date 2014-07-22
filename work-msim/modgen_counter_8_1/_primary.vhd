@@ -11,10 +11,6 @@ entity modgen_counter_8_1 is
         aset            : in     vl_logic;
         sclear          : in     vl_logic;
         updn            : in     vl_logic;
-        cnt_en          : in     vl_logic;
-        px1             : out    vl_logic;
-        px23            : out    vl_logic;
-        p_i_valid       : in     vl_logic;
-        p_rtlc2n120     : in     vl_logic
+        cnt_en          : in     vl_logic
     );
 end modgen_counter_8_1;

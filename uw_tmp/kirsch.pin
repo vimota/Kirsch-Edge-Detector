@@ -75,54 +75,54 @@ Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage 
 GND                          : A2        : gnd    :                   :         :           :                
 VCCIO3                       : A3        : power  :                   : 3.3V    : 3         :                
 GND*                         : A4        :        :                   :         : 3         :                
-GND*                         : A5        :        :                   :         : 3         :                
+debug_num_3[11]              : A5        : output : 3.3-V LVTTL       :         : 3         : N              
 GND*                         : A6        :        :                   :         : 3         :                
 GND*                         : A7        :        :                   :         : 3         :                
-debug_led_grn[3]             : A8        : output : 3.3-V LVTTL       :         : 3         : N              
-debug_num_3[11]              : A9        : output : 3.3-V LVTTL       :         : 3         : N              
-o_image2_0_[7]               : A10       : output : 3.3-V LVTTL       :         : 3         : N              
+debug_led_red[17]            : A8        : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : A9        :        :                   :         : 3         :                
+debug_led_grn[2]             : A10       : output : 3.3-V LVTTL       :         : 3         : N              
 VCCIO3                       : A11       : power  :                   : 3.3V    : 3         :                
 GND                          : A12       : gnd    :                   :         :           :                
 GND+                         : A13       :        :                   :         : 4         :                
-o_image0_1_[7]               : A14       : output : 3.3-V LVTTL       :         : 4         : N              
+debug_num_5[1]               : A14       : output : 3.3-V LVTTL       :         : 4         : N              
 GND                          : A15       : gnd    :                   :         :           :                
 VCCIO4                       : A16       : power  :                   : 3.3V    : 4         :                
-debug_num_1[2]               : A17       : output : 3.3-V LVTTL       :         : 4         : N              
-i_reset                      : A18       : input  : 3.3-V LVTTL       :         : 4         : N              
-GND*                         : A19       :        :                   :         : 4         :                
-GND*                         : A20       :        :                   :         : 4         :                
-GND*                         : A21       :        :                   :         : 4         :                
-GND*                         : A22       :        :                   :         : 4         :                
-GND*                         : A23       :        :                   :         : 4         :                
+o_valid                      : A17       : output : 3.3-V LVTTL       :         : 4         : N              
+o_row[2]                     : A18       : output : 3.3-V LVTTL       :         : 4         : N              
+o_image2_1_[6]               : A19       : output : 3.3-V LVTTL       :         : 4         : N              
+o_image1_0_[6]               : A20       : output : 3.3-V LVTTL       :         : 4         : N              
+o_image1_2_[5]               : A21       : output : 3.3-V LVTTL       :         : 4         : N              
+o_image0_0_[6]               : A22       : output : 3.3-V LVTTL       :         : 4         : N              
+debug_num_5[7]               : A23       : output : 3.3-V LVTTL       :         : 4         : N              
 VCCIO4                       : A24       : power  :                   : 3.3V    : 4         :                
 GND                          : A25       : gnd    :                   :         :           :                
-debug_key[1]                 : AA1       : input  : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : AA1       :        :                   :         : 1         :                
 GND*                         : AA2       :        :                   :         : 1         :                
 GND*                         : AA3       :        :                   :         : 1         :                
-GND*                         : AA4       :        :                   :         : 1         :                
-GND*                         : AA5       :        :                   :         : 1         :                
+debug_num_4[8]               : AA4       : output : 3.3-V LVTTL       :         : 1         : N              
+debug_num_4[1]               : AA5       : output : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : AA6       :        :                   :         : 1         :                
 GND*                         : AA7       :        :                   :         : 1         :                
 VCCA_PLL1                    : AA8       : power  :                   : 1.2V    :           :                
 GND*                         : AA9       :        :                   :         : 8         :                
-GND*                         : AA10      :        :                   :         : 8         :                
-debug_key[2]                 : AA11      : input  : 3.3-V LVTTL       :         : 8         : N              
-debug_num_3[8]               : AA12      : output : 3.3-V LVTTL       :         : 8         : N              
-debug_num_5[13]              : AA13      : output : 3.3-V LVTTL       :         : 7         : N              
-debug_num_6                  : AA14      : output : 3.3-V LVTTL       :         : 7         : N              
-o_image0_0_[6]               : AA15      : output : 3.3-V LVTTL       :         : 7         : N              
-debug_column[7]              : AA16      : output : 3.3-V LVTTL       :         : 7         : N              
-GND*                         : AA17      :        :                   :         : 7         :                
-debug_led_red[5]             : AA18      : output : 3.3-V LVTTL       :         : 7         : N              
+debug_switch[12]             : AA10      : input  : 3.3-V LVTTL       :         : 8         : N              
+debug_switch[10]             : AA11      : input  : 3.3-V LVTTL       :         : 8         : N              
+debug_led_red[15]            : AA12      : output : 3.3-V LVTTL       :         : 8         : N              
+GND*                         : AA13      :        :                   :         : 7         :                
+debug_switch[5]              : AA14      : input  : 3.3-V LVTTL       :         : 7         : N              
+GND*                         : AA15      :        :                   :         : 7         :                
+debug_column[6]              : AA16      : output : 3.3-V LVTTL       :         : 7         : N              
+debug_num_2[5]               : AA17      : output : 3.3-V LVTTL       :         : 7         : N              
+debug_column[2]              : AA18      : output : 3.3-V LVTTL       :         : 7         : N              
 VCCA_PLL4                    : AA19      : power  :                   : 1.2V    :           :                
 GND*                         : AA20      :        :                   :         : 7         :                
 GND_PLL4                     : AA21      : gnd    :                   :         :           :                
 VCCIO6                       : AA22      : power  :                   : 3.3V    : 6         :                
 GND*                         : AA23      :        :                   :         : 6         :                
-GND*                         : AA24      :        :                   :         : 6         :                
+debug_switch[1]              : AA24      : input  : 3.3-V LVTTL       :         : 6         : N              
 GND*                         : AA25      :        :                   :         : 6         :                
 GND*                         : AA26      :        :                   :         : 6         :                
-debug_led_red[1]             : AB1       : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : AB1       :        :                   :         : 1         :                
 GND*                         : AB2       :        :                   :         : 1         :                
 GND*                         : AB3       :        :                   :         : 1         :                
 GND*                         : AB4       :        :                   :         : 1         :                
@@ -133,94 +133,94 @@ GND*                         : AB8       :        :                   :         
 VCCIO8                       : AB9       : power  :                   : 3.3V    : 8         :                
 GND*                         : AB10      :        :                   :         : 8         :                
 GND                          : AB11      : gnd    :                   :         :           :                
-o_image1_1_[5]               : AB12      : output : 3.3-V LVTTL       :         : 8         : N              
+debug_num_3[8]               : AB12      : output : 3.3-V LVTTL       :         : 8         : N              
 VCCIO8                       : AB13      : power  :                   : 3.3V    : 8         :                
 VCCIO7                       : AB14      : power  :                   : 3.3V    : 7         :                
-debug_num_0[1]               : AB15      : output : 3.3-V LVTTL       :         : 7         : N              
+GND*                         : AB15      :        :                   :         : 7         :                
 GND                          : AB16      : gnd    :                   :         :           :                
 VCCIO7                       : AB17      : power  :                   : 3.3V    : 7         :                
-GND*                         : AB18      :        :                   :         : 7         :                
+debug_column[3]              : AB18      : output : 3.3-V LVTTL       :         : 7         : N              
 GND                          : AB19      : gnd    :                   :         :           :                
-GND*                         : AB20      :        :                   :         : 7         :                
+o_image1_1_[0]               : AB20      : output : 3.3-V LVTTL       :         : 7         : N              
 GND*                         : AB21      :        :                   :         : 7         :                
 VCCIO7                       : AB22      : power  :                   : 3.3V    : 7         :                
 GND*                         : AB23      :        :                   :         : 6         :                
-GND*                         : AB24      :        :                   :         : 6         :                
+debug_num_3[5]               : AB24      : output : 3.3-V LVTTL       :         : 6         : N              
 debug_led_red[7]             : AB25      : output : 3.3-V LVTTL       :         : 6         : N              
 GND*                         : AB26      :        :                   :         : 6         :                
-debug_led_red[8]             : AC1       : output : 3.3-V LVTTL       :         : 1         : N              
+debug_num_5[12]              : AC1       : output : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : AC2       :        :                   :         : 1         :                
 GND*                         : AC3       :        :                   :         : 1         :                
 GND                          : AC4       : gnd    :                   :         :           :                
 GND*                         : AC5       :        :                   :         : 8         :                
-debug_led_red[13]            : AC6       : output : 3.3-V LVTTL       :         : 8         : N              
+GND*                         : AC6       :        :                   :         : 8         :                
 GND*                         : AC7       :        :                   :         : 8         :                
 GND*                         : AC8       :        :                   :         : 8         :                
-i_pixel[6]                   : AC9       : input  : 3.3-V LVTTL       :         : 8         : N              
-debug_num_0[11]              : AC10      : output : 3.3-V LVTTL       :         : 8         : N              
-debug_num_3[9]               : AC11      : output : 3.3-V LVTTL       :         : 8         : N              
-debug_num_0[4]               : AC12      : output : 3.3-V LVTTL       :         : 8         : N              
+GND*                         : AC9       :        :                   :         : 8         :                
+GND*                         : AC10      :        :                   :         : 8         :                
+debug_num_3[10]              : AC11      : output : 3.3-V LVTTL       :         : 8         : N              
+GND*                         : AC12      :        :                   :         : 8         :                
 GND+                         : AC13      :        :                   :         : 8         :                
-debug_num_8                  : AC14      : output : 3.3-V LVTTL       :         : 7         : N              
-debug_num_1[8]               : AC15      : output : 3.3-V LVTTL       :         : 7         : N              
-debug_num_2[4]               : AC16      : output : 3.3-V LVTTL       :         : 7         : N              
-debug_num_2[6]               : AC17      : output : 3.3-V LVTTL       :         : 7         : N              
-debug_led_red[6]             : AC18      : output : 3.3-V LVTTL       :         : 7         : N              
-GND*                         : AC19      :        :                   :         : 7         :                
-debug_switch[16]             : AC20      : input  : 3.3-V LVTTL       :         : 7         : N              
-GND*                         : AC21      :        :                   :         : 7         :                
+GND*                         : AC14      :        :                   :         : 7         :                
+o_row[4]                     : AC15      : output : 3.3-V LVTTL       :         : 7         : N              
+GND*                         : AC16      :        :                   :         : 7         :                
+o_row[0]                     : AC17      : output : 3.3-V LVTTL       :         : 7         : N              
+i_pixel[0]                   : AC18      : input  : 3.3-V LVTTL       :         : 7         : N              
+o_image0_0_[2]               : AC19      : output : 3.3-V LVTTL       :         : 7         : N              
+o_image0_1_[3]               : AC20      : output : 3.3-V LVTTL       :         : 7         : N              
+debug_num_5[2]               : AC21      : output : 3.3-V LVTTL       :         : 7         : N              
 GND*                         : AC22      :        :                   :         : 7         :                
 GND*                         : AC23      :        :                   :         : 6         :                
 NC                           : AC24      :        :                   :         :           :                
 GND*                         : AC25      :        :                   :         : 6         :                
-debug_switch[6]              : AC26      : input  : 3.3-V LVTTL       :         : 6         : N              
+GND*                         : AC26      :        :                   :         : 6         :                
 VCCIO1                       : AD1       : power  :                   : 3.3V    : 1         :                
 GND*                         : AD2       :        :                   :         : 1         :                
-debug_key[3]                 : AD3       : input  : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : AD3       :        :                   :         : 1         :                
 GND*                         : AD4       :        :                   :         : 8         :                
 GND*                         : AD5       :        :                   :         : 8         :                
 GND*                         : AD6       :        :                   :         : 8         :                
-debug_switch[4]              : AD7       : input  : 3.3-V LVTTL       :         : 8         : N              
-GND*                         : AD8       :        :                   :         : 8         :                
+debug_num_4[6]               : AD7       : output : 3.3-V LVTTL       :         : 8         : N              
+debug_num_5[4]               : AD8       : output : 3.3-V LVTTL       :         : 8         : N              
 GND                          : AD9       : gnd    :                   :         :           :                
-o_image1_1_[2]               : AD10      : output : 3.3-V LVTTL       :         : 8         : N              
-debug_num_0[9]               : AD11      : output : 3.3-V LVTTL       :         : 8         : N              
-o_image1_2_[5]               : AD12      : output : 3.3-V LVTTL       :         : 8         : N              
+GND*                         : AD10      :        :                   :         : 8         :                
+GND*                         : AD11      :        :                   :         : 8         :                
+GND*                         : AD12      :        :                   :         : 8         :                
 GND+                         : AD13      :        :                   :         : 8         :                
 GND                          : AD14      : gnd    :                   :         :           :                
-debug_num_5[3]               : AD15      : output : 3.3-V LVTTL       :         : 7         : N              
-debug_num_2[12]              : AD16      : output : 3.3-V LVTTL       :         : 7         : N              
-o_row[1]                     : AD17      : output : 3.3-V LVTTL       :         : 7         : N              
+GND*                         : AD15      :        :                   :         : 7         :                
+GND*                         : AD16      :        :                   :         : 7         :                
+GND*                         : AD17      :        :                   :         : 7         :                
 GND                          : AD18      : gnd    :                   :         :           :                
-GND*                         : AD19      :        :                   :         : 7         :                
+o_image1_2_[1]               : AD19      : output : 3.3-V LVTTL       :         : 7         : N              
 VCCIO7                       : AD20      : power  :                   : 3.3V    : 7         :                
-debug_switch[3]              : AD21      : input  : 3.3-V LVTTL       :         : 7         : N              
-GND*                         : AD22      :        :                   :         : 7         :                
-debug_switch[7]              : AD23      : input  : 3.3-V LVTTL       :         : 7         : N              
+GND*                         : AD21      :        :                   :         : 7         :                
+debug_num_6                  : AD22      : output : 3.3-V LVTTL       :         : 7         : N              
+GND*                         : AD23      :        :                   :         : 7         :                
 GND*                         : AD24      :        :                   :         : 6         :                
 GND*                         : AD25      :        :                   :         : 6         :                
 VCCIO6                       : AD26      : power  :                   : 3.3V    : 6         :                
 GND                          : AE1       : gnd    :                   :         :           :                
 GND*                         : AE2       :        :                   :         : 1         :                
-GND*                         : AE3       :        :                   :         : 1         :                
+debug_switch[16]             : AE3       : input  : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : AE4       :        :                   :         : 8         :                
 GND*                         : AE5       :        :                   :         : 8         :                
 GND*                         : AE6       :        :                   :         : 8         :                
-debug_column[3]              : AE7       : output : 3.3-V LVTTL       :         : 8         : N              
-i_pixel[1]                   : AE8       : input  : 3.3-V LVTTL       :         : 8         : N              
-debug_num_0[10]              : AE9       : output : 3.3-V LVTTL       :         : 8         : N              
-debug_num_0[5]               : AE10      : output : 3.3-V LVTTL       :         : 8         : N              
-debug_num_0[12]              : AE11      : output : 3.3-V LVTTL       :         : 8         : N              
-o_image1_0_[2]               : AE12      : output : 3.3-V LVTTL       :         : 8         : N              
-o_image2_0_[2]               : AE13      : output : 3.3-V LVTTL       :         : 8         : N              
+debug_led_grn[1]             : AE7       : output : 3.3-V LVTTL       :         : 8         : N              
+GND*                         : AE8       :        :                   :         : 8         :                
+GND*                         : AE9       :        :                   :         : 8         :                
+GND*                         : AE10      :        :                   :         : 8         :                
+GND*                         : AE11      :        :                   :         : 8         :                
+GND*                         : AE12      :        :                   :         : 8         :                
+debug_switch[4]              : AE13      : input  : 3.3-V LVTTL       :         : 8         : N              
 GND+                         : AE14      :        :                   :         : 7         :                
-debug_num_1[4]               : AE15      : output : 3.3-V LVTTL       :         : 7         : N              
-debug_num_5[11]              : AE16      : output : 3.3-V LVTTL       :         : 7         : N              
-debug_num_2[9]               : AE17      : output : 3.3-V LVTTL       :         : 7         : N              
-debug_num_5[9]               : AE18      : output : 3.3-V LVTTL       :         : 7         : N              
-debug_switch[14]             : AE19      : input  : 3.3-V LVTTL       :         : 7         : N              
-GND*                         : AE20      :        :                   :         : 7         :                
-debug_led_red[11]            : AE21      : output : 3.3-V LVTTL       :         : 7         : N              
+debug_key[3]                 : AE15      : input  : 3.3-V LVTTL       :         : 7         : N              
+GND*                         : AE16      :        :                   :         : 7         :                
+o_dir[2]                     : AE17      : output : 3.3-V LVTTL       :         : 7         : N              
+o_row[5]                     : AE18      : output : 3.3-V LVTTL       :         : 7         : N              
+debug_column[5]              : AE19      : output : 3.3-V LVTTL       :         : 7         : N              
+o_image1_0_[7]               : AE20      : output : 3.3-V LVTTL       :         : 7         : N              
+o_image0_1_[0]               : AE21      : output : 3.3-V LVTTL       :         : 7         : N              
 GND*                         : AE22      :        :                   :         : 7         :                
 GND*                         : AE23      :        :                   :         : 7         :                
 ~LVDS150p/nCEO~              : AE24      : output : 3.3-V LVTTL       :         : 6         : N              
@@ -228,73 +228,73 @@ GND*                         : AE25      :        :                   :         
 GND                          : AE26      : gnd    :                   :         :           :                
 GND                          : AF2       : gnd    :                   :         :           :                
 VCCIO8                       : AF3       : power  :                   : 3.3V    : 8         :                
-GND*                         : AF4       :        :                   :         : 8         :                
+debug_led_grn[3]             : AF4       : output : 3.3-V LVTTL       :         : 8         : N              
 GND*                         : AF5       :        :                   :         : 8         :                
 GND*                         : AF6       :        :                   :         : 8         :                
-debug_column[2]              : AF7       : output : 3.3-V LVTTL       :         : 8         : N              
-debug_num_4[0]               : AF8       : output : 3.3-V LVTTL       :         : 8         : N              
-i_pixel[4]                   : AF9       : input  : 3.3-V LVTTL       :         : 8         : N              
-o_image2_1_[2]               : AF10      : output : 3.3-V LVTTL       :         : 8         : N              
+GND*                         : AF7       :        :                   :         : 8         :                
+GND*                         : AF8       :        :                   :         : 8         :                
+GND*                         : AF9       :        :                   :         : 8         :                
+GND*                         : AF10      :        :                   :         : 8         :                
 VCCIO8                       : AF11      : power  :                   : 3.3V    : 8         :                
 GND                          : AF12      : gnd    :                   :         :           :                
-debug_num_0[3]               : AF13      : output : 3.3-V LVTTL       :         : 8         : N              
+GND*                         : AF13      :        :                   :         : 8         :                
 GND+                         : AF14      :        :                   :         : 7         :                
 GND                          : AF15      : gnd    :                   :         :           :                
 VCCIO7                       : AF16      : power  :                   : 3.3V    : 7         :                
-debug_num_2[0]               : AF17      : output : 3.3-V LVTTL       :         : 7         : N              
-debug_num_5[2]               : AF18      : output : 3.3-V LVTTL       :         : 7         : N              
-debug_switch[9]              : AF19      : input  : 3.3-V LVTTL       :         : 7         : N              
-GND*                         : AF20      :        :                   :         : 7         :                
-GND*                         : AF21      :        :                   :         : 7         :                
-GND*                         : AF22      :        :                   :         : 7         :                
-GND*                         : AF23      :        :                   :         : 7         :                
+GND*                         : AF17      :        :                   :         : 7         :                
+o_image2_0_[3]               : AF18      : output : 3.3-V LVTTL       :         : 7         : N              
+i_pixel[4]                   : AF19      : input  : 3.3-V LVTTL       :         : 7         : N              
+o_image0_1_[2]               : AF20      : output : 3.3-V LVTTL       :         : 7         : N              
+o_image1_1_[4]               : AF21      : output : 3.3-V LVTTL       :         : 7         : N              
+debug_num_5[11]              : AF22      : output : 3.3-V LVTTL       :         : 7         : N              
+debug_led_red[13]            : AF23      : output : 3.3-V LVTTL       :         : 7         : N              
 VCCIO7                       : AF24      : power  :                   : 3.3V    : 7         :                
 GND                          : AF25      : gnd    :                   :         :           :                
 GND                          : B1        : gnd    :                   :         :           :                
 GND*                         : B2        :        :                   :         : 2         :                
-debug_switch[0]              : B3        : input  : 3.3-V LVTTL       :         : 2         : N              
-GND*                         : B4        :        :                   :         : 3         :                
+GND*                         : B3        :        :                   :         : 2         :                
+debug_led_red[4]             : B4        : output : 3.3-V LVTTL       :         : 3         : N              
 GND*                         : B5        :        :                   :         : 3         :                
-GND*                         : B6        :        :                   :         : 3         :                
-GND*                         : B7        :        :                   :         : 3         :                
-GND*                         : B8        :        :                   :         : 3         :                
-debug_num_3[2]               : B9        : output : 3.3-V LVTTL       :         : 3         : N              
-o_image1_2_[1]               : B10       : output : 3.3-V LVTTL       :         : 3         : N              
-o_image2_2_[0]               : B11       : output : 3.3-V LVTTL       :         : 3         : N              
-o_image2_1_[1]               : B12       : output : 3.3-V LVTTL       :         : 3         : N              
+debug_num_4[12]              : B6        : output : 3.3-V LVTTL       :         : 3         : N              
+debug_led_red[14]            : B7        : output : 3.3-V LVTTL       :         : 3         : N              
+debug_num_7                  : B8        : output : 3.3-V LVTTL       :         : 3         : N              
+debug_led_red[11]            : B9        : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : B10       :        :                   :         : 3         :                
+debug_switch[7]              : B11       : input  : 3.3-V LVTTL       :         : 3         : N              
+debug_led_red[3]             : B12       : output : 3.3-V LVTTL       :         : 3         : N              
 GND+                         : B13       :        :                   :         : 4         :                
-o_image1_2_[6]               : B14       : output : 3.3-V LVTTL       :         : 4         : N              
-o_image1_1_[7]               : B15       : output : 3.3-V LVTTL       :         : 4         : N              
-i_valid                      : B16       : input  : 3.3-V LVTTL       :         : 4         : N              
-o_image0_2_[1]               : B17       : output : 3.3-V LVTTL       :         : 4         : N              
-o_mode[1]                    : B18       : output : 3.3-V LVTTL       :         : 4         : N              
-debug_led_red[4]             : B19       : output : 3.3-V LVTTL       :         : 4         : N              
-GND*                         : B20       :        :                   :         : 4         :                
-GND*                         : B21       :        :                   :         : 4         :                
-GND*                         : B22       :        :                   :         : 4         :                
-GND*                         : B23       :        :                   :         : 4         :                
+o_mode[1]                    : B14       : output : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : B15       :        :                   :         : 4         :                
+GND*                         : B16       :        :                   :         : 4         :                
+GND*                         : B17       :        :                   :         : 4         :                
+o_image1_0_[0]               : B18       : output : 3.3-V LVTTL       :         : 4         : N              
+o_image0_2_[2]               : B19       : output : 3.3-V LVTTL       :         : 4         : N              
+o_image0_2_[6]               : B20       : output : 3.3-V LVTTL       :         : 4         : N              
+debug_num_0[0]               : B21       : output : 3.3-V LVTTL       :         : 4         : N              
+debug_switch[13]             : B22       : input  : 3.3-V LVTTL       :         : 4         : N              
+debug_switch[6]              : B23       : input  : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : B24       :        :                   :         : 5         :                
 GND*                         : B25       :        :                   :         : 5         :                
 GND                          : B26       : gnd    :                   :         :           :                
 VCCIO2                       : C1        : power  :                   : 3.3V    : 2         :                
-GND*                         : C2        :        :                   :         : 2         :                
-GND*                         : C3        :        :                   :         : 2         :                
-debug_switch[11]             : C4        : input  : 3.3-V LVTTL       :         : 3         : N              
-debug_switch[5]              : C5        : input  : 3.3-V LVTTL       :         : 3         : N              
+debug_num_8                  : C2        : output : 3.3-V LVTTL       :         : 2         : N              
+debug_num_3[9]               : C3        : output : 3.3-V LVTTL       :         : 2         : N              
+debug_key[2]                 : C4        : input  : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : C5        :        :                   :         : 3         :                
 GND*                         : C6        :        :                   :         : 3         :                
 GND*                         : C7        :        :                   :         : 3         :                
-GND*                         : C8        :        :                   :         : 3         :                
+debug_num_4[10]              : C8        : output : 3.3-V LVTTL       :         : 3         : N              
 GND*                         : C9        :        :                   :         : 3         :                
-debug_num_4[9]               : C10       : output : 3.3-V LVTTL       :         : 3         : N              
-o_image2_2_[3]               : C11       : output : 3.3-V LVTTL       :         : 3         : N              
-o_image2_0_[0]               : C12       : output : 3.3-V LVTTL       :         : 3         : N              
-GND+                         : C13       :        :                   :         : 3         :                
+debug_led_grn[4]             : C10       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : C11       :        :                   :         : 3         :                
+GND*                         : C12       :        :                   :         : 3         :                
+i_valid                      : C13       : input  : 3.3-V LVTTL       :         : 3         : N              
 GND                          : C14       : gnd    :                   :         :           :                
-o_image0_0_[7]               : C15       : output : 3.3-V LVTTL       :         : 4         : N              
-debug_column[0]              : C16       : output : 3.3-V LVTTL       :         : 4         : N              
-o_row[4]                     : C17       : output : 3.3-V LVTTL       :         : 4         : N              
+debug_led_red[0]             : C15       : output : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : C16       :        :                   :         : 4         :                
+o_image0_1_[4]               : C17       : output : 3.3-V LVTTL       :         : 4         : N              
 GND                          : C18       : gnd    :                   :         :           :                
-GND*                         : C19       :        :                   :         : 4         :                
+o_image2_1_[3]               : C19       : output : 3.3-V LVTTL       :         : 4         : N              
 VCCIO4                       : C20       : power  :                   : 3.3V    : 4         :                
 GND*                         : C21       :        :                   :         : 4         :                
 GND*                         : C22       :        :                   :         : 4         :                
@@ -302,27 +302,27 @@ GND*                         : C23       :        :                   :         
 GND*                         : C24       :        :                   :         : 5         :                
 GND*                         : C25       :        :                   :         : 5         :                
 VCCIO5                       : C26       : power  :                   : 3.3V    : 5         :                
-GND*                         : D1        :        :                   :         : 2         :                
+debug_led_red[2]             : D1        : output : 3.3-V LVTTL       :         : 2         : N              
 GND*                         : D2        :        :                   :         : 2         :                
 ~nCSO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : D3        : input  : 3.3-V LVTTL       :         : 2         : N              
 GND                          : D4        : gnd    :                   :         :           :                
 GND*                         : D5        :        :                   :         : 3         :                
 GND*                         : D6        :        :                   :         : 3         :                
 GND*                         : D7        :        :                   :         : 3         :                
-GND*                         : D8        :        :                   :         : 3         :                
-GND*                         : D9        :        :                   :         : 3         :                
-debug_num_4[5]               : D10       : output : 3.3-V LVTTL       :         : 3         : N              
-debug_num_3[7]               : D11       : output : 3.3-V LVTTL       :         : 3         : N              
-debug_num_3[10]              : D12       : output : 3.3-V LVTTL       :         : 3         : N              
-GND+                         : D13       :        :                   :         : 3         :                
-o_image0_2_[7]               : D14       : output : 3.3-V LVTTL       :         : 4         : N              
-o_image2_0_[1]               : D15       : output : 3.3-V LVTTL       :         : 4         : N              
-o_row[5]                     : D16       : output : 3.3-V LVTTL       :         : 4         : N              
-o_valid                      : D17       : output : 3.3-V LVTTL       :         : 4         : N              
-GND*                         : D18       :        :                   :         : 4         :                
-debug_led_grn[2]             : D19       : output : 3.3-V LVTTL       :         : 4         : N              
-GND*                         : D20       :        :                   :         : 4         :                
-GND*                         : D21       :        :                   :         : 4         :                
+debug_num_5[13]              : D8        : output : 3.3-V LVTTL       :         : 3         : N              
+debug_switch[11]             : D9        : input  : 3.3-V LVTTL       :         : 3         : N              
+debug_num_4[0]               : D10       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : D11       :        :                   :         : 3         :                
+debug_switch[15]             : D12       : input  : 3.3-V LVTTL       :         : 3         : N              
+i_reset                      : D13       : input  : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : D14       :        :                   :         : 4         :                
+GND*                         : D15       :        :                   :         : 4         :                
+GND*                         : D16       :        :                   :         : 4         :                
+debug_column[0]              : D17       : output : 3.3-V LVTTL       :         : 4         : N              
+debug_num_2[7]               : D18       : output : 3.3-V LVTTL       :         : 4         : N              
+o_image2_1_[2]               : D19       : output : 3.3-V LVTTL       :         : 4         : N              
+o_image0_0_[5]               : D20       : output : 3.3-V LVTTL       :         : 4         : N              
+debug_led_red[1]             : D21       : output : 3.3-V LVTTL       :         : 4         : N              
 VCCIO4                       : D22       : power  :                   : 3.3V    : 4         :                
 GND*                         : D23       :        :                   :         : 5         :                
 GND                          : D24       : gnd    :                   :         :           :                
@@ -337,41 +337,41 @@ VCCIO3                       : E6        : power  :                   : 3.3V    
 GND                          : E7        : gnd    :                   :         :           :                
 GND*                         : E8        :        :                   :         : 3         :                
 VCCIO3                       : E9        : power  :                   : 3.3V    : 3         :                
-debug_column[4]              : E10       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : E10       :        :                   :         : 3         :                
 GND                          : E11       : gnd    :                   :         :           :                
-debug_num_3[5]               : E12       : output : 3.3-V LVTTL       :         : 3         : N              
+debug_num_3[2]               : E12       : output : 3.3-V LVTTL       :         : 3         : N              
 VCCIO3                       : E13       : power  :                   : 3.3V    : 3         :                
 VCCIO4                       : E14       : power  :                   : 3.3V    : 4         :                
-o_image1_2_[4]               : E15       : output : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : E15       :        :                   :         : 4         :                
 GND                          : E16       : gnd    :                   :         :           :                
 VCCIO4                       : E17       : power  :                   : 3.3V    : 4         :                
-GND*                         : E18       :        :                   :         : 4         :                
+debug_num_2[2]               : E18       : output : 3.3-V LVTTL       :         : 4         : N              
 GND                          : E19       : gnd    :                   :         :           :                
-GND*                         : E20       :        :                   :         : 4         :                
+o_image2_0_[6]               : E20       : output : 3.3-V LVTTL       :         : 4         : N              
 GND_PLL2                     : E21       : gnd    :                   :         :           :                
 GND*                         : E22       :        :                   :         : 5         :                
-GND*                         : E23       :        :                   :         : 5         :                
-debug_num_1[11]              : E24       : output : 3.3-V LVTTL       :         : 5         : N              
+debug_led_grn[0]             : E23       : output : 3.3-V LVTTL       :         : 5         : N              
+GND*                         : E24       :        :                   :         : 5         :                
 GND*                         : E25       :        :                   :         : 5         :                
 GND*                         : E26       :        :                   :         : 5         :                
 GND*                         : F1        :        :                   :         : 2         :                
-debug_switch[1]              : F2        : input  : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : F2        :        :                   :         : 2         :                
 GND*                         : F3        :        :                   :         : 2         :                
 GND*                         : F4        :        :                   :         : 2         :                
 VCCIO2                       : F5        : power  :                   : 3.3V    : 2         :                
 GND*                         : F6        :        :                   :         : 2         :                
-GND*                         : F7        :        :                   :         : 2         :                
+debug_switch[9]              : F7        : input  : 3.3-V LVTTL       :         : 2         : N              
 GNDA_PLL3                    : F8        : gnd    :                   :         :           :                
 GND*                         : F9        :        :                   :         : 3         :                
-GND*                         : F10       :        :                   :         : 3         :                
-debug_num_3[1]               : F11       : output : 3.3-V LVTTL       :         : 3         : N              
-o_image0_2_[2]               : F12       : output : 3.3-V LVTTL       :         : 3         : N              
-o_row[2]                     : F13       : output : 3.3-V LVTTL       :         : 4         : N              
-debug_num_2[7]               : F14       : output : 3.3-V LVTTL       :         : 4         : N              
-o_dir[0]                     : F15       : output : 3.3-V LVTTL       :         : 4         : N              
-o_image1_0_[3]               : F16       : output : 3.3-V LVTTL       :         : 4         : N              
-GND*                         : F17       :        :                   :         : 4         :                
-GND*                         : F18       :        :                   :         : 4         :                
+debug_num_5[0]               : F10       : output : 3.3-V LVTTL       :         : 3         : N              
+debug_led_red[10]            : F11       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : F12       :        :                   :         : 3         :                
+GND*                         : F13       :        :                   :         : 4         :                
+debug_switch[17]             : F14       : input  : 3.3-V LVTTL       :         : 4         : N              
+debug_column[7]              : F15       : output : 3.3-V LVTTL       :         : 4         : N              
+o_dir[0]                     : F16       : output : 3.3-V LVTTL       :         : 4         : N              
+debug_num_4[11]              : F17       : output : 3.3-V LVTTL       :         : 4         : N              
+debug_num_1[1]               : F18       : output : 3.3-V LVTTL       :         : 4         : N              
 GNDA_PLL2                    : F19       : gnd    :                   :         :           :                
 GND*                         : F20       :        :                   :         : 5         :                
 GND*                         : F21       :        :                   :         : 5         :                
@@ -379,33 +379,33 @@ VCCIO5                       : F22       : power  :                   : 3.3V    
 GND*                         : F23       :        :                   :         : 5         :                
 GND*                         : F24       :        :                   :         : 5         :                
 GND*                         : F25       :        :                   :         : 5         :                
-debug_led_red[16]            : F26       : output : 3.3-V LVTTL       :         : 5         : N              
-debug_led_grn[5]             : G1        : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : F26       :        :                   :         : 5         :                
+GND*                         : G1        :        :                   :         : 2         :                
 GND*                         : G2        :        :                   :         : 2         :                
 GND*                         : G3        :        :                   :         : 2         :                
-debug_switch[15]             : G4        : input  : 3.3-V LVTTL       :         : 2         : N              
-GND*                         : G5        :        :                   :         : 2         :                
+GND*                         : G4        :        :                   :         : 2         :                
+debug_switch[14]             : G5        : input  : 3.3-V LVTTL       :         : 2         : N              
 GND*                         : G6        :        :                   :         : 2         :                
 GND_PLL3                     : G7        : gnd    :                   :         :           :                
 VCCA_PLL3                    : G8        : power  :                   : 1.2V    :           :                
-debug_led_grn[0]             : G9        : output : 3.3-V LVTTL       :         : 3         : N              
-GND*                         : G10       :        :                   :         : 3         :                
-o_image0_0_[2]               : G11       : output : 3.3-V LVTTL       :         : 3         : N              
-o_image2_2_[2]               : G12       : output : 3.3-V LVTTL       :         : 3         : N              
-o_image1_0_[0]               : G13       : output : 3.3-V LVTTL       :         : 4         : N              
-debug_num_0[2]               : G14       : output : 3.3-V LVTTL       :         : 4         : N              
-o_dir[1]                     : G15       : output : 3.3-V LVTTL       :         : 4         : N              
-debug_num_4[2]               : G16       : output : 3.3-V LVTTL       :         : 4         : N              
-GND*                         : G17       :        :                   :         : 4         :                
-GND*                         : G18       :        :                   :         : 4         :                
+GND*                         : G9        :        :                   :         : 3         :                
+debug_num_4[5]               : G10       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : G11       :        :                   :         : 3         :                
+GND*                         : G12       :        :                   :         : 3         :                
+debug_num_4[2]               : G13       : output : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : G14       :        :                   :         : 4         :                
+o_edge                       : G15       : output : 3.3-V LVTTL       :         : 4         : N              
+o_dir[1]                     : G16       : output : 3.3-V LVTTL       :         : 4         : N              
+debug_num_0[2]               : G17       : output : 3.3-V LVTTL       :         : 4         : N              
+debug_num_2[6]               : G18       : output : 3.3-V LVTTL       :         : 4         : N              
 VCCA_PLL2                    : G19       : power  :                   : 1.2V    :           :                
 GND_PLL2                     : G20       : gnd    :                   :         :           :                
 GND*                         : G21       :        :                   :         : 5         :                
 GND*                         : G22       :        :                   :         : 5         :                
-debug_switch[2]              : G23       : input  : 3.3-V LVTTL       :         : 5         : N              
-GND*                         : G24       :        :                   :         : 5         :                
-GND*                         : G25       :        :                   :         : 5         :                
-GND*                         : G26       :        :                   :         : 5         :                
+o_image1_2_[0]               : G23       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image1_2_[6]               : G24       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image0_2_[3]               : G25       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image1_0_[5]               : G26       : output : 3.3-V LVTTL       :         : 5         : N              
 GND*                         : H1        :        :                   :         : 2         :                
 GND*                         : H2        :        :                   :         : 2         :                
 GND*                         : H3        :        :                   :         : 2         :                
@@ -416,84 +416,84 @@ VCCD_PLL3                    : H7        : power  :                   : 1.2V    
 GND*                         : H8        :        :                   :         : 3         :                
 VCCIO3                       : H9        : power  :                   : 3.3V    : 3         :                
 GND*                         : H10       :        :                   :         : 3         :                
-debug_num_4[7]               : H11       : output : 3.3-V LVTTL       :         : 3         : N              
-debug_valid                  : H12       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : H11       :        :                   :         : 3         :                
+debug_num_5[8]               : H12       : output : 3.3-V LVTTL       :         : 3         : N              
 GND                          : H13       : gnd    :                   :         :           :                
 GND                          : H14       : gnd    :                   :         :           :                
-o_image1_0_[1]               : H15       : output : 3.3-V LVTTL       :         : 4         : N              
-debug_column[5]              : H16       : output : 3.3-V LVTTL       :         : 4         : N              
-debug_led_red[15]            : H17       : output : 3.3-V LVTTL       :         : 4         : N              
+debug_num_5[3]               : H15       : output : 3.3-V LVTTL       :         : 4         : N              
+o_mode[0]                    : H16       : output : 3.3-V LVTTL       :         : 4         : N              
+debug_valid                  : H17       : output : 3.3-V LVTTL       :         : 4         : N              
 VCCIO4                       : H18       : power  :                   : 3.3V    : 4         :                
-GND*                         : H19       :        :                   :         : 5         :                
+o_image1_0_[4]               : H19       : output : 3.3-V LVTTL       :         : 5         : N              
 VCCD_PLL2                    : H20       : power  :                   : 1.2V    :           :                
 GND*                         : H21       :        :                   :         : 5         :                
 GND                          : H22       : gnd    :                   :         :           :                
-debug_led_red[14]            : H23       : output : 3.3-V LVTTL       :         : 5         : N              
-GND*                         : H24       :        :                   :         : 5         :                
-GND*                         : H25       :        :                   :         : 5         :                
-GND*                         : H26       :        :                   :         : 5         :                
-debug_num_3[0]               : J1        : output : 3.3-V LVTTL       :         : 2         : N              
-o_row[6]                     : J2        : output : 3.3-V LVTTL       :         : 2         : N              
+o_image0_1_[7]               : H23       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image0_2_[4]               : H24       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image0_1_[5]               : H25       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image0_0_[4]               : H26       : output : 3.3-V LVTTL       :         : 5         : N              
+GND*                         : J1        :        :                   :         : 2         :                
+GND*                         : J2        :        :                   :         : 2         :                
 GND*                         : J3        :        :                   :         : 2         :                
-debug_switch[10]             : J4        : input  : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : J4        :        :                   :         : 2         :                
 GND*                         : J5        :        :                   :         : 2         :                
 GND*                         : J6        :        :                   :         : 2         :                
 GND*                         : J7        :        :                   :         : 2         :                
 GND*                         : J8        :        :                   :         : 2         :                
-GND*                         : J9        :        :                   :         : 3         :                
-o_image0_0_[3]               : J10       : output : 3.3-V LVTTL       :         : 3         : N              
-o_image2_2_[7]               : J11       : output : 3.3-V LVTTL       :         : 3         : N              
+debug_num_5[5]               : J9        : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : J10       :        :                   :         : 3         :                
+GND*                         : J11       :        :                   :         : 3         :                
 VCCIO3                       : J12       : power  :                   : 3.3V    : 3         :                
-o_image0_0_[1]               : J13       : output : 3.3-V LVTTL       :         : 3         : N              
-debug_num_4[12]              : J14       : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : J13       :        :                   :         : 3         :                
+debug_num_3[0]               : J14       : output : 3.3-V LVTTL       :         : 3         : N              
 VCCIO4                       : J15       : power  :                   : 3.3V    : 4         :                
-debug_led_red[12]            : J16       : output : 3.3-V LVTTL       :         : 4         : N              
-debug_switch[8]              : J17       : input  : 3.3-V LVTTL       :         : 4         : N              
-GND*                         : J18       :        :                   :         : 4         :                
+o_image2_1_[4]               : J16       : output : 3.3-V LVTTL       :         : 4         : N              
+debug_num_1[2]               : J17       : output : 3.3-V LVTTL       :         : 4         : N              
+o_image0_0_[3]               : J18       : output : 3.3-V LVTTL       :         : 4         : N              
 VCCIO5                       : J19       : power  :                   : 3.3V    : 5         :                
-GND*                         : J20       :        :                   :         : 5         :                
+o_image0_0_[1]               : J20       : output : 3.3-V LVTTL       :         : 5         : N              
 GND*                         : J21       :        :                   :         : 5         :                
-GND*                         : J22       :        :                   :         : 5         :                
-GND*                         : J23       :        :                   :         : 5         :                
-GND*                         : J24       :        :                   :         : 5         :                
-GND*                         : J25       :        :                   :         : 5         :                
-debug_switch[12]             : J26       : input  : 3.3-V LVTTL       :         : 5         : N              
-o_image0_1_[0]               : K1        : output : 3.3-V LVTTL       :         : 2         : N              
-o_image1_2_[0]               : K2        : output : 3.3-V LVTTL       :         : 2         : N              
-debug_num_4[1]               : K3        : output : 3.3-V LVTTL       :         : 2         : N              
+o_image1_2_[2]               : J22       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image0_0_[7]               : J23       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image1_2_[4]               : J24       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image1_1_[1]               : J25       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image1_0_[1]               : J26       : output : 3.3-V LVTTL       :         : 5         : N              
+GND*                         : K1        :        :                   :         : 2         :                
+GND*                         : K2        :        :                   :         : 2         :                
+GND*                         : K3        :        :                   :         : 2         :                
 GND*                         : K4        :        :                   :         : 2         :                
-GND*                         : K5        :        :                   :         : 2         :                
+debug_num_3[6]               : K5        : output : 3.3-V LVTTL       :         : 2         : N              
 GND*                         : K6        :        :                   :         : 2         :                
 GND*                         : K7        :        :                   :         : 2         :                
 GND*                         : K8        :        :                   :         : 2         :                
-debug_led_red[9]             : K9        : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : K9        :        :                   :         : 3         :                
 VCCINT                       : K10       : power  :                   : 1.2V    :           :                
 VCCINT                       : K11       : power  :                   : 1.2V    :           :                
 VCCINT                       : K12       : power  :                   : 1.2V    :           :                
 VCCINT                       : K13       : power  :                   : 1.2V    :           :                
 VCCINT                       : K14       : power  :                   : 1.2V    :           :                
 VCCINT                       : K15       : power  :                   : 1.2V    :           :                
-GND*                         : K16       :        :                   :         : 4         :                
-debug_num_1[12]              : K17       : output : 3.3-V LVTTL       :         : 4         : N              
-debug_led_red[3]             : K18       : output : 3.3-V LVTTL       :         : 5         : N              
-GND*                         : K19       :        :                   :         : 5         :                
+o_image0_2_[5]               : K16       : output : 3.3-V LVTTL       :         : 4         : N              
+o_image1_0_[3]               : K17       : output : 3.3-V LVTTL       :         : 4         : N              
+o_image1_1_[5]               : K18       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image1_2_[7]               : K19       : output : 3.3-V LVTTL       :         : 5         : N              
 GND                          : K20       : gnd    :                   :         :           :                
-GND*                         : K21       :        :                   :         : 5         :                
-GND*                         : K22       :        :                   :         : 5         :                
-GND*                         : K23       :        :                   :         : 5         :                
-GND*                         : K24       :        :                   :         : 5         :                
-debug_num_1[9]               : K25       : output : 3.3-V LVTTL       :         : 5         : N              
-debug_num_3[4]               : K26       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image2_2_[4]               : K21       : output : 3.3-V LVTTL       :         : 5         : N              
+o_row[1]                     : K22       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image1_1_[7]               : K23       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image0_2_[0]               : K24       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image1_1_[6]               : K25       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image2_1_[5]               : K26       : output : 3.3-V LVTTL       :         : 5         : N              
 VCCIO2                       : L1        : power  :                   : 3.3V    : 2         :                
-o_image1_0_[7]               : L2        : output : 3.3-V LVTTL       :         : 2         : N              
-o_row[3]                     : L3        : output : 3.3-V LVTTL       :         : 2         : N              
-o_image0_1_[5]               : L4        : output : 3.3-V LVTTL       :         : 2         : N              
+debug_num_3[4]               : L2        : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : L3        :        :                   :         : 2         :                
+GND*                         : L4        :        :                   :         : 2         :                
 GND                          : L5        : gnd    :                   :         :           :                
-o_image0_2_[0]               : L6        : output : 3.3-V LVTTL       :         : 2         : N              
-o_image2_1_[6]               : L7        : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : L6        :        :                   :         : 2         :                
+GND*                         : L7        :        :                   :         : 2         :                
 TMS                          : L8        : input  :                   :         : 2         :                
-o_image0_2_[3]               : L9        : output : 3.3-V LVTTL       :         : 2         : N              
-debug_num_4[11]              : L10       : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : L9        :        :                   :         : 2         :                
+GND*                         : L10       :        :                   :         : 2         :                
 VCCINT                       : L11       : power  :                   : 1.2V    :           :                
 GND                          : L12       : gnd    :                   :         :           :                
 GND                          : L13       : gnd    :                   :         :           :                
@@ -502,19 +502,19 @@ GND                          : L15       : gnd    :                   :         
 VCCINT                       : L16       : power  :                   : 1.2V    :           :                
 VCCINT                       : L17       : power  :                   : 1.2V    :           :                
 VCCINT                       : L18       : power  :                   : 1.2V    :           :                
-o_image1_2_[3]               : L19       : output : 3.3-V LVTTL       :         : 5         : N              
-GND*                         : L20       :        :                   :         : 5         :                
-GND*                         : L21       :        :                   :         : 5         :                
+o_image2_0_[7]               : L19       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image2_0_[5]               : L20       : output : 3.3-V LVTTL       :         : 5         : N              
+o_row[6]                     : L21       : output : 3.3-V LVTTL       :         : 5         : N              
 GND                          : L22       : gnd    :                   :         :           :                
-o_image1_1_[3]               : L23       : output : 3.3-V LVTTL       :         : 5         : N              
-o_image1_1_[6]               : L24       : output : 3.3-V LVTTL       :         : 5         : N              
-GND*                         : L25       :        :                   :         : 5         :                
+o_image2_0_[4]               : L23       : output : 3.3-V LVTTL       :         : 5         : N              
+debug_num_2[4]               : L24       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image2_0_[1]               : L25       : output : 3.3-V LVTTL       :         : 5         : N              
 VCCIO5                       : L26       : power  :                   : 3.3V    : 5         :                
 GND                          : M1        : gnd    :                   :         :           :                
-debug_num_4[6]               : M2        : output : 3.3-V LVTTL       :         : 2         : N              
-debug_num_4[3]               : M3        : output : 3.3-V LVTTL       :         : 2         : N              
-o_row[7]                     : M4        : output : 3.3-V LVTTL       :         : 2         : N              
-debug_num_4[10]              : M5        : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : M2        :        :                   :         : 2         :                
+debug_led_red[9]             : M3        : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : M4        :        :                   :         : 2         :                
+GND*                         : M5        :        :                   :         : 2         :                
 TCK                          : M6        : input  :                   :         : 2         :                
 TDO                          : M7        : output :                   :         : 2         :                
 TDI                          : M8        : input  :                   :         : 2         :                
@@ -528,13 +528,13 @@ GND                          : M15       : gnd    :                   :         
 VCCINT                       : M16       : power  :                   : 1.2V    :           :                
 VCCINT                       : M17       : power  :                   : 1.2V    :           :                
 VCCIO5                       : M18       : power  :                   : 3.3V    : 5         :                
-o_image0_1_[1]               : M19       : output : 3.3-V LVTTL       :         : 5         : N              
-o_image1_2_[2]               : M20       : output : 3.3-V LVTTL       :         : 5         : N              
-o_image0_1_[2]               : M21       : output : 3.3-V LVTTL       :         : 5         : N              
-i_pixel[0]                   : M22       : input  : 3.3-V LVTTL       :         : 5         : N              
-o_image2_1_[0]               : M23       : output : 3.3-V LVTTL       :         : 5         : N              
-o_image1_0_[6]               : M24       : output : 3.3-V LVTTL       :         : 5         : N              
-o_image2_0_[3]               : M25       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image0_2_[7]               : M19       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image0_2_[1]               : M20       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image2_1_[7]               : M21       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image0_1_[6]               : M22       : output : 3.3-V LVTTL       :         : 5         : N              
+debug_num_1[0]               : M23       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image1_2_[3]               : M24       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image2_0_[0]               : M25       : output : 3.3-V LVTTL       :         : 5         : N              
 GND                          : M26       : gnd    :                   :         :           :                
 GND+                         : N1        :        :                   :         : 2         :                
 GND+                         : N2        :        :                   :         : 2         :                
@@ -544,7 +544,7 @@ VCCIO2                       : N5        : power  :                   : 3.3V    
 DCLK                         : N6        :        :                   :         : 2         :                
 nCONFIG                      : N7        :        :                   :         : 2         :                
 GND                          : N8        : gnd    :                   :         :           :                
-o_image1_1_[0]               : N9        : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : N9        :        :                   :         : 2         :                
 VCCINT                       : N10       : power  :                   : 1.2V    :           :                
 GND                          : N11       : gnd    :                   :         :           :                
 GND                          : N12       : gnd    :                   :         :           :                
@@ -555,22 +555,22 @@ GND                          : N16       : gnd    :                   :         
 VCCINT                       : N17       : power  :                   : 1.2V    :           :                
 GND*                         : N18       :        :                   :         : 5         :                
 GND                          : N19       : gnd    :                   :         :           :                
-o_image1_1_[1]               : N20       : output : 3.3-V LVTTL       :         : 5         : N              
+o_row[7]                     : N20       : output : 3.3-V LVTTL       :         : 5         : N              
 NC                           : N21       :        :                   :         :           :                
 VCCIO5                       : N22       : power  :                   : 3.3V    : 5         :                
-o_image2_0_[6]               : N23       : output : 3.3-V LVTTL       :         : 5         : N              
-o_image0_2_[6]               : N24       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image2_0_[2]               : N23       : output : 3.3-V LVTTL       :         : 5         : N              
+o_image2_1_[1]               : N24       : output : 3.3-V LVTTL       :         : 5         : N              
 GND+                         : N25       :        :                   :         : 5         :                
 GND+                         : N26       :        :                   :         : 5         :                
 GND+                         : P1        :        :                   :         : 1         :                
 i_clock                      : P2        : input  : 3.3-V LVTTL       :         : 1         : N              
-o_image2_1_[7]               : P3        : output : 3.3-V LVTTL       :         : 1         : N              
-debug_column[1]              : P4        : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : P3        :        :                   :         : 1         :                
+GND*                         : P4        :        :                   :         : 1         :                
 VCCIO1                       : P5        : power  :                   : 3.3V    : 1         :                
-debug_num_1[5]               : P6        : output : 3.3-V LVTTL       :         : 1         : N              
-o_image2_2_[5]               : P7        : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : P6        :        :                   :         : 1         :                
+GND*                         : P7        :        :                   :         : 1         :                
 GND                          : P8        : gnd    :                   :         :           :                
-debug_num_3[6]               : P9        : output : 3.3-V LVTTL       :         : 2         : N              
+debug_num_4[4]               : P9        : output : 3.3-V LVTTL       :         : 2         : N              
 VCCINT                       : P10       : power  :                   : 1.2V    :           :                
 GND                          : P11       : gnd    :                   :         :           :                
 GND                          : P12       : gnd    :                   :         :           :                
@@ -578,23 +578,23 @@ GND                          : P13       : gnd    :                   :         
 GND                          : P14       : gnd    :                   :         :           :                
 GND                          : P15       : gnd    :                   :         :           :                
 GND                          : P16       : gnd    :                   :         :           :                
-debug_num_1[7]               : P17       : output : 3.3-V LVTTL       :         : 6         : N              
-debug_led_red[17]            : P18       : output : 3.3-V LVTTL       :         : 5         : N              
+i_pixel[2]                   : P17       : input  : 3.3-V LVTTL       :         : 6         : N              
+debug_num_3[1]               : P18       : output : 3.3-V LVTTL       :         : 5         : N              
 GND                          : P19       : gnd    :                   :         :           :                
 MSEL0                        : P20       :        :                   :         : 6         :                
 MSEL1                        : P21       :        :                   :         : 6         :                
 VCCIO6                       : P22       : power  :                   : 3.3V    : 6         :                
-debug_column[6]              : P23       : output : 3.3-V LVTTL       :         : 6         : N              
-debug_num_3[12]              : P24       : output : 3.3-V LVTTL       :         : 6         : N              
+debug_num_2[3]               : P23       : output : 3.3-V LVTTL       :         : 6         : N              
+debug_num_2[0]               : P24       : output : 3.3-V LVTTL       :         : 6         : N              
 GND+                         : P25       :        :                   :         : 6         :                
 GND+                         : P26       :        :                   :         : 6         :                
 GND                          : R1        : gnd    :                   :         :           :                
-o_image2_2_[1]               : R2        : output : 3.3-V LVTTL       :         : 1         : N              
-o_image2_2_[6]               : R3        : output : 3.3-V LVTTL       :         : 1         : N              
-o_image1_1_[4]               : R4        : output : 3.3-V LVTTL       :         : 1         : N              
-o_image0_2_[4]               : R5        : output : 3.3-V LVTTL       :         : 1         : N              
-i_pixel[2]                   : R6        : input  : 3.3-V LVTTL       :         : 1         : N              
-debug_num_1[1]               : R7        : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : R2        :        :                   :         : 1         :                
+GND*                         : R3        :        :                   :         : 1         :                
+debug_key[1]                 : R4        : input  : 3.3-V LVTTL       :         : 1         : N              
+debug_led_red[12]            : R5        : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : R6        :        :                   :         : 1         :                
+GND*                         : R7        :        :                   :         : 1         :                
 GND*                         : R8        :        :                   :         : 1         :                
 VCCIO1                       : R9        : power  :                   : 3.3V    : 1         :                
 VCCINT                       : R10       : power  :                   : 1.2V    :           :                
@@ -604,95 +604,95 @@ GND                          : R13       : gnd    :                   :         
 GND                          : R14       : gnd    :                   :         :           :                
 GND                          : R15       : gnd    :                   :         :           :                
 VCCINT                       : R16       : power  :                   : 1.2V    :           :                
-o_image2_1_[3]               : R17       : output : 3.3-V LVTTL       :         : 6         : N              
+o_image0_0_[0]               : R17       : output : 3.3-V LVTTL       :         : 6         : N              
 VCCIO6                       : R18       : power  :                   : 3.3V    : 6         :                
-debug_num_2[1]               : R19       : output : 3.3-V LVTTL       :         : 6         : N              
-o_image2_1_[5]               : R20       : output : 3.3-V LVTTL       :         : 6         : N              
+o_image1_1_[3]               : R19       : output : 3.3-V LVTTL       :         : 6         : N              
+o_image2_2_[7]               : R20       : output : 3.3-V LVTTL       :         : 6         : N              
 GND                          : R21       : gnd    :                   :         :           :                
 nSTATUS                      : R22       :        :                   :         : 6         :                
 CONF_DONE                    : R23       :        :                   :         : 6         :                
-o_image0_0_[0]               : R24       : output : 3.3-V LVTTL       :         : 6         : N              
-o_image0_1_[6]               : R25       : output : 3.3-V LVTTL       :         : 6         : N              
+debug_num_2[1]               : R24       : output : 3.3-V LVTTL       :         : 6         : N              
+debug_column[1]              : R25       : output : 3.3-V LVTTL       :         : 6         : N              
 GND                          : R26       : gnd    :                   :         :           :                
 VCCIO1                       : T1        : power  :                   : 3.3V    : 1         :                
-i_pixel[3]                   : T2        : input  : 3.3-V LVTTL       :         : 1         : N              
-debug_num_3[3]               : T3        : output : 3.3-V LVTTL       :         : 1         : N              
-debug_num_1[10]              : T4        : output : 3.3-V LVTTL       :         : 1         : N              
+debug_num_5[6]               : T2        : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : T3        :        :                   :         : 1         :                
+debug_switch[8]              : T4        : input  : 3.3-V LVTTL       :         : 1         : N              
 GND                          : T5        : gnd    :                   :         :           :                
-GND*                         : T6        :        :                   :         : 1         :                
-debug_num_0[7]               : T7        : output : 3.3-V LVTTL       :         : 1         : N              
+debug_num_4[3]               : T6        : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : T7        :        :                   :         : 1         :                
 GND*                         : T8        :        :                   :         : 1         :                
-o_image0_0_[4]               : T9        : output : 3.3-V LVTTL       :         : 1         : N              
-o_image0_1_[4]               : T10       : output : 3.3-V LVTTL       :         : 1         : N              
+debug_num_5[9]               : T9        : output : 3.3-V LVTTL       :         : 1         : N              
+debug_num_3[7]               : T10       : output : 3.3-V LVTTL       :         : 1         : N              
 VCCINT                       : T11       : power  :                   : 1.2V    :           :                
 GND                          : T12       : gnd    :                   :         :           :                
 GND                          : T13       : gnd    :                   :         :           :                
 GND                          : T14       : gnd    :                   :         :           :                
 GND                          : T15       : gnd    :                   :         :           :                
 VCCINT                       : T16       : power  :                   : 1.2V    :           :                
-debug_num_1[0]               : T17       : output : 3.3-V LVTTL       :         : 6         : N              
-o_image1_2_[7]               : T18       : output : 3.3-V LVTTL       :         : 6         : N              
-o_dir[2]                     : T19       : output : 3.3-V LVTTL       :         : 6         : N              
-o_row[0]                     : T20       : output : 3.3-V LVTTL       :         : 6         : N              
-o_image0_1_[3]               : T21       : output : 3.3-V LVTTL       :         : 6         : N              
-o_image1_0_[4]               : T22       : output : 3.3-V LVTTL       :         : 6         : N              
-o_image1_0_[5]               : T23       : output : 3.3-V LVTTL       :         : 6         : N              
-o_mode[0]                    : T24       : output : 3.3-V LVTTL       :         : 6         : N              
-debug_num_1[6]               : T25       : output : 3.3-V LVTTL       :         : 6         : N              
+o_image2_2_[5]               : T17       : output : 3.3-V LVTTL       :         : 6         : N              
+o_image2_2_[6]               : T18       : output : 3.3-V LVTTL       :         : 6         : N              
+i_pixel[3]                   : T19       : input  : 3.3-V LVTTL       :         : 6         : N              
+o_image2_2_[1]               : T20       : output : 3.3-V LVTTL       :         : 6         : N              
+debug_column[4]              : T21       : output : 3.3-V LVTTL       :         : 6         : N              
+o_image2_2_[0]               : T22       : output : 3.3-V LVTTL       :         : 6         : N              
+o_image2_1_[0]               : T23       : output : 3.3-V LVTTL       :         : 6         : N              
+o_row[3]                     : T24       : output : 3.3-V LVTTL       :         : 6         : N              
+i_pixel[7]                   : T25       : input  : 3.3-V LVTTL       :         : 6         : N              
 VCCIO6                       : T26       : power  :                   : 3.3V    : 6         :                
-debug_num_2[3]               : U1        : output : 3.3-V LVTTL       :         : 1         : N              
-debug_num_5[5]               : U2        : output : 3.3-V LVTTL       :         : 1         : N              
-o_image0_0_[5]               : U3        : output : 3.3-V LVTTL       :         : 1         : N              
-i_pixel[5]                   : U4        : input  : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : U1        :        :                   :         : 1         :                
+GND*                         : U2        :        :                   :         : 1         :                
+GND*                         : U3        :        :                   :         : 1         :                
+GND*                         : U4        :        :                   :         : 1         :                
 GND*                         : U5        :        :                   :         : 1         :                
 GND*                         : U6        :        :                   :         : 1         :                
 GND*                         : U7        :        :                   :         : 1         :                
 GND                          : U8        : gnd    :                   :         :           :                
-debug_num_2[11]              : U9        : output : 3.3-V LVTTL       :         : 1         : N              
-debug_num_5[1]               : U10       : output : 3.3-V LVTTL       :         : 1         : N              
+GND*                         : U9        :        :                   :         : 1         :                
+GND*                         : U10       :        :                   :         : 1         :                
 VCCINT                       : U11       : power  :                   : 1.2V    :           :                
-o_image2_0_[4]               : U12       : output : 3.3-V LVTTL       :         : 8         : N              
+GND*                         : U12       :        :                   :         : 8         :                
 VCCINT                       : U13       : power  :                   : 1.2V    :           :                
 VCCINT                       : U14       : power  :                   : 1.2V    :           :                
 VCCINT                       : U15       : power  :                   : 1.2V    :           :                
 VCCINT                       : U16       : power  :                   : 1.2V    :           :                
-GND*                         : U17       :        :                   :         : 7         :                
-debug_led_red[2]             : U18       : output : 3.3-V LVTTL       :         : 7         : N              
+o_image1_0_[2]               : U17       : output : 3.3-V LVTTL       :         : 7         : N              
+GND*                         : U18       :        :                   :         : 7         :                
 GND                          : U19       : gnd    :                   :         :           :                
-o_image0_2_[5]               : U20       : output : 3.3-V LVTTL       :         : 6         : N              
-debug_num_5[6]               : U21       : output : 3.3-V LVTTL       :         : 6         : N              
+o_image2_2_[3]               : U20       : output : 3.3-V LVTTL       :         : 6         : N              
+debug_led_red[6]             : U21       : output : 3.3-V LVTTL       :         : 6         : N              
 GND*                         : U22       :        :                   :         : 6         :                
-debug_num_2[2]               : U23       : output : 3.3-V LVTTL       :         : 6         : N              
-debug_num_5[0]               : U24       : output : 3.3-V LVTTL       :         : 6         : N              
-debug_num_5[4]               : U25       : output : 3.3-V LVTTL       :         : 6         : N              
-debug_num_7                  : U26       : output : 3.3-V LVTTL       :         : 6         : N              
-debug_num_2[10]              : V1        : output : 3.3-V LVTTL       :         : 1         : N              
-i_pixel[7]                   : V2        : input  : 3.3-V LVTTL       :         : 1         : N              
-debug_num_1[3]               : V3        : output : 3.3-V LVTTL       :         : 1         : N              
-debug_num_2[8]               : V4        : output : 3.3-V LVTTL       :         : 1         : N              
+o_image1_1_[2]               : U23       : output : 3.3-V LVTTL       :         : 6         : N              
+o_image2_2_[2]               : U24       : output : 3.3-V LVTTL       :         : 6         : N              
+debug_num_0[1]               : U25       : output : 3.3-V LVTTL       :         : 6         : N              
+o_image0_1_[1]               : U26       : output : 3.3-V LVTTL       :         : 6         : N              
+GND*                         : V1        :        :                   :         : 1         :                
+GND*                         : V2        :        :                   :         : 1         :                
+GND*                         : V3        :        :                   :         : 1         :                
+GND*                         : V4        :        :                   :         : 1         :                
 GND*                         : V5        :        :                   :         : 1         :                
-GND*                         : V6        :        :                   :         : 1         :                
+debug_led_red[5]             : V6        : output : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : V7        :        :                   :         : 1         :                
 VCCIO1                       : V8        : power  :                   : 3.3V    : 1         :                
 GND*                         : V9        :        :                   :         : 8         :                
 GND*                         : V10       :        :                   :         : 8         :                
-o_image2_1_[4]               : V11       : output : 3.3-V LVTTL       :         : 8         : N              
+GND*                         : V11       :        :                   :         : 8         :                
 VCCIO8                       : V12       : power  :                   : 3.3V    : 8         :                
-o_image2_2_[4]               : V13       : output : 3.3-V LVTTL       :         : 8         : N              
-debug_num_4[8]               : V14       : output : 3.3-V LVTTL       :         : 8         : N              
+debug_switch[0]              : V13       : input  : 3.3-V LVTTL       :         : 8         : N              
+GND*                         : V14       :        :                   :         : 8         :                
 VCCIO7                       : V15       : power  :                   : 3.3V    : 7         :                
 VCCINT                       : V16       : power  :                   : 1.2V    :           :                
-GND*                         : V17       :        :                   :         : 7         :                
+i_pixel[5]                   : V17       : input  : 3.3-V LVTTL       :         : 7         : N              
 GND*                         : V18       :        :                   :         : 7         :                
 VCCIO6                       : V19       : power  :                   : 3.3V    : 6         :                
-GND*                         : V20       :        :                   :         : 6         :                
-debug_led_grn[1]             : V21       : output : 3.3-V LVTTL       :         : 6         : N              
+debug_num_5[10]              : V20       : output : 3.3-V LVTTL       :         : 6         : N              
+debug_num_3[12]              : V21       : output : 3.3-V LVTTL       :         : 6         : N              
 GND*                         : V22       :        :                   :         : 6         :                
 GND*                         : V23       :        :                   :         : 6         :                
 GND*                         : V24       :        :                   :         : 6         :                
-debug_switch[17]             : V25       : input  : 3.3-V LVTTL       :         : 6         : N              
-debug_num_0[8]               : V26       : output : 3.3-V LVTTL       :         : 6         : N              
-GND*                         : W1        :        :                   :         : 1         :                
+i_pixel[6]                   : V25       : input  : 3.3-V LVTTL       :         : 6         : N              
+GND*                         : V26       :        :                   :         : 6         :                
+debug_led_red[16]            : W1        : output : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : W2        :        :                   :         : 1         :                
 GND*                         : W3        :        :                   :         : 1         :                
 GND*                         : W4        :        :                   :         : 1         :                
@@ -702,19 +702,19 @@ GND_PLL1                     : W7        : gnd    :                   :         
 GND*                         : W8        :        :                   :         : 8         :                
 VCCIO8                       : W9        : power  :                   : 3.3V    : 8         :                
 GND*                         : W10       :        :                   :         : 8         :                
-debug_num_4[4]               : W11       : output : 3.3-V LVTTL       :         : 8         : N              
-debug_num_0[6]               : W12       : output : 3.3-V LVTTL       :         : 8         : N              
+debug_led_red[8]             : W11       : output : 3.3-V LVTTL       :         : 8         : N              
+GND*                         : W12       :        :                   :         : 8         :                
 GND                          : W13       : gnd    :                   :         :           :                
 GND                          : W14       : gnd    :                   :         :           :                
-debug_num_5[12]              : W15       : output : 3.3-V LVTTL       :         : 7         : N              
-debug_num_5[7]               : W16       : output : 3.3-V LVTTL       :         : 7         : N              
-debug_num_5[10]              : W17       : output : 3.3-V LVTTL       :         : 7         : N              
+debug_num_4[7]               : W15       : output : 3.3-V LVTTL       :         : 7         : N              
+GND*                         : W16       :        :                   :         : 7         :                
+i_pixel[1]                   : W17       : input  : 3.3-V LVTTL       :         : 7         : N              
 VCCIO7                       : W18       : power  :                   : 3.3V    : 7         :                
 GND*                         : W19       :        :                   :         : 7         :                
 GND_PLL4                     : W20       : gnd    :                   :         :           :                
-debug_led_red[0]             : W21       : output : 3.3-V LVTTL       :         : 6         : N              
+GND*                         : W21       :        :                   :         : 6         :                
 GND                          : W22       : gnd    :                   :         :           :                
-debug_led_grn[4]             : W23       : output : 3.3-V LVTTL       :         : 6         : N              
+GND*                         : W23       :        :                   :         : 6         :                
 GND*                         : W24       :        :                   :         : 6         :                
 GND*                         : W25       :        :                   :         : 6         :                
 GND*                         : W26       :        :                   :         : 6         :                
@@ -722,25 +722,25 @@ GND*                         : Y1        :        :                   :         
 NC                           : Y2        :        :                   :         :           :                
 GND*                         : Y3        :        :                   :         : 1         :                
 GND*                         : Y4        :        :                   :         : 1         :                
-GND*                         : Y5        :        :                   :         : 1         :                
+debug_num_4[9]               : Y5        : output : 3.3-V LVTTL       :         : 1         : N              
 GND_PLL1                     : Y6        : gnd    :                   :         :           :                
 VCCD_PLL1                    : Y7        : power  :                   : 1.2V    :           :                
 GNDA_PLL1                    : Y8        : gnd    :                   :         :           :                
 GND                          : Y9        : gnd    :                   :         :           :                
 GND*                         : Y10       :        :                   :         : 8         :                
 GND*                         : Y11       :        :                   :         : 8         :                
-o_image2_0_[5]               : Y12       : output : 3.3-V LVTTL       :         : 8         : N              
-o_edge                       : Y13       : output : 3.3-V LVTTL       :         : 7         : N              
-debug_num_5[8]               : Y14       : output : 3.3-V LVTTL       :         : 7         : N              
-debug_num_0[0]               : Y15       : output : 3.3-V LVTTL       :         : 7         : N              
-debug_num_2[5]               : Y16       : output : 3.3-V LVTTL       :         : 7         : N              
+GND*                         : Y12       :        :                   :         : 8         :                
+GND*                         : Y13       :        :                   :         : 7         :                
+debug_switch[3]              : Y14       : input  : 3.3-V LVTTL       :         : 7         : N              
+GND*                         : Y15       :        :                   :         : 7         :                
+debug_led_grn[5]             : Y16       : output : 3.3-V LVTTL       :         : 7         : N              
 GND                          : Y17       : gnd    :                   :         :           :                
-debug_switch[13]             : Y18       : input  : 3.3-V LVTTL       :         : 7         : N              
+GND*                         : Y18       :        :                   :         : 7         :                
 GNDA_PLL4                    : Y19       : gnd    :                   :         :           :                
 VCCD_PLL4                    : Y20       : power  :                   : 1.2V    :           :                
-GND*                         : Y21       :        :                   :         : 6         :                
+debug_switch[2]              : Y21       : input  : 3.3-V LVTTL       :         : 6         : N              
 GND*                         : Y22       :        :                   :         : 6         :                
 GND*                         : Y23       :        :                   :         : 6         :                
 GND*                         : Y24       :        :                   :         : 6         :                
-debug_led_red[10]            : Y25       : output : 3.3-V LVTTL       :         : 6         : N              
-GND*                         : Y26       :        :                   :         : 6         :                
+GND*                         : Y25       :        :                   :         : 6         :                
+debug_num_3[3]               : Y26       : output : 3.3-V LVTTL       :         : 6         : N              

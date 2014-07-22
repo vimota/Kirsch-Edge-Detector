@@ -45,7 +45,7 @@ architecture main of top_kirsch is
   signal kirschout      : std_logic;
   signal dir            : std_logic_vector(2 downto 0);
   signal mode           : std_logic_vector(1 downto 0);
-  signal rowcount       : std_logic_vector(3 downto 0);
+  signal rowcount       : std_logic_vector(7 downto 0);
 
   signal debug_num_0
        , debug_num_1
@@ -110,29 +110,29 @@ begin
     & to_sevenseg( unsigned(rowcount(3 downto 0)), '0' )
     when rising_edge( clk );
     
-  debug_sevenseg_0 <= 
-      to_sevenseg( unsigned(debug_num_0), '0' )
-      when rising_edge( clk );
+  -- debug_sevenseg_0 <= 
+  --     to_sevenseg( unsigned(debug_num_0), '0' )
+  --     when rising_edge( clk );
     
-  debug_sevenseg_1 <=
-      to_sevenseg(debug_num_1, '0' )
-      when rising_edge( clk );
+  -- debug_sevenseg_1 <=
+  --     to_sevenseg(unsigned(debug_num_1), '0' )
+  --     when rising_edge( clk );
     
-  debug_sevenseg_2 <=
-      to_sevenseg( unsigned(debug_num_2), '0' )
-      when rising_edge( clk );
+  -- debug_sevenseg_2 <=
+  --     to_sevenseg( unsigned(debug_num_2), '0' )
+  --     when rising_edge( clk );
     
-  debug_sevenseg_3 <=
-      to_sevenseg( unsigned(debug_num_3), '0' )
-      when rising_edge( clk );
+  -- debug_sevenseg_3 <=
+  --     to_sevenseg( unsigned(debug_num_3), '0' )
+  --     when rising_edge( clk );
     
-  debug_sevenseg_4 <=
-      to_sevenseg( unsigned(debug_num_4), '0' )
-      when rising_edge( clk );
+  -- debug_sevenseg_4 <=
+  --     to_sevenseg( unsigned(debug_num_4), '0' )
+  --     when rising_edge( clk );
     
-  debug_sevenseg_5 <=
-      to_sevenseg( unsigned(debug_num_5), '0' )
-      when rising_edge( clk );
+  -- debug_sevenseg_5 <=
+  --     to_sevenseg( unsigned(debug_num_5), '0' )
+  --     when rising_edge( clk );
     
   o_mode <= mode;
   o_nrst <= rst;

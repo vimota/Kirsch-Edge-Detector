@@ -19,17 +19,6 @@ entity memory is
         \o_image2_0_\   : out    vl_logic_vector(7 downto 0);
         \o_image2_1_\   : out    vl_logic_vector(7 downto 0);
         \o_image2_2_\   : out    vl_logic_vector(7 downto 0);
-        p_first_bubble  : in     vl_logic;
-        \p_mem_data_7_\ : in     vl_logic;
-        \p_mem_data_6_\ : in     vl_logic;
-        \p_mem_data_5_\ : in     vl_logic;
-        \p_mem_data_4_\ : in     vl_logic;
-        \p_mem_data_3_\ : in     vl_logic;
-        \p_mem_data_2_\ : in     vl_logic;
-        \p_mem_data_1_\ : in     vl_logic;
-        \p_mem_data_0_\ : in     vl_logic;
-        px1             : out    vl_logic;
-        px23            : out    vl_logic;
-        p_rtlc2n264     : out    vl_logic
+        p_nrst_int_dup_22: in     vl_logic
     );
 end memory;

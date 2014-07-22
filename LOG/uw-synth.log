@@ -1,5 +1,5 @@
 INFO: Starting PRECISION_RTL for logic synthesis
-precision: Executing on platform: CentOS release 5.10 (Final) Kernel \r on an \m  Linux eceLinux2.uwaterloo.ca 2.6.18-371.9.1.el5 #1 SMP Tue Jun 10 17:49:56 EDT 2014 x86_64 x86_64 x86_64 GNU/Linux 
+precision: Executing on platform: CentOS release 5.10 (Final) Kernel \r on an \m  Linux ecelinux5.uwaterloo.ca 2.6.18-371.9.1.el5 #1 SMP Tue Jun 10 17:49:56 EDT 2014 x86_64 x86_64 x86_64 GNU/Linux 
 precision: Setting MGC_HOME to /opt/Precision_Synthesis_2008a.47/Mgc_home ...
 Note: Defaulting to use the Next Generation GUI.
 //  Precision RTL Synthesis 2008a.47 (Production Release) Tue Dec  9 03:06:25 PST 2008
@@ -10,9 +10,9 @@ Note: Defaulting to use the Next Generation GUI.
 //            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
 //          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 //  
-//  Running on Linux gm2kerr@eceLinux2.uwaterloo.ca #1 SMP Tue Jun 10 17:49:56 EDT 2014 2.6.18-371.9.1.el5 x86_64
+//  Running on Linux gm2kerr@ecelinux5.uwaterloo.ca #1 SMP Tue Jun 10 17:49:56 EDT 2014 2.6.18-371.9.1.el5 x86_64
 //  
-//  Start time Tue Jul 22 00:08:00 2014
+//  Start time Tue Jul 22 01:38:02 2014
 -------------------------------------------------
 Info: Logging session transcript to file precision.log
 Info: Results directory: uw_tmp/
@@ -35,9 +35,1322 @@ INFO: Analyzing "kirsch_synth_pkg.vhd"
 INFO: Analyzing "kirsch.vhd"
 INFO: Analyzing "lib_kirsch.vhd"
 INFO: Analyzing "top_kirsch.vhd"
-Warning: "top_kirsch.vhd", line 91: Size  4 of rhs expression does not match with the size 8 of lhs expr
-Error: "top_kirsch.vhd", line 97: Type mismatch in actual association for formal debug_num_0
-Error: "top_kirsch.vhd", line 81: Port and Port Map does not match
-Error: HDL analysis failed.
-Error: near file uw_tmp/uw-logic-synth-precision_rtl.tcl, line 24: 
-ERROR: Failure when running `precision -shell -file uw_tmp/uw-logic-synth-precision_rtl.tcl'
+Info: Current working directory: uw_tmp/.
+Info: RTLC-Driver, Release RTLC-Precision 2008a.22
+Info: Last compiled on Nov 27 2008 12:40:04
+Info: Initializing...
+Info: Partitioning design ....
+
+Info: RTLCompiler, Release RTLC-Precision 2008a.22
+Info: Last compiled on Nov 27 2008 12:46:53
+Info: Initializing...
+Info: Root Module work.top_kirsch(main): Pre-processing...
+Info: Module work.uw_uart(main): Pre-processing...
+Info: Module work.UARTS(RTL): Pre-processing...
+Info: "lib_kirsch.vhd", line 133: Enumerated type TxFSM_State with 5 elements encoded as onehot.
+Info: Encodings for TxFSM_State values.
+Info: value                              	                   TxFSM_State[4-0]
+Info: Idle                               	                         ----1
+Info: Load_Tx                            	                         ---1-
+Info: Shift_TX                           	                         --1--
+Info: Parity_Tx                          	                         -1---
+Info: Stop_Tx                            	                         1----
+Info: "lib_kirsch.vhd", line 136: Enumerated type RxFSM_State with 8 elements encoded as onehot.
+Info: Encodings for RxFSM_State values.
+Info: value                              	                   RxFSM_State[7-0]
+Info: Idle                               	                      -------1
+Info: Start_Rx                           	                      ------1-
+Info: Shift_RX                           	                      -----1--
+Info: Edge_Rx                            	                      ----1---
+Info: Parity_Rx                          	                      ---1----
+Info: Parity_2                           	                      --1-----
+Info: Stop_Rx                            	                      -1------
+Info: RxOVF                              	                      1-------
+Info: FSM: Removing state for un-assigned literal      01000
+Info: Extracted FSM in module work.UARTS(RTL), with state variable = TxFSM[4:0], async set/reset state(s) = 00001 , number of states = 4.
+Info: Re-encoding 4 state FSM as "binary".
+Info: FSM: State encoding table.
+Info: FSM:	Index	     State Name	                            Literal	                      Encoding
+Info: FSM:	    0	           Idle	                              00001	                            00
+Info: FSM:	    1	        Load_Tx	                              00010	                            01
+Info: FSM:	    2	       Shift_TX	                              00100	                            10
+Info: FSM:	    3	        Stop_Tx	                              10000	                            11
+Info: FSM: Removing state for un-assigned literal   00010000
+Info: Extracted FSM in module work.UARTS(RTL), with state variable = RxFSM[7:0], async set/reset state(s) = 00000001 , number of states = 7.
+Info: Re-encoding 7 state FSM as "onehot".
+Info: FSM: State encoding table.
+Info: FSM:	Index	     State Name	                            Literal	                      Encoding
+Info: FSM:	    0	           Idle	                           00000001	                       0000001
+Info: FSM:	    1	       Start_Rx	                           00000010	                       0000010
+Info: FSM:	    2	        Edge_Rx	                           00001000	                       0000100
+Info: FSM:	    3	       Shift_RX	                           00000100	                       0001000
+Info: FSM:	    4	       Parity_2	                           00100000	                       0010000
+Info: FSM:	    5	        Stop_Rx	                           01000000	                       0100000
+Info: FSM:	    6	          RxOVF	                           10000000	                       1000000
+Info: Module work.kirsch(main): Pre-processing...
+Info: Module work.memory(main): Pre-processing...
+Info: Module work.mem(main){generic map (data_width => 8 addr_width => 8)}: Pre-processing...
+Info: Built-in hardware memory core inferred for variable ': mem.mem depth = 256, width = 8'.
+Info: Module work.flow(main): Pre-processing...
+Warning: "flow.vhd", line 69: signal p50 has never been used.
+Warning: "kirsch.vhd", line 23: Input port debug_key has never been used.
+Warning: "kirsch.vhd", line 24: Input port debug_switch has never been used.
+Warning: "kirsch.vhd", line 29: Output port debug_num_0 has never been assigned a value.
+Warning: "kirsch.vhd", line 30: Output port debug_num_1 has never been assigned a value.
+Warning: "kirsch.vhd", line 31: Output port debug_num_2 has never been assigned a value.
+Warning: "kirsch.vhd", line 32: Output port debug_num_3 has never been assigned a value.
+Warning: "kirsch.vhd", line 33: Output port debug_num_4 has never been assigned a value.
+Warning: "kirsch.vhd", line 34: Output port debug_num_5 has never been assigned a value.
+Warning: "kirsch.vhd", line 35: Output port debug_num_6 has never been assigned a value.
+Warning: "kirsch.vhd", line 36: Output port debug_num_7 has never been assigned a value.
+Warning: "kirsch.vhd", line 37: Output port debug_num_8 has never been assigned a value.
+Warning: "top_kirsch.vhd", line 28: Output port debug_sevenseg_0 has never been assigned a value.
+Warning: "top_kirsch.vhd", line 29: Output port debug_sevenseg_1 has never been assigned a value.
+Warning: "top_kirsch.vhd", line 30: Output port debug_sevenseg_2 has never been assigned a value.
+Warning: "top_kirsch.vhd", line 31: Output port debug_sevenseg_3 has never been assigned a value.
+Warning: "top_kirsch.vhd", line 32: Output port debug_sevenseg_4 has never been assigned a value.
+Warning: "top_kirsch.vhd", line 33: Output port debug_sevenseg_5 has never been assigned a value.
+Warning: "top_kirsch.vhd", line 50: signal debug_num_0 has never been used.
+Warning: "top_kirsch.vhd", line 51: signal debug_num_1 has never been used.
+Warning: "top_kirsch.vhd", line 52: signal debug_num_2 has never been used.
+Warning: "top_kirsch.vhd", line 53: signal debug_num_3 has never been used.
+Warning: "top_kirsch.vhd", line 54: signal debug_num_4 has never been used.
+Warning: "top_kirsch.vhd", line 55: signal debug_num_5 has never been used.
+Warning: "top_kirsch.vhd", line 56: signal debug_num_6 has never been used.
+Warning: "top_kirsch.vhd", line 57: signal debug_num_7 has never been used.
+Warning: "top_kirsch.vhd", line 58: signal debug_num_8 has never been used.
+Warning: "top_kirsch.vhd", line 61: signal NC has never been used.
+Info: Module work.UARTS(RTL): Compiling...
+Info: "lib_kirsch.vhd", line 184: Sharing register TxDivisor(9) with TxDivisor(9)
+Info: "lib_kirsch.vhd", line 184: Sharing register TxDivisor(7) with TxDivisor(7)
+Info: "lib_kirsch.vhd", line 184: Sharing register TxDivisor(4) with TxDivisor(4)
+Info: "lib_kirsch.vhd", line 184: Sharing register TxDivisor(3) with TxDivisor(3)
+Info: "lib_kirsch.vhd", line 184: Sharing register TxDivisor(1) with TxDivisor(1)
+Info: "lib_kirsch.vhd", line 184: Sharing register TxDivisor(0) with TxDivisor(0)
+Info: "lib_kirsch.vhd", line 184: Sharing register RxDivisor(10) with RxDivisor(10)
+Info: "lib_kirsch.vhd", line 184: Sharing register RxDivisor(8) with RxDivisor(8)
+Info: "lib_kirsch.vhd", line 184: Sharing register RxDivisor(7) with RxDivisor(7)
+Info: "lib_kirsch.vhd", line 184: Sharing register RxDivisor(6) with RxDivisor(6)
+Info: "lib_kirsch.vhd", line 184: Sharing register RxDivisor(4) with RxDivisor(4)
+Info: "lib_kirsch.vhd", line 184: Sharing register RxDivisor(3) with RxDivisor(3)
+Info: "lib_kirsch.vhd", line 184: Sharing register RxDivisor(2) with RxDivisor(2)
+Info: "lib_kirsch.vhd", line 184: Sharing register RxDivisor(0) with RxDivisor(0)
+Info: "lib_kirsch.vhd", line 219: Macro Modgen_Counter "counter_up_sclear_aclear_clock_0_11" inferred for node "RxDiv".
+Info: "lib_kirsch.vhd", line 241: Macro Modgen_Counter "counter_up_sclear_aclear_clock_0_12" inferred for node "TxDiv".
+Info: "lib_kirsch.vhd", line 287: Macro Modgen_Counter "counter_dn_sload_aclear_clock_clk_en_cnt_en_0_4" inferred for node "TxBitCnt".
+Info: "lib_kirsch.vhd", line 371: Macro Modgen_Counter "counter_up_sclear_aclear_clock_clk_en_0_4" inferred for node "RxBitCnt".
+Info: Module work.uw_uart(main): Compiling...
+Info: "lib_kirsch.vhd", line 525: Sharing register mdata[7] with mdata[6]
+Info: "lib_kirsch.vhd", line 525: Sharing register mdata[5] with mdata[4]
+Info: "lib_kirsch.vhd", line 563: Sharing register sdout[7] with sdout[6]
+Info: "lib_kirsch.vhd", line 563: Sharing register sdout[5] with sdout[4]
+Info: "lib_kirsch.vhd", line 535: Macro Modgen_Counter "counter_up_sclear_clock_clk_en_0_16" inferred for node "waitcount".
+Info: Module work.mem(main){generic map (data_width => 8 addr_width => 8)}: Compiling...
+Info: Module work.memory(main): Compiling...
+Warning: "memory.vhd", line 110: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 110: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 102: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 214: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 204: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 52: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Warning: "memory.vhd", line 208: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
+Info: "memory.vhd", line 134: Macro Modgen_Counter "counter_up_sclear_clock_cnt_en_0_8" inferred for node "row".
+Info: "memory.vhd", line 138: Macro Modgen_Counter "counter_up_sclear_clock_clk_en_cnt_en_0_8" inferred for node "column".
+Info: Module work.flow(main): Compiling...
+Info: Module work.kirsch(main): Compiling...
+Info: Root Module work.top_kirsch(main): Compiling...
+Warning: "lib_kirsch.vhd", line 184: Optimizing state bit(s) RxDivisor[9] to constant 0
+Warning: "lib_kirsch.vhd", line 184: Optimizing state bit(s) RxDivisor[5] to constant 0
+Warning: "lib_kirsch.vhd", line 184: Optimizing state bit(s) RxDivisor[1] to constant 0
+Warning: "lib_kirsch.vhd", line 184: Optimizing state bit(s) TxDivisor[10] to constant 0
+Warning: "lib_kirsch.vhd", line 184: Optimizing state bit(s) TxDivisor[6] to constant 0
+Warning: "lib_kirsch.vhd", line 184: Optimizing state bit(s) TxDivisor[2] to constant 0
+Warning: "lib_kirsch.vhd", line 317: Optimizing state bit(s) RxFSM[4] to constant 0
+Warning: "top_kirsch.vhd", line 19: Optimizing state bit(s) o_sevenseg[15] to constant 1
+Warning: "top_kirsch.vhd", line 19: Optimizing state bit(s) o_sevenseg[7] to constant 1
+Info: Rebalanced Expression Tree...
+Info: Compilation successfully completed.
+Info: Counter Inferencing === Detected : 7, Inferred (Modgen/Selcounter/AddSub) : 7 (7 / 0 / 0), AcrossDH (Merged/Not-Merged) : (0 / 0), Not-Inferred (Acrossdh/Attempted) : (0 / 0), Local Vars : 0 ===
+Info: Total CPU time taken for compilation: 0.0 secs.
+Info: Total lines of RTL compiled: 1414.
+Info: Overall running time 2.0 secs.
+Info: Current working directory: uw_tmp/.
+Info: "flow.vhd", line 110: : Inferred shift register Instance 'instance:u_kirsch.u_flow.ix248' of type 'cell:shiftregister_reg_p5r(7)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 110: : Inferred shift register Instance 'instance:u_kirsch.u_flow.ix249' of type 'cell:shiftregister_reg_p5r(6)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 110: : Inferred shift register Instance 'instance:u_kirsch.u_flow.ix250' of type 'cell:shiftregister_reg_p5r(5)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 110: : Inferred shift register Instance 'instance:u_kirsch.u_flow.ix251' of type 'cell:shiftregister_reg_p5r(4)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 110: : Inferred shift register Instance 'instance:u_kirsch.u_flow.ix252' of type 'cell:shiftregister_reg_p5r(3)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 110: : Inferred shift register Instance 'instance:u_kirsch.u_flow.ix253' of type 'cell:shiftregister_reg_p5r(2)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 110: : Inferred shift register Instance 'instance:u_kirsch.u_flow.ix254' of type 'cell:shiftregister_reg_p5r(1)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 110: : Inferred shift register Instance 'instance:u_kirsch.u_flow.ix255' of type 'cell:shiftregister_reg_p5r(0)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 110: : Inferred shift register Instance 'instance:u_kirsch.u_flow.ix256' of type 'cell:shiftregister_reg_p5m(1)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 110: : Inferred shift register Instance 'instance:u_kirsch.u_flow.ix257' of type 'cell:shiftregister_reg_p5m(0)_clk_reset_set_0_1_1_1_0_4'
+Info: "flow.vhd", line 110: : Inferred shift register with taps Instance 'instance:u_kirsch.u_flow.ix258' of type 'cell:shiftregister_with_taps_8_4_1'
+Info: "flow.vhd", line 110: : Inferred shift register with taps Instance 'instance:u_kirsch.u_flow.ix259' of type 'cell:shiftregister_with_taps_2_4_1'
+Info: Finished compiling design.
+Info: -- Saving the design database in uw_tmp/top_kirsch_gate.xdb
+Info: Writing file: uw_tmp/top_kirsch_gate.vhd.
+Info: Info, Command 'auto_write' finished successfully
+Info: Current working directory: uw_tmp/.
+Info: 3 Instances are flattened in hierarchical block .work.memory.main_unfold_1492.
+Info: Optimizing design view:.work.UARTS.RTL_unfold_1358
+Info: Optimizing design view:.work.uw_uart.main
+Info: Optimizing design view:.work.memory.main_unfold_1492
+Info: Optimizing design view:.work.flow.main
+Info: Optimizing design view:.work.kirsch.main_unfold_1777
+Info: Optimizing design view:.work.top_kirsch.main
+Warning: Port debug_sevenseg_0(0) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_0(1) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_0(2) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_0(3) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_1(0) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_1(1) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_1(2) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_1(3) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_2(0) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_2(1) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_2(2) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_2(3) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_3(0) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_3(1) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_3(2) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_3(3) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_4(0) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_4(1) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_4(2) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_4(3) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_5(0) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_5(1) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_5(2) is connected to a disabled tristate, possibly unconnected Port in design.
+Warning: Port debug_sevenseg_5(3) is connected to a disabled tristate, possibly unconnected Port in design.
+Info: -- Running timing characterization...
+Info: Optimizing design view:.work.UARTS.RTL_unfold_1358
+Info: Optimizing design view:.work.uw_uart.main
+Info: Optimizing design view:.work.memory.main_unfold_1492
+Info: Optimizing design view:.work.flow.main
+Info: Optimizing design view:.work.kirsch.main_unfold_1777
+Info: 1 DFFs were moved to top level for I/O mapping.
+Info: 15 I/O registers on critical path unpacked.
+Info: -- Saving the design database in uw_tmp/top_kirsch.xdb
+Info: Writing file: uw_tmp/top_kirsch.edf.
+Info: Info, Writing xrf file 'uw_tmp/top_kirsch.xrf'
+Info: Writing file: uw_tmp/top_kirsch.xrf.
+Info: -- Writing file uw_tmp/top_kirsch.tcl
+Info: exq_pr_compile_project gen_vcf top_kirsch 1
+Info: Finished synthesizing design.
+Info: Total CPU time taken for synthesis: 6.8 secs.
+Info: Overall running time 7.1 secs.
+Info: uw_tmp/precision_tech.sdc
+Info: -- Saving the design database in uw_tmp/top_kirsch_logic.xdb
+Info: Writing file: uw_tmp/top_kirsch_logic.vhd.
+Info: Info, Writing xrf file 'uw_tmp/top_kirsch_logic.xrf'
+Info: Writing file: uw_tmp/top_kirsch_logic.xrf.
+Info: Info, Command 'auto_write' finished successfully
+Info: clk
+Info: -- Saving the design database in uw_tmp/top_kirsch_logic.xdb
+Info: Writing file: uw_tmp/top_kirsch_logic.v.
+Info: Warning, Moving uw_tmp/top_kirsch_logic.xrf to uw_tmp/mgc_old_top_kirsch_logic.xrf as uw_tmp/top_kirsch_logic.xrf exists
+Info: Writing file: uw_tmp/top_kirsch_logic.xrf.
+Info: Info, Command 'auto_write' finished successfully
+Info: *** logic synthesis succeeded ***
+Warning: vmap will not overwrite local modelsim.ini.
+Warning: Library already exists at "work-msim".
+Warning: Library already exists at "altera_mf".
+Modifying modelsim.ini
+Warning: Library already exists at "cycloneii".
+Modifying modelsim.ini
+INFO: generic-gate       netlist         written to uw_tmp/top_kirsch_gate.vhd
+INFO: generic-gate       area estimate   written to RPT/area_gate.rpt
+INFO: logic-synthesis    netlist         written to uw_tmp/top_kirsch_logic.edf
+INFO: logic-synthesis    area estimate   written to RPT/area_logic.rpt
+INFO: logic-synthesis    timing estimate written to RPT/timing_logic.rpt
+INFO: -----------------------------------------------------------------------
+INFO: CRITICAL PATHS (slowest 5 paths, estimated by logic synthesis)
+INFO: 
+INFO: ..........Delays.........
+INFO:  Total  Datapath  Routing          Source              Dest
+INFO: ------  --------  -------   --------------------  ---------------------
+INFO:   6.47     6.38     0.10    u_kirsch/...te(3)/clk u_kirsch/...2)/datain
+INFO:   6.45     6.36     0.10    u_kirsch/...te(2)/clk u_kirsch/...2)/datain
+INFO:   6.25     6.16     0.10    u_kirsch/...te(1)/clk u_kirsch/...2)/datain
+INFO:   6.11     6.01     0.10    u_kirsch/...te(0)/clk u_kirsch/...2)/datain
+INFO:   6.10     4.71     1.38    u_uw_uart...avail/clk o_mode(0)            
+INFO: -----------------------------------------------------------------------
+INFO: Speed on Cyclone II = 154 MHz,  6.47 ns (estimated by logic-synthesis)
+INFO: AREA = 500 cells (500 luts, 463 regs) (estimated by logic-synthesis)
+INFO: Starting QUARTUS for physical synthesis
+Info: *******************************************************************
+Info: Running Quartus II Shell
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Copyright (C) 1991-2009 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Tue Jul 22 01:38:15 2014
+Info: Command: quartus_sh -t uw-chip-synth-quartus.tcl top_kirsch
+Info: Quartus(args): top_kirsch
+Info: Evaluation of Tcl script uw-chip-synth-quartus.tcl was successful
+Info: Quartus II Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 50 megabytes
+    Info: Processing ended: Tue Jul 22 01:38:15 2014
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+Info: *******************************************************************
+Info: Running Quartus II Shell
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Copyright (C) 1991-2009 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Tue Jul 22 01:38:16 2014
+Info: Command: quartus_sh -t /home/ece327/lib/pins-DE2.tcl top_kirsch
+Info: Quartus(args): top_kirsch
+Info: Evaluation of Tcl script /home/ece327/lib/pins-DE2.tcl was successful
+Info: Quartus II Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 50 megabytes
+    Info: Processing ended: Tue Jul 22 01:38:16 2014
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:00
+Warning: Can't contact license server "7416@ultra10.vlsi.uwaterloo.ca" -- this server will be ignored
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Copyright (C) 1991-2009 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Tue Jul 22 01:38:17 2014
+Info: Command: quartus_map top_kirsch --source=top_kirsch_logic.edf --family=CycloneII
+Info: Found 29 design units, including 29 entities, in source file top_kirsch_logic.edf
+    Info: Found entity 1: add_12_0
+    Info: Found entity 2: add_12_1
+    Info: Found entity 3: add_8_0
+    Info: Found entity 4: add_8_1
+    Info: Found entity 5: add_8_2
+    Info: Found entity 6: add_9_0
+    Info: Found entity 7: add_9_1
+    Info: Found entity 8: add_9_2
+    Info: Found entity 9: gt_13_0
+    Info: Found entity 10: gt_14_0
+    Info: Found entity 11: modgen_counter_11_0
+    Info: Found entity 12: modgen_counter_12_0
+    Info: Found entity 13: modgen_counter_16_0
+    Info: Found entity 14: modgen_counter_8_0
+    Info: Found entity 15: modgen_counter_8_1
+    Info: Found entity 16: ram_dq_8_0
+    Info: Found entity 17: ram_dq_8_1
+    Info: Found entity 18: ram_dq_8_2
+    Info: Found entity 19: sub_10_0
+    Info: Found entity 20: sub_10_1
+    Info: Found entity 21: sub_10_2
+    Info: Found entity 22: sub_10_3
+    Info: Found entity 23: sub_12_0
+    Info: Found entity 24: flow
+    Info: Found entity 25: kirsch
+    Info: Found entity 26: memory
+    Info: Found entity 27: top_kirsch
+    Info: Found entity 28: UARTS
+    Info: Found entity 29: uw_uart
+Info: Elaborating entity "top_kirsch" for the top level hierarchy
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "kirsch" for hierarchy "kirsch:u_kirsch"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "flow" for hierarchy "kirsch:u_kirsch|flow:u_flow"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "gt_13_0" for hierarchy "kirsch:u_kirsch|flow:u_flow|gt_13_0:ix45188z19900"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "gt_14_0" for hierarchy "kirsch:u_kirsch|flow:u_flow|gt_14_0:ix47310z8933"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "add_8_0" for hierarchy "kirsch:u_kirsch|flow:u_flow|add_8_0:p11_add8_0i1"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "add_9_0" for hierarchy "kirsch:u_kirsch|flow:u_flow|add_9_0:p11_add9_1"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "add_8_1" for hierarchy "kirsch:u_kirsch|flow:u_flow|add_8_1:p12_add8_0i2"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "add_9_1" for hierarchy "kirsch:u_kirsch|flow:u_flow|add_9_1:p12_add9_2"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "add_8_2" for hierarchy "kirsch:u_kirsch|flow:u_flow|add_8_2:p13_add8_0i3"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "add_9_2" for hierarchy "kirsch:u_kirsch|flow:u_flow|add_9_2:p13_add9_3"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "add_12_0" for hierarchy "kirsch:u_kirsch|flow:u_flow|add_12_0:p21_add12_4i1"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "sub_10_0" for hierarchy "kirsch:u_kirsch|flow:u_flow|sub_10_0:p21_sub10_4i3"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "sub_10_2" for hierarchy "kirsch:u_kirsch|flow:u_flow|sub_10_2:p21_sub11_4i4"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "add_12_1" for hierarchy "kirsch:u_kirsch|flow:u_flow|add_12_1:p22_add12_4i2"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "sub_10_1" for hierarchy "kirsch:u_kirsch|flow:u_flow|sub_10_1:p22_sub10_4i5"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "sub_10_3" for hierarchy "kirsch:u_kirsch|flow:u_flow|sub_10_3:p22_sub11_4i6"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "sub_12_0" for hierarchy "kirsch:u_kirsch|flow:u_flow|sub_12_0:p4s_sub12_0"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "memory" for hierarchy "kirsch:u_kirsch|memory:u_memory"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "modgen_counter_8_1" for hierarchy "kirsch:u_kirsch|memory:u_memory|modgen_counter_8_1:modgen_counter_column"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "modgen_counter_8_0" for hierarchy "kirsch:u_kirsch|memory:u_memory|modgen_counter_8_0:modgen_counter_row"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "ram_dq_8_0" for hierarchy "kirsch:u_kirsch|memory:u_memory|ram_dq_8_0:u_mem1_mem"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "altsyncram" for hierarchy "kirsch:u_kirsch|memory:u_memory|ram_dq_8_0:u_mem1_mem|altsyncram:ix64056z29481"
+Info: Elaborated megafunction instantiation "kirsch:u_kirsch|memory:u_memory|ram_dq_8_0:u_mem1_mem|altsyncram:ix64056z29481"
+Info: Instantiated megafunction "kirsch:u_kirsch|memory:u_memory|ram_dq_8_0:u_mem1_mem|altsyncram:ix64056z29481" with the following parameter:
+    Info: Parameter "init_file_layout" = "UNUSED"
+    Info: Parameter "numwords_b" = "256"
+    Info: Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info: Parameter "width_a" = "8"
+    Info: Parameter "byteena_aclr_a" = "NONE"
+    Info: Parameter "rdcontrol_aclr_b" = "NONE"
+    Info: Parameter "width_b" = "8"
+    Info: Parameter "byteena_aclr_b" = "NONE"
+    Info: Parameter "indata_aclr_a" = "NONE"
+    Info: Parameter "maximum_depth" = "0"
+    Info: Parameter "indata_aclr_b" = "NONE"
+    Info: Parameter "init_file" = "UNUSED"
+    Info: Parameter "intended_device_family" = "Stratix"
+    Info: Parameter "outdata_aclr_a" = "NONE"
+    Info: Parameter "ram_block_type" = "AUTO"
+    Info: Parameter "wrcontrol_aclr_a" = "NONE"
+    Info: Parameter "address_reg_b" = "CLOCK1"
+    Info: Parameter "outdata_aclr_b" = "NONE"
+    Info: Parameter "wrcontrol_aclr_b" = "NONE"
+    Info: Parameter "operation_mode" = "SINGLE_PORT"
+    Info: Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info: Parameter "widthad_a" = "8"
+    Info: Parameter "byte_size" = "8"
+    Info: Parameter "byteena_reg_b" = "CLOCK1"
+    Info: Parameter "widthad_b" = "8"
+    Info: Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info: Parameter "address_aclr_a" = "NONE"
+    Info: Parameter "indata_reg_b" = "CLOCK1"
+    Info: Parameter "numwords_a" = "256"
+    Info: Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info: Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info: Parameter "width_byteena_a" = "1"
+    Info: Parameter "address_aclr_b" = "NONE"
+    Info: Parameter "width_byteena_b" = "1"
+Info: Found 1 design units, including 1 entities, in source file db/altsyncram_jpg2.tdf
+    Info: Found entity 1: altsyncram_jpg2
+Info: Elaborating entity "altsyncram_jpg2" for hierarchy "kirsch:u_kirsch|memory:u_memory|ram_dq_8_0:u_mem1_mem|altsyncram:ix64056z29481|altsyncram_jpg2:auto_generated"
+Info: Elaborating entity "ram_dq_8_1" for hierarchy "kirsch:u_kirsch|memory:u_memory|ram_dq_8_1:u_mem2_mem"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "ram_dq_8_2" for hierarchy "kirsch:u_kirsch|memory:u_memory|ram_dq_8_2:u_mem3_mem"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "uw_uart" for hierarchy "uw_uart:u_uw_uart"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "UARTS" for hierarchy "uw_uart:u_uw_uart|UARTS:i_uarts"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "modgen_counter_11_0" for hierarchy "uw_uart:u_uw_uart|UARTS:i_uarts|modgen_counter_11_0:modgen_counter_RxDiv"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "modgen_counter_12_0" for hierarchy "uw_uart:u_uw_uart|UARTS:i_uarts|modgen_counter_12_0:modgen_counter_TxDiv"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Info: Elaborating entity "modgen_counter_16_0" for hierarchy "uw_uart:u_uw_uart|modgen_counter_16_0:modgen_counter_waitcount"
+Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
+Warning: Design contains 21 input pin(s) that do not drive logic
+    Warning: No output dependent on input pin "debug_key[1]"
+    Warning: No output dependent on input pin "debug_key[2]"
+    Warning: No output dependent on input pin "debug_key[3]"
+    Warning: No output dependent on input pin "debug_switch[0]"
+    Warning: No output dependent on input pin "debug_switch[1]"
+    Warning: No output dependent on input pin "debug_switch[2]"
+    Warning: No output dependent on input pin "debug_switch[3]"
+    Warning: No output dependent on input pin "debug_switch[4]"
+    Warning: No output dependent on input pin "debug_switch[5]"
+    Warning: No output dependent on input pin "debug_switch[6]"
+    Warning: No output dependent on input pin "debug_switch[7]"
+    Warning: No output dependent on input pin "debug_switch[8]"
+    Warning: No output dependent on input pin "debug_switch[9]"
+    Warning: No output dependent on input pin "debug_switch[10]"
+    Warning: No output dependent on input pin "debug_switch[11]"
+    Warning: No output dependent on input pin "debug_switch[12]"
+    Warning: No output dependent on input pin "debug_switch[13]"
+    Warning: No output dependent on input pin "debug_switch[14]"
+    Warning: No output dependent on input pin "debug_switch[15]"
+    Warning: No output dependent on input pin "debug_switch[16]"
+    Warning: No output dependent on input pin "debug_switch[17]"
+Info: Implemented 888 device resources after synthesis - the final resource count might be different
+    Info: Implemented 24 input pins
+    Info: Implemented 67 output pins
+    Info: Implemented 773 logic cells
+    Info: Implemented 24 RAM segments
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 52 warnings
+    Info: Peak virtual memory: 188 megabytes
+    Info: Processing ended: Tue Jul 22 01:38:19 2014
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+Warning: Can't contact license server "7416@ultra10.vlsi.uwaterloo.ca" -- this server will be ignored
+Info: *******************************************************************
+Info: Running Quartus II Fitter
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Copyright (C) 1991-2009 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Tue Jul 22 01:38:20 2014
+Info: Command: quartus_fit top_kirsch --effort=fast --part=EP2C35F672C7
+Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info: Selected device EP2C35F672C7 for design "top_kirsch"
+Info: Fitter is performing a Fast Fit compilation, which decreases Fitter effort to reduce compilation time
+Info: Device migration not selected. If you intend to use device migration later, you may need to change the pin assignments as they may be incompatible with other devices
+    Info: Device EP2C50F672C7 is compatible
+    Info: Device EP2C70F672C7 is compatible
+Info: Fitter converted 3 user pins into dedicated programming pins
+    Info: Pin ~ASDO~ is reserved at location E3
+    Info: Pin ~nCSO~ is reserved at location D3
+    Info: Pin ~LVDS150p/nCEO~ is reserved at location AE24
+Info: Design uses memory blocks. Violating setup or hold times of memory block address registers for either read or write operations could cause memory contents to be corrupted. Make sure that all memory block address registers meet the setup and hold time requirements.
+Warning: No exact pin location assignment(s) for 2 pins of 91 total pins
+    Info: Pin o_sevenseg[7] not assigned to an exact location on the device
+    Info: Pin o_sevenseg[15] not assigned to an exact location on the device
+Info: Fitter is using the Classic Timing Analyzer
+Info: Timing requirements not specified -- optimizing circuit to achieve the following default global requirements
+    Info: Assuming a global fmax requirement of 1000 MHz
+    Info: Not setting a global tsu requirement
+    Info: Not setting a global tco requirement
+    Info: Not setting a global tpd requirement
+Info: Automatically promoted node clk (placed in PIN N2 (CLK0, LVDSCLK0p, Input))
+    Info: Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G2
+Info: Starting register packing
+Info: Finished register packing
+    Extra Info: No registers were packed into other blocks
+Info: Statistics of I/O pins that need to be placed that use the same VCCIO and VREF, before I/O pin placement
+    Info: Number of I/O pins in group: 2 (unused VREF, 3.3V VCCIO, 0 input, 2 output, 0 bidirectional)
+        Info: I/O standards used: 3.3-V LVTTL.
+Info: I/O bank details before I/O pin placement
+    Info: Statistics of I/O banks
+        Info: I/O bank number 1 does not use VREF pins and has 3.3V VCCIO pins. 18 total pin(s) used --  46 pins available
+        Info: I/O bank number 2 does not use VREF pins and has 3.3V VCCIO pins. 15 total pin(s) used --  44 pins available
+        Info: I/O bank number 3 does not use VREF pins and has undetermined VCCIO pins. 1 total pin(s) used --  55 pins available
+        Info: I/O bank number 4 does not use VREF pins and has undetermined VCCIO pins. 2 total pin(s) used --  56 pins available
+        Info: I/O bank number 5 does not use VREF pins and has 3.3V VCCIO pins. 6 total pin(s) used --  59 pins available
+        Info: I/O bank number 6 does not use VREF pins and has 3.3V VCCIO pins. 16 total pin(s) used --  43 pins available
+        Info: I/O bank number 7 does not use VREF pins and has 3.3V VCCIO pins. 24 total pin(s) used --  34 pins available
+        Info: I/O bank number 8 does not use VREF pins and has 3.3V VCCIO pins. 10 total pin(s) used --  46 pins available
+Warning: Ignored locations or region assignments to the following nodes
+    Warning: Node "debug_sevenseg_0[4]" is assigned to location or region, but does not exist in design
+    Warning: Node "debug_sevenseg_0[5]" is assigned to location or region, but does not exist in design
+    Warning: Node "debug_sevenseg_0[6]" is assigned to location or region, but does not exist in design
+    Warning: Node "debug_sevenseg_1[4]" is assigned to location or region, but does not exist in design
+    Warning: Node "debug_sevenseg_1[5]" is assigned to location or region, but does not exist in design
+    Warning: Node "debug_sevenseg_1[6]" is assigned to location or region, but does not exist in design
+    Warning: Node "debug_sevenseg_2[4]" is assigned to location or region, but does not exist in design
+    Warning: Node "debug_sevenseg_2[5]" is assigned to location or region, but does not exist in design
+    Warning: Node "debug_sevenseg_2[6]" is assigned to location or region, but does not exist in design
+    Warning: Node "debug_sevenseg_3[4]" is assigned to location or region, but does not exist in design
+    Warning: Node "debug_sevenseg_3[5]" is assigned to location or region, but does not exist in design
+    Warning: Node "debug_sevenseg_3[6]" is assigned to location or region, but does not exist in design
+    Warning: Node "debug_sevenseg_4[4]" is assigned to location or region, but does not exist in design
+    Warning: Node "debug_sevenseg_4[5]" is assigned to location or region, but does not exist in design
+    Warning: Node "debug_sevenseg_4[6]" is assigned to location or region, but does not exist in design
+    Warning: Node "debug_sevenseg_5[4]" is assigned to location or region, but does not exist in design
+    Warning: Node "debug_sevenseg_5[5]" is assigned to location or region, but does not exist in design
+    Warning: Node "debug_sevenseg_5[6]" is assigned to location or region, but does not exist in design
+Info: Fitter preparation operations ending: elapsed time is 00:00:01
+Info: Fitter placement preparation operations beginning
+Info: Fitter placement preparation operations ending: elapsed time is 00:00:00
+Info: Fitter placement operations beginning
+Info: Fitter placement was successful
+Info: Fitter placement operations ending: elapsed time is 00:00:01
+Info: Slack time is -10.269 ns between source register "kirsch:u_kirsch|f_state_1_" and destination register "kirsch:u_kirsch|flow:u_flow|p22_12_"
+    Info: + Largest register to register requirement is 0.761 ns
+    Info:   Shortest clock path from clock "clk" to destination register is 2.672 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.783 ns) = 0.783 ns; Loc. = Unassigned; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.176 ns) + CELL(0.000 ns) = 0.959 ns; Loc. = Unassigned; Fanout = 727; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(1.111 ns) + CELL(0.602 ns) = 2.672 ns; Loc. = Unassigned; Fanout = 2; REG Node = 'kirsch:u_kirsch|flow:u_flow|p22_12_'
+        Info: Total cell delay = 1.385 ns ( 51.83 % )
+        Info: Total interconnect delay = 1.287 ns ( 48.17 % )
+    Info:   Longest clock path from clock "clk" to destination register is 2.672 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.783 ns) = 0.783 ns; Loc. = Unassigned; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.176 ns) + CELL(0.000 ns) = 0.959 ns; Loc. = Unassigned; Fanout = 727; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(1.111 ns) + CELL(0.602 ns) = 2.672 ns; Loc. = Unassigned; Fanout = 2; REG Node = 'kirsch:u_kirsch|flow:u_flow|p22_12_'
+        Info: Total cell delay = 1.385 ns ( 51.83 % )
+        Info: Total interconnect delay = 1.287 ns ( 48.17 % )
+    Info:   Shortest clock path from clock "clk" to source register is 2.672 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.783 ns) = 0.783 ns; Loc. = Unassigned; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.176 ns) + CELL(0.000 ns) = 0.959 ns; Loc. = Unassigned; Fanout = 727; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(1.111 ns) + CELL(0.602 ns) = 2.672 ns; Loc. = Unassigned; Fanout = 2; REG Node = 'kirsch:u_kirsch|f_state_1_'
+        Info: Total cell delay = 1.385 ns ( 51.83 % )
+        Info: Total interconnect delay = 1.287 ns ( 48.17 % )
+    Info:   Longest clock path from clock "clk" to source register is 2.672 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.783 ns) = 0.783 ns; Loc. = Unassigned; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.176 ns) + CELL(0.000 ns) = 0.959 ns; Loc. = Unassigned; Fanout = 727; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(1.111 ns) + CELL(0.602 ns) = 2.672 ns; Loc. = Unassigned; Fanout = 2; REG Node = 'kirsch:u_kirsch|f_state_1_'
+        Info: Total cell delay = 1.385 ns ( 51.83 % )
+        Info: Total interconnect delay = 1.287 ns ( 48.17 % )
+    Info:   Micro clock to output delay of source is 0.277 ns
+    Info:   Micro setup delay of destination is -0.038 ns
+    Info: - Longest register to register delay is 11.030 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = Unassigned; Fanout = 2; REG Node = 'kirsch:u_kirsch|f_state_1_'
+        Info: 2: + IC(0.970 ns) + CELL(0.322 ns) = 1.292 ns; Loc. = Unassigned; Fanout = 142; COMB Node = 'kirsch:u_kirsch|nx57127z2'
+        Info: 3: + IC(1.051 ns) + CELL(0.521 ns) = 2.864 ns; Loc. = Unassigned; Fanout = 2; COMB Node = 'kirsch:u_kirsch|f_t2_3_'
+        Info: 4: + IC(1.051 ns) + CELL(0.517 ns) = 4.432 ns; Loc. = Unassigned; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_8_0:p11_add8_0i1|nx44952z13'
+        Info: 5: + IC(0.000 ns) + CELL(0.458 ns) = 4.890 ns; Loc. = Unassigned; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_8_0:p11_add8_0i1|nx41961z1'
+        Info: 6: + IC(0.733 ns) + CELL(0.495 ns) = 6.118 ns; Loc. = Unassigned; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_9_0:p11_add9_1|nx45949z12'
+        Info: 7: + IC(0.000 ns) + CELL(0.458 ns) = 6.576 ns; Loc. = Unassigned; Fanout = 8; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_9_0:p11_add9_1|nx42958z1'
+        Info: 8: + IC(1.059 ns) + CELL(0.517 ns) = 8.152 ns; Loc. = Unassigned; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|sub_10_3:p22_sub11_4i6|nx46946z15'
+        Info: 9: + IC(0.000 ns) + CELL(0.458 ns) = 8.610 ns; Loc. = Unassigned; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|sub_10_3:p22_sub11_4i6|nx42958z1'
+        Info: 10: + IC(1.029 ns) + CELL(0.517 ns) = 10.156 ns; Loc. = Unassigned; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_12_1:p22_add12_4i2|nx63795z14'
+        Info: 11: + IC(0.000 ns) + CELL(0.080 ns) = 10.236 ns; Loc. = Unassigned; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_12_1:p22_add12_4i2|nx63795z11'
+        Info: 12: + IC(0.000 ns) + CELL(0.080 ns) = 10.316 ns; Loc. = Unassigned; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_12_1:p22_add12_4i2|nx63795z8'
+        Info: 13: + IC(0.000 ns) + CELL(0.080 ns) = 10.396 ns; Loc. = Unassigned; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_12_1:p22_add12_4i2|nx63795z6'
+        Info: 14: + IC(0.000 ns) + CELL(0.080 ns) = 10.476 ns; Loc. = Unassigned; Fanout = 1; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_12_1:p22_add12_4i2|nx63795z4'
+        Info: 15: + IC(0.000 ns) + CELL(0.458 ns) = 10.934 ns; Loc. = Unassigned; Fanout = 1; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_12_1:p22_add12_4i2|nx63795z1'
+        Info: 16: + IC(0.000 ns) + CELL(0.096 ns) = 11.030 ns; Loc. = Unassigned; Fanout = 2; REG Node = 'kirsch:u_kirsch|flow:u_flow|p22_12_'
+        Info: Total cell delay = 5.137 ns ( 46.57 % )
+        Info: Total interconnect delay = 5.893 ns ( 53.43 % )
+Info: Estimated most critical path is register to register delay of 11.030 ns
+    Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LAB_X55_Y19; Fanout = 2; REG Node = 'kirsch:u_kirsch|f_state_1_'
+    Info: 2: + IC(0.970 ns) + CELL(0.322 ns) = 1.292 ns; Loc. = LAB_X57_Y19; Fanout = 142; COMB Node = 'kirsch:u_kirsch|nx57127z2'
+    Info: 3: + IC(1.051 ns) + CELL(0.521 ns) = 2.864 ns; Loc. = LAB_X54_Y18; Fanout = 2; COMB Node = 'kirsch:u_kirsch|f_t2_3_'
+    Info: 4: + IC(1.051 ns) + CELL(0.517 ns) = 4.432 ns; Loc. = LAB_X58_Y18; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_8_0:p11_add8_0i1|nx44952z13'
+    Info: 5: + IC(0.000 ns) + CELL(0.458 ns) = 4.890 ns; Loc. = LAB_X58_Y18; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_8_0:p11_add8_0i1|nx41961z1'
+    Info: 6: + IC(0.733 ns) + CELL(0.495 ns) = 6.118 ns; Loc. = LAB_X59_Y18; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_9_0:p11_add9_1|nx45949z12'
+    Info: 7: + IC(0.000 ns) + CELL(0.458 ns) = 6.576 ns; Loc. = LAB_X59_Y18; Fanout = 8; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_9_0:p11_add9_1|nx42958z1'
+    Info: 8: + IC(1.059 ns) + CELL(0.517 ns) = 8.152 ns; Loc. = LAB_X58_Y20; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|sub_10_3:p22_sub11_4i6|nx46946z15'
+    Info: 9: + IC(0.000 ns) + CELL(0.458 ns) = 8.610 ns; Loc. = LAB_X58_Y20; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|sub_10_3:p22_sub11_4i6|nx42958z1'
+    Info: 10: + IC(1.029 ns) + CELL(0.517 ns) = 10.156 ns; Loc. = LAB_X60_Y20; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_12_1:p22_add12_4i2|nx63795z14'
+    Info: 11: + IC(0.000 ns) + CELL(0.080 ns) = 10.236 ns; Loc. = LAB_X60_Y20; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_12_1:p22_add12_4i2|nx63795z11'
+    Info: 12: + IC(0.000 ns) + CELL(0.080 ns) = 10.316 ns; Loc. = LAB_X60_Y20; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_12_1:p22_add12_4i2|nx63795z8'
+    Info: 13: + IC(0.000 ns) + CELL(0.080 ns) = 10.396 ns; Loc. = LAB_X60_Y20; Fanout = 2; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_12_1:p22_add12_4i2|nx63795z6'
+    Info: 14: + IC(0.000 ns) + CELL(0.080 ns) = 10.476 ns; Loc. = LAB_X60_Y20; Fanout = 1; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_12_1:p22_add12_4i2|nx63795z4'
+    Info: 15: + IC(0.000 ns) + CELL(0.458 ns) = 10.934 ns; Loc. = LAB_X60_Y20; Fanout = 1; COMB Node = 'kirsch:u_kirsch|flow:u_flow|add_12_1:p22_add12_4i2|nx63795z1'
+    Info: 16: + IC(0.000 ns) + CELL(0.096 ns) = 11.030 ns; Loc. = LAB_X60_Y20; Fanout = 2; REG Node = 'kirsch:u_kirsch|flow:u_flow|p22_12_'
+    Info: Total cell delay = 5.137 ns ( 46.57 % )
+    Info: Total interconnect delay = 5.893 ns ( 53.43 % )
+Info: Fitter routing operations beginning
+Info: Average interconnect usage is 0% of the available device resources
+    Info: Peak interconnect usage is 6% of the available device resources in the region that extends from location X55_Y12 to location X65_Y23
+Info: Fitter routing operations ending: elapsed time is 00:00:00
+Info: Started post-fitting delay annotation
+Warning: Found 67 output pins without output pin load capacitance assignment
+    Info: Pin "txflex" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_sevenseg[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_sevenseg[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_sevenseg[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_sevenseg[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_sevenseg[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_sevenseg[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_sevenseg[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_sevenseg[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_sevenseg[8]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_sevenseg[9]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_sevenseg[10]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_sevenseg[11]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_sevenseg[12]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_sevenseg[13]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_sevenseg[14]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_sevenseg[15]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_mode[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_mode[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "o_nrst" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_red[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_red[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_red[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_red[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_red[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_red[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_red[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_red[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_red[8]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_red[9]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_red[10]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_red[11]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_red[12]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_red[13]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_red[14]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_red[15]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_red[16]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_grn[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_grn[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_grn[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_grn[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_grn[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_led_grn[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_0[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_0[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_0[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_0[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_1[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_1[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_1[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_1[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_2[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_2[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_2[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_2[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_3[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_3[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_3[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_3[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_4[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_4[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_4[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_4[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_5[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_5[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_5[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "debug_sevenseg_5[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+Info: Delay annotation completed successfully
+Info: Design uses memory blocks. Violating setup or hold times of memory block address registers for either read or write operations could cause memory contents to be corrupted. Make sure that all memory block address registers meet the setup and hold time requirements.
+Warning: Following 49 pins have nothing, GND, or VCC driving datain port -- changes to this connectivity may change fitting results
+    Info: Pin o_sevenseg[7] has VCC driving its datain port
+    Info: Pin o_sevenseg[15] has VCC driving its datain port
+    Info: Pin debug_led_red[0] has GND driving its datain port
+    Info: Pin debug_led_red[1] has GND driving its datain port
+    Info: Pin debug_led_red[2] has GND driving its datain port
+    Info: Pin debug_led_red[3] has GND driving its datain port
+    Info: Pin debug_led_red[4] has GND driving its datain port
+    Info: Pin debug_led_red[5] has GND driving its datain port
+    Info: Pin debug_led_red[6] has GND driving its datain port
+    Info: Pin debug_led_red[7] has GND driving its datain port
+    Info: Pin debug_led_red[8] has GND driving its datain port
+    Info: Pin debug_led_red[9] has GND driving its datain port
+    Info: Pin debug_led_red[10] has GND driving its datain port
+    Info: Pin debug_led_red[11] has GND driving its datain port
+    Info: Pin debug_led_red[12] has GND driving its datain port
+    Info: Pin debug_led_red[13] has GND driving its datain port
+    Info: Pin debug_led_red[14] has GND driving its datain port
+    Info: Pin debug_led_red[15] has GND driving its datain port
+    Info: Pin debug_led_red[16] has GND driving its datain port
+    Info: Pin debug_led_grn[0] has GND driving its datain port
+    Info: Pin debug_led_grn[1] has GND driving its datain port
+    Info: Pin debug_led_grn[2] has GND driving its datain port
+    Info: Pin debug_led_grn[3] has GND driving its datain port
+    Info: Pin debug_led_grn[4] has GND driving its datain port
+    Info: Pin debug_led_grn[5] has GND driving its datain port
+    Info: Pin debug_sevenseg_0[0] has GND driving its datain port
+    Info: Pin debug_sevenseg_0[1] has GND driving its datain port
+    Info: Pin debug_sevenseg_0[2] has GND driving its datain port
+    Info: Pin debug_sevenseg_0[3] has GND driving its datain port
+    Info: Pin debug_sevenseg_1[0] has GND driving its datain port
+    Info: Pin debug_sevenseg_1[1] has GND driving its datain port
+    Info: Pin debug_sevenseg_1[2] has GND driving its datain port
+    Info: Pin debug_sevenseg_1[3] has GND driving its datain port
+    Info: Pin debug_sevenseg_2[0] has GND driving its datain port
+    Info: Pin debug_sevenseg_2[1] has GND driving its datain port
+    Info: Pin debug_sevenseg_2[2] has GND driving its datain port
+    Info: Pin debug_sevenseg_2[3] has GND driving its datain port
+    Info: Pin debug_sevenseg_3[0] has GND driving its datain port
+    Info: Pin debug_sevenseg_3[1] has GND driving its datain port
+    Info: Pin debug_sevenseg_3[2] has GND driving its datain port
+    Info: Pin debug_sevenseg_3[3] has GND driving its datain port
+    Info: Pin debug_sevenseg_4[0] has GND driving its datain port
+    Info: Pin debug_sevenseg_4[1] has GND driving its datain port
+    Info: Pin debug_sevenseg_4[2] has GND driving its datain port
+    Info: Pin debug_sevenseg_4[3] has GND driving its datain port
+    Info: Pin debug_sevenseg_5[0] has GND driving its datain port
+    Info: Pin debug_sevenseg_5[1] has GND driving its datain port
+    Info: Pin debug_sevenseg_5[2] has GND driving its datain port
+    Info: Pin debug_sevenseg_5[3] has GND driving its datain port
+Info: Quartus II Fitter was successful. 0 errors, 23 warnings
+    Info: Peak virtual memory: 316 megabytes
+    Info: Processing ended: Tue Jul 22 01:38:28 2014
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:08
+Warning: Can't contact license server "7416@ultra10.vlsi.uwaterloo.ca" -- this server will be ignored
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Copyright (C) 1991-2009 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Tue Jul 22 01:38:29 2014
+Info: Command: quartus_sta -t uw-chip-synth-quartus-timing.tcl top_kirsch
+Info: Quartus(args): top_kirsch
+Info: Detected changes in Quartus II Settings File (.qsf).
+    Info: Assignment USE_TIMEQUEST_TIMING_ANALYZER changed value from OFF to ON.
+Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info: No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info: Deriving Clocks
+    Info: create_clock -period 1.000 -name clk clk
+Info: Fmax Summary
+    Info:                Restricted
+    Info:         Fmax         Fmax      Clock Note
+    Info: ============ ============ ========== =====================
+    Info:    91.26 MHz    91.26 MHz        clk   
+Info: Report Timing: Found 5 setup paths (5 violated).  Worst case slack is -9.958
+    Info: -setup
+    Info: -npaths 5
+    Info: -detail path_only
+    Info: -file {timing_chip_path.rpt}
+Info: Report Timing: Found 5 setup paths (5 violated).  Worst case slack is -9.958
+    Info: -setup
+    Info: -npaths 5
+    Info: -detail path_only
+Info: Path #1: Setup slack is -9.958 (VIOLATED)
+    Info: ===================================================================
+    Info: From Node    : kirsch:u_kirsch|f_state_1_
+    Info: To Node      : kirsch:u_kirsch|flow:u_flow|p22_12_
+    Info: Launch Clock : clk
+    Info: Latch Clock  : clk
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.000      0.000           launch edge time
+    Info:      2.928      2.928  R        clock network delay
+    Info:      3.205      0.277     uTco  kirsch:u_kirsch|f_state_1_
+    Info:      3.205      0.000 RR  CELL  u_kirsch|reg_f_state_1_|regout
+    Info:      4.081      0.876 RR    IC  u_kirsch|ix57127z52924|datac
+    Info:      4.403      0.322 RF  CELL  u_kirsch|ix57127z52924|combout
+    Info:      5.702      1.299 FF    IC  u_kirsch|ix20836z52959|datad
+    Info:      5.880      0.178 FF  CELL  u_kirsch|ix20836z52959|combout
+    Info:      6.759      0.879 FF    IC  u_kirsch|u_flow|p12_add8_0i2|ix44952z52928|datab
+    Info:      7.254      0.495 FR  CELL  u_kirsch|u_flow|p12_add8_0i2|ix44952z52928|cout
+    Info:      7.254      0.000 RR    IC  u_kirsch|u_flow|p12_add8_0i2|ix44952z52927|cin
+    Info:      7.712      0.458 RR  CELL  u_kirsch|u_flow|p12_add8_0i2|ix44952z52927|combout
+    Info:      8.262      0.550 RR    IC  u_kirsch|u_flow|p12_add9_2|ix45949z52928|dataa
+    Info:      8.779      0.517 RR  CELL  u_kirsch|u_flow|p12_add9_2|ix45949z52928|cout
+    Info:      8.779      0.000 RR    IC  u_kirsch|u_flow|p12_add9_2|ix45949z52927|cin
+    Info:      8.859      0.080 RF  CELL  u_kirsch|u_flow|p12_add9_2|ix45949z52927|cout
+    Info:      8.859      0.000 FF    IC  u_kirsch|u_flow|p12_add9_2|ix45949z52926|cin
+    Info:      9.317      0.458 FF  CELL  u_kirsch|u_flow|p12_add9_2|ix45949z52926|combout
+    Info:     10.758      1.441 FF    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52927|dataa
+    Info:     11.275      0.517 FF  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52927|cout
+    Info:     11.275      0.000 FF    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52926|cin
+    Info:     11.355      0.080 FR  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52926|cout
+    Info:     11.355      0.000 RR    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52925|cin
+    Info:     11.435      0.080 RF  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52925|cout
+    Info:     11.435      0.000 FF    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52923|cin
+    Info:     11.515      0.080 FR  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52923|cout
+    Info:     11.515      0.000 RR    IC  u_kirsch|u_flow|p22_sub10_4i5|ix23445z52923|cin
+    Info:     11.973      0.458 RF  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix23445z52923|combout
+    Info:     12.795      0.822 FF    IC  u_kirsch|u_flow|p22_add12_4i2|ix63795z52926|datab
+    Info:     13.290      0.495 FF  CELL  u_kirsch|u_flow|p22_add12_4i2|ix63795z52926|cout
+    Info:     13.290      0.000 FF    IC  u_kirsch|u_flow|p22_add12_4i2|ix63795z52925|cin
+    Info:     13.370      0.080 FR  CELL  u_kirsch|u_flow|p22_add12_4i2|ix63795z52925|cout
+    Info:     13.370      0.000 RR    IC  u_kirsch|u_flow|p22_add12_4i2|ix63795z52923|cin
+    Info:     13.828      0.458 RR  CELL  u_kirsch|u_flow|p22_add12_4i2|ix63795z52923|combout
+    Info:     13.828      0.000 RR    IC  u_kirsch|u_flow|reg_p22_12_|datain
+    Info:     13.924      0.096 RR  CELL  kirsch:u_kirsch|flow:u_flow|p22_12_
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      1.000      1.000           latch edge time
+    Info:      3.928      2.928  R        clock network delay
+    Info:      3.966      0.038     uTsu  kirsch:u_kirsch|flow:u_flow|p22_12_
+    Info: 
+    Info: Data Arrival Time  :    13.924
+    Info: Data Required Time :     3.966
+    Info: Slack              :    -9.958 (VIOLATED)
+    Info: ===================================================================
+    Info: 
+Info: Path #2: Setup slack is -9.954 (VIOLATED)
+    Info: ===================================================================
+    Info: From Node    : kirsch:u_kirsch|f_state_1_
+    Info: To Node      : kirsch:u_kirsch|flow:u_flow|p22_12_
+    Info: Launch Clock : clk
+    Info: Latch Clock  : clk
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.000      0.000           launch edge time
+    Info:      2.928      2.928  R        clock network delay
+    Info:      3.205      0.277     uTco  kirsch:u_kirsch|f_state_1_
+    Info:      3.205      0.000 FF  CELL  u_kirsch|reg_f_state_1_|regout
+    Info:      4.081      0.876 FF    IC  u_kirsch|ix57127z52924|datac
+    Info:      4.403      0.322 FR  CELL  u_kirsch|ix57127z52924|combout
+    Info:      5.702      1.299 RR    IC  u_kirsch|ix20836z52959|datad
+    Info:      5.880      0.178 RR  CELL  u_kirsch|ix20836z52959|combout
+    Info:      6.759      0.879 RR    IC  u_kirsch|u_flow|p12_add8_0i2|ix44952z52928|datab
+    Info:      7.254      0.495 RF  CELL  u_kirsch|u_flow|p12_add8_0i2|ix44952z52928|cout
+    Info:      7.254      0.000 FF    IC  u_kirsch|u_flow|p12_add8_0i2|ix44952z52927|cin
+    Info:      7.334      0.080 FR  CELL  u_kirsch|u_flow|p12_add8_0i2|ix44952z52927|cout
+    Info:      7.334      0.000 RR    IC  u_kirsch|u_flow|p12_add8_0i2|ix44952z52926|cin
+    Info:      7.792      0.458 RR  CELL  u_kirsch|u_flow|p12_add8_0i2|ix44952z52926|combout
+    Info:      8.338      0.546 RR    IC  u_kirsch|u_flow|p12_add9_2|ix45949z52927|dataa
+    Info:      8.855      0.517 RF  CELL  u_kirsch|u_flow|p12_add9_2|ix45949z52927|cout
+    Info:      8.855      0.000 FF    IC  u_kirsch|u_flow|p12_add9_2|ix45949z52926|cin
+    Info:      9.313      0.458 FF  CELL  u_kirsch|u_flow|p12_add9_2|ix45949z52926|combout
+    Info:     10.754      1.441 FF    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52927|dataa
+    Info:     11.271      0.517 FF  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52927|cout
+    Info:     11.271      0.000 FF    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52926|cin
+    Info:     11.351      0.080 FR  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52926|cout
+    Info:     11.351      0.000 RR    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52925|cin
+    Info:     11.431      0.080 RF  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52925|cout
+    Info:     11.431      0.000 FF    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52923|cin
+    Info:     11.511      0.080 FR  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52923|cout
+    Info:     11.511      0.000 RR    IC  u_kirsch|u_flow|p22_sub10_4i5|ix23445z52923|cin
+    Info:     11.969      0.458 RF  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix23445z52923|combout
+    Info:     12.791      0.822 FF    IC  u_kirsch|u_flow|p22_add12_4i2|ix63795z52926|datab
+    Info:     13.286      0.495 FF  CELL  u_kirsch|u_flow|p22_add12_4i2|ix63795z52926|cout
+    Info:     13.286      0.000 FF    IC  u_kirsch|u_flow|p22_add12_4i2|ix63795z52925|cin
+    Info:     13.366      0.080 FR  CELL  u_kirsch|u_flow|p22_add12_4i2|ix63795z52925|cout
+    Info:     13.366      0.000 RR    IC  u_kirsch|u_flow|p22_add12_4i2|ix63795z52923|cin
+    Info:     13.824      0.458 RR  CELL  u_kirsch|u_flow|p22_add12_4i2|ix63795z52923|combout
+    Info:     13.824      0.000 RR    IC  u_kirsch|u_flow|reg_p22_12_|datain
+    Info:     13.920      0.096 RR  CELL  kirsch:u_kirsch|flow:u_flow|p22_12_
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      1.000      1.000           latch edge time
+    Info:      3.928      2.928  R        clock network delay
+    Info:      3.966      0.038     uTsu  kirsch:u_kirsch|flow:u_flow|p22_12_
+    Info: 
+    Info: Data Arrival Time  :    13.920
+    Info: Data Required Time :     3.966
+    Info: Slack              :    -9.954 (VIOLATED)
+    Info: ===================================================================
+    Info: 
+Info: Path #3: Setup slack is -9.947 (VIOLATED)
+    Info: ===================================================================
+    Info: From Node    : kirsch:u_kirsch|f_state_1_
+    Info: To Node      : kirsch:u_kirsch|flow:u_flow|p22_12_
+    Info: Launch Clock : clk
+    Info: Latch Clock  : clk
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.000      0.000           launch edge time
+    Info:      2.928      2.928  R        clock network delay
+    Info:      3.205      0.277     uTco  kirsch:u_kirsch|f_state_1_
+    Info:      3.205      0.000 RR  CELL  u_kirsch|reg_f_state_1_|regout
+    Info:      4.081      0.876 RR    IC  u_kirsch|ix57127z52924|datac
+    Info:      4.403      0.322 RF  CELL  u_kirsch|ix57127z52924|combout
+    Info:      5.706      1.303 FF    IC  u_kirsch|ix20836z52951|datad
+    Info:      5.884      0.178 FF  CELL  u_kirsch|ix20836z52951|combout
+    Info:      6.726      0.842 FF    IC  u_kirsch|u_flow|p12_add8_0i2|ix44952z52928|dataa
+    Info:      7.243      0.517 FR  CELL  u_kirsch|u_flow|p12_add8_0i2|ix44952z52928|cout
+    Info:      7.243      0.000 RR    IC  u_kirsch|u_flow|p12_add8_0i2|ix44952z52927|cin
+    Info:      7.701      0.458 RR  CELL  u_kirsch|u_flow|p12_add8_0i2|ix44952z52927|combout
+    Info:      8.251      0.550 RR    IC  u_kirsch|u_flow|p12_add9_2|ix45949z52928|dataa
+    Info:      8.768      0.517 RR  CELL  u_kirsch|u_flow|p12_add9_2|ix45949z52928|cout
+    Info:      8.768      0.000 RR    IC  u_kirsch|u_flow|p12_add9_2|ix45949z52927|cin
+    Info:      8.848      0.080 RF  CELL  u_kirsch|u_flow|p12_add9_2|ix45949z52927|cout
+    Info:      8.848      0.000 FF    IC  u_kirsch|u_flow|p12_add9_2|ix45949z52926|cin
+    Info:      9.306      0.458 FF  CELL  u_kirsch|u_flow|p12_add9_2|ix45949z52926|combout
+    Info:     10.747      1.441 FF    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52927|dataa
+    Info:     11.264      0.517 FF  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52927|cout
+    Info:     11.264      0.000 FF    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52926|cin
+    Info:     11.344      0.080 FR  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52926|cout
+    Info:     11.344      0.000 RR    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52925|cin
+    Info:     11.424      0.080 RF  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52925|cout
+    Info:     11.424      0.000 FF    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52923|cin
+    Info:     11.504      0.080 FR  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52923|cout
+    Info:     11.504      0.000 RR    IC  u_kirsch|u_flow|p22_sub10_4i5|ix23445z52923|cin
+    Info:     11.962      0.458 RF  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix23445z52923|combout
+    Info:     12.784      0.822 FF    IC  u_kirsch|u_flow|p22_add12_4i2|ix63795z52926|datab
+    Info:     13.279      0.495 FF  CELL  u_kirsch|u_flow|p22_add12_4i2|ix63795z52926|cout
+    Info:     13.279      0.000 FF    IC  u_kirsch|u_flow|p22_add12_4i2|ix63795z52925|cin
+    Info:     13.359      0.080 FR  CELL  u_kirsch|u_flow|p22_add12_4i2|ix63795z52925|cout
+    Info:     13.359      0.000 RR    IC  u_kirsch|u_flow|p22_add12_4i2|ix63795z52923|cin
+    Info:     13.817      0.458 RR  CELL  u_kirsch|u_flow|p22_add12_4i2|ix63795z52923|combout
+    Info:     13.817      0.000 RR    IC  u_kirsch|u_flow|reg_p22_12_|datain
+    Info:     13.913      0.096 RR  CELL  kirsch:u_kirsch|flow:u_flow|p22_12_
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      1.000      1.000           latch edge time
+    Info:      3.928      2.928  R        clock network delay
+    Info:      3.966      0.038     uTsu  kirsch:u_kirsch|flow:u_flow|p22_12_
+    Info: 
+    Info: Data Arrival Time  :    13.913
+    Info: Data Required Time :     3.966
+    Info: Slack              :    -9.947 (VIOLATED)
+    Info: ===================================================================
+    Info: 
+Info: Path #4: Setup slack is -9.943 (VIOLATED)
+    Info: ===================================================================
+    Info: From Node    : kirsch:u_kirsch|f_state_1_
+    Info: To Node      : kirsch:u_kirsch|flow:u_flow|p22_12_
+    Info: Launch Clock : clk
+    Info: Latch Clock  : clk
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.000      0.000           launch edge time
+    Info:      2.928      2.928  R        clock network delay
+    Info:      3.205      0.277     uTco  kirsch:u_kirsch|f_state_1_
+    Info:      3.205      0.000 FF  CELL  u_kirsch|reg_f_state_1_|regout
+    Info:      4.081      0.876 FF    IC  u_kirsch|ix57127z52924|datac
+    Info:      4.403      0.322 FR  CELL  u_kirsch|ix57127z52924|combout
+    Info:      5.706      1.303 RR    IC  u_kirsch|ix20836z52951|datad
+    Info:      5.884      0.178 RR  CELL  u_kirsch|ix20836z52951|combout
+    Info:      6.726      0.842 RR    IC  u_kirsch|u_flow|p12_add8_0i2|ix44952z52928|dataa
+    Info:      7.243      0.517 RF  CELL  u_kirsch|u_flow|p12_add8_0i2|ix44952z52928|cout
+    Info:      7.243      0.000 FF    IC  u_kirsch|u_flow|p12_add8_0i2|ix44952z52927|cin
+    Info:      7.323      0.080 FR  CELL  u_kirsch|u_flow|p12_add8_0i2|ix44952z52927|cout
+    Info:      7.323      0.000 RR    IC  u_kirsch|u_flow|p12_add8_0i2|ix44952z52926|cin
+    Info:      7.781      0.458 RR  CELL  u_kirsch|u_flow|p12_add8_0i2|ix44952z52926|combout
+    Info:      8.327      0.546 RR    IC  u_kirsch|u_flow|p12_add9_2|ix45949z52927|dataa
+    Info:      8.844      0.517 RF  CELL  u_kirsch|u_flow|p12_add9_2|ix45949z52927|cout
+    Info:      8.844      0.000 FF    IC  u_kirsch|u_flow|p12_add9_2|ix45949z52926|cin
+    Info:      9.302      0.458 FF  CELL  u_kirsch|u_flow|p12_add9_2|ix45949z52926|combout
+    Info:     10.743      1.441 FF    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52927|dataa
+    Info:     11.260      0.517 FF  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52927|cout
+    Info:     11.260      0.000 FF    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52926|cin
+    Info:     11.340      0.080 FR  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52926|cout
+    Info:     11.340      0.000 RR    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52925|cin
+    Info:     11.420      0.080 RF  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52925|cout
+    Info:     11.420      0.000 FF    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52923|cin
+    Info:     11.500      0.080 FR  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52923|cout
+    Info:     11.500      0.000 RR    IC  u_kirsch|u_flow|p22_sub10_4i5|ix23445z52923|cin
+    Info:     11.958      0.458 RF  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix23445z52923|combout
+    Info:     12.780      0.822 FF    IC  u_kirsch|u_flow|p22_add12_4i2|ix63795z52926|datab
+    Info:     13.275      0.495 FF  CELL  u_kirsch|u_flow|p22_add12_4i2|ix63795z52926|cout
+    Info:     13.275      0.000 FF    IC  u_kirsch|u_flow|p22_add12_4i2|ix63795z52925|cin
+    Info:     13.355      0.080 FR  CELL  u_kirsch|u_flow|p22_add12_4i2|ix63795z52925|cout
+    Info:     13.355      0.000 RR    IC  u_kirsch|u_flow|p22_add12_4i2|ix63795z52923|cin
+    Info:     13.813      0.458 RR  CELL  u_kirsch|u_flow|p22_add12_4i2|ix63795z52923|combout
+    Info:     13.813      0.000 RR    IC  u_kirsch|u_flow|reg_p22_12_|datain
+    Info:     13.909      0.096 RR  CELL  kirsch:u_kirsch|flow:u_flow|p22_12_
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      1.000      1.000           latch edge time
+    Info:      3.928      2.928  R        clock network delay
+    Info:      3.966      0.038     uTsu  kirsch:u_kirsch|flow:u_flow|p22_12_
+    Info: 
+    Info: Data Arrival Time  :    13.909
+    Info: Data Required Time :     3.966
+    Info: Slack              :    -9.943 (VIOLATED)
+    Info: ===================================================================
+    Info: 
+Info: Path #5: Setup slack is -9.880 (VIOLATED)
+    Info: ===================================================================
+    Info: From Node    : kirsch:u_kirsch|f_state_1_
+    Info: To Node      : kirsch:u_kirsch|flow:u_flow|p22_12_
+    Info: Launch Clock : clk
+    Info: Latch Clock  : clk
+    Info: 
+    Info: Data Arrival Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      0.000      0.000           launch edge time
+    Info:      2.928      2.928  R        clock network delay
+    Info:      3.205      0.277     uTco  kirsch:u_kirsch|f_state_1_
+    Info:      3.205      0.000 RR  CELL  u_kirsch|reg_f_state_1_|regout
+    Info:      4.081      0.876 RR    IC  u_kirsch|ix57127z52924|datac
+    Info:      4.403      0.322 RF  CELL  u_kirsch|ix57127z52924|combout
+    Info:      5.702      1.299 FF    IC  u_kirsch|ix20836z52959|datad
+    Info:      5.880      0.178 FF  CELL  u_kirsch|ix20836z52959|combout
+    Info:      6.759      0.879 FF    IC  u_kirsch|u_flow|p12_add8_0i2|ix44952z52928|datab
+    Info:      7.254      0.495 FR  CELL  u_kirsch|u_flow|p12_add8_0i2|ix44952z52928|cout
+    Info:      7.254      0.000 RR    IC  u_kirsch|u_flow|p12_add8_0i2|ix44952z52927|cin
+    Info:      7.712      0.458 RR  CELL  u_kirsch|u_flow|p12_add8_0i2|ix44952z52927|combout
+    Info:      8.262      0.550 RR    IC  u_kirsch|u_flow|p12_add9_2|ix45949z52928|dataa
+    Info:      8.779      0.517 RR  CELL  u_kirsch|u_flow|p12_add9_2|ix45949z52928|cout
+    Info:      8.779      0.000 RR    IC  u_kirsch|u_flow|p12_add9_2|ix45949z52927|cin
+    Info:      8.859      0.080 RF  CELL  u_kirsch|u_flow|p12_add9_2|ix45949z52927|cout
+    Info:      8.859      0.000 FF    IC  u_kirsch|u_flow|p12_add9_2|ix45949z52926|cin
+    Info:      9.317      0.458 FF  CELL  u_kirsch|u_flow|p12_add9_2|ix45949z52926|combout
+    Info:     10.758      1.441 FF    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52927|dataa
+    Info:     11.275      0.517 FF  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52927|cout
+    Info:     11.275      0.000 FF    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52926|cin
+    Info:     11.355      0.080 FR  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52926|cout
+    Info:     11.355      0.000 RR    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52925|cin
+    Info:     11.435      0.080 RF  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52925|cout
+    Info:     11.435      0.000 FF    IC  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52923|cin
+    Info:     11.515      0.080 FR  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix46946z52923|cout
+    Info:     11.515      0.000 RR    IC  u_kirsch|u_flow|p22_sub10_4i5|ix23445z52923|cin
+    Info:     11.973      0.458 RF  CELL  u_kirsch|u_flow|p22_sub10_4i5|ix23445z52923|combout
+    Info:     12.797      0.824 FF    IC  u_kirsch|u_flow|p22_add12_4i2|ix63795z52925|datab
+    Info:     13.292      0.495 FR  CELL  u_kirsch|u_flow|p22_add12_4i2|ix63795z52925|cout
+    Info:     13.292      0.000 RR    IC  u_kirsch|u_flow|p22_add12_4i2|ix63795z52923|cin
+    Info:     13.750      0.458 RR  CELL  u_kirsch|u_flow|p22_add12_4i2|ix63795z52923|combout
+    Info:     13.750      0.000 RR    IC  u_kirsch|u_flow|reg_p22_12_|datain
+    Info:     13.846      0.096 RR  CELL  kirsch:u_kirsch|flow:u_flow|p22_12_
+    Info: 
+    Info: Data Required Path:
+    Info: 
+    Info: Total (ns)  Incr (ns)     Type  Element
+    Info: ==========  ========= ==  ====  ===================================
+    Info:      1.000      1.000           latch edge time
+    Info:      3.928      2.928  R        clock network delay
+    Info:      3.966      0.038     uTsu  kirsch:u_kirsch|flow:u_flow|p22_12_
+    Info: 
+    Info: Data Arrival Time  :    13.846
+    Info: Data Required Time :     3.966
+    Info: Slack              :    -9.880 (VIOLATED)
+    Info: ===================================================================
+    Info: 
+Info: Evaluation of Tcl script uw-chip-synth-quartus-timing.tcl was successful
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 146 megabytes
+    Info: Processing ended: Tue Jul 22 01:38:30 2014
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+Warning: Can't contact license server "7416@ultra10.vlsi.uwaterloo.ca" -- this server will be ignored
+Info: *******************************************************************
+Info: Running Quartus II Assembler
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Copyright (C) 1991-2009 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Tue Jul 22 01:38:31 2014
+Info: Command: quartus_asm top_kirsch
+Info: Writing out detailed assembly data for power analysis
+Info: Assembler is generating device programming files
+Info: Quartus II Assembler was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 234 megabytes
+    Info: Processing ended: Tue Jul 22 01:38:37 2014
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:06
+Warning: Can't contact license server "7416@ultra10.vlsi.uwaterloo.ca" -- this server will be ignored
+Info: *******************************************************************
+Info: Running Quartus II EDA Netlist Writer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Copyright (C) 1991-2009 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Tue Jul 22 01:38:38 2014
+Info: Command: quartus_eda top_kirsch --simulation=on --tool=modelsim --format=vhdl
+Info: Generated files "top_kirsch.vho" and "top_kirsch_vhd.sdo" in directory "simulation/modelsim/" for EDA simulation tool
+Info: Quartus II EDA Netlist Writer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 169 megabytes
+    Info: Processing ended: Tue Jul 22 01:38:39 2014
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+Warning: Can't contact license server "7416@ultra10.vlsi.uwaterloo.ca" -- this server will be ignored
+Info: *******************************************************************
+Info: Running Quartus II EDA Netlist Writer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Copyright (C) 1991-2009 Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and its AMPP partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, Altera MegaCore Function License 
+    Info: Agreement, or other applicable license agreement, including, 
+    Info: without limitation, that your use is for the sole purpose of 
+    Info: programming logic devices manufactured by Altera and sold by 
+    Info: Altera or its authorized distributors.  Please refer to the 
+    Info: applicable agreement for further details.
+    Info: Processing started: Tue Jul 22 01:38:40 2014
+Info: Command: quartus_eda top_kirsch --simulation=on --tool=modelsim --format=verilog
+Info: Generated files "top_kirsch.vo" and "top_kirsch_v.sdo" in directory "simulation/modelsim/" for EDA simulation tool
+Info: Quartus II EDA Netlist Writer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 169 megabytes
+    Info: Processing ended: Tue Jul 22 01:38:41 2014
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+Warning: vmap will not overwrite local modelsim.ini.
+Warning: Library already exists at "work-msim".
+Warning: Library already exists at "altera_mf".
+Modifying modelsim.ini
+Warning: Library already exists at "cycloneii".
+Modifying modelsim.ini
+Model Technology ModelSim SE-64 vlog 10.1 Compiler 2011.12 Dec  5 2011
+-- Compiling module top_kirsch
+-- Compiling module kirsch
+-- Compiling module flow
+-- Compiling module sub_10_3
+-- Compiling module sub_10_2
+-- Compiling module add_9_2
+-- Compiling module add_8_2
+-- Compiling module sub_10_1
+-- Compiling module sub_10_0
+-- Compiling module add_9_1
+-- Compiling module add_8_1
+-- Compiling module add_9_0
+-- Compiling module add_8_0
+-- Compiling module add_12_1
+-- Compiling module add_12_0
+-- Compiling module gt_13_0
+-- Compiling module gt_14_0
+-- Compiling module sub_12_0
+-- Compiling module memory
+-- Compiling module ram_dq_8_2
+-- Compiling module ram_dq_8_1
+-- Compiling module ram_dq_8_0
+-- Compiling module modgen_counter_8_1
+-- Compiling module modgen_counter_8_0
+-- Compiling module uw_uart
+-- Compiling module modgen_counter_16_0
+-- Compiling module UARTS
+-- Compiling module modgen_counter_12_0
+-- Compiling module modgen_counter_11_0
+
+Top level modules:
+	top_kirsch
+Warning: vmap will not overwrite local modelsim.ini.
+Warning: Library already exists at "work-msim".
+DEBUG: modelsim_pfx: testing: /opt/ModelSim101/modeltech/bin/
+DEBUG: try_set: altera_sim_lib: True: /home/ece327/altera
+DEBUG: default_board: DE2
+** Warning: (vlib-34) Library already exists at "work-msim".
+** Warning: (vlib-34) Library already exists at "work-msim".
+  Model Technology ModelSim SE-64 vcom 10.1 Compiler 2011.12 Dec  5 2011
+Model Technology ModelSim SE-64 vcom 10.1 Compiler 2011.12 Dec  5 2011
+-- Loading package STANDARD
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package NUMERIC_STD
+-- Compiling package kirsch_utility_pkg
+-- Compiling package kirsch_utility_pkg
+-- Compiling entity mem
+-- Compiling entity mem
+-- Compiling architecture main of mem
+-- Compiling architecture main of mem
+-- Loading package kirsch_utility_pkg
+-- Loading package kirsch_utility_pkg
+-- Compiling entity memory
+-- Compiling entity memory
+-- Compiling architecture main of memory
+-- Compiling architecture main of memory
+-- Loading entity mem
+-- Loading entity mem
+-- Compiling entity flow
+-- Compiling entity flow
+-- Compiling architecture main of flow
+-- Compiling architecture main of flow
+-- Compiling package kirsch_synth_pkg
+-- Compiling package kirsch_synth_pkg
+-- Compiling package body kirsch_synth_pkg
+-- Compiling package body kirsch_synth_pkg
+-- Loading package kirsch_synth_pkg
+-- Loading package kirsch_synth_pkg
+-- Compiling entity kirsch
+-- Compiling entity kirsch
+-- Compiling architecture main of kirsch
+-- Compiling architecture main of kirsch
+-- Loading entity memory
+-- Loading entity memory
+-- Loading entity flow
+-- Loading entity flow
+-- Compiling entity UARTS
+-- Compiling entity UARTS
+-- Compiling architecture RTL of UARTS
+-- Compiling architecture RTL of UARTS
+-- Compiling entity uw_uart
+-- Compiling entity uw_uart
+-- Compiling architecture main of uw_uart
+-- Compiling architecture main of uw_uart
+-- Loading entity UARTS
+-- Loading entity UARTS
+-- Loading package kirsch_synth_pkg
+-- Loading package kirsch_synth_pkg
+-- Compiling entity top_kirsch
+-- Compiling entity top_kirsch
+-- Compiling architecture main of top_kirsch
+-- Compiling architecture main of top_kirsch
+-- Loading entity uw_uart
+-- Loading entity uw_uart
+-- Loading entity kirsch
+-- Loading entity kirsch
+ 
+Warning: vmap will not overwrite local modelsim.ini.
+Warning: Library already exists at "work-msim".
+DEBUG: modelsim_pfx: testing: /opt/ModelSim101/modeltech/bin/
+DEBUG: try_set: altera_sim_lib: True: /home/ece327/altera
+DEBUG: default_board: DE2
+** Warning: (vlib-34) Library already exists at "work-msim".
+** Warning: (vlib-34) Library already exists at "work-msim".
+  Model Technology ModelSim SE-64 vlog 10.1 Compiler 2011.12 Dec  5 2011
+Model Technology ModelSim SE-64 vlog 10.1 Compiler 2011.12 Dec  5 2011
+-- Compiling module top_kirsch_chip
+-- Compiling module top_kirsch_chip
+
+
+Top level modules:
+Top level modules:
+	top_kirsch_chip
+	top_kirsch_chip
+ 
+Warning: vmap will not overwrite local modelsim.ini.
+Warning: Library already exists at "work-msim".
+INFO: generic-gate       netlist         written to uw_tmp/top_kirsch_gate.vhd
+INFO: generic-gate       area estimate   written to RPT/area_gate.rpt
+INFO: logic-synthesis    netlist         written to uw_tmp/top_kirsch_logic.edf
+INFO: logic-synthesis    area estimate   written to RPT/area_logic.rpt
+INFO: logic-synthesis    timing estimate written to RPT/timing_logic.rpt
+INFO: chip               netlist         written to uw_tmp/top_kirsch_chip.vhd
+INFO: chip               area estimate   written to RPT/area_chip.rpt
+INFO: 
+INFO: ***********************************************
+INFO: *
+INFO: * uw-synth to DE2 was successful
+INFO: * log file stored in LOG/uw-synth.log
+INFO: *
+INFO: ***********************************************

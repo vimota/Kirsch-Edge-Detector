@@ -7,7 +7,7 @@ entity add_12_0 is
         b               : in     vl_logic_vector(11 downto 0);
         d               : out    vl_logic_vector(11 downto 0);
         cout            : out    vl_logic;
-        p_rtlcn827      : in     vl_logic;
-        p_rtlcn867      : in     vl_logic
+        p_rtlcn826      : in     vl_logic;
+        p_rtlcn866      : in     vl_logic
     );
 end add_12_0;
