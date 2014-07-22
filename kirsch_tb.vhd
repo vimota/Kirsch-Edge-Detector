@@ -71,9 +71,11 @@ architecture main of kirsch_tb is
 
 	signal out_image0, out_image1, out_image2   : image_type;
 	signal image00, image01, image02, image10, image11, image12, image20, image21, image22 : unsigned(7 downto 0);
-	signal debug_num_0, debug_num_1, 		debug_num_2, 		debug_num_3,		debug_num_4 : signed(12 downto 0);
+	signal debug_num_3,		debug_num_4 : signed(12 downto 0);
 	signal debug_num_5 : signed(13 downto 0);
 	signal debug_column: std_logic_vector(7 downto 0);
+	signal debug_num_0, debug_num_1 : std_logic_vector(2 downto 0);
+	signal debug_num_2 : unsigned(7 downto 0);
 	signal debug_valid , debug_num_6, debug_num_7, debug_num_8      : std_logic;
 
 	--------------------------------------------------------------

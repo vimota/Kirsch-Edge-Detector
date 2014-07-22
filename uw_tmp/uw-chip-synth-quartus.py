@@ -72,4 +72,4 @@ xsys( "vmap cycloneii /home/ece327/altera/vhdl_libs/cycloneii")
 xsys( "vlog -novopt -work work-msim uw_tmp/kirsch_logic.v")
 
 # fix up _chip.vhd file
-vgencomp_to_arch( "kirsch", "chip", [] + [ "mem.vhd", "kirsch_synth_pkg.vhd", "kirsch.vhd", "kirsch_utility_pkg.vhd", "memory.vhd", "flow.vhd" ] )
+vgencomp_to_arch( "kirsch", "chip", [] + [ "kirsch_utility_pkg.vhd", "mem.vhd", "flow.vhd", "memory.vhd", "kirsch_synth_pkg.vhd", "kirsch.vhd" ] )

@@ -1,5 +1,5 @@
 Flow report for kirsch
-Mon Jul 21 19:36:32 2014
+Tue Jul 22 00:06:49 2014
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -38,17 +38,17 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +------------------------------------+------------------------------------------+
-; Flow Status                        ; Successful - Mon Jul 21 19:36:32 2014    ;
+; Flow Status                        ; Successful - Tue Jul 22 00:06:49 2014    ;
 ; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name                      ; kirsch                                   ;
 ; Top-level Entity Name              ; kirsch                                   ;
 ; Family                             ; Cyclone II                               ;
 ; Met timing requirements            ; N/A                                      ;
-; Total logic elements               ; 600 / 33,216 ( 2 % )                     ;
-;     Total combinational functions  ; 364 / 33,216 ( 1 % )                     ;
+; Total logic elements               ; 599 / 33,216 ( 2 % )                     ;
+;     Total combinational functions  ; 362 / 33,216 ( 1 % )                     ;
 ;     Dedicated logic registers      ; 425 / 33,216 ( 1 % )                     ;
 ; Total registers                    ; 425                                      ;
-; Total pins                         ; 233 / 475 ( 49 % )                       ;
+; Total pins                         ; 234 / 475 ( 49 % )                       ;
 ; Total virtual pins                 ; 0                                        ;
 ; Total memory bits                  ; 6,144 / 483,840 ( 1 % )                  ;
 ; Embedded Multiplier 9-bit elements ; 0 / 70 ( 0 % )                           ;
@@ -63,7 +63,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/21/2014 19:36:01 ;
+; Start date & time ; 07/22/2014 00:06:20 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; kirsch              ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 ; Assignment Name                    ; Value                          ; Default Value ; Entity Name ; Section Id     ;
 +------------------------------------+--------------------------------+---------------+-------------+----------------+
 ; AUTO_SHIFT_REGISTER_RECOGNITION    ; Off                            ; Auto          ; --          ; --             ;
-; COMPILER_SIGNATURE_ID              ; 22930452121624.140598576105944 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID              ; 22930452121490.140600198019435 ; --            ; --          ; --             ;
 ; EDA_MAP_ILLEGAL_CHARACTERS         ; On                             ; --            ; --          ; eda_simulation ;
 ; POWER_DEFAULT_INPUT_IO_TOGGLE_RATE ; 0 %                            ; 12.5%         ; --          ; --             ;
 ; POWER_DEFAULT_TOGGLE_RATE          ; 0 %                            ; 12.5%         ; --          ; --             ;
@@ -88,12 +88,12 @@ applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:02     ; 1.0                     ; --                  ; 00:00:02                           ;
-; Fitter               ; 00:00:11     ; 2.9                     ; --                  ; 00:00:13                           ;
-; Assembler            ; 00:00:10     ; 1.0                     ; --                  ; 00:00:10                           ;
+; Analysis & Synthesis ; 00:00:03     ; 1.0                     ; --                  ; 00:00:02                           ;
+; Fitter               ; 00:00:11     ; 2.0                     ; --                  ; 00:00:12                           ;
+; Assembler            ; 00:00:08     ; 1.0                     ; --                  ; 00:00:08                           ;
 ; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; --                  ; 00:00:01                           ;
 ; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; --                  ; 00:00:01                           ;
-; Total                ; 00:00:25     ; --                      ; --                  ; 00:00:27                           ;
+; Total                ; 00:00:24     ; --                      ; --                  ; 00:00:24                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -102,11 +102,11 @@ applicable agreement for further details.
 +----------------------+------------------------+---------+------------+----------------+
 ; Module Name          ; Machine Hostname       ; OS Name ; OS Version ; Processor type ;
 +----------------------+------------------------+---------+------------+----------------+
-; Analysis & Synthesis ; eceLinux3.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
-; Fitter               ; eceLinux3.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
-; Assembler            ; eceLinux3.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
-; EDA Netlist Writer   ; eceLinux3.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
-; EDA Netlist Writer   ; eceLinux3.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
+; Analysis & Synthesis ; eceLinux2.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
+; Fitter               ; eceLinux2.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
+; Assembler            ; eceLinux2.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
+; EDA Netlist Writer   ; eceLinux2.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
+; EDA Netlist Writer   ; eceLinux2.uwaterloo.ca ; Red Hat ; 5          ; x86_64         ;
 +----------------------+------------------------+---------+------------+----------------+
 
 

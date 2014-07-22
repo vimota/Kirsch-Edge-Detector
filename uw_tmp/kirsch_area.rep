@@ -3,7 +3,7 @@ Device Utilization for EP2C35F672C
 ***********************************************
 Resource                Used    Avail   Utilization
 -----------------------------------------------
-IOs                     233     475      49.05%
+IOs                     234     475      49.26%
 LUTs                    355     33216     1.07%
 Registers               425     33216     1.28%
 Memory Bits             6144    483340    1.27%
@@ -21,10 +21,10 @@ Library: work    Cell: kirsch    View: main
 
  GND                     cycloneii     1 x
  NOT                     cycloneii     3 x
- cycloneii_io            cycloneii   212 x      1    212 IOs
+ cycloneii_io            cycloneii   213 x      1    213 IOs
  cycloneii_lcell_comb    cycloneii    80 x      1     80 LUTs
  cycloneii_lcell_ff      cycloneii   182 x      1    182 Registers
- flow_notri              work          1 x    138    138 Registers
+ flow                    work          1 x    138    138 Registers
                                                 0      0 LCs
                                               195    195 LUTs
  memory                  work          1 x      0      0 LCs
@@ -32,15 +32,15 @@ Library: work    Cell: kirsch    View: main
                                               105    105 Registers
                                                80     80 LUTs
 
- Number of ports :                     233
- Number of nets :                      663
- Number of instances :                 480
+ Number of ports :                     234
+ Number of nets :                      679
+ Number of instances :                 481
  Number of references to this view :     0
 
 Total accumulated area : 
- Number of IOs :                       233
+ Number of IOs :                       234
  Number of LCs :                         0
  Number of LUTs :                      355
  Number of Memory Bits :              6144
  Number of Registers :                 425
- Number of accumulated instances :    1031
+ Number of accumulated instances :    1030

@@ -4,17 +4,17 @@ use ieee.numeric_std.all;
 
 entity flow is
   port(
-    -- debug outputs
-    debug_valid    : out std_logic;
-    debug_num_0    : out signed(12 downto 0) ;
-    debug_num_1    : out signed(12 downto 0) ;
-    debug_num_2    : out signed(12 downto 0) ;
-    debug_num_3    : out signed(12 downto 0) ;
-    debug_num_4    : out signed(12 downto 0) ;
-    debug_num_5    : out signed(13 downto 0);
-    debug_num_6    : out std_logic; 
-    debug_num_7    : out std_logic;
-    debug_num_8    : out std_logic;
+    -- -- debug outputs
+    -- debug_valid    : out std_logic;
+    -- debug_num_0    : out signed(12 downto 0) ;
+    -- debug_num_1    : out signed(12 downto 0) ;
+    -- debug_num_2    : out signed(12 downto 0) ;
+    -- debug_num_3    : out signed(12 downto 0) ;
+    -- debug_num_4    : out signed(12 downto 0) ;
+    -- debug_num_5    : out signed(13 downto 0);
+    -- debug_num_6    : out std_logic; 
+    -- debug_num_7    : out std_logic;
+    -- debug_num_8    : out std_logic;
   	------------------------------------------
     -- main inputs and outputs
     t1, t2, t3, b1, b2, b3, i1, i2	: in  unsigned(7 downto 0);
@@ -82,16 +82,16 @@ signal tmp_o_edge       : std_logic ;
 
 begin
 --debug
-    debug_valid    <= p35;
-    debug_num_0    <= resize(signed(p31), 13);
-    debug_num_1    <= signed(resize(p32, 13));
-    debug_num_2    <= resize(signed(p4s), 13);
-    debug_num_3    <= resize(p21, 13);
-    debug_num_4    <= resize(p22, 13);
-    debug_num_5    <= signed(prev_max);
-    debug_num_6    <= p41;
-    debug_num_7    <= prev_edge;
-    debug_num_8    <= p51;
+    -- debug_valid    <= p35;
+    -- debug_num_0    <= resize(signed(p31), 13);
+    -- debug_num_1    <= signed(resize(p32, 13));
+    -- debug_num_2    <= resize(signed(p4s), 13);
+    -- debug_num_3    <= resize(p21, 13);
+    -- debug_num_4    <= resize(p22, 13);
+    -- debug_num_5    <= signed(prev_max);
+    -- debug_num_6    <= p41;
+    -- debug_num_7    <= prev_edge;
+    -- debug_num_8    <= p51;
 
 
 -- P1 ---------------------------

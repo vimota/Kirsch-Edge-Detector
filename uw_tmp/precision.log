@@ -7,9 +7,9 @@
 //            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
 //          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 //  
-//  Running on Linux gm2kerr@eceLinux3.uwaterloo.ca #1 SMP Tue Jun 10 17:49:56 EDT 2014 2.6.18-371.9.1.el5 x86_64
+//  Running on Linux gm2kerr@eceLinux2.uwaterloo.ca #1 SMP Tue Jun 10 17:49:56 EDT 2014 2.6.18-371.9.1.el5 x86_64
 //  
-//  Start time Mon Jul 21 19:35:47 2014
+//  Start time Tue Jul 22 00:08:00 2014
 # -------------------------------------------------
 # Info: [9566]: Logging session transcript to file /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/precision.log
 # Info: [9575]: Results directory: /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/
@@ -24,124 +24,16 @@
 # Info: [40000]: vhdlorder, Release 2008a.22
 # Info: [40000]: Files sorted successfully.
 # Info: [40000]: hdl-analyze, Release RTLC-Precision 2008a.22
-# Info: [42502]: Analyzing input file "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/mem.vhd" ...
-# Info: [42502]: Analyzing input file "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/kirsch_synth_pkg.vhd" ...
 # Info: [42502]: Analyzing input file "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/kirsch_utility_pkg.vhd" ...
+# Info: [42502]: Analyzing input file "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/mem.vhd" ...
 # Info: [42502]: Analyzing input file "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd" ...
 # Info: [42502]: Analyzing input file "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd" ...
+# Info: [42502]: Analyzing input file "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/kirsch_synth_pkg.vhd" ...
 # Info: [42502]: Analyzing input file "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/kirsch.vhd" ...
-# Info: [641]: Current working directory: /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/.
-# Info: [40000]: RTLC-Driver, Release RTLC-Precision 2008a.22
-# Info: [40000]: Last compiled on Nov 27 2008 12:40:04
-# Info: [44512]: Initializing...
-# Info: [44504]: Partitioning design ....
-# Info: [40000]: RTLCompiler, Release RTLC-Precision 2008a.22
-# Info: [40000]: Last compiled on Nov 27 2008 12:46:53
-# Info: [44512]: Initializing...
-# Info: [44522]: Root Module work.kirsch(main): Pre-processing...
-# Info: [44506]: Module work.memory(main): Pre-processing...
-# Info: [44506]: Module work.mem(main){generic map (data_width => 8 addr_width => 8)}: Pre-processing...
-# Info: [45251]: Built-in hardware memory core inferred for variable ': mem.mem depth = 256, width = 8'.
-# Info: [44506]: Module work.flow(main): Pre-processing...
-# Warning: [45731]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd", line 14: Output port debug_num_5 has never been assigned a value.
-# Warning: [45729]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd", line 69: signal p50 has never been used.
-# Warning: [45729]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/kirsch.vhd", line 23: Input port debug_key has never been used.
-# Warning: [45729]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/kirsch.vhd", line 24: Input port debug_switch has never been used.
-# Info: [44508]: Module work.mem(main){generic map (data_width => 8 addr_width => 8)}: Compiling...
-# Info: [44508]: Module work.memory(main): Compiling...
-# Warning: [45765]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 92: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-# Warning: [45765]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 92: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-# Warning: [45765]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 84: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-# Warning: [45765]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 196: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-# Warning: [45765]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 186: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-# Warning: [45765]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 40: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-# Warning: [45765]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 190: Ignoring Initial value for this signal/variable as initial value is not supported for the specified technology.
-# Info: [44838]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 116: Macro Modgen_Counter "counter_up_sclear_clock_cnt_en_0_8" inferred for node "row".
-# Info: [44838]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/memory.vhd", line 120: Macro Modgen_Counter "counter_up_sclear_clock_clk_en_cnt_en_0_8" inferred for node "column".
-# Info: [44508]: Module work.flow(main): Compiling...
-# Info: [44523]: Root Module work.kirsch(main): Compiling...
-# Warning: [45735]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd", line 17: Net debug_num_8 has no drivers after Optimization. Connecting it to a disabled tristate
-# Info: [44846]: Rebalanced Expression Tree...
-# Info: [44842]: Compilation successfully completed.
-# Info: [44841]: Counter Inferencing === Detected : 2, Inferred (Modgen/Selcounter/AddSub) : 2 (2 / 0 / 0), AcrossDH (Merged/Not-Merged) : (0 / 0), Not-Inferred (Acrossdh/Attempted) : (0 / 0), Local Vars : 0 ===
-# Info: [44835]: Total CPU time taken for compilation: 0.0 secs.
-# Info: [44856]: Total lines of RTL compiled: 780.
-# Info: [44513]: Overall running time 1.0 secs.
-# Info: [641]: Current working directory: /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/.
-# Info: [9031]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd", line 110: : Inferred shift register Instance 'instance:u_flow.ix248' of type 'cell:shiftregister_reg_p5r(7)_clk_reset_set_0_1_1_1_0_4'
-# Info: [9031]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd", line 110: : Inferred shift register Instance 'instance:u_flow.ix249' of type 'cell:shiftregister_reg_p5r(6)_clk_reset_set_0_1_1_1_0_4'
-# Info: [9031]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd", line 110: : Inferred shift register Instance 'instance:u_flow.ix250' of type 'cell:shiftregister_reg_p5r(5)_clk_reset_set_0_1_1_1_0_4'
-# Info: [9031]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd", line 110: : Inferred shift register Instance 'instance:u_flow.ix251' of type 'cell:shiftregister_reg_p5r(4)_clk_reset_set_0_1_1_1_0_4'
-# Info: [9031]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd", line 110: : Inferred shift register Instance 'instance:u_flow.ix252' of type 'cell:shiftregister_reg_p5r(3)_clk_reset_set_0_1_1_1_0_4'
-# Info: [9031]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd", line 110: : Inferred shift register Instance 'instance:u_flow.ix253' of type 'cell:shiftregister_reg_p5r(2)_clk_reset_set_0_1_1_1_0_4'
-# Info: [9031]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd", line 110: : Inferred shift register Instance 'instance:u_flow.ix254' of type 'cell:shiftregister_reg_p5r(1)_clk_reset_set_0_1_1_1_0_4'
-# Info: [9031]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd", line 110: : Inferred shift register Instance 'instance:u_flow.ix255' of type 'cell:shiftregister_reg_p5r(0)_clk_reset_set_0_1_1_1_0_4'
-# Info: [9031]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd", line 110: : Inferred shift register Instance 'instance:u_flow.ix256' of type 'cell:shiftregister_reg_p5m(1)_clk_reset_set_0_1_1_1_0_4'
-# Info: [9031]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd", line 110: : Inferred shift register Instance 'instance:u_flow.ix257' of type 'cell:shiftregister_reg_p5m(0)_clk_reset_set_0_1_1_1_0_4'
-# Info: [9031]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd", line 110: : Inferred shift register Instance 'instance:u_flow.ix258' of type 'cell:shiftregister_reg_p40_clk_reset_set_0_1_1_1_0_3'
-# Info: [9032]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd", line 110: : Inferred shift register with taps Instance 'instance:u_flow.ix259' of type 'cell:shiftregister_with_taps_8_4_1'
-# Info: [9032]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd", line 110: : Inferred shift register with taps Instance 'instance:u_flow.ix260' of type 'cell:shiftregister_with_taps_2_4_1'
-# Info: [9032]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/flow.vhd", line 110: : Inferred shift register with taps Instance 'instance:u_flow.ix261' of type 'cell:shiftregister_with_taps_1_3_1'
-# Info: [644]: Finished compiling design.
-# Info: -- Saving the design database in uw_tmp/kirsch_gate.xdb
-# Info: [3026]: Writing file: uw_tmp/kirsch_gate.vhd.
-# Info: Info, Command 'auto_write' finished successfully
-# Info: [641]: Current working directory: /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/.
-# Info: [4552]: 3 Instances are flattened in hierarchical block .work.memory.main.
-# Info: [15002]: Optimizing design view:.work.memory.main
-# Info: [15002]: Optimizing design view:.work.flow_notri.main_unfold_1331
-# Info: [15002]: Optimizing design view:.work.kirsch.main
-# Warning: [1621]: Port debug_num_5(0) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(1) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(2) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(3) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(4) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(5) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(6) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(7) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(8) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(9) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(10) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(11) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(12) is connected to a disabled tristate, possibly unconnected Port in design.
-# Info: [12041]: -- Running timing characterization...
-# Info: [15002]: Optimizing design view:.work.memory.main
-# Info: [15002]: Optimizing design view:.work.flow_notri.main_unfold_1331
-# Info: [15002]: Optimizing design view:.work.kirsch.main
-# Warning: [1621]: Port debug_num_5(0) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(1) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(2) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(3) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(4) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(5) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(6) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(7) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(8) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(9) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(10) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(11) is connected to a disabled tristate, possibly unconnected Port in design.
-# Warning: [1621]: Port debug_num_5(12) is connected to a disabled tristate, possibly unconnected Port in design.
-# Info: [15112]: 104 DFFs were moved to top level for I/O mapping.
-# Info: [15111]: 104 I/O registers on critical path unpacked.
-# Info: -- Saving the design database in /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/kirsch.xdb
-# Info: [3026]: Writing file: /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/kirsch.edf.
-# Info: Info, Writing xrf file '/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/kirsch.xrf'
-# Info: [3026]: Writing file: /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/kirsch.xrf.
-# Info: -- Writing file /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/kirsch.tcl
-# Info: exq_pr_compile_project gen_vcf kirsch 1
-# Info: [644]: Finished synthesizing design.
-# Info: [11019]: Total CPU time taken for synthesis: 5.3 secs.
-# Info: [11020]: Overall running time 5.7 secs.
-# Info: /home/gm2kerr/ece327/project/Kirsch-Edge-Detector/uw_tmp/precision_tech.sdc
-# Info: -- Saving the design database in uw_tmp/kirsch_logic.xdb
-# Info: [3026]: Writing file: uw_tmp/kirsch_logic.vhd.
-# Info: Info, Writing xrf file 'uw_tmp/kirsch_logic.xrf'
-# Info: [3026]: Writing file: uw_tmp/kirsch_logic.xrf.
-# Info: Info, Command 'auto_write' finished successfully
-# Info: i_clock
-# Info: -- Saving the design database in uw_tmp/kirsch_logic.xdb
-# Info: [3026]: Writing file: uw_tmp/kirsch_logic.v.
-# Info: Warning, Moving uw_tmp/kirsch_logic.xrf to uw_tmp/mgc_old_kirsch_logic.xrf as uw_tmp/kirsch_logic.xrf exists
-# Info: [3026]: Writing file: uw_tmp/kirsch_logic.xrf.
-# Info: Info, Command 'auto_write' finished successfully
-# Info: *** logic synthesis succeeded ***
+# Info: [42502]: Analyzing input file "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/lib_kirsch.vhd" ...
+# Info: [42502]: Analyzing input file "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/top_kirsch.vhd" ...
+# Warning: [43032]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/top_kirsch.vhd", line 91: Size  4 of rhs expression does not match with the size 8 of lhs expr
+# Error: [42770]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/top_kirsch.vhd", line 97: Type mismatch in actual association for formal debug_num_0
+# Error: [42604]: "/home/gm2kerr/ece327/project/Kirsch-Edge-Detector/top_kirsch.vhd", line 81: Port and Port Map does not match
+# Error: [40000]: HDL analysis failed.
+# Error: [573]: near file uw_tmp/uw-logic-synth-precision_rtl.tcl, line 24: 

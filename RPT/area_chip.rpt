@@ -1,5 +1,5 @@
 Analysis & Synthesis report for kirsch
-Mon Jul 21 19:36:04 2014
+Tue Jul 22 00:06:23 2014
 Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
 
 
@@ -47,16 +47,16 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +------------------------------------+------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Jul 21 19:36:03 2014    ;
+; Analysis & Synthesis Status        ; Successful - Tue Jul 22 00:06:23 2014    ;
 ; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Full Version ;
 ; Revision Name                      ; kirsch                                   ;
 ; Top-level Entity Name              ; kirsch                                   ;
 ; Family                             ; Cyclone II                               ;
 ; Total logic elements               ; 680                                      ;
-;     Total combinational functions  ; 363                                      ;
+;     Total combinational functions  ; 362                                      ;
 ;     Dedicated logic registers      ; 425                                      ;
 ; Total registers                    ; 425                                      ;
-; Total pins                         ; 233                                      ;
+; Total pins                         ; 234                                      ;
 ; Total virtual pins                 ; 0                                        ;
 ; Total memory bits                  ; 6,144                                    ;
 ; Embedded Multiplier 9-bit elements ; 0                                        ;
@@ -164,26 +164,26 @@ applicable agreement for further details.
 +---------------------------------------------+---------+
 ; Estimated Total logic elements              ; 680     ;
 ;                                             ;         ;
-; Total combinational functions               ; 363     ;
+; Total combinational functions               ; 362     ;
 ; Logic element usage by number of LUT inputs ;         ;
-;     -- 4 input functions                    ; 37      ;
-;     -- 3 input functions                    ; 261     ;
-;     -- <=2 input functions                  ; 65      ;
+;     -- 4 input functions                    ; 38      ;
+;     -- 3 input functions                    ; 262     ;
+;     -- <=2 input functions                  ; 62      ;
 ;                                             ;         ;
 ; Logic elements by mode                      ;         ;
-;     -- normal mode                          ; 197     ;
+;     -- normal mode                          ; 196     ;
 ;     -- arithmetic mode                      ; 166     ;
 ;                                             ;         ;
 ; Total registers                             ; 425     ;
 ;     -- Dedicated logic registers            ; 425     ;
 ;     -- I/O registers                        ; 0       ;
 ;                                             ;         ;
-; I/O pins                                    ; 233     ;
+; I/O pins                                    ; 234     ;
 ; Total memory bits                           ; 6144    ;
 ; Maximum fan-out node                        ; i_clock ;
 ; Maximum fan-out                             ; 449     ;
-; Total fan-out                               ; 2800    ;
-; Average fan-out                             ; 2.68    ;
+; Total fan-out                               ; 2818    ;
+; Average fan-out                             ; 2.70    ;
 +---------------------------------------------+---------+
 
 
@@ -192,23 +192,23 @@ applicable agreement for further details.
 +--------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                       ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                   ; Library Name ;
 +--------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------+--------------+
-; |kirsch                                          ; 363 (83)          ; 425 (182)    ; 6144        ; 0            ; 0       ; 0         ; 233  ; 0            ; |kirsch                                                                                               ; work         ;
-;    |flow_notri:u_flow|                           ; 200 (32)          ; 138 (138)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow_notri:u_flow                                                                             ; work         ;
-;       |add_12_0:p21_add12_4i1|                   ; 12 (12)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow_notri:u_flow|add_12_0:p21_add12_4i1                                                      ; OPERATORS    ;
-;       |add_12_1:p22_add12_4i2|                   ; 12 (12)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow_notri:u_flow|add_12_1:p22_add12_4i2                                                      ; OPERATORS    ;
-;       |add_8_0:p11_add8_0i1|                     ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow_notri:u_flow|add_8_0:p11_add8_0i1                                                        ; OPERATORS    ;
-;       |add_8_1:p12_add8_0i2|                     ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow_notri:u_flow|add_8_1:p12_add8_0i2                                                        ; OPERATORS    ;
-;       |add_8_2:p13_add8_0i3|                     ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow_notri:u_flow|add_8_2:p13_add8_0i3                                                        ; OPERATORS    ;
-;       |add_9_0:p11_add9_1|                       ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow_notri:u_flow|add_9_0:p11_add9_1                                                          ; OPERATORS    ;
-;       |add_9_1:p12_add9_2|                       ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow_notri:u_flow|add_9_1:p12_add9_2                                                          ; OPERATORS    ;
-;       |add_9_2:p13_add9_3|                       ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow_notri:u_flow|add_9_2:p13_add9_3                                                          ; OPERATORS    ;
-;       |gt_13_0:ix25033z19901|                    ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow_notri:u_flow|gt_13_0:ix25033z19901                                                       ; OPERATORS    ;
-;       |gt_14_0:ix25836z8934|                     ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow_notri:u_flow|gt_14_0:ix25836z8934                                                        ; OPERATORS    ;
-;       |sub_10_0:p21_sub10_4i3|                   ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow_notri:u_flow|sub_10_0:p21_sub10_4i3                                                      ; OPERATORS    ;
-;       |sub_10_1:p22_sub10_4i5|                   ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow_notri:u_flow|sub_10_1:p22_sub10_4i5                                                      ; OPERATORS    ;
-;       |sub_10_2:p21_sub11_4i4|                   ; 12 (12)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow_notri:u_flow|sub_10_2:p21_sub11_4i4                                                      ; OPERATORS    ;
-;       |sub_10_3:p22_sub11_4i6|                   ; 12 (12)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow_notri:u_flow|sub_10_3:p22_sub11_4i6                                                      ; OPERATORS    ;
-;       |sub_12_0:debug_num_2_sub12_0|             ; 13 (13)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow_notri:u_flow|sub_12_0:debug_num_2_sub12_0                                                ; OPERATORS    ;
+; |kirsch                                          ; 362 (83)          ; 425 (182)    ; 6144        ; 0            ; 0       ; 0         ; 234  ; 0            ; |kirsch                                                                                               ; work         ;
+;    |flow:u_flow|                                 ; 199 (31)          ; 138 (138)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow:u_flow                                                                                   ; work         ;
+;       |add_12_0:p21_add12_4i1|                   ; 12 (12)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow:u_flow|add_12_0:p21_add12_4i1                                                            ; OPERATORS    ;
+;       |add_12_1:p22_add12_4i2|                   ; 12 (12)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow:u_flow|add_12_1:p22_add12_4i2                                                            ; OPERATORS    ;
+;       |add_8_0:p11_add8_0i1|                     ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow:u_flow|add_8_0:p11_add8_0i1                                                              ; OPERATORS    ;
+;       |add_8_1:p12_add8_0i2|                     ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow:u_flow|add_8_1:p12_add8_0i2                                                              ; OPERATORS    ;
+;       |add_8_2:p13_add8_0i3|                     ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow:u_flow|add_8_2:p13_add8_0i3                                                              ; OPERATORS    ;
+;       |add_9_0:p11_add9_1|                       ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow:u_flow|add_9_0:p11_add9_1                                                                ; OPERATORS    ;
+;       |add_9_1:p12_add9_2|                       ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow:u_flow|add_9_1:p12_add9_2                                                                ; OPERATORS    ;
+;       |add_9_2:p13_add9_3|                       ; 10 (10)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow:u_flow|add_9_2:p13_add9_3                                                                ; OPERATORS    ;
+;       |gt_13_0:ix46185z19900|                    ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow:u_flow|gt_13_0:ix46185z19900                                                             ; OPERATORS    ;
+;       |gt_14_0:ix33352z8934|                     ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow:u_flow|gt_14_0:ix33352z8934                                                              ; OPERATORS    ;
+;       |sub_10_0:p21_sub10_4i3|                   ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow:u_flow|sub_10_0:p21_sub10_4i3                                                            ; OPERATORS    ;
+;       |sub_10_1:p22_sub10_4i5|                   ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow:u_flow|sub_10_1:p22_sub10_4i5                                                            ; OPERATORS    ;
+;       |sub_10_2:p21_sub11_4i4|                   ; 12 (12)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow:u_flow|sub_10_2:p21_sub11_4i4                                                            ; OPERATORS    ;
+;       |sub_10_3:p22_sub11_4i6|                   ; 12 (12)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow:u_flow|sub_10_3:p22_sub11_4i6                                                            ; OPERATORS    ;
+;       |sub_12_0:debug_num_2_sub12_0|             ; 13 (13)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|flow:u_flow|sub_12_0:debug_num_2_sub12_0                                                      ; OPERATORS    ;
 ;    |memory:u_memory|                             ; 80 (62)           ; 105 (89)     ; 6144        ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|memory:u_memory                                                                               ; work         ;
 ;       |modgen_counter_8_0:modgen_counter_row|    ; 9 (9)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|memory:u_memory|modgen_counter_8_0:modgen_counter_row                                         ; OPERATORS    ;
 ;       |modgen_counter_8_1:modgen_counter_column| ; 9 (9)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |kirsch|memory:u_memory|modgen_counter_8_1:modgen_counter_column                                      ; OPERATORS    ;
@@ -516,7 +516,7 @@ Info: Running Quartus II Analysis & Synthesis
     Info: programming logic devices manufactured by Altera and sold by 
     Info: Altera or its authorized distributors.  Please refer to the 
     Info: applicable agreement for further details.
-    Info: Processing started: Mon Jul 21 19:36:01 2014
+    Info: Processing started: Tue Jul 22 00:06:19 2014
 Info: Command: quartus_map kirsch --source=kirsch_logic.edf --family=CycloneII
 Info: Found 23 design units, including 23 entities, in source file kirsch_logic.edf
     Info: Found entity 1: add_12_0
@@ -539,42 +539,42 @@ Info: Found 23 design units, including 23 entities, in source file kirsch_logic.
     Info: Found entity 18: sub_10_2
     Info: Found entity 19: sub_10_3
     Info: Found entity 20: sub_12_0
-    Info: Found entity 21: flow_notri
+    Info: Found entity 21: flow
     Info: Found entity 22: kirsch
     Info: Found entity 23: memory
 Info: Elaborating entity "kirsch" for the top level hierarchy
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Elaborating entity "flow_notri" for hierarchy "flow_notri:u_flow"
+Info: Elaborating entity "flow" for hierarchy "flow:u_flow"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Elaborating entity "sub_12_0" for hierarchy "flow_notri:u_flow|sub_12_0:debug_num_2_sub12_0"
+Info: Elaborating entity "sub_12_0" for hierarchy "flow:u_flow|sub_12_0:debug_num_2_sub12_0"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Elaborating entity "gt_13_0" for hierarchy "flow_notri:u_flow|gt_13_0:ix25033z19901"
+Info: Elaborating entity "gt_14_0" for hierarchy "flow:u_flow|gt_14_0:ix33352z8934"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Elaborating entity "gt_14_0" for hierarchy "flow_notri:u_flow|gt_14_0:ix25836z8934"
+Info: Elaborating entity "gt_13_0" for hierarchy "flow:u_flow|gt_13_0:ix46185z19900"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Elaborating entity "add_8_0" for hierarchy "flow_notri:u_flow|add_8_0:p11_add8_0i1"
+Info: Elaborating entity "add_8_0" for hierarchy "flow:u_flow|add_8_0:p11_add8_0i1"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Elaborating entity "add_9_0" for hierarchy "flow_notri:u_flow|add_9_0:p11_add9_1"
+Info: Elaborating entity "add_9_0" for hierarchy "flow:u_flow|add_9_0:p11_add9_1"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Elaborating entity "add_8_1" for hierarchy "flow_notri:u_flow|add_8_1:p12_add8_0i2"
+Info: Elaborating entity "add_8_1" for hierarchy "flow:u_flow|add_8_1:p12_add8_0i2"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Elaborating entity "add_9_1" for hierarchy "flow_notri:u_flow|add_9_1:p12_add9_2"
+Info: Elaborating entity "add_9_1" for hierarchy "flow:u_flow|add_9_1:p12_add9_2"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Elaborating entity "add_8_2" for hierarchy "flow_notri:u_flow|add_8_2:p13_add8_0i3"
+Info: Elaborating entity "add_8_2" for hierarchy "flow:u_flow|add_8_2:p13_add8_0i3"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Elaborating entity "add_9_2" for hierarchy "flow_notri:u_flow|add_9_2:p13_add9_3"
+Info: Elaborating entity "add_9_2" for hierarchy "flow:u_flow|add_9_2:p13_add9_3"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Elaborating entity "add_12_0" for hierarchy "flow_notri:u_flow|add_12_0:p21_add12_4i1"
+Info: Elaborating entity "add_12_0" for hierarchy "flow:u_flow|add_12_0:p21_add12_4i1"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Elaborating entity "sub_10_0" for hierarchy "flow_notri:u_flow|sub_10_0:p21_sub10_4i3"
+Info: Elaborating entity "sub_10_0" for hierarchy "flow:u_flow|sub_10_0:p21_sub10_4i3"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Elaborating entity "sub_10_2" for hierarchy "flow_notri:u_flow|sub_10_2:p21_sub11_4i4"
+Info: Elaborating entity "sub_10_2" for hierarchy "flow:u_flow|sub_10_2:p21_sub11_4i4"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Elaborating entity "add_12_1" for hierarchy "flow_notri:u_flow|add_12_1:p22_add12_4i2"
+Info: Elaborating entity "add_12_1" for hierarchy "flow:u_flow|add_12_1:p22_add12_4i2"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Elaborating entity "sub_10_1" for hierarchy "flow_notri:u_flow|sub_10_1:p22_sub10_4i5"
+Info: Elaborating entity "sub_10_1" for hierarchy "flow:u_flow|sub_10_1:p22_sub10_4i5"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
-Info: Elaborating entity "sub_10_3" for hierarchy "flow_notri:u_flow|sub_10_3:p22_sub11_4i6"
+Info: Elaborating entity "sub_10_3" for hierarchy "flow:u_flow|sub_10_3:p22_sub11_4i6"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
 Info: Elaborating entity "memory" for hierarchy "memory:u_memory"
 Warning: EDA design entry or synthesis tool was not specified.  Detecting EDA tool "Precision Synthesis" as the tool that generated the EDIF Input File.
@@ -652,13 +652,13 @@ Warning: Design contains 21 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "debug_switch[17]"
 Info: Implemented 981 device resources after synthesis - the final resource count might be different
     Info: Implemented 32 input pins
-    Info: Implemented 201 output pins
-    Info: Implemented 724 logic cells
+    Info: Implemented 202 output pins
+    Info: Implemented 723 logic cells
     Info: Implemented 24 RAM segments
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 46 warnings
-    Info: Peak virtual memory: 190 megabytes
-    Info: Processing ended: Mon Jul 21 19:36:04 2014
-    Info: Elapsed time: 00:00:03
+    Info: Peak virtual memory: 191 megabytes
+    Info: Processing ended: Tue Jul 22 00:06:23 2014
+    Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:02
 
 

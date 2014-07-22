@@ -7,25 +7,33 @@ T_opt
 V5B:AVD5HjcVC;BJ^_Mc^;3
 Z1 04 9 4 work kirsch_tb main 1
 =1-74d02b26ff76-53ccbf98-9de90-5089
-Z2 o-quiet -auto_acc_if_foreign -work work-msim -G test_num=2
+o-quiet -auto_acc_if_foreign -work work-msim -G test_num=2
 n@_opt
-Z3 OL;O;10.1;51
-Z4 dP:\ece327\project\Kirsch-Edge-Detector
+Z2 OL;O;10.1;51
+Z3 dP:\ece327\project\Kirsch-Edge-Detector
 T_opt1
-V5A>B5B0mUhoGek=]9OaiE1
+VVh7N[SA3^I3Y]z`o:gTP;3
 R1
-=1-74d02b26ff76-53cda8d3-3da7a-3459
-o-quiet -auto_acc_if_foreign -work work-msim -G test_num=1
+=1-14dae9740818-53cde9d6-b6658-c2d
+Z4 o-quiet -auto_acc_if_foreign -work work-msim -G test_num=1
 n@_opt1
-R3
-T_opt2
-VdF3<JK425abM8Zj34bn:m0
-R1
-=1-14dae9740818-53cd61b7-39c39-19a8
 R2
-n@_opt2
-R3
+T_opt2
+VPF``7nH[kQ<Wk[VdmW>[S1
+R1
+=1-14dae9740792-53cdc240-105af-19e3
 R4
+n@_opt2
+R2
+R3
+T_opt3
+VJDQOV:N;n@VBADEI^]ZMz1
+R1
+=1-74d02b26ff76-53cdc053-f157f-6bc2
+R4
+n@_opt3
+R2
+R3
 vadd_11_0
 I0P9b8j3SE?gRlDnXfRMd51
 VdZnG70]KUIPTRbfFz6jc20
@@ -63,31 +71,31 @@ R13
 !i10b 1
 !s85 0
 vadd_12_0
-ID84Yi3U]QM704U?z^JFe80
-VN_EUBg[`G2cNIEL<hEX6P2
+I]`zbNAlDRNfYR_QY^OFTZ1
+VlB?g[Sf?EL;Oc_fz?cbaX1
 R5
-Z14 w1405985759
+Z14 w1406001977
 Z15 8uw_tmp/kirsch_logic.v
 Z16 Fuw_tmp/kirsch_logic.v
-L0 6388
+L0 6383
 R9
 r1
 31
-Z17 !s108 1405985792.703519
+Z17 !s108 1406002009.711739
 Z18 !s107 uw_tmp/kirsch_logic.v|
 Z19 !s90 -novopt|-work|work-msim|uw_tmp/kirsch_logic.v|
 R13
+!s100 iYaogFKQFfCn>2PA^mjY71
 !i10b 1
-!s100 a6im?>@V_4alaa8SLb8RX3
 !s85 0
 vadd_12_1
-ITD90EOF_:NeY6T<=Ki@Ho2
-V=2RPcAWTe]XXmn9V2imi80
+ITT>YIKjP9EeDSgz?7d0423
+V2]Vz;27hC8dOWW2K4?6G70
 R5
 R14
 R15
 R16
-L0 6284
+L0 6279
 R9
 r1
 31
@@ -95,17 +103,17 @@ R17
 R18
 R19
 R13
+!s100 G_C>>JSjPO_G8b`Th1Hh_3
 !i10b 1
-!s100 =^:bYNR5?M1[X8VbjEbF_3
 !s85 0
 vadd_8_0
-IMF7T2lNL8<zJJzXVU2RT60
+Im`aY>W]M]kzjgdd@jMSJd0
 V>Z@[95c;5;Q1z4I<G=Ye71
 R5
 R14
 R15
 R16
-L0 6204
+L0 6199
 R9
 r1
 31
@@ -113,17 +121,17 @@ R17
 R18
 R19
 R13
+!s100 M3BeB<jX6SWUl^Ra:R58_3
 !i10b 1
-!s100 W5TLb75B6N@?ViJ@A<kVA1
 !s85 0
 vadd_8_1
-I^=^1:=2E^Y0X_Y=7^e22b1
+I8]NmkbTRdW0YAHIQa3h5m3
 Vc:O<X@O@E:L^APdD:]j7d1
 R5
 R14
 R15
 R16
-L0 6037
+L0 6032
 R9
 r1
 31
@@ -131,17 +139,17 @@ R17
 R18
 R19
 R13
+!s100 UCCea?K8UDOaQBjiXhZ<>0
 !i10b 1
-!s100 a0ZlKe]9[R>SRfS6HYDB[1
 !s85 0
 vadd_8_2
-IZ4U3>YU87S<n>_h61Q1Hc3
+IcMl;Ma<imJ?9WBW47beHY1
 V62kZHkMNMW`RMQ]O9UIK52
 R5
 R14
 R15
 R16
-L0 5682
+L0 5677
 R9
 r1
 31
@@ -149,17 +157,17 @@ R17
 R18
 R19
 R13
+!s100 Xhd=j@2S3l]Q??jC7DzWQ1
 !i10b 1
-!s100 jE^PWLZZh3@^B_cGjVQ;o3
 !s85 0
 vadd_9_0
-Ien;CYnP0bNH;<^09H9>EB1
+IMGQdD3gJXh>0TW9WSIS=_0
 VUazcRFBQj6J;hJ8AeX=RE2
 R5
 R14
 R15
 R16
-L0 6117
+L0 6112
 R9
 r1
 31
@@ -167,17 +175,17 @@ R17
 R18
 R19
 R13
+!s100 ;=7OE>bV4IQAnWmWnM8WW3
 !i10b 1
-!s100 kYGknUkX;C7N5_b?O0>eZ3
 !s85 0
 vadd_9_1
-IaMU:g==I1mzXm`Le7?B^d1
+I5PG18db?9m55UbM8=YO]k2
 VDldeglegAba4g^8ol46J10
 R5
 R14
 R15
 R16
-L0 5950
+L0 5945
 R9
 r1
 31
@@ -185,17 +193,17 @@ R17
 R18
 R19
 R13
+!s100 PI1X[jj7In;KI7YAACke[3
 !i10b 1
-!s100 TTlW[XWEmeCaN5BOGHeHi0
 !s85 0
 vadd_9_2
-IHG0cYTE3MjM4U0Q[9bIzd0
+I3ziD3=SYM1h8`2K``GeVW2
 VGFL7gCV4dIai^[ez7CF762
 R5
 R14
 R15
 R16
-L0 5595
+L0 5590
 R9
 r1
 31
@@ -203,8 +211,8 @@ R17
 R18
 R19
 R13
+!s100 6Ak^RDf@[jm6@f>M2I4mH2
 !i10b 1
-!s100 z<Cn2adQ4gbKLjMG3Ejc13
 !s85 0
 Pfile_pkg
 Z20 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
@@ -220,9 +228,9 @@ VgOUVm0_N_ATfV]2=@Fkaj2
 Z26 OL;C;10.1;51
 31
 b1
-Z27 !s108 1405987017.063031
-Z28 !s90 -93|+acc|-work|work-msim|mem.vhd|kirsch_synth_pkg.vhd|kirsch.vhd|kirsch_utility_pkg.vhd|memory.vhd|flow.vhd|string_pkg.vhd|kirsch_synth_pkg.vhd|kirsch_unsynth_pkg.vhd|kirsch_tb.vhd|
-Z29 !s107 kirsch_tb.vhd|kirsch_unsynth_pkg.vhd|string_pkg.vhd|flow.vhd|memory.vhd|kirsch_utility_pkg.vhd|kirsch.vhd|kirsch_synth_pkg.vhd|mem.vhd|
+Z27 !s108 1406003660.827449
+Z28 !s90 -93|+acc|-work|work-msim|kirsch_utility_pkg.vhd|mem.vhd|flow.vhd|memory.vhd|kirsch_synth_pkg.vhd|kirsch.vhd|string_pkg.vhd|kirsch_synth_pkg.vhd|kirsch_unsynth_pkg.vhd|kirsch_tb.vhd|
+Z29 !s107 kirsch_tb.vhd|kirsch_unsynth_pkg.vhd|string_pkg.vhd|kirsch.vhd|kirsch_synth_pkg.vhd|memory.vhd|flow.vhd|mem.vhd|kirsch_utility_pkg.vhd|
 Z30 o-93 +acc -work work-msim
 Z31 tExplicit 1
 !s100 fNmL6N2@7_YEaQXG@Gd[31
@@ -246,7 +254,7 @@ nbody
 !s100 g:lfbMCK>>nPJKkD:3RF52
 !i10b 1
 Eflow
-Z33 w1405986998
+Z33 w1406002825
 R20
 R21
 R22
@@ -255,7 +263,7 @@ Z34 8flow.vhd
 Z35 Fflow.vhd
 l0
 L5
-V];0f_89ENbnC>0HH:>JI:1
+V=h?50jJRMYm2hlG:o7Pf^2
 R26
 31
 R27
@@ -263,16 +271,16 @@ R28
 R29
 R30
 R31
-!s100 ?8[LZioNAfXfV=D@fF<Z13
+!s100 n<7h=Il<9>:?mZz4iiV>^1
 !i10b 1
 Amain
 R20
 R21
 R22
-Z36 DEx4 work 4 flow 0 22 ];0f_89ENbnC>0HH:>JI:1
+Z36 DEx4 work 4 flow 0 22 =h?50jJRMYm2hlG:o7Pf^2
 l83
 L32
-VI`QImNd:LIZY>[@gd`ad=2
+VNbNW4MldPTd>g9dAYgEXj1
 R26
 31
 R27
@@ -280,7 +288,7 @@ R28
 R29
 R30
 R31
-!s100 =0MO@9JfHEbii:CMDdMB53
+!s100 [f?2KmmPX0Z_=didO;aco1
 !i10b 1
 vflow_chip
 IQW7BzZoANAD5YRjU5n?>O2
@@ -304,19 +312,19 @@ vflow_notri
 IYJdVK3`@mY_n5`WKn7mHJ0
 Vbl0`c`FU66eSBh9ZaVLTT0
 R5
-R14
+w1405985759
 R15
 R16
 L0 4564
 R9
 r1
 31
-R17
 R18
 R19
 R13
-!i10b 1
+!s108 1405985792.703519
 !s100 lAN9n;[D^cfFo[_;A[^iD0
+!i10b 1
 !s85 0
 vgt_12_0
 II@OkL@QFE;e6Eg6m4f[k`0
@@ -355,13 +363,13 @@ R13
 !i10b 1
 !s85 0
 vgt_13_0
-IcW:bkKe6WbBoeboSJKQhM3
+IKaGi@JQO4>FW<d@>S@D^m0
 VgjR7dYhziSh4minUeTTaI1
 R5
 R14
 R15
 R16
-L0 6492
+L0 6487
 R9
 r1
 31
@@ -369,17 +377,17 @@ R17
 R18
 R19
 R13
+!s100 l1jZ?36Q84hBlcz15d_RF1
 !i10b 1
-!s100 i?GV`Tz]U6^De5lh=@kZW1
 !s85 0
 vgt_14_0
-I2iDC_V?hSmFO[@W9A<[a^2
-VJm94;7:cV4R[gD_A8a9GJ3
+IXo@L;SiI8W;`3@abReYhG2
+Vzk3QnemR7f3n<;H0A`Mf`3
 R5
 R14
 R15
 R16
-L0 6585
+L0 6580
 R9
 r1
 31
@@ -387,11 +395,11 @@ R17
 R18
 R19
 R13
+!s100 O6]3JDRDeTX=i1D5::[F_3
 !i10b 1
-!s100 ED4@>d]zH^LSBQOfMD_Mf0
 !s85 0
 Ekirsch
-Z38 w1405977216
+Z38 w1406003497
 Z39 DPx4 work 18 kirsch_utility_pkg 0 22 a1U1FohR3F9;Bf2h4TPDg1
 R20
 R21
@@ -401,7 +409,7 @@ Z40 8kirsch.vhd
 Z41 Fkirsch.vhd
 l0
 L7
-V=2:SlEbnN<^iKd3B25k^;3
+VF^4_J^63Ym<8z52OIG2aH1
 R26
 31
 R27
@@ -409,19 +417,19 @@ R28
 R29
 R30
 R31
-!s100 I9m99VB@D93fZm6JBbj^z1
+!s100 eIPP>f?D760_YDX9MWg`11
 !i10b 1
 Amain
 R36
-Z42 DEx4 work 6 memory 0 22 YF8^egoi]F_Ug0BiY1h9m1
+Z42 DEx4 work 6 memory 0 22 B30RSh7EPZYK6<8I?Bkco0
 R39
 R20
 R21
 R22
-Z43 DEx4 work 6 kirsch 0 22 =2:SlEbnN<^iKd3B25k^;3
+Z43 DEx4 work 6 kirsch 0 22 F^4_J^63Ym<8z52OIG2aH1
 l71
 L43
-VZ61QULb?<<7QF7P2ajUhR1
+VPfl;P^K4`36XC]=8b6Ub70
 R26
 31
 R27
@@ -429,8 +437,26 @@ R28
 R29
 R30
 R31
-!s100 EbFL3171POzDHlj?HC9WW1
+!s100 Fhc^UQ;A:6_o_4[eOb[YE1
 !i10b 1
+vkirsch_chip
+I6EgC=8zA[aoLY3ZehN;L20
+VEBoQz6bT`NnKNEK^gN0332
+R5
+w1406002012
+8uw_tmp/kirsch_chip.v
+Fuw_tmp/kirsch_chip.v
+L0 31
+R9
+r1
+31
+R37
+!i10b 1
+!s100 G1IzDMRPHmDn1zRo=5=:f3
+!s85 0
+!s108 1406002012.496157
+!s107 uw_tmp/kirsch_chip.v|
+!s90 -novopt|+acc|-work|work-msim|uw_tmp/kirsch_chip.v|
 Pkirsch_synth_pkg
 R20
 R21
@@ -471,7 +497,7 @@ nbody
 !s100 zSTl0_JT<]bVGQf[ch>A02
 !i10b 1
 Ekirsch_tb
-Z47 w1405977582
+Z47 w1406003509
 R39
 Z48 DPx4 work 10 string_pkg 0 22 D?RAj`>ORQzJG`OH4laVW0
 Z49 DPx4 work 18 kirsch_unsynth_pkg 0 22 <[f1DF]Z>1;;9VO_:RUVI3
@@ -506,9 +532,9 @@ R20
 R21
 R22
 DEx4 work 9 kirsch_tb 0 22 h;hmQjEI?VH>cYLhL3MH^1
-l87
+l90
 L33
-V:<210Pg9VccG>Q>IjV[>M2
+V`FnOgdCPCi2O:MAk7X?P93
 R26
 31
 R27
@@ -516,7 +542,7 @@ R28
 R29
 R30
 R31
-!s100 5@JUcF`gH4<f80<UW^2LL3
+!s100 ]>A1SE@8Ma:903h68nE<;3
 !i10b 1
 Pkirsch_unsynth_pkg
 R46
@@ -621,7 +647,7 @@ R31
 !s100 CM=c^iWbEL4Id@2NI`R@[0
 !i10b 1
 Ememory
-Z55 w1405982588
+Z55 w1406003492
 R39
 R20
 R21
@@ -631,7 +657,7 @@ Z56 8memory.vhd
 Z57 Fmemory.vhd
 l0
 L6
-VYF8^egoi]F_Ug0BiY1h9m1
+VB30RSh7EPZYK6<8I?Bkco0
 R26
 31
 R27
@@ -639,7 +665,7 @@ R28
 R29
 R30
 R31
-!s100 G]Y3OTO_IU6D6P5iloEdE2
+!s100 4Md7e9N:Z:JDd;kj;U0En1
 !i10b 1
 Amain
 R54
@@ -648,9 +674,9 @@ R20
 R21
 R22
 R42
-l43
-L20
-VM555^E9H7JXk3ATOmnXSF2
+l55
+L32
+V[Y=lZPS3zdHNTPd;T[Tdn3
 R26
 31
 R27
@@ -658,7 +684,7 @@ R28
 R29
 R30
 R31
-!s100 ]lS8an@mkmh8kk58Re5Xa0
+!s100 _;3E2SUlGNAb4MgMkSD9g2
 !i10b 1
 vmemory_chip
 I;[QPj;lnQKhbXEHoPnLIn2
@@ -679,13 +705,13 @@ R37
 !i10b 1
 !s85 0
 vmodgen_counter_8_0
-ITia2d2PVJ79E5;V?2L_6j0
+I7gX?ROdQ<cC8W3kijdKnk2
 VjKRfb1zB[Y=[Jz@eVN=BC0
 R5
 R14
 R15
 R16
-L0 7949
+L0 7945
 R9
 r1
 31
@@ -693,17 +719,17 @@ R17
 R18
 R19
 R13
+!s100 mgifh9]MV^Z8UD4JRb9R>3
 !i10b 1
-!s100 z0mlIgVR@1RH<I2DazXf52
 !s85 0
 vmodgen_counter_8_1
-Ic1<In4KmakX@KeU_P_<ZR0
-V_HXfkSa3jX@5]S:8kCd3?0
+If3=GHYBmQS9E[CYd477bS2
+VPXGm04;n>nOENnl8he20h0
 R5
 R14
 R15
 R16
-L0 7837
+L0 7833
 R9
 r1
 31
@@ -711,17 +737,17 @@ R17
 R18
 R19
 R13
+!s100 RKZGGHhIX`KCem_j3XGi22
 !i10b 1
-!s100 @?<R8k=RJC;@FC@gjiD323
 !s85 0
 vram_dq_8_0
-I_QQTEdc?HT13DD5_chj6?1
+IU_ifmijD@==1o]>z@46<>2
 Vb]Omm`LM4lgabaaiVmlCd3
 R5
 R14
 R15
 R16
-L0 7737
+L0 7733
 R9
 r1
 31
@@ -729,17 +755,17 @@ R17
 R18
 R19
 R13
+!s100 h=94UOBQhOnOZ5V?ddeCW1
 !i10b 1
-!s100 SmBmI719Z]j3YeG8O^b_X1
 !s85 0
 vram_dq_8_1
-IDd7F3V9AM?Kgi7Gj]8V2g1
+IM9kkkW=YF5eJo>8Q8B?NL1
 VhMM20SVFcn_AEQz?ZNb[Y3
 R5
 R14
 R15
 R16
-L0 7637
+L0 7633
 R9
 r1
 31
@@ -747,17 +773,17 @@ R17
 R18
 R19
 R13
+!s100 mJ_2[gAKIfa7YVM0GBM>k0
 !i10b 1
-!s100 N0;Lig]I]gO]Z2]M3FOe21
 !s85 0
 vram_dq_8_2
-IV;S37_5`E3h1b7aD=U3P52
+IAooNJVz4[g5DcOz46C6<c3
 V5mnl0DVkP06HcEe=H4lmB1
 R5
 R14
 R15
 R16
-L0 7537
+L0 7533
 R9
 r1
 31
@@ -765,8 +791,8 @@ R17
 R18
 R19
 R13
+!s100 40lb]iLH1e]I3@o0^<hG_3
 !i10b 1
-!s100 Oh<gd_:^l[@UJYYVGagkb2
 !s85 0
 Pstring_pkg
 R21
@@ -806,13 +832,13 @@ nbody
 !s100 9Wz]?2O2`PLX2Z;IcUdzG2
 !i10b 1
 vsub_10_0
-I`^L0F9^NCgBeaXJX0g:oO2
+IX4fo68[3Uj=e6;CjP7jD02
 VLVPWZOXmKFzYD>lSfhJAe1
 R5
 R14
 R15
 R16
-L0 5856
+L0 5851
 R9
 r1
 31
@@ -820,17 +846,17 @@ R17
 R18
 R19
 R13
+!s100 ;PXOM5FEB:bDn0Fo@RD6k2
 !i10b 1
-!s100 aJCh`iiU<X<;:10mGf;mX1
 !s85 0
 vsub_10_1
-I^T^kzHYBY5dHU<76:dHY;3
+I1XdO;XihUKP<L^N2bRd8Y2
 VC;8al@JU0_0B;QF<cRS:K3
 R5
 R14
 R15
 R16
-L0 5762
+L0 5757
 R9
 r1
 31
@@ -838,17 +864,17 @@ R17
 R18
 R19
 R13
+!s100 zbdYhn@281>SQlhKF;N7`0
 !i10b 1
-!s100 V00P2@mZ4d>]Qm7>TgV3P0
 !s85 0
 vsub_10_2
-IhCkbE_9gO5K=lXW@chO_P3
+IVWY>k0ij9CB1X[UB;Tf5Z2
 V0EK4CSCDdcN<`3SV[L<@L1
 R5
 R14
 R15
 R16
-L0 5493
+L0 5488
 R9
 r1
 31
@@ -856,17 +882,17 @@ R17
 R18
 R19
 R13
+!s100 3nB@7Q[8S7IY5oUER9^?T3
 !i10b 1
-!s100 JldM0b0MA1PEUFeX[dSid2
 !s85 0
 vsub_10_3
-IgG2[==M1<>M2B;6U1o2^@1
+Ii0FaRdM@7j10FhQF`_KK@1
 V<3ehZL[f?0@N>J64gicSG1
 R5
 R14
 R15
 R16
-L0 5391
+L0 5386
 R9
 r1
 31
@@ -874,17 +900,17 @@ R17
 R18
 R19
 R13
+!s100 Wl[Y>SGASDYk98l1_WWAb0
 !i10b 1
-!s100 ;i]T?GG[eeOKo37]jeiV^1
 !s85 0
 vsub_12_0
-I=1>[LAOBj?^lNN99TH]]22
+I`IeenVmdVDi:SacE2HIHH3
 VN;;So?lhKUOQ[PWoRH;Ro3
 R5
 R14
 R15
 R16
-L0 6686
+L0 6681
 R9
 r1
 31
@@ -892,6 +918,6 @@ R17
 R18
 R19
 R13
+!s100 JVkK8h^JACCee29f_3`lZ0
 !i10b 1
-!s100 Z>;KZ22E=hK_kYL=THT950
 !s85 0

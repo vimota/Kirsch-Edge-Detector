@@ -48,11 +48,11 @@ NAME                                          GATE                     DELAY    
 reg_f_state(3)/clk                         cycloneii_lcell_ff                   0.000   up
 reg_f_state(3)/regout                      cycloneii_lcell_ff         0.000     0.000   up
 f_state(3)                                 (net)                      0.290                   2
-ix20836z52924/dataa                        cycloneii_lcell_comb                 0.290   up
-ix20836z52924/combout                      cycloneii_lcell_comb       0.545     0.835   up
-nx20836z2                                  (net)                      0.650                 142
-ix20836z52967/datab                        cycloneii_lcell_comb                 1.485   up
-ix20836z52967/combout                      cycloneii_lcell_comb       0.522     2.007   up
+ix57127z52924/dataa                        cycloneii_lcell_comb                 0.290   up
+ix57127z52924/combout                      cycloneii_lcell_comb       0.545     0.835   up
+nx57127z2                                  (net)                      0.650                 142
+ix20836z52954/datab                        cycloneii_lcell_comb                 1.485   up
+ix20836z52954/combout                      cycloneii_lcell_comb       0.522     2.007   up
 f_b1(0)                                    (net)                      0.270                   1
 u_flow/p12_add8_0i2/ix44952z52931/dataa    cycloneii_lcell_comb                 2.277   up
 u_flow/p12_add8_0i2/ix44952z52931/combout  cycloneii_lcell_comb       0.545     2.822   up

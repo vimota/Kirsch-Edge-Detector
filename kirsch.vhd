@@ -26,9 +26,9 @@ entity kirsch is
 		debug_led_red  : out std_logic_vector(17 downto 0) ;
 		debug_led_grn  : out std_logic_vector(5  downto 0) ;
 		debug_valid    : out std_logic;
-		debug_num_0    : out signed(12 downto 0) ;
-		debug_num_1    : out signed(12 downto 0) ;
-		debug_num_2    : out signed(12 downto 0) ;
+		debug_num_0    : out std_logic_vector(2 downto 0) ;
+    debug_num_1    : out std_logic_vector(2 downto 0) ;
+    debug_num_2    : out unsigned(7 downto 0) ;
 		debug_num_3    : out signed(12 downto 0) ;
 		debug_num_4    : out signed(12 downto 0) ;
 		debug_num_5    : out signed(13 downto 0);
@@ -148,6 +148,18 @@ begin
 
 	u_memory : entity work.memory(main) port map
 	(
+		--
+		debug_valid    => debug_valid,
+		debug_num_0    => debug_num_0,
+		debug_num_1    => debug_num_1,
+		debug_num_2    => debug_num_2,
+		debug_num_3    => debug_num_3,
+		debug_num_4    => debug_num_4,
+		debug_num_5    => debug_num_5,
+		debug_num_6    => debug_num_6,
+		debug_num_7    => debug_num_7,
+		debug_num_8    => debug_num_8,
+		--
 		i_valid  => i_valid,
 		i_reset  => i_reset,
 		i_pixel  => i_pixel,
@@ -164,16 +176,16 @@ begin
 	u_flow : entity work.flow(main) port map
 	(
 		-- debug
-		debug_valid    => debug_valid,
-		debug_num_0    => debug_num_0,
-		debug_num_1    => debug_num_1,
-		debug_num_2    => debug_num_2,
-		debug_num_3    => debug_num_3,
-		debug_num_4    => debug_num_4,
-		debug_num_5    => debug_num_5,
-		debug_num_6    => debug_num_6,
-		debug_num_7    => debug_num_7,
-		debug_num_8    => debug_num_8,
+		-- debug_valid    => debug_valid,
+		-- debug_num_0    => debug_num_0,
+		-- debug_num_1    => debug_num_1,
+		-- debug_num_2    => debug_num_2,
+		-- debug_num_3    => debug_num_3,
+		-- debug_num_4    => debug_num_4,
+		-- debug_num_5    => debug_num_5,
+		-- debug_num_6    => debug_num_6,
+		-- debug_num_7    => debug_num_7,
+		-- debug_num_8    => debug_num_8,
 		--
 		t1			=> f_t1,
 		t2			=> f_t2,

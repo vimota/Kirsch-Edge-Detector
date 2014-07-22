@@ -5,6 +5,18 @@ use work.kirsch_utility_pkg.all ;
 
 entity memory is
 	port (
+		-- debug outputs
+    debug_valid    : out std_logic;
+    debug_num_0    : out std_logic_vector(2 downto 0) ;
+    debug_num_1    : out std_logic_vector(2 downto 0) ;
+    debug_num_2    : out unsigned(7 downto 0) ;
+    debug_num_3    : out signed(12 downto 0) ;
+    debug_num_4    : out signed(12 downto 0) ;
+    debug_num_5    : out signed(13 downto 0);
+    debug_num_6    : out std_logic; 
+    debug_num_7    : out std_logic;
+    debug_num_8    : out std_logic;
+    --
 		i_valid  : in std_logic;
 		i_reset  : in std_logic;
 		i_pixel  : in std_logic_vector(7 downto 0);
@@ -41,6 +53,12 @@ architecture main of memory is
 
 
 begin
+	-- DEBUG
+	debug_valid <= first_bubble;
+	debug_num_0 <= mem_wrn;
+	debug_num_1 <= mem_wrn_current;
+	debug_num_2 <= unsigned(mem_data);
+
 	-- instantiate memory
 	u_mem1 : entity work.mem(main)
 	generic map (

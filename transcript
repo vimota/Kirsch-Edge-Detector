@@ -23,17 +23,19 @@
 # Loading work.memory(main)#1
 # Loading work.mem(main)#1
 # Loading work.flow(main)#1
+# ** Warning: (vsim-8683) Uninitialized out port /kirsch_tb/uut/u_memory/debug_num_3(12 downto 0) has no driver.
+# This port will contribute value (UUUUUUUUUUUUU) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /kirsch_tb/uut/u_memory/debug_num_4(12 downto 0) has no driver.
+# This port will contribute value (UUUUUUUUUUUUU) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /kirsch_tb/uut/u_memory/debug_num_5(13 downto 0) has no driver.
+# This port will contribute value (UUUUUUUUUUUUUU) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /kirsch_tb/uut/u_memory/debug_num_6 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /kirsch_tb/uut/u_memory/debug_num_7 has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /kirsch_tb/uut/u_memory/debug_num_8 has no driver.
+# This port will contribute value (U) to the signal network.
 # do uw_tmp/uw-sim.tcl 
-# ** Error: Unable to lock WLF file "uw_tmp/vsim.wlf". Retrying 1 times, errno 11
-# ** Error: Unable to lock WLF file "uw_tmp/vsim.wlf". Retrying 2 times, errno 11
-# ** Error: Unable to lock WLF file "uw_tmp/vsim.wlf". Retrying 3 times, errno 11
-# ** Error: Cannot lock WLF file: "uw_tmp/vsim.wlf"
-#           errno 11: Resource temporarily unavailable.
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: uw_tmp/vsim.wlf
-#           File in use by: gm2kerr  Hostname: ecelinux5.uwaterloo.ca  ProcessID: 13401
-#           Attempting to use alternate WLF file "uw_tmp/wlfto1tyau".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: uw_tmp/vsim.wlf
-#           Using alternate file: uw_tmp/wlfto1tyau
 # ** Note: XXXXXXXXXXXX reading image from tests/test1.txt
 #    Time: 0 ns  Iteration: 0  Instance: /kirsch_tb
 # ** Warning: NUMERIC_STD.">": metavalue detected, returning FALSE

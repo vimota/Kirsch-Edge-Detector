@@ -15,6 +15,6 @@ entity modgen_counter_8_1 is
         px1             : out    vl_logic;
         px23            : out    vl_logic;
         p_i_valid       : in     vl_logic;
-        p_rtlc2n121     : in     vl_logic
+        p_rtlc2n120     : in     vl_logic
     );
 end modgen_counter_8_1;

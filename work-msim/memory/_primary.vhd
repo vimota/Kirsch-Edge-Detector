@@ -30,6 +30,6 @@ entity memory is
         \p_mem_data_0_\ : in     vl_logic;
         px1             : out    vl_logic;
         px23            : out    vl_logic;
-        p_rtlc2n272     : out    vl_logic
+        p_rtlc2n264     : out    vl_logic
     );
 end memory;
